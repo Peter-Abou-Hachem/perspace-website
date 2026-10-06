@@ -2,7 +2,7 @@
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Plug-ins · Perspace</title>
-<meta name="description" content="A menu of ready-to-use plug-ins. The cockpit finds where you are losing money, you plug in the ones that fix it.">
+<meta name="description" content="Perspace plug-ins and the systems we connect to. The cockpit finds where the money leaks; you plug in what closes it, off the shelf, learned from a cockpit, or sourced from the world.">
 <link rel="icon" type="image/png" href="img/favicon.png">
 <link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="site.css">
@@ -22,70 +22,143 @@
 .og b{font-size:21px;font-weight:700;letter-spacing:-.015em}
 .og p{font-size:15.5px;line-height:1.55;color:var(--soft);margin-top:10px}
 .d-shelf{background:var(--silver)}.d-cockpit{background:var(--accent)}.d-venture{background:var(--ink)}
-/* menu */
-.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px;align-items:center}
-.filters button{font:500 13.5px var(--f);padding:9px 14px;border:1px solid var(--line);background:var(--ground);color:var(--soft);cursor:pointer;transition:all .25s}
-.filters button:hover{border-color:var(--ink);color:var(--ink)}
-.filters button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
-.filters .cnt{margin-left:auto;font-size:12px;letter-spacing:.14em;color:var(--faint);font-weight:500}
-.menu{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
-.pi{background:var(--card);border:1px solid var(--line);padding:14px;display:grid;grid-template-columns:40px 1fr;gap:12px;align-items:center;position:relative;transition:transform .3s var(--ease),border-color .3s,box-shadow .3s}
-.pi:hover{transform:translateY(-3px);border-color:var(--ink);box-shadow:0 14px 28px rgba(9,17,32,.08)}
-.pi .ic{width:40px;height:40px;display:grid;place-items:center;font-size:12.5px;font-weight:700;background:var(--blue);color:var(--accent-ink)}
-.pi b{display:block;font-size:15px;font-weight:700}
-.pi span{display:block;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin-top:3px}
-.pi em{grid-column:1/-1;font-style:normal;font-size:11px;letter-spacing:.06em;color:var(--soft);display:flex;align-items:center;gap:7px;border-top:1px dashed var(--line);padding-top:10px}
-.pi em::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent)}
-.o-shelf em::before{background:var(--silver)}.o-venture em::before{background:var(--ink)}
-.o-venture{border-color:var(--ink)}.o-venture .ic{background:var(--ink);color:#fff}
-.pi.hide{display:none}
-.menu-note{margin-top:26px;font-size:15px;color:var(--soft);max-width:44em;line-height:1.55}
 /* born */
 .born{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid rgba(255,255,255,.2);margin-top:50px}
 .bn{padding:34px 30px 10px 0;position:relative}
 .bn+.bn{padding-left:30px;border-left:1px solid rgba(255,255,255,.12)}
 .bn .n{font-size:13px;font-weight:700;width:32px;height:32px;border-radius:50%;border:1px solid var(--accent);display:grid;place-items:center;color:var(--accent)}
 .bn h3{font-size:24px;font-weight:700;letter-spacing:-.015em;margin-top:20px;color:#fff}
-.bn p{font-size:16px;line-height:1.55;color:#b9c6d2;margin-top:12px;max-width:22em}
-.both{margin-top:50px;padding-top:30px;border-top:1px solid rgba(255,255,255,.12);font-size:20px;line-height:1.5;color:#b9c6d2;max-width:40em}
+.bn p{font-size:16px;line-height:1.55;color:rgba(255,255,255,.8);margin-top:12px;max-width:22em}
+.both{margin-top:50px;padding-top:30px;border-top:1px solid rgba(255,255,255,.12);font-size:20px;line-height:1.5;color:rgba(255,255,255,.8);max-width:40em}
 .both b{color:#fff}
-/* cases */
-.cases{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.cs{background:var(--card);border:1px solid var(--line);padding:28px 26px 26px;display:flex;flex-direction:column}
-.cs .k{font-size:10.5px;letter-spacing:.16em;color:var(--accent-ink);font-weight:500}
-.cs h3{font-size:22px;font-weight:700;letter-spacing:-.015em;line-height:1.25;margin-top:12px}
-.cs p{font-size:15px;line-height:1.55;color:var(--soft);margin-top:10px}
-.cs .st{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:auto;padding-top:22px;border-top:1px solid var(--line)}
-.cs .st div{padding-top:16px}
-.cs .st b{display:block;font-size:24px;font-weight:300;letter-spacing:-.02em}
-.cs .st span{display:block;font-size:12px;line-height:1.35;color:var(--faint);margin-top:4px}
-.cs .gap{height:22px}
-@media (max-width:1100px){.menu{grid-template-columns:repeat(3,1fr)}}
+.hubs{width:100%;height:auto;overflow:visible}
+.hubs .ring{fill:none;stroke:var(--line);stroke-width:1}
+.hubs .spokes line{stroke:var(--accent);stroke-width:1;stroke-dasharray:3 5;opacity:.7}
+.hubs .hb{opacity:0;animation:fadein .7s forwards;animation-delay:calc(var(--d) + .4s)}
+.hubs .hb circle{fill:var(--card);stroke:var(--ink);stroke-width:1.3}
+.hubs .hb text{font:500 13px var(--f);fill:var(--soft)}
+.hubs .flow{fill:var(--accent-ink)}
+.hubs .uae{fill:var(--ink)}
+.hubs .uaet{font:700 15px var(--f);fill:#fff;letter-spacing:.08em}
+.hubs .uaes{font:500 7.5px var(--f);fill:var(--accent);letter-spacing:.14em}
+@keyframes fadein{to{opacity:1}}
+/* steps */
+.vs{display:grid;grid-template-columns:repeat(5,1fr);position:relative;margin-top:10px}
+.vs::before{content:"";position:absolute;left:16px;right:16px;top:16px;height:1px;background:var(--line)}
+.vs .fill{position:absolute;left:16px;top:16px;height:2px;width:0;background:var(--ink);transition:width 2.4s var(--ease)}
+.vs.in .fill{width:calc(100% - 32px)}
+.vst{padding-right:22px;position:relative}
+.vst .dot{width:32px;height:32px;border-radius:50%;background:var(--ground);border:1.5px solid var(--ink);display:grid;place-items:center;font-size:12.5px;font-weight:700;position:relative;z-index:1;transition:background .4s,color .4s}
+.vs.in .vst .dot{background:var(--ink);color:#fff}
+.vs.in .vst:nth-child(3) .dot{transition-delay:.5s}.vs.in .vst:nth-child(4) .dot{transition-delay:1s}.vs.in .vst:nth-child(5) .dot{transition-delay:1.5s}.vs.in .vst:nth-child(6) .dot{transition-delay:2s}
+.vst h3{font-size:21px;font-weight:700;letter-spacing:-.015em;margin-top:20px}
+.vst p{font-size:15px;line-height:1.55;color:var(--soft);margin-top:10px}
+/* choose */
+.choose{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.14);margin-top:50px}
+.ch{background:var(--ink);padding:34px 30px}
+.ch .k{font-size:10.5px;letter-spacing:.16em;color:var(--accent);font-weight:500}
+.ch b{display:block;font-size:26px;font-weight:700;letter-spacing:-.02em;margin-top:14px}
+.ch p{font-size:15.5px;line-height:1.55;color:#b9c6d2;margin-top:10px}
+.strip{overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent);
+ -webkit-mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent)}
+.wall .run{display:flex;gap:16px;width:max-content;align-items:center;padding:8px 0}
+.wall .r0{animation:drift 92s linear infinite}
+.wall .r1{animation:drift 112s linear infinite reverse}
+.wall .r2{animation:drift 132s linear infinite}
+@keyframes drift{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.wall .lg{flex:none;height:62px;display:flex;align-items:center;gap:12px;padding:0 20px;background:var(--card);
+ border:1px solid var(--line);transition:border-color .3s,color .3s;color:var(--soft)}
+.wall .lg:hover{border-color:var(--ink);color:var(--ink)}
+.wall .lg img{height:22px;width:22px;opacity:.55;filter:grayscale(1);flex:none}
+.wall .lg i{font-style:normal;font-size:15px;font-weight:700;letter-spacing:-.01em;white-space:nowrap}
+
+/* ===== 6 Oct 2026 · the locked map: plug-ins and what we connect to, one page ===== */
+.pad.tight{padding:100px 0}
+.phero{padding:150px 0 60px}
+.orig a.og{display:block;transition:transform .3s var(--ease),border-color .3s}.orig a.og:hover{transform:translateY(-3px);border-color:var(--ink)}
+.og .pgo{margin-top:16px;font-size:14px;font-weight:700}
+/* menu, grouped, no filters */
+.grps{display:grid;grid-template-columns:repeat(4,1fr);gap:28px 22px}
+.grp h4{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-ink);font-weight:500;padding-bottom:10px;border-bottom:1px solid var(--ink);margin-bottom:10px}
+.pis{display:flex;flex-wrap:wrap;gap:6px}
+.pi2{display:inline-flex;align-items:center;gap:7px;font-size:14px;font-weight:700;padding:8px 11px;background:var(--card);border:1px solid var(--line);transition:transform .25s var(--ease),border-color .25s}
+.pi2:hover{transform:translateY(-2px);border-color:var(--ink)}
+.pi2 i{width:8px;height:8px;border-radius:50%;background:var(--accent);flex:none}
+.o-shelf i{background:var(--silver)}.o-venture{background:var(--ink);color:#fff;border-color:var(--ink)}.o-venture i{background:#fff}
+.mkey{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:30px;padding-top:14px;border-top:1px solid var(--line);font-size:12.5px;color:var(--soft)}
+.mkey i{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:7px}
+/* sourced */
+.src{display:grid;grid-template-columns:.9fr 1.1fr;gap:50px;align-items:center}
+.hubs{max-height:470px}
+.vs{grid-template-columns:1fr;gap:22px;padding-left:50px;margin-top:0}
+.vs::before{left:15px;right:auto;top:0;bottom:0;width:1px;height:auto}
+.vs .fill{left:15px;top:0;width:2px!important;height:0;transition:height 2.4s var(--ease)}.vs.in .fill{height:100%}
+.vst .dot{position:absolute;left:-50px;top:0}.vst h3{margin-top:4px;font-size:20px}.vst p{margin-top:4px}
+.ways{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:50px}
+.way{background:var(--card);padding:24px 24px 26px;transition:background .3s}
+.way:hover{background:#fff}
+.way .k{font-size:10.5px;letter-spacing:.16em;color:var(--accent-ink);font-weight:500}
+.way b{display:block;font-size:23px;font-weight:700;letter-spacing:-.02em;margin-top:10px}
+.way p{font-size:15px;line-height:1.5;color:var(--soft);margin-top:6px}
+/* running */
+.runs{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.rn{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--ink);padding:20px 20px 22px;transition:transform .3s var(--ease),box-shadow .3s}
+.rn:hover{transform:translateY(-3px);box-shadow:0 18px 36px rgba(9,17,32,.08)}
+.rn small{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-ink);font-weight:500}
+.rn b{display:block;font-size:19px;font-weight:700;letter-spacing:-.015em;line-height:1.25;margin-top:8px}
+.czs2{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:30px}
+.cz2{display:flex;gap:12px;align-items:flex-start;padding:12px 14px;border:1px solid var(--line);background:var(--ground);transition:border-color .25s}
+.cz2:hover{border-color:var(--ink)}
+.cz2>i{width:10px;height:10px;border-radius:50%;margin-top:4px;flex:none;background:#8BA6B7}
+.cz2.s-d>i{background:var(--ink)}
+.cz2 small{display:block;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);font-weight:500}
+.cz2 b{display:block;font-size:15px;margin-top:3px}
+.ckey{display:flex;gap:22px;margin-top:16px;font-size:12.5px;color:var(--soft)}
+.ckey i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:7px;vertical-align:-1px}
+/* what we connect to */
+.cn{border-top:1px solid var(--line)}
+.wall{padding:10px 0 0;overflow:hidden}
+.cnum{display:flex;gap:40px;flex-wrap:wrap;align-items:flex-end;margin-top:36px}
+.cnum div{display:flex;flex-direction:column;gap:6px}
+.cnum span{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-ink);font-weight:500}
+.cnum b{font-size:52px;font-weight:300;letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums}
+.cnum .btn{margin-left:auto}
+.trail{display:flex;justify-content:center;margin:56px auto 0;max-width:620px;position:relative}
+.trail::before{content:"";position:absolute;left:12%;right:12%;top:7px;height:1px;background:var(--ink);opacity:.25}
+.trail a{flex:1;display:flex;flex-direction:column;align-items:center;gap:10px;font-size:13px;font-weight:500;color:var(--soft);position:relative}
+.trail a i{width:15px;height:15px;border-radius:50%;border:1.5px solid var(--ink);background:var(--ground);transition:background .3s,transform .3s var(--ease)}
+.trail a:hover i{background:var(--accent);transform:scale(1.2)}
+.trail a.on{color:var(--ink);font-weight:700}.trail a.on i{background:var(--ink)}
+.closeband{padding:110px 0 80px}
+@media (max-width:1100px){.grps{grid-template-columns:repeat(3,1fr)}}
 @media (max-width:900px){
-  .orig,.cases,.born{grid-template-columns:1fr}
-  .menu{grid-template-columns:1fr 1fr}
+  .pad.tight{padding:76px 0}
+  .phero{padding:110px 0 40px}
+  .orig,.born,.src,.ways,.runs,.czs2{grid-template-columns:1fr}
+  .grps{grid-template-columns:1fr 1fr}
   .bn,.bn+.bn{padding:26px 0 10px;border-left:0;border-top:1px solid rgba(255,255,255,.12)}
   .sock{height:320px}.sock .port{width:170px;height:170px}.sock .port img{height:46px}
-  .filters{flex-wrap:nowrap;overflow-x:auto;padding-bottom:6px}.filters button{flex:none}.filters .cnt{display:none}
+  .wall .lg{height:54px;padding:0 16px}
+  .cnum{gap:24px}.cnum b{font-size:40px}.cnum .btn{margin-left:0}
+  .closeband{padding:80px 0 60px}
 }
-@media (max-width:480px){.menu{grid-template-columns:1fr}}
-.back{display:inline-block;font-size:14px;font-weight:500;color:var(--soft)}.back:hover{color:var(--ink)}
+@media (max-width:480px){.grps{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.wall .run{animation:none}}
 </style></head>
 <body>
 <nav id="nav"><div class="wrap">
   <a class="brand" href="index.html"><img src="img/perspace-mark-ink.png" alt="">Perspace</a>
-  <div class="links"><a class="nck on" href="cockpit.html">Cockpit</a><a href="method.html">Method</a><a href="philosophy.html">Philosophy</a><a href="venture.html">Venture clienting</a></div>
+  <div class="links"><a class="nck" href="cockpit.html">Cockpit</a><a href="method.html">Method</a><a class="on" href="plugins.html">Plug-ins</a></div>
   <a class="btn dark" href="mailto:hello@perspace.ai?subject=Walkthrough">Book a walkthrough →</a>
   <button class="mnu" aria-label="Menu" aria-expanded="false"><i></i><i></i></button>
 </div></nav>
 
 <section class="phero"><div class="glow"></div><div class="wrap grid">
   <div class="copy">
-    <a class="back rv" href="cockpit.html#plugins">← Back to the Cockpit</a>
-    <div class="tag rv">Plug-ins · 04 AI and the right tools</div>
+    <div class="tag rv">Plug-ins</div>
     <h1 class="rv d1">Plug in what <b>fixes your problem.</b></h1>
-    <p class="lede rv d2">The cockpit finds where you are losing money. You plug in the ones that fix it. Some are off the shelf, some are learned from a cockpit, some we source from the world.</p>
-    <div class="btns rv d3"><a class="btn dark" href="#menu">See the menu ↓</a><a class="btn line" href="mailto:hello@perspace.ai?subject=Which%20plug-ins%20fit%20us">Which ones fit you? →</a></div>
+    <p class="lede rv d2">The cockpit finds where the money leaks. You plug in what closes it.</p>
+    <div class="btns rv d3"><a class="btn dark" href="#menu">The menu ↓</a><a class="btn line" href="#connects">What we connect to ↓</a></div>
   </div>
   <div class="sock rv d2" aria-hidden="true">
     <div class="port"><img src="img/star-crop.png" alt=""></div>
@@ -99,122 +172,107 @@
 </div></section>
 
 <!-- ORIGINS -->
-<section class="pad" style="padding-top:20px"><div class="wrap">
+<section class="pad tight" style="padding-top:10px"><div class="wrap">
   <div class="tag rv">Every plug-in says where it came from</div>
-  <div class="orig" style="margin-top:30px">
-    <div class="og rv"><div class="dot d-shelf"></div><b>Off the shelf</b><p>Standard work every company has, ready on day one.</p></div>
-    <div class="og rv d1"><div class="dot d-cockpit"></div><b>Learned from a cockpit</b><p>Built once for a real client problem, then offered to every client after.</p></div>
-    <div class="og rv d2"><div class="dot d-venture"></div><b>Sourced from the world</b><p>Proven technology we find through <a href="venture.html" style="text-decoration:underline">venture clienting</a>, when that beats building it.</p></div>
+  <div class="orig" style="margin-top:26px">
+    <a class="og rv" href="#menu"><div class="dot d-shelf"></div><b>Off the shelf</b><p>Standard work every company has, ready on day one.</p><div class="pgo">The menu →</div></a>
+    <a class="og rv d1" href="#born"><div class="dot d-cockpit"></div><b>Learned from a cockpit</b><p>Built once for a real client, then offered to every client after.</p><div class="pgo">How one is born →</div></a>
+    <a class="og rv d2" href="#sourced"><div class="dot d-venture"></div><b>Sourced from the world</b><p>Proven technology we bring in, when that beats building it.</p><div class="pgo">Venture clienting →</div></a>
   </div>
 </div></section>
 
 <!-- MENU -->
-<section class="pad" id="menu" style="padding-top:40px"><div class="wrap">
+<section class="pad tight" id="menu" style="padding-top:20px"><div class="wrap">
   <div class="head2">
     <div><div class="tag rv">The menu</div><h2 class="rv d1">What you can <b>plug in.</b></h2></div>
     <p class="lede rv d2">New ones join every week, and every client inherits them.</p>
   </div>
-  <div class="filters" id="flt"><button class="on" data-c="ALL">All</button><button data-c="FINANCE">Finance</button><button data-c="PEOPLE">People</button><button data-c="SALES">Sales</button><button data-c="LEGAL AND RISK">Legal and Risk</button><button data-c="OPERATIONS">Operations</button><button data-c="SUPPLY">Supply</button><button data-c="REPORTING AND CONTENT">Reporting and Content</button><span class="cnt" id="cnt"></span></div>
-  <div class="menu" id="mnu">
-    <div class="pi o-shelf" data-c="FINANCE"><div class="ic">C</div><div><b>Collections</b><span>Finance</span></div><em>Off the shelf</em></div>
-    <div class="pi o-cockpit" data-c="FINANCE"><div class="ic">I</div><div><b>Invoice</b><span>Finance</span></div><em>Learned from a cockpit</em></div>
-    <div class="pi o-cockpit" data-c="FINANCE"><div class="ic">R</div><div><b>Reconciler</b><span>Finance</span></div><em>Learned from a cockpit</em></div>
-    <div class="pi o-cockpit" data-c="FINANCE"><div class="ic">EA</div><div><b>Expense Audit</b><span>Finance</span></div><em>Learned from a cockpit</em></div>
-    <div class="pi o-cockpit" data-c="FINANCE"><div class="ic">CF</div><div><b>Cash Forecast</b><span>Finance</span></div><em>Learned from a cockpit</em></div>
-    <div class="pi o-cockpit" data-c="FINANCE"><div class="ic">P</div><div><b>Payroll</b><span>Finance</span></div><em>Learned from a cockpit</em></div>
-    <div class="pi o-cockpit" data-c="FINANCE"><div class="ic">RR</div><div><b>Revenue Recognition</b><span>Finance</span></div><em>Learned from a cockpit</em></div>
-    <div class="pi o-cockpit" data-c="PEOPLE"><div class="ic">R</div><div><b>Recruiter</b><span>People</span></div><em>Learned from a cockpit</em></div>
-    <div class="pi o-cockpit" data-c="PEOPLE"><div class="ic">O</div><div><b>Onboarding</b><span>People</span></div><em>Learned from a cockpit</em></div>
-    <div class="pi o-cockpit" data-c="PEOPLE"><div class="ic">LA</div><div><b>Leave & Attendance</b><span>People</span></div><em>Learned from a cockpit</em></div>
-    <div class="pi o-cockpit" data-c="PEOPLE"><div class="ic">L</div><div><b>Letters</b><span>People</span></div><em>Learned from a cockpit</em></div>
-    <div class="pi o-cockpit" data-c="PEOPLE"><div class="ic">R</div><div><b>Rostering</b><span>People</span></div><em>Learned from a cockpit</em></div>
-    <div class="pi o-cockpit" data-c="SALES"><div class="ic">QB</div><div><b>Quote Builder</b><span>Sales</span></div><em>Learned from a cockpit</em></div>
-    <div class="pi o-cockpit" data-c="SALES"><div class="ic">LQ</div><div><b>Lead Qualifier</b><span>Sales</span></div><em>Learned from a cockpit</em></div>
-    <div class="pi o-cockpit" data-c="SALES"><div class="ic">P</div><div><b>Pricing</b><span>Sales</span></div><em>Learned from a cockpit</em></div>
-    <div class="pi o-cockpit" data-c="SALES"><div class="ic">R</div><div><b>Renewals</b><span>Sales</span></div><em>Learned from a cockpit</em></div>
-    <div class="pi o-cockpit" data-c="SALES"><div class="ic">P</div><div><b>Proposal</b><span>Sales</span></div><em>Learned from a cockpit</em></div>
-    <div class="pi o-cockpit" data-c="SALES"><div class="ic">PR</div><div><b>Pipeline Review</b><span>Sales</span></div><em>Learned from a cockpit</em></div>
-    <div class="pi o-cockpit" data-c="SALES"><div class="ic">CW</div><div><b>Churn Watch</b><span>Sales</span></div><em>Learned from a cockpit</em></div>
-    <div class="pi o-cockpit" data-c="LEGAL AND RISK"><div class="ic">CR</div><div><b>Contract Reader</b><span>Legal and Risk</span></div><em>Learned from a cockpit</em></div>
-    <div class="pi o-cockpit" data-c="LEGAL AND RISK"><div class="ic">C</div><div><b>Compliance</b><span>Legal and Risk</span></div><em>Learned from a cockpit</em></div>
-    <div class="pi o-cockpit" data-c="LEGAL AND RISK"><div class="ic">K</div><div><b>KYC</b><span>Legal and Risk</span></div><em>Learned from a cockpit</em></div>
-    <div class="pi o-cockpit" data-c="LEGAL AND RISK"><div class="ic">A</div><div><b>Approvals</b><span>Legal and Risk</span></div><em>Learned from a cockpit</em></div>
-    <div class="pi o-cockpit" data-c="LEGAL AND RISK"><div class="ic">AT</div><div><b>Audit Trail</b><span>Legal and Risk</span></div><em>Learned from a cockpit</em></div>
-    <div class="pi o-cockpit" data-c="LEGAL AND RISK"><div class="ic">C</div><div><b>Claims</b><span>Legal and Risk</span></div><em>Learned from a cockpit</em></div>
-    <div class="pi o-cockpit" data-c="LEGAL AND RISK"><div class="ic">FW</div><div><b>Fraud Watch</b><span>Legal and Risk</span></div><em>Learned from a cockpit</em></div>
-    <div class="pi o-venture" data-c="OPERATIONS"><div class="ic">P</div><div><b>Polynome</b><span>Operations</span></div><em>Sourced · venture clienting</em></div>
-    <div class="pi o-cockpit" data-c="OPERATIONS"><div class="ic">IT</div><div><b>Inbox Triage</b><span>Operations</span></div><em>Learned from a cockpit</em></div>
-    <div class="pi o-cockpit" data-c="OPERATIONS"><div class="ic">S</div><div><b>Scheduler</b><span>Operations</span></div><em>Learned from a cockpit</em></div>
-    <div class="pi o-cockpit" data-c="OPERATIONS"><div class="ic">D</div><div><b>Dispatch</b><span>Operations</span></div><em>Learned from a cockpit</em></div>
-    <div class="pi o-cockpit" data-c="OPERATIONS"><div class="ic">ST</div><div><b>Site Tracker</b><span>Operations</span></div><em>Learned from a cockpit</em></div>
-    <div class="pi o-cockpit" data-c="OPERATIONS"><div class="ic">H</div><div><b>Handoff</b><span>Operations</span></div><em>Learned from a cockpit</em></div>
-    <div class="pi o-cockpit" data-c="OPERATIONS"><div class="ic">E</div><div><b>Escalation</b><span>Operations</span></div><em>Learned from a cockpit</em></div>
-    <div class="pi o-cockpit" data-c="OPERATIONS"><div class="ic">TT</div><div><b>Ticket Triage</b><span>Operations</span></div><em>Learned from a cockpit</em></div>
-    <div class="pi o-cockpit" data-c="SUPPLY"><div class="ic">I</div><div><b>Inventory</b><span>Supply</span></div><em>Learned from a cockpit</em></div>
-    <div class="pi o-cockpit" data-c="SUPPLY"><div class="ic">F</div><div><b>Forecaster</b><span>Supply</span></div><em>Learned from a cockpit</em></div>
-    <div class="pi o-cockpit" data-c="SUPPLY"><div class="ic">VS</div><div><b>Vendor Screener</b><span>Supply</span></div><em>Learned from a cockpit</em></div>
-    <div class="pi o-cockpit" data-c="SUPPLY"><div class="ic">CS</div><div><b>Catalogue Scout</b><span>Supply</span></div><em>Learned from a cockpit</em></div>
-    <div class="pi o-cockpit" data-c="SUPPLY"><div class="ic">OD</div><div><b>Order Desk</b><span>Supply</span></div><em>Learned from a cockpit</em></div>
-    <div class="pi o-cockpit" data-c="SUPPLY"><div class="ic">R</div><div><b>Restock</b><span>Supply</span></div><em>Learned from a cockpit</em></div>
-    <div class="pi o-cockpit" data-c="SUPPLY"><div class="ic">QQ</div><div><b>Quality QC</b><span>Supply</span></div><em>Learned from a cockpit</em></div>
-    <div class="pi o-cockpit" data-c="REPORTING AND CONTENT"><div class="ic">RW</div><div><b>Report Writer</b><span>Reporting and Content</span></div><em>Learned from a cockpit</em></div>
-    <div class="pi o-cockpit" data-c="REPORTING AND CONTENT"><div class="ic">DC</div><div><b>Data Cleaner</b><span>Reporting and Content</span></div><em>Learned from a cockpit</em></div>
-    <div class="pi o-cockpit" data-c="REPORTING AND CONTENT"><div class="ic">DF</div><div><b>Doc Filer</b><span>Reporting and Content</span></div><em>Learned from a cockpit</em></div>
-    <div class="pi o-cockpit" data-c="REPORTING AND CONTENT"><div class="ic">MN</div><div><b>Meeting Notes</b><span>Reporting and Content</span></div><em>Learned from a cockpit</em></div>
-    <div class="pi o-cockpit" data-c="REPORTING AND CONTENT"><div class="ic">CD</div><div><b>Content Drafter</b><span>Reporting and Content</span></div><em>Learned from a cockpit</em></div>
-    <div class="pi o-cockpit" data-c="REPORTING AND CONTENT"><div class="ic">S</div><div><b>SEO</b><span>Reporting and Content</span></div><em>Learned from a cockpit</em></div>
-    <div class="pi o-cockpit" data-c="REPORTING AND CONTENT"><div class="ic">S</div><div><b>Social</b><span>Reporting and Content</span></div><em>Learned from a cockpit</em></div>
-    <div class="pi o-cockpit" data-c="REPORTING AND CONTENT"><div class="ic">S</div><div><b>Sentiment</b><span>Reporting and Content</span></div><em>Learned from a cockpit</em></div>
-  </div>
+  <div class="grps"><div class="grp rv"><h4>Finance</h4><div class="pis"><span class="pi2 o-shelf"><i></i>Collections</span><span class="pi2 o-cockpit"><i></i>Invoice</span><span class="pi2 o-cockpit"><i></i>Reconciler</span><span class="pi2 o-cockpit"><i></i>Expense Audit</span><span class="pi2 o-cockpit"><i></i>Cash Forecast</span><span class="pi2 o-cockpit"><i></i>Payroll</span><span class="pi2 o-cockpit"><i></i>Revenue Recognition</span></div></div><div class="grp rv"><h4>People</h4><div class="pis"><span class="pi2 o-cockpit"><i></i>Recruiter</span><span class="pi2 o-cockpit"><i></i>Onboarding</span><span class="pi2 o-cockpit"><i></i>Leave & Attendance</span><span class="pi2 o-cockpit"><i></i>Letters</span><span class="pi2 o-cockpit"><i></i>Rostering</span></div></div><div class="grp rv"><h4>Sales</h4><div class="pis"><span class="pi2 o-cockpit"><i></i>Quote Builder</span><span class="pi2 o-cockpit"><i></i>Lead Qualifier</span><span class="pi2 o-cockpit"><i></i>Pricing</span><span class="pi2 o-cockpit"><i></i>Renewals</span><span class="pi2 o-cockpit"><i></i>Proposal</span><span class="pi2 o-cockpit"><i></i>Pipeline Review</span><span class="pi2 o-cockpit"><i></i>Churn Watch</span></div></div><div class="grp rv"><h4>Legal and risk</h4><div class="pis"><span class="pi2 o-cockpit"><i></i>Contract Reader</span><span class="pi2 o-cockpit"><i></i>Compliance</span><span class="pi2 o-cockpit"><i></i>KYC</span><span class="pi2 o-cockpit"><i></i>Approvals</span><span class="pi2 o-cockpit"><i></i>Audit Trail</span><span class="pi2 o-cockpit"><i></i>Claims</span><span class="pi2 o-cockpit"><i></i>Fraud Watch</span></div></div><div class="grp rv"><h4>Operations</h4><div class="pis"><span class="pi2 o-venture"><i></i>Polynome</span><span class="pi2 o-cockpit"><i></i>Inbox Triage</span><span class="pi2 o-cockpit"><i></i>Scheduler</span><span class="pi2 o-cockpit"><i></i>Dispatch</span><span class="pi2 o-cockpit"><i></i>Site Tracker</span><span class="pi2 o-cockpit"><i></i>Handoff</span><span class="pi2 o-cockpit"><i></i>Escalation</span><span class="pi2 o-cockpit"><i></i>Ticket Triage</span></div></div><div class="grp rv"><h4>Supply</h4><div class="pis"><span class="pi2 o-cockpit"><i></i>Inventory</span><span class="pi2 o-cockpit"><i></i>Forecaster</span><span class="pi2 o-cockpit"><i></i>Vendor Screener</span><span class="pi2 o-cockpit"><i></i>Catalogue Scout</span><span class="pi2 o-cockpit"><i></i>Order Desk</span><span class="pi2 o-cockpit"><i></i>Restock</span><span class="pi2 o-cockpit"><i></i>Quality QC</span></div></div><div class="grp rv"><h4>Reporting and content</h4><div class="pis"><span class="pi2 o-cockpit"><i></i>Report Writer</span><span class="pi2 o-cockpit"><i></i>Data Cleaner</span><span class="pi2 o-cockpit"><i></i>Doc Filer</span><span class="pi2 o-cockpit"><i></i>Meeting Notes</span><span class="pi2 o-cockpit"><i></i>Content Drafter</span><span class="pi2 o-cockpit"><i></i>SEO</span><span class="pi2 o-cockpit"><i></i>Social</span><span class="pi2 o-cockpit"><i></i>Sentiment</span></div></div></div>
+  <div class="mkey rv"><span><i style="background:var(--silver)"></i>Off the shelf</span><span><i style="background:var(--accent)"></i>Learned from a cockpit</span><span><i style="background:var(--ink)"></i>Sourced from the world</span></div>
 </div></section>
 
 <!-- BORN -->
-<section class="dark pad"><div class="wrap">
+<section class="dark pad tight" id="born"><div class="wrap">
   <div class="tag rv">How a plug-in is born</div>
   <h2 class="rv d1" style="margin-top:24px;color:#8ea3b3">One client, one problem. <b style="color:#fff">Then every client after.</b></h2>
   <div class="born">
-    <div class="bn rv"><div class="n">1</div><h3>One client, one problem.</h3><p>A construction group could not see what happened on its sites between the weekly reports.</p></div>
-    <div class="bn rv d1"><div class="n">2</div><h3>We source the answer once.</h3><p>We found Polynome, cameras and microphones that read a site the way a foreman would, and plugged it into that client's cockpit.</p></div>
-    <div class="bn rv d2"><div class="n">3</div><h3>It joins the menu.</h3><p>A manufacturing client plugged the same thing into its floor next. Every client after inherits it.</p></div>
+    <div class="bn rv"><div class="n">1</div><h3>One client, one problem.</h3><p>A construction group could not see its sites between weekly reports.</p></div>
+    <div class="bn rv d1"><div class="n">2</div><h3>We source the answer once.</h3><p>Polynome: cameras and microphones that read a site the way a foreman would.</p></div>
+    <div class="bn rv d2"><div class="n">3</div><h3>It joins the menu.</h3><p>A manufacturer plugged it into its floor next. Every client after inherits it.</p></div>
   </div>
-  <p class="both rv"><b>Polynome runs the floor, the cockpit runs the company.</b> Built by Polynome, sold through the cockpit, and the cockpit sold through Polynome. The deal runs both ways.</p>
+  <p class="both rv"><b>Polynome runs the floor, the cockpit runs the company.</b> Each sells the other.</p>
 </div></section>
 
-<!-- CASES -->
-<section class="pad"><div class="wrap">
+<!-- SOURCED: venture clienting (from venture.html) -->
+<section class="pad tight" id="sourced"><div class="wrap">
   <div class="head2">
-    <div><div class="tag rv">Working in production</div><h2 class="rv d1">Plugged in, <b>and running.</b></h2></div>
-    <p class="lede rv d2">Six companies, six shapes of problem. The same menu underneath.</p>
+    <div><div class="tag rv">Venture clienting</div><h2 class="rv d1">If it already exists, <b>we source it.</b></h2></div>
+    <p class="lede rv d2">The cockpit has already priced the problem, so the search starts from a real brief.</p>
   </div>
-  <div class="cases">
-    <div class="cs rv"><div class="k">LOGISTICS GROUP</div><h3>The whole company on one screen, first agents designed.</h3><p>Mapped from its own documents, with collections, payroll and the radar placed on its org chart.</p><div class="st"><div><b>10</b><span>pockets found</span></div><div><b>4</b><span>agents on the org chart</span></div><div><b>90+ days</b><span>old money, now being collected</span></div></div></div>
-    <div class="cs rv d1"><div class="k">CONSUMER AND RETAIL BRAND</div><h3>A distributed brand run by an agent team.</h3><p>Inventory, content, search and curation moved to agents inside the existing tools.</p><div class="st"><div><b>2</b><span>people run it</span></div><div><b>9</b><span>agents alongside</span></div><div><b>24/7</b><span>coverage</span></div></div></div>
-    <div class="cs rv d2"><div class="k">MARKETING AND CREATIVE AGENCY</div><h3>A small team, a large agent workforce.</h3><p>The repeated delivery work moved onto agents, so a lean team runs a much larger output.</p><div class="st"><div><b>7</b><span>people</span></div><div><b>93</b><span>agents</span></div><div><b>Live</b><span>in production</span></div></div></div>
-    <div class="cs rv"><div class="k">PET CARE, RETAIL AND SERVICES</div><h3>The whole company on one shared surface.</h3><p>A company chat with an agent builder, and a customer inbox that turns messages into actions, wired to the ERP.</p><div class="st"><div><b>1</b><span>shared surface</span></div><div><b>Inbox</b><span>to action, automated</span></div><div><b>Live</b><span>in production</span></div></div></div>
-    <div class="cs rv d1"><div class="k">NATIONAL UTILITY</div><h3>Inspections without putting crews at height.</h3><p>A proven drone and vision inspection, sourced and run against the live workflow.</p><div class="st"><div><b>40</b><span>sites in the trial</span></div><div><b>Trial</b><span>to deployment</span></div><div><b>Crews</b><span>off the towers</span></div></div></div>
-    <div class="cs rv d2"><div class="k">ENERGY COMPANY</div><h3>The same category, bought three ways at three prices.</h3><p>Agents read the contracts and surfaced the overlap, priced and traced to source.</p><div class="st"><div><b>$340k</b><span>a year of overlap</span></div><div><b>Minutes</b><span>for the monthly report</span></div><div><b>Every $</b><span>traced to source</span></div></div></div>
+  <div class="src">
+    <div class="rv"><svg viewBox="-40 40 680 520" class="hubs"><circle class="ring" cx="300" cy="300" r="215"/><circle class="ring" cx="300" cy="300" r="175"/><g class="spokes"><line x1="300" y1="85" x2="300" y2="300"/><line x1="367" y1="138" x2="300" y2="300"/><line x1="452" y1="148" x2="300" y2="300"/><line x1="462" y1="233" x2="300" y2="300"/><line x1="515" y1="300" x2="300" y2="300"/><line x1="462" y1="367" x2="300" y2="300"/><line x1="452" y1="452" x2="300" y2="300"/><line x1="367" y1="462" x2="300" y2="300"/><line x1="300" y1="515" x2="300" y2="300"/><line x1="233" y1="462" x2="300" y2="300"/><line x1="148" y1="452" x2="300" y2="300"/><line x1="138" y1="367" x2="300" y2="300"/><line x1="85" y1="300" x2="300" y2="300"/><line x1="138" y1="233" x2="300" y2="300"/><line x1="148" y1="148" x2="300" y2="300"/><line x1="233" y1="138" x2="300" y2="300"/></g><g class="hb" style="--d:0.00s"><circle cx="300" cy="85" r="5"/><text x="312" y="89" text-anchor="start">Silicon Valley</text></g><circle class="flow" r="3"><animateMotion dur="2.4s" begin="0.00s" repeatCount="indefinite" path="M300,85 L300,300"/></circle><g class="hb" style="--d:0.12s"><circle cx="367" cy="138" r="5"/><text x="379" y="142" text-anchor="start">New York</text></g><circle class="flow" r="3"><animateMotion dur="2.8s" begin="0.35s" repeatCount="indefinite" path="M367,138 L300,300"/></circle><g class="hb" style="--d:0.24s"><circle cx="452" cy="148" r="5"/><text x="464" y="152" text-anchor="start">Canada</text></g><circle class="flow" r="3"><animateMotion dur="3.2s" begin="0.70s" repeatCount="indefinite" path="M452,148 L300,300"/></circle><g class="hb" style="--d:0.36s"><circle cx="462" cy="233" r="5"/><text x="474" y="237" text-anchor="start">LatAm</text></g><circle class="flow" r="3"><animateMotion dur="3.6s" begin="1.05s" repeatCount="indefinite" path="M462,233 L300,300"/></circle><g class="hb" style="--d:0.48s"><circle cx="515" cy="300" r="5"/><text x="527" y="304" text-anchor="start">London</text></g><circle class="flow" r="3"><animateMotion dur="2.4s" begin="1.40s" repeatCount="indefinite" path="M515,300 L300,300"/></circle><g class="hb" style="--d:0.60s"><circle cx="462" cy="367" r="5"/><text x="474" y="371" text-anchor="start">EU</text></g><circle class="flow" r="3"><animateMotion dur="2.8s" begin="1.75s" repeatCount="indefinite" path="M462,367 L300,300"/></circle><g class="hb" style="--d:0.72s"><circle cx="452" cy="452" r="5"/><text x="464" y="456" text-anchor="start">MENA</text></g><circle class="flow" r="3"><animateMotion dur="3.2s" begin="2.10s" repeatCount="indefinite" path="M452,452 L300,300"/></circle><g class="hb" style="--d:0.84s"><circle cx="367" cy="462" r="5"/><text x="379" y="466" text-anchor="start">Nigeria</text></g><circle class="flow" r="3"><animateMotion dur="3.6s" begin="2.45s" repeatCount="indefinite" path="M367,462 L300,300"/></circle><g class="hb" style="--d:0.96s"><circle cx="300" cy="515" r="5"/><text x="312" y="519" text-anchor="start">Uzbekistan</text></g><circle class="flow" r="3"><animateMotion dur="2.4s" begin="2.80s" repeatCount="indefinite" path="M300,515 L300,300"/></circle><g class="hb" style="--d:1.08s"><circle cx="233" cy="462" r="5"/><text x="221" y="466" text-anchor="end">India</text></g><circle class="flow" r="3"><animateMotion dur="2.8s" begin="3.15s" repeatCount="indefinite" path="M233,462 L300,300"/></circle><g class="hb" style="--d:1.20s"><circle cx="148" cy="452" r="5"/><text x="136" y="456" text-anchor="end">China</text></g><circle class="flow" r="3"><animateMotion dur="3.2s" begin="3.50s" repeatCount="indefinite" path="M148,452 L300,300"/></circle><g class="hb" style="--d:1.32s"><circle cx="138" cy="367" r="5"/><text x="126" y="371" text-anchor="end">Korea</text></g><circle class="flow" r="3"><animateMotion dur="3.6s" begin="3.85s" repeatCount="indefinite" path="M138,367 L300,300"/></circle><g class="hb" style="--d:1.44s"><circle cx="85" cy="300" r="5"/><text x="73" y="304" text-anchor="end">Japan</text></g><circle class="flow" r="3"><animateMotion dur="2.4s" begin="4.20s" repeatCount="indefinite" path="M85,300 L300,300"/></circle><g class="hb" style="--d:1.56s"><circle cx="138" cy="233" r="5"/><text x="126" y="237" text-anchor="end">Taiwan</text></g><circle class="flow" r="3"><animateMotion dur="2.8s" begin="4.55s" repeatCount="indefinite" path="M138,233 L300,300"/></circle><g class="hb" style="--d:1.68s"><circle cx="148" cy="148" r="5"/><text x="136" y="152" text-anchor="end">Singapore</text></g><circle class="flow" r="3"><animateMotion dur="3.2s" begin="4.90s" repeatCount="indefinite" path="M148,148 L300,300"/></circle><g class="hb" style="--d:1.80s"><circle cx="233" cy="138" r="5"/><text x="221" y="142" text-anchor="end">Australia</text></g><circle class="flow" r="3"><animateMotion dur="3.6s" begin="5.25s" repeatCount="indefinite" path="M233,138 L300,300"/></circle><circle class="uae" cx="300" cy="300" r="46"/><text class="uaet" x="300" y="298" text-anchor="middle">UAE</text><text class="uaes" x="300" y="315" text-anchor="middle">WHERE IT DEPLOYS</text></svg></div>
+    <div class="vs rv" data-trigger><span class="fill"></span>
+      <div class="vst"><div class="dot">1</div><h3>Plug in the cockpit</h3><p>It shows where the money is.</p></div>
+      <div class="vst"><div class="dot">2</div><h3>Find the problem</h3><p>One pocket becomes a brief, with its value.</p></div>
+      <div class="vst"><div class="dot">3</div><h3>Find the champion</h3><p>The person who owns it and wants it fixed.</p></div>
+      <div class="vst"><div class="dot">4</div><h3>Get the startup</h3><p>Who already solves it, run on your live work.</p></div>
+      <div class="vst"><div class="dot">5</div><h3>Then you choose</h3><p>Three ways in.</p></div>
+    </div>
+  </div>
+  <div class="ways">
+    <div class="way rv"><div class="k">01 · BUY</div><b>Procure it</b><p>We source it, you run it.</p></div>
+    <div class="way rv d1"><div class="k">02 · INVEST</div><b>Take a share</b><p>Invest alongside us, deal by deal.</p></div>
+    <div class="way rv d2"><div class="k">03 · BUILD</div><b>Your own venture arm</b><p>We help you stand one up.</p></div>
   </div>
 </div></section>
+
+<!-- RUNNING -->
+<section class="pad tight" id="running" style="background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)"><div class="wrap">
+  <div class="head2">
+    <div><div class="tag rv">Working in production</div><h2 class="rv d1">Plugged in, <b>and running.</b></h2></div>
+    <p class="lede rv d2">Different shapes of problem. The same menu underneath.</p>
+  </div>
+  <div class="runs">
+    <div class="rn rv"><small>Logistics group</small><b>The whole company on one screen, first agents designed.</b></div>
+    <div class="rn rv d1"><small>Consumer and retail brand</small><b>A distributed brand run with an agent team.</b></div>
+    <div class="rn rv d2"><small>Marketing and creative agency</small><b>Repeated delivery work carried by agents.</b></div>
+    <div class="rn rv"><small>Pet care, retail and services</small><b>The whole company on one shared surface.</b></div>
+    <div class="rn rv d1"><small>National utility</small><b>Inspections without putting crews at height.</b></div>
+    <div class="rn rv d2"><small>Energy company</small><b>One category, bought three ways, read and priced.</b></div>
+  </div>
+  <div class="czs2"><div class="cz2 s-d rv"><i></i><div><small>Retail bank</small><b>Document reading and checks</b></div></div><div class="cz2 s-t rv"><i></i><div><small>Telecom operator</small><b>Predictive network operations</b></div></div><div class="cz2 s-d rv"><i></i><div><small>Logistics group</small><b>Routing and tracking</b></div></div><div class="cz2 s-t rv"><i></i><div><small>Healthcare network</small><b>Imaging support</b></div></div><div class="cz2 s-d rv"><i></i><div><small>Real-estate developer</small><b>Sales system and follow-up</b></div></div><div class="cz2 s-t rv"><i></i><div><small>Government department</small><b>Automated help desk</b></div></div><div class="cz2 s-t rv"><i></i><div><small>Insurer</small><b>Claims automation</b></div></div><div class="cz2 s-t rv"><i></i><div><small>Manufacturer</small><b>Vision quality control</b></div></div><div class="cz2 s-d rv"><i></i><div><small>Media group</small><b>Dynamic pricing and yield</b></div></div><div class="cz2 s-t rv"><i></i><div><small>Food and beverage chain</small><b>Demand forecasting</b></div></div><div class="cz2 s-t rv"><i></i><div><small>Airline</small><b>Rostering</b></div></div><div class="cz2 s-d rv"><i></i><div><small>Hospitality group</small><b>One guest desk</b></div></div><div class="cz2 s-t rv"><i></i><div><small>Construction</small><b>Site progress tracking</b></div></div><div class="cz2 s-d rv"><i></i><div><small>Pharma distributor</small><b>Order reconciliation</b></div></div><div class="cz2 s-t rv"><i></i><div><small>Education group</small><b>Admissions workflow</b></div></div><div class="cz2 s-t rv"><i></i><div><small>Ports and terminals</small><b>Gate and yard tracking</b></div></div><div class="cz2 s-d rv"><i></i><div><small>Retail chain</small><b>Replenishment, per store</b></div></div><div class="cz2 s-t rv"><i></i><div><small>Public sector</small><b>Approvals automation</b></div></div></div>
+  <div class="ckey rv"><span><i style="background:var(--ink)"></i>Deployed</span><span><i style="background:#8BA6B7"></i>In trial</span></div>
+</div></section>
+
+<!-- WHAT WE CONNECT TO (from connects.html) -->
+<section class="pad tight cn" id="connects"><div class="wrap">
+  <div class="head2">
+    <div><div class="tag rv">What we connect to</div><h2 class="rv d1">The systems <b>you already run.</b></h2></div>
+    <p class="lede rv d2">We read them where they are. Nothing moves, nothing is replaced, nobody tidies up first.</p>
+  </div>
+</div>
+<!-- SYSTEMS WALL · copied from method/gen/write-connects.py output; regenerate there -->
+<div class="wall rv"><div class="strip"><div class="run r0"><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/sap.svg" alt=""><i>SAP</i></span><span class="lg wm"><i>Oracle NetSuite</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/salesforce.svg" alt=""><i>Salesforce</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/xero.svg" alt=""><i>Xero</i></span><span class="lg wm"><i>SharePoint Online</i></span><span class="lg wm"><i>Microsoft Dynamics 365 Finance and Operations</i></span><span class="lg wm"><i>Infor LN</i></span><span class="lg wm"><i>Power BI</i></span><span class="lg wm"><i>IFS Cloud</i></span><span class="lg wm"><i>Foodics</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/adyen.svg" alt=""><i>Adyen</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/apachekafka.svg" alt=""><i>Kafka</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/autodesk.svg" alt=""><i>Autodesk</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/clickup.svg" alt=""><i>ClickUp</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/databricks.svg" alt=""><i>Databricks</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/dropbox.svg" alt=""><i>Dropbox</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/github.svg" alt=""><i>GitHub</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/googleads.svg" alt=""><i>Google Ads</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/googlecloud.svg" alt=""><i>Google Cloud</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/greenhouse.svg" alt=""><i>Greenhouse</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/informatica.svg" alt=""><i>Informatica</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/jira.svg" alt=""><i>Jira</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/magento.svg" alt=""><i>Magento</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/mongodb.svg" alt=""><i>MongoDB</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/notion.svg" alt=""><i>Notion</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/paypal.svg" alt=""><i>PayPal</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/redis.svg" alt=""><i>Redis</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/siemens.svg" alt=""><i>Siemens</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/splunk.svg" alt=""><i>Splunk</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/tableau.svg" alt=""><i>Tableau</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/trello.svg" alt=""><i>Trello</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/ups.svg" alt=""><i>UPS</i></span><span class="lg wm"><i>Microsoft Exchange</i></span><span class="lg wm"><i>Infor M3</i></span><span class="lg wm"><i>Sage 300</i></span><span class="lg wm"><i>Kyriba</i></span><span class="lg wm"><i>DP World CARGOES</i></span><span class="lg wm"><i>Korber WMS</i></span><span class="lg wm"><i>Oracle Opera</i></span><span class="lg wm"><i>MRI Software</i></span><span class="lg wm"><i>SAP Plant Maintenance</i></span><span class="lg wm"><i>Network International</i></span><span class="lg wm"><i>Bayzat</i></span><span class="lg wm"><i>Wafeq</i></span><span class="lg wm"><i>Toast</i></span><span class="lg wm"><i>BambooHR</i></span><span class="lg wm"><i>Informatica</i></span><span class="lg wm"><i>Fivetran</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/sap.svg" alt=""><i>SAP</i></span><span class="lg wm"><i>Oracle NetSuite</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/salesforce.svg" alt=""><i>Salesforce</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/xero.svg" alt=""><i>Xero</i></span><span class="lg wm"><i>SharePoint Online</i></span><span class="lg wm"><i>Microsoft Dynamics 365 Finance and Operations</i></span><span class="lg wm"><i>Infor LN</i></span><span class="lg wm"><i>Power BI</i></span><span class="lg wm"><i>IFS Cloud</i></span><span class="lg wm"><i>Foodics</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/adyen.svg" alt=""><i>Adyen</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/apachekafka.svg" alt=""><i>Kafka</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/autodesk.svg" alt=""><i>Autodesk</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/clickup.svg" alt=""><i>ClickUp</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/databricks.svg" alt=""><i>Databricks</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/dropbox.svg" alt=""><i>Dropbox</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/github.svg" alt=""><i>GitHub</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/googleads.svg" alt=""><i>Google Ads</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/googlecloud.svg" alt=""><i>Google Cloud</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/greenhouse.svg" alt=""><i>Greenhouse</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/informatica.svg" alt=""><i>Informatica</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/jira.svg" alt=""><i>Jira</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/magento.svg" alt=""><i>Magento</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/mongodb.svg" alt=""><i>MongoDB</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/notion.svg" alt=""><i>Notion</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/paypal.svg" alt=""><i>PayPal</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/redis.svg" alt=""><i>Redis</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/siemens.svg" alt=""><i>Siemens</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/splunk.svg" alt=""><i>Splunk</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/tableau.svg" alt=""><i>Tableau</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/trello.svg" alt=""><i>Trello</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/ups.svg" alt=""><i>UPS</i></span><span class="lg wm"><i>Microsoft Exchange</i></span><span class="lg wm"><i>Infor M3</i></span><span class="lg wm"><i>Sage 300</i></span><span class="lg wm"><i>Kyriba</i></span><span class="lg wm"><i>DP World CARGOES</i></span><span class="lg wm"><i>Korber WMS</i></span><span class="lg wm"><i>Oracle Opera</i></span><span class="lg wm"><i>MRI Software</i></span><span class="lg wm"><i>SAP Plant Maintenance</i></span><span class="lg wm"><i>Network International</i></span><span class="lg wm"><i>Bayzat</i></span><span class="lg wm"><i>Wafeq</i></span><span class="lg wm"><i>Toast</i></span><span class="lg wm"><i>BambooHR</i></span><span class="lg wm"><i>Informatica</i></span><span class="lg wm"><i>Fivetran</i></span></div></div><div class="strip"><div class="run r1"><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/oracle.svg" alt=""><i>Oracle</i></span><span class="lg wm"><i>SAP S/4HANA</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/zoho.svg" alt=""><i>Zoho</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/quickbooks.svg" alt=""><i>QuickBooks</i></span><span class="lg wm"><i>Sage Intacct</i></span><span class="lg wm"><i>Outlook</i></span><span class="lg wm"><i>Microsoft Teams</i></span><span class="lg wm"><i>Focus Softnet</i></span><span class="lg wm"><i>Emirates NBD</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/airtable.svg" alt=""><i>Airtable</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/asana.svg" alt=""><i>Asana</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/bitbucket.svg" alt=""><i>Bitbucket</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/cloudera.svg" alt=""><i>Cloudera</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/datadog.svg" alt=""><i>Datadog</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/elasticsearch.svg" alt=""><i>Elasticsearch</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/gitlab.svg" alt=""><i>GitLab</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/googleanalytics.svg" alt=""><i>Google Analytics</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/googledrive.svg" alt=""><i>Google Drive</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/gusto.svg" alt=""><i>Gusto</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/intuit.svg" alt=""><i>Intuit</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/linkedin.svg" alt=""><i>LinkedIn</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/mailchimp.svg" alt=""><i>Mailchimp</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/mulesoft.svg" alt=""><i>MuleSoft</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/okta.svg" alt=""><i>Okta</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/postgresql.svg" alt=""><i>PostgreSQL</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/sage.svg" alt=""><i>Sage</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/slack.svg" alt=""><i>Slack</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/square.svg" alt=""><i>Square</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/teradata.svg" alt=""><i>Teradata</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/twilio.svg" alt=""><i>Twilio</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/woocommerce.svg" alt=""><i>WooCommerce</i></span><span class="lg wm"><i>SAP Ariba</i></span><span class="lg wm"><i>Acumatica</i></span><span class="lg wm"><i>Docusign</i></span><span class="lg wm"><i>Finastra</i></span><span class="lg wm"><i>Blue Yonder</i></span><span class="lg wm"><i>IBM Maximo</i></span><span class="lg wm"><i>LS Retail</i></span><span class="lg wm"><i>RealPage</i></span><span class="lg wm"><i>Mashreq</i></span><span class="lg wm"><i>PayTabs</i></span><span class="lg wm"><i>Darwinbox</i></span><span class="lg wm"><i>Qoyod</i></span><span class="lg wm"><i>Freshservice</i></span><span class="lg wm"><i>Procore</i></span><span class="lg wm"><i>Celonis</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/oracle.svg" alt=""><i>Oracle</i></span><span class="lg wm"><i>SAP S/4HANA</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/zoho.svg" alt=""><i>Zoho</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/quickbooks.svg" alt=""><i>QuickBooks</i></span><span class="lg wm"><i>Sage Intacct</i></span><span class="lg wm"><i>Outlook</i></span><span class="lg wm"><i>Microsoft Teams</i></span><span class="lg wm"><i>Focus Softnet</i></span><span class="lg wm"><i>Emirates NBD</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/airtable.svg" alt=""><i>Airtable</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/asana.svg" alt=""><i>Asana</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/bitbucket.svg" alt=""><i>Bitbucket</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/cloudera.svg" alt=""><i>Cloudera</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/datadog.svg" alt=""><i>Datadog</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/elasticsearch.svg" alt=""><i>Elasticsearch</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/gitlab.svg" alt=""><i>GitLab</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/googleanalytics.svg" alt=""><i>Google Analytics</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/googledrive.svg" alt=""><i>Google Drive</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/gusto.svg" alt=""><i>Gusto</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/intuit.svg" alt=""><i>Intuit</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/linkedin.svg" alt=""><i>LinkedIn</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/mailchimp.svg" alt=""><i>Mailchimp</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/mulesoft.svg" alt=""><i>MuleSoft</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/okta.svg" alt=""><i>Okta</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/postgresql.svg" alt=""><i>PostgreSQL</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/sage.svg" alt=""><i>Sage</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/slack.svg" alt=""><i>Slack</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/square.svg" alt=""><i>Square</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/teradata.svg" alt=""><i>Teradata</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/twilio.svg" alt=""><i>Twilio</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/woocommerce.svg" alt=""><i>WooCommerce</i></span><span class="lg wm"><i>SAP Ariba</i></span><span class="lg wm"><i>Acumatica</i></span><span class="lg wm"><i>Docusign</i></span><span class="lg wm"><i>Finastra</i></span><span class="lg wm"><i>Blue Yonder</i></span><span class="lg wm"><i>IBM Maximo</i></span><span class="lg wm"><i>LS Retail</i></span><span class="lg wm"><i>RealPage</i></span><span class="lg wm"><i>Mashreq</i></span><span class="lg wm"><i>PayTabs</i></span><span class="lg wm"><i>Darwinbox</i></span><span class="lg wm"><i>Qoyod</i></span><span class="lg wm"><i>Freshservice</i></span><span class="lg wm"><i>Procore</i></span><span class="lg wm"><i>Celonis</i></span></div></div><div class="strip"><div class="run r2"><span class="lg wm"><i>Microsoft 365</i></span><span class="lg wm"><i>Microsoft Dynamics 365 Business Central</i></span><span class="lg wm"><i>Workday</i></span><span class="lg wm"><i>Tally</i></span><span class="lg wm"><i>ServiceNow</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/odoo.svg" alt=""><i>Odoo</i></span><span class="lg wm"><i>Epicor Kinetic</i></span><span class="lg wm"><i>Zoho Books</i></span><span class="lg wm"><i>Aramex</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/amazonwebservices.svg" alt=""><i>AWS</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/auth0.svg" alt=""><i>Auth0</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/box.svg" alt=""><i>Box</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/confluence.svg" alt=""><i>Confluence</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/dhl.svg" alt=""><i>DHL</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/fedex.svg" alt=""><i>FedEx</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/gmail.svg" alt=""><i>Gmail</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/googlebigquery.svg" alt=""><i>BigQuery</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/googlesheets.svg" alt=""><i>Google Sheets</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/hubspot.svg" alt=""><i>HubSpot</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/jenkins.svg" alt=""><i>Jenkins</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/looker.svg" alt=""><i>Looker</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/meta.svg" alt=""><i>Meta</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/mysql.svg" alt=""><i>MySQL</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/pagerduty.svg" alt=""><i>PagerDuty</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/qlik.svg" alt=""><i>Qlik</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/shopify.svg" alt=""><i>Shopify</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/snowflake.svg" alt=""><i>Snowflake</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/stripe.svg" alt=""><i>Stripe</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/tiktok.svg" alt=""><i>TikTok</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/uipath.svg" alt=""><i>UiPath</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/zendesk.svg" alt=""><i>Zendesk</i></span><span class="lg wm"><i>IBM Db2</i></span><span class="lg wm"><i>TallyPrime</i></span><span class="lg wm"><i>Coupa</i></span><span class="lg wm"><i>Mambu</i></span><span class="lg wm"><i>Manhattan Associates</i></span><span class="lg wm"><i>Oracle MICROS Simphony</i></span><span class="lg wm"><i>Yardi</i></span><span class="lg wm"><i>Oracle Primavera Cloud</i></span><span class="lg wm"><i>First Abu Dhabi Bank</i></span><span class="lg wm"><i>Tap Payments</i></span><span class="lg wm"><i>greytHR</i></span><span class="lg wm"><i>Lightspeed Retail</i></span><span class="lg wm"><i>Smartsheet</i></span><span class="lg wm"><i>Samsara</i></span><span class="lg wm"><i>Palantir Foundry</i></span><span class="lg wm"><i>Microsoft 365</i></span><span class="lg wm"><i>Microsoft Dynamics 365 Business Central</i></span><span class="lg wm"><i>Workday</i></span><span class="lg wm"><i>Tally</i></span><span class="lg wm"><i>ServiceNow</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/odoo.svg" alt=""><i>Odoo</i></span><span class="lg wm"><i>Epicor Kinetic</i></span><span class="lg wm"><i>Zoho Books</i></span><span class="lg wm"><i>Aramex</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/amazonwebservices.svg" alt=""><i>AWS</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/auth0.svg" alt=""><i>Auth0</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/box.svg" alt=""><i>Box</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/confluence.svg" alt=""><i>Confluence</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/dhl.svg" alt=""><i>DHL</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/fedex.svg" alt=""><i>FedEx</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/gmail.svg" alt=""><i>Gmail</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/googlebigquery.svg" alt=""><i>BigQuery</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/googlesheets.svg" alt=""><i>Google Sheets</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/hubspot.svg" alt=""><i>HubSpot</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/jenkins.svg" alt=""><i>Jenkins</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/looker.svg" alt=""><i>Looker</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/meta.svg" alt=""><i>Meta</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/mysql.svg" alt=""><i>MySQL</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/pagerduty.svg" alt=""><i>PagerDuty</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/qlik.svg" alt=""><i>Qlik</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/shopify.svg" alt=""><i>Shopify</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/snowflake.svg" alt=""><i>Snowflake</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/stripe.svg" alt=""><i>Stripe</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/tiktok.svg" alt=""><i>TikTok</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/uipath.svg" alt=""><i>UiPath</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/zendesk.svg" alt=""><i>Zendesk</i></span><span class="lg wm"><i>IBM Db2</i></span><span class="lg wm"><i>TallyPrime</i></span><span class="lg wm"><i>Coupa</i></span><span class="lg wm"><i>Mambu</i></span><span class="lg wm"><i>Manhattan Associates</i></span><span class="lg wm"><i>Oracle MICROS Simphony</i></span><span class="lg wm"><i>Yardi</i></span><span class="lg wm"><i>Oracle Primavera Cloud</i></span><span class="lg wm"><i>First Abu Dhabi Bank</i></span><span class="lg wm"><i>Tap Payments</i></span><span class="lg wm"><i>greytHR</i></span><span class="lg wm"><i>Lightspeed Retail</i></span><span class="lg wm"><i>Smartsheet</i></span><span class="lg wm"><i>Samsara</i></span><span class="lg wm"><i>Palantir Foundry</i></span></div></div></div>
+<!-- /SYSTEMS WALL -->
+<div class="wrap"><div class="cnum rv">
+  <div><span>Systems, named one by one</span><b data-src="systems">1,004</b></div>
+  <div><span>Of them, finance and ERP</span><b data-src="core">175</b></div>
+  <a class="btn dark" href="mailto:hello@perspace.ai?subject=What%20do%20you%20connect%20to">Not on the list? Ask &rarr;</a>
+</div></div>
+</section>
 
 <section class="closeband"><div class="wrap">
   <div class="m rv"><img src="img/mark-left-c.png" alt=""><img class="s" src="img/star-crop.png" alt=""><img src="img/mark-right-c.png" alt=""></div>
   <h2 class="rv d1">Which ones <b>fit you?</b></h2>
-  <p class="lede rv d2">The cockpit tells you. Start with one pocket and plug in what closes it.</p>
-  <div class="btns rv d3"><a class="btn dark" href="mailto:hello@perspace.ai?subject=Walkthrough">Book a walkthrough →</a><a class="btn line" href="venture.html">Venture clienting →</a></div>
+  <p class="lede rv d2">The cockpit tells you. Start with one project.</p>
+  <div class="btns rv d3"><a class="btn dark" href="mailto:hello@perspace.ai?subject=Walkthrough">Book a walkthrough →</a><a class="btn line" href="mailto:hello@perspace.ai?subject=A%20problem%20to%20source">Tell us the problem →</a></div>
+  <nav class="trail rv" aria-label="The site"><a href="index.html"><i></i>Home</a><a href="cockpit.html"><i></i>Cockpit</a><a href="method.html"><i></i>Method</a><a class="on" href="plugins.html"><i></i>Plug-ins</a></nav>
 </div></section>
 
 <footer><div class="wrap">
   <a class="brand" href="index.html"><img src="img/perspace-mark-ink.png" alt="">Perspace</a>
-  <div class="ft"><a href="cockpit.html">Cockpit</a><a href="plugins.html">Plug-ins</a><a href="connects.html">What we connect to</a><a href="method.html">Method</a><a href="philosophy.html">Philosophy</a><a href="venture.html">Venture clienting</a><a href="insights.html">Library</a></div>
+  <div class="ft"><a href="index.html">Home</a><a href="cockpit.html">Cockpit</a><a href="method.html">Method</a><a href="plugins.html">Plug-ins</a></div>
   <div class="tl">We operate the future · Dubai · Abu Dhabi · hello@perspace.ai</div>
 </div></footer>
 <script src="site.js"></script>
-<script>
-(function(){
-  const f=document.getElementById('flt'), cards=[...document.querySelectorAll('#mnu .pi')], cnt=document.getElementById('cnt');
-  function show(c){ let n=0; cards.forEach(el=>{const on=c==='ALL'||el.dataset.c===c; el.classList.toggle('hide',!on); if(on) n++;}); cnt.textContent=n.toLocaleString('en-US')+' PLUG-INS'; }
-  f.addEventListener('click',e=>{const b=e.target.closest('button'); if(!b) return; f.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b)); show(b.dataset.c);});
-  show('ALL');
-})();
-</script>
 </body></html>

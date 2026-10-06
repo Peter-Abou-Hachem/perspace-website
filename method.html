@@ -2,24 +2,11 @@
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Method · Perspace</title>
-<meta name="description" content="The Perspace method: read the company, draw its blueprint, find the money, change the work, then put agents on what repeats.">
+<meta name="description" content="The Perspace method: read the company, find the money, and run each change as a project your people own, with agents beside them. Eight steps, the same on every company.">
 <link rel="icon" type="image/png" href="img/favicon.png">
 <link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="site.css">
 <style>
-/* hero blueprint */
-.bph{position:relative;border:1px solid var(--ink);background:var(--card);overflow:hidden}
-.bph svg{display:block;width:100%;height:auto}
-.bph rect{fill:none;stroke:var(--ink);stroke-width:1.2;stroke-dasharray:900;stroke-dashoffset:900;animation:draw 1.6s var(--ease) forwards;animation-delay:var(--d)}
-.bph .g rect{stroke:var(--silver);stroke-dasharray:5 6;animation:fadein 1s forwards;opacity:0;animation-delay:var(--d)}
-.bph text{font:500 10.5px var(--f);letter-spacing:.14em;fill:var(--soft);opacity:0;animation:fadein .8s forwards;animation-delay:calc(var(--d) + .6s)}
-.bph .pin circle{fill:var(--ink);opacity:0;animation:fadein .6s forwards;animation-delay:var(--d)}
-.bph .pin .ring{fill:none;stroke:var(--accent);stroke-width:2;animation:fadein .6s forwards,ping 2.4s var(--d) infinite}
-.bph .pin text{fill:var(--ink);font-weight:700;letter-spacing:0;font-size:12px}
-.bph .lab{display:block;padding:0 16px 14px;font-size:10.5px;letter-spacing:.16em;color:var(--faint);font-weight:500}
-@keyframes draw{to{stroke-dashoffset:0}}
-@keyframes fadein{to{opacity:1}}
-@keyframes ping{0%{r:7;opacity:.9}100%{r:22;opacity:0}}
 /* journey */
 .jr{display:grid;grid-template-columns:.8fr 1.2fr;gap:70px}
 .jr .side{position:sticky;top:120px;align-self:start}
@@ -55,70 +42,153 @@
 .rings.in .rg:nth-child(2) .fg{transition-delay:.3s}.rings.in .rg:nth-child(3) .fg{transition-delay:.6s}
 .rg b{font-size:38px;font-weight:700;letter-spacing:-.02em;display:block}
 .rg span{font-size:15px;line-height:1.5;color:var(--soft)}
-/* approve */
-.ap{display:grid;grid-template-columns:1.25fr .75fr;gap:50px;align-items:center}
-.chat{background:var(--ink);color:#fff;padding:22px;box-shadow:0 40px 80px rgba(9,17,32,.2)}
-.chat .hd{display:flex;align-items:center;gap:10px;font-weight:700;font-size:15px;padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,.12)}
-.chat .hd img{height:18px;filter:invert(1)}
-.chat .hd small{margin-left:auto;font-size:10px;letter-spacing:.16em;color:#7fd3ae;font-weight:500}
-.msg{background:#16203a;padding:16px 16px 14px;margin-top:16px;font-size:15px;line-height:1.5}
-.msg .k{font-size:10px;letter-spacing:.16em;color:var(--accent);font-weight:500}
-.msg b{display:block;margin-top:8px;font-size:17px}
-.msg p{color:#b9c6d2;margin-top:6px;font-size:14px}
-.msg .act{display:flex;gap:8px;margin-top:14px}
-.msg .act span{font-size:12px;font-weight:700;padding:9px 12px;border:1px solid rgba(255,255,255,.2)}
-.msg .act .yes{background:#fff;color:var(--ink);border-color:#fff;transition:all .4s}
-.me{margin:14px 0 0 auto;width:max-content;background:#fff;color:var(--ink);font-weight:700;font-size:14px;padding:10px 14px;opacity:0;transform:translateY(10px);transition:all .6s var(--ease) 1.4s}
-.done{margin-top:14px;font-size:13px;color:#b9c6d2;opacity:0;transition:opacity .6s 2.4s;display:flex;gap:8px;align-items:center}
-.done i{width:7px;height:7px;border-radius:50%;background:#3aa37a;flex:none}
-.chat.in .me{opacity:1;transform:none}.chat.in .done{opacity:1}
-.chat.in .msg .yes{background:#3aa37a;border-color:#3aa37a;color:#fff;transition-delay:1.2s}
-.ap ul{list-style:none;margin-top:30px;display:grid;gap:16px}
-.ap li{font-size:16.5px;line-height:1.5;color:var(--soft);padding-left:22px;position:relative}
-.ap li::before{content:"";position:absolute;left:0;top:10px;width:10px;height:1px;background:var(--ink)}
-.ap li b{color:var(--ink)}
-/* the plan, two lanes (Peter, 6 Oct 2026; deck slide rebuilt in the site look) */
-.plan{background:var(--card);border:1px solid var(--ink);padding:26px 28px 22px;box-shadow:0 40px 80px rgba(9,17,32,.08)}
-.plan .u{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);font-weight:500;margin-bottom:16px}
-.pgrid{display:grid;grid-template-columns:230px repeat(6,1fr);row-gap:14px;align-items:center}
-.pm{font-size:12.5px;font-weight:500;color:var(--soft);border-left:1px solid var(--line);padding:0 0 10px 10px}
-.pm .s{display:none}
-.plab b{display:block;font-size:19px;font-weight:700;letter-spacing:-.01em}
-.plab span{display:block;font-size:13.5px;color:var(--soft);margin-top:4px}
-.ptrack{grid-column:2/8;display:grid;grid-template-columns:repeat(6,1fr);height:72px;background:repeating-linear-gradient(90deg,var(--line) 0,var(--line) 1px,transparent 1px,transparent calc(100%/6))}
-.pb{margin:10px 4px;display:flex;align-items:center;padding:0 14px;font-size:14px;font-weight:700;color:#fff;line-height:1.2;transform-origin:left;transform:scaleX(0);transition:transform 1s var(--ease)}
-.plan.in .pb{transform:none}
-.plan.in .pb.a2{transition-delay:.5s}.plan.in .pb.a3{transition-delay:.9s}.plan.in .pb.d{transition-delay:.3s}.plan.in .pb.b{transition-delay:1.3s}
-.pb.a,.pb.a2{background:#2F6D7A}.pb.a3{background:#8BA6B7;color:var(--ink)}.pb.d{background:transparent;border:1.5px dashed var(--ink);color:var(--ink)}.pb.b{background:var(--ink)}
-.pkey{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:18px;padding-top:14px;border-top:1px solid var(--line);font-size:12.5px;color:var(--soft)}
-.pkey i{display:inline-block;width:12px;height:12px;margin-right:7px;vertical-align:-1px}
-.pkey .a{background:#2F6D7A}.pkey .a3{background:#8BA6B7}.pkey .d{border:1.5px dashed var(--ink)}.pkey .b{background:var(--ink)}
-.plan-line{margin-top:26px;font-size:19px;color:var(--soft)}.plan-line b{color:var(--ink)}
+/* beliefs */
+.beliefs{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.bf{background:var(--ground);padding:34px 30px 38px;min-height:250px;position:relative;overflow:hidden;transition:background .4s}
+.bf:hover{background:var(--card)}
+.bf .n{font-size:56px;font-weight:300;letter-spacing:-.05em;color:transparent;-webkit-text-stroke:1px var(--accent);line-height:.8;margin-bottom:22px;transition:color .5s}
+.bf:hover .n{color:var(--blue)}
+.bf h3{font-size:24px;font-weight:700;letter-spacing:-.015em;max-width:12em;position:relative}
+.bf p{font-size:15.5px;line-height:1.55;color:var(--soft);margin-top:14px;max-width:21em;position:relative}
+/* budgets merge */
+.merge{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.stackb{position:relative;height:420px}
+.bud{position:absolute;left:0;right:0;height:64px;border:1px solid var(--ink);background:var(--card);display:flex;align-items:center;justify-content:space-between;padding:0 22px;font-weight:500;font-size:16px;opacity:0}
+.bud span{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint)}
+.bud:nth-child(1){top:0;--y:344px;--i:0}.bud:nth-child(2){top:86px;--y:258px;--i:1}.bud:nth-child(3){top:172px;--y:172px;--i:2}.bud:nth-child(4){top:258px;--y:86px;--i:3}
+.onebox{position:absolute;left:0;right:0;top:344px;height:76px;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 22px;font-weight:700;font-size:18px;opacity:0}
+.onebox span{font-size:11px;letter-spacing:.16em;color:var(--accent);font-weight:500}
+.stackb.in .bud{animation:budloop 14s var(--ease) infinite;animation-delay:calc(var(--i) * .35s)}
+.stackb.in .onebox{animation:boxloop 14s var(--ease) infinite}
+@keyframes budloop{0%{opacity:0;transform:translateY(-14px)}8%{opacity:1;transform:none}40%{opacity:1;transform:none}62%{opacity:0;transform:translateY(var(--y))}100%{opacity:0;transform:translateY(var(--y))}}
+@keyframes boxloop{0%,52%{opacity:0;transform:translateY(20px)}64%{opacity:1;transform:none}92%{opacity:1;transform:none}100%{opacity:0;transform:none}}
+@media (prefers-reduced-motion:reduce){.bud{opacity:1}.onebox{opacity:1;top:360px}}
+/* platform (Peter, 6 Oct 2026) */
+.plat{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.layers{display:flex;flex-direction:column;gap:10px}
+.ly{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:0 22px;height:76px;border:1px solid var(--ink);background:var(--card);font-size:17px;font-weight:700;opacity:0;transform:translateY(-14px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.ly span{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);font-weight:500;text-align:right}
+.ly.top{background:var(--ink);color:#fff}.ly.top span{color:var(--accent)}
+.ly.base{background:transparent;border:1.5px dashed var(--silver);color:var(--soft);font-weight:500}
+.layers.in .ly{opacity:1;transform:none}.layers.in .ly:nth-child(2){transition-delay:.35s}.layers.in .ly:nth-child(3){transition-delay:.7s}
+@media (max-width:900px){.plat{grid-template-columns:1fr;gap:34px}.ly{height:auto;padding:16px;flex-direction:column;align-items:flex-start;gap:6px;font-size:16px}.ly span{text-align:left}}
+@media (prefers-reduced-motion:reduce){.ly{opacity:1;transform:none}}
+/* reader */
+.rd{position:fixed;inset:0;z-index:80;background:rgba(9,17,32,.45);display:flex;justify-content:flex-end;opacity:0;pointer-events:none;transition:opacity .35s}
+.rd.open{opacity:1;pointer-events:auto}
+.rd .sheet{width:min(720px,100%);height:100%;background:var(--card);overflow-y:auto;transform:translateX(40px);transition:transform .45s var(--ease);padding:calc(env(safe-area-inset-top,0px) + 40px) 56px 80px}
+.rd.open .sheet{transform:none}
+.rd .x{position:sticky;top:0;float:right;width:42px;height:42px;border:1px solid var(--ink);background:var(--card);font:500 20px var(--f);cursor:pointer;color:var(--ink)}
+.rd .k{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent-ink);font-weight:500}
+.rd h2{font-size:clamp(32px,4vw,46px);margin-top:16px;max-width:14em}
+.rd .sub{font-size:19px;line-height:1.5;color:var(--soft);margin-top:18px;max-width:30em}
+.rd section{padding:30px 0 0;margin-top:30px;border-top:1px solid var(--line);overflow:visible}
+.rd section h4{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);font-weight:700}
+.rd section p{font-size:17px;line-height:1.65;color:var(--soft);margin-top:12px;max-width:34em}
+.rd section ul{list-style:none;margin-top:14px;display:grid;gap:10px}
+.rd section li{font-size:16.5px;line-height:1.5;color:var(--ink);padding-left:22px;position:relative}
+.rd section li::before{content:"";position:absolute;left:0;top:11px;width:10px;height:1px;background:var(--ink)}
+.rd .foot{margin-top:40px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+.x:focus-visible,.pp.w:focus-visible{outline:2px solid var(--accent-ink);outline-offset:3px}
+.bp2{position:relative;background:#0e1b2e;border:1px solid var(--ink);padding:54px 22px 20px;margin-top:70px;background-image:linear-gradient(rgba(139,166,183,.13) 1px,transparent 1px),linear-gradient(90deg,rgba(139,166,183,.13) 1px,transparent 1px);background-size:24px 24px;color:#fff}
+.bp2 .lbl,.bp2 .lbr{position:absolute;top:18px;font-size:10.5px;letter-spacing:.16em;color:#fff;font-weight:500}
+.bp2 .lbl{left:22px}.bp2 .lbr{right:22px;font-variant-numeric:tabular-nums}
+.bp2 .sc{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.bp2 svg{display:block;width:100%;height:auto;min-width:760px}
+.bp2 .rm rect.box{fill:rgba(139,166,183,0);stroke:#8BA6B7;stroke-width:1.4;stroke-dasharray:1400;stroke-dashoffset:1400;transition:fill .4s}
+.bp2 .rm text{font-family:var(--f);opacity:0}
+.bp2 .rm .nm{fill:#fff;font-size:13px;letter-spacing:.14em}
+.bp2 .rm .ct{fill:#fff;opacity:.7;font-size:11.5px;letter-spacing:.04em}
+.bp2 .rm .gl{opacity:0}
+.bp2 .rm .gl .p{fill:#fff}.bp2 .rm .gl .a{fill:none;stroke:#8BA6B7;stroke-width:1.3}.bp2 .rm .gl .f{fill:#5d7686}
+.bp2.in .rm.m rect.box{animation:bdraw 1.3s var(--d) ease forwards,bfill .8s calc(var(--d) + .9s) ease forwards}
+.bp2.in .rm text,.bp2.in .rm .gl{animation:bfade .7s calc(var(--d) + .7s) ease forwards}
+.bp2 .rm.g rect.box{stroke-dasharray:5 7;stroke-dashoffset:0;stroke:#5d7686;opacity:0}
+.bp2.in .rm.g rect.box{animation:bfade 1s var(--d) ease forwards}
+.bp2 .rm.g .nm{fill:#fff;opacity:.5}.bp2 .rm.g .ct{fill:#fff;opacity:.4;font-size:11px}
+.bp2 .rm{cursor:pointer}.bp2 .rm:hover rect.box,.bp2 .rm.act rect.box{fill:rgba(139,166,183,.16)!important}
+@keyframes bdraw{to{stroke-dashoffset:0}}@keyframes bfill{to{fill:rgba(139,166,183,.08)}}@keyframes bfade{to{opacity:1}}
+/* pockets */
+.bp2 .pk{opacity:0}.bp2.in .pk{animation:bfade .6s var(--d) ease forwards}
+.bp2 .pk rect{transition:fill 1.2s ease,stroke 1.2s ease}
+.bp2 .pk text{font-family:var(--f);font-size:11.5px;transition:fill 1.2s ease}
+.bp2 .pk .st{font-size:9.5px;letter-spacing:.14em;font-weight:500}
+.bp2 .pk[data-s="0"] rect{fill:rgba(93,118,134,.25);stroke:#5d7686}.bp2 .pk[data-s="0"] text{fill:#fff;opacity:.75}
+.bp2 .pk[data-s="1"] rect{fill:rgba(139,166,183,.35);stroke:#8BA6B7}.bp2 .pk[data-s="1"] text{fill:#fff}
+.bp2 .pk[data-s="2"] rect{fill:#8BA6B7;stroke:#8BA6B7}.bp2 .pk[data-s="2"] text{fill:#091120}
+.bp2 .pk[data-s="3"] rect{fill:#F9FAF4;stroke:#F9FAF4}.bp2 .pk[data-s="3"] text{fill:#091120}
+.bp2 .pk .fl{opacity:0;transition:opacity .4s}.bp2 .pk.flash .fl{opacity:1}
+/* flow */
+.bp2 .flow path{fill:none;stroke:#8BA6B7;stroke-width:1.2;stroke-dasharray:3 6;opacity:0}
+.bp2.in .flow path{animation:bfade 1s 4.6s ease forwards}
+.bp2 .flow .ol{fill:#fff;font-family:var(--f);font-size:10.5px;letter-spacing:.16em;opacity:0}.bp2.in .flow .ol{animation:bfade 1s 4.6s ease forwards}
+.bp2 .flow .dot{fill:#F9FAF4;opacity:0}.bp2.in .flow .dot{animation:bfade .5s 5s ease forwards}
+.bp2 .stuck{opacity:0}.bp2.in .stuck{animation:bfade .6s 5.4s ease forwards}
+.bp2 .stuck circle{fill:#9C3F35;stroke:#fff;stroke-width:1}.bp2 .stuck .rg{fill:none;stroke:#9C3F35;stroke-width:1.3;transform-box:fill-box;transform-origin:center;animation:sping 2s ease-out infinite}
+.bp2 .stuck text{fill:#fff;font-family:var(--f);font-size:11.5px}
+@keyframes sping{0%{transform:scale(1);opacity:.9}100%{transform:scale(3.2);opacity:0}}
+/* legend + tip */
+.bp2 .lg{display:flex;flex-wrap:wrap;gap:18px;margin-top:14px;font-size:10.5px;letter-spacing:.14em;color:#fff;font-weight:500}
+.bp2 .lg i{display:inline-block;width:14px;height:9px;margin-right:8px;vertical-align:0;border:1px solid}
+.bp2 .lg .hint{margin-left:auto;opacity:.7}.bp2 .lg .swipe{display:none;opacity:.7}
+.bp2 .lg .gp{display:inline-block;width:7px;height:7px;border-radius:50%;background:#fff;margin-right:8px}.bp2 .lg .ga{display:inline-block;width:8px;height:8px;border:1.3px solid #8BA6B7;transform:rotate(45deg);margin-right:9px}
+.bp2 .tip{position:absolute;z-index:3;width:260px;background:#F9FAF4;color:#091120;padding:14px 16px;font-size:13px;line-height:1.45;box-shadow:0 20px 40px rgba(0,0,0,.4);pointer-events:none;opacity:0;transform:translateY(6px);transition:opacity .25s,transform .25s}
+.bp2 .tip.on{opacity:1;transform:none}
+.bp2 .tip b{display:block;font-size:10.5px;letter-spacing:.16em;color:#3F5E6E;margin-bottom:6px}
+.bp2 .tip p+p{margin-top:6px}.bp2 .tip span{color:#4A5260}
+@media (max-width:900px){.bp2{padding-top:44px}.bp2 .lbr{display:none}.bp2 .lg .hint{display:none}.bp2 .lg .swipe{display:inline}.bp2 .tip{width:220px}}
+@media (prefers-reduced-motion:reduce){.bp2 .rm rect.box{stroke-dashoffset:0}.bp2 .rm text,.bp2 .rm .gl,.bp2 .pk,.bp2 .flow path,.bp2 .flow .dot,.bp2 .stuck{opacity:1}}
+
+/* ===== 6 Oct 2026 · the locked map ===== */
+.pad.tight{padding:100px 0}
+.phero{padding:150px 0 60px}
+.phero .mk{height:380px}
+.bp2{margin-top:0}
+.sp{padding:0 0 44px}
+.sp h3{font-size:27px}
+.sp p{font-size:16.5px}
+.seven-band{padding:110px 0}
+.rings{margin-top:0}
+.merge .lede{margin-top:22px}
+/* the library */
+.libs{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.shelf3{background:var(--card);border:1px solid var(--line);padding:26px 24px 24px;display:flex;flex-direction:column;gap:14px}
+.shelf3 .k{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-ink);font-weight:500}
+.shelf3 .k b{display:block;font-size:56px;font-weight:300;letter-spacing:-.03em;line-height:1;color:var(--ink);margin-top:10px;font-variant-numeric:tabular-nums;text-transform:none}
+.shelf3 h3{font-size:28px;font-weight:700;letter-spacing:-.02em}
+.paper{display:flex;flex-direction:column;gap:8px;text-align:left;font:inherit;color:inherit;background:var(--ink);color:#fff;border:0;padding:18px 18px 16px;cursor:pointer;transition:transform .3s var(--ease),box-shadow .3s}
+.paper:hover{transform:translateY(-3px);box-shadow:0 20px 40px rgba(9,17,32,.18)}
+.paper small{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#fff;opacity:.75;font-weight:500}
+.paper b{font-size:19px;letter-spacing:-.01em;line-height:1.25}
+.paper em{font-style:normal;font-size:13px;font-weight:700}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto}
+.chips span{font-size:12.5px;font-weight:500;padding:6px 10px;border:1px solid var(--line);color:var(--soft);background:var(--ground)}
+.chips .c{color:#fff;border:0;background:var(--c);font-weight:700}.chips .c.lt{color:var(--ink)}
+.trail{display:flex;justify-content:center;margin:56px auto 0;max-width:620px;position:relative}
+.trail::before{content:"";position:absolute;left:12%;right:12%;top:7px;height:1px;background:var(--ink);opacity:.25}
+.trail a{flex:1;display:flex;flex-direction:column;align-items:center;gap:10px;font-size:13px;font-weight:500;color:var(--soft);position:relative}
+.trail a i{width:15px;height:15px;border-radius:50%;border:1.5px solid var(--ink);background:var(--ground);transition:background .3s,transform .3s var(--ease)}
+.trail a:hover i{background:var(--accent);transform:scale(1.2)}
+.trail a.on{color:var(--ink);font-weight:700}.trail a.on i{background:var(--ink)}
+.closeband{padding:110px 0 80px}
 @media (max-width:900px){
-  .plan{padding:20px 14px 16px}
-  .pgrid{grid-template-columns:repeat(6,1fr);row-gap:8px}
-  .pgrid>.sp0{display:none}
-  .pm{font-size:11px;padding:0 0 6px 5px}.pm .l{display:none}.pm .s{display:inline}
-  .plab{grid-column:1/-1;margin-top:10px}.plab b{font-size:17px}
-  .ptrack{grid-column:1/-1;height:64px}
-  .pb{font-size:12px;padding:0 8px;margin:8px 2px}
-}
-@media (prefers-reduced-motion:reduce){.pb{transform:none}}
-/* running */
-.run{display:grid;grid-template-columns:1.3fr .7fr;gap:50px;align-items:center}
-@media (max-width:900px){
-  .jr,.seven-band .row,.rings,.ap,.run{grid-template-columns:1fr;gap:34px}
+  .pad.tight{padding:76px 0}
+  .phero{padding:110px 0 40px}.phero .mk{height:260px}
+  .jr,.seven-band .row,.rings{grid-template-columns:1fr;gap:30px}
   .jr .side{position:static}
-  .sp h3{font-size:25px}
-  .seven-band{padding:90px 0}.big7{font-size:150px}
-  .rg{padding:26px 22px}.rg svg{width:88px;height:88px}
-  .ap .chat{order:2}
+  .sp h3{font-size:23px}
+  .seven-band{padding:80px 0}.big7{font-size:140px}
+  .rg{padding:24px 20px}.rg svg{width:84px;height:84px}
+  .beliefs,.merge,.libs{grid-template-columns:1fr}
+  .stackb{height:440px}
+  .closeband{padding:80px 0 60px}
+  .rd .sheet{padding:calc(env(safe-area-inset-top,0px) + 24px) 22px 60px}
 }
 </style></head>
 <body>
 <nav id="nav"><div class="wrap">
   <a class="brand" href="index.html"><img src="img/perspace-mark-ink.png" alt="">Perspace</a>
-  <div class="links"><a class="nck" href="cockpit.html">Cockpit</a><a class="on" href="method.html">Method</a><a href="philosophy.html">Philosophy</a><a href="venture.html">Venture clienting</a></div>
+  <div class="links"><a class="nck" href="cockpit.html">Cockpit</a><a class="on" href="method.html">Method</a><a href="plugins.html">Plug-ins</a></div>
   <a class="btn dark" href="mailto:hello@perspace.ai?subject=Walkthrough">Book a walkthrough →</a>
   <button class="mnu" aria-label="Menu" aria-expanded="false"><i></i><i></i></button>
 </div></nav>
@@ -126,128 +196,219 @@
 <section class="phero"><div class="glow"></div><div class="wrap grid">
   <div class="copy">
     <div class="tag rv">The method · the same on every company</div>
-    <h1 class="rv d1">Blueprint first. <b>Agentic from day one.</b></h1>
-    <p class="lede rv d2">We plug into what you already run. No migration, no timeline to sit through. We read the company, draw its blueprint, find the money and change how the work runs. Agents help from the first day, and take over a workflow once it has been fixed.</p>
-    <div class="btns rv d3"><a class="btn dark" href="#steps">Walk the eight steps ↓</a></div>
+    <h1 class="rv d1">Projects first. <b>Agents beside your people.</b></h1>
+    <p class="lede rv d2">We read the company, find the money and change how the work runs. Each change is a project your people run, with agents beside them.</p>
+    <div class="btns rv d3"><a class="btn dark" href="#steps">The eight steps ↓</a><a class="btn line" href="index.html#plan">How a project runs →</a></div>
   </div>
-  <div class="bph rv d2"><svg viewBox="0 0 500 400">
-    <g style="--d:.3s"><rect x="24" y="24" width="200" height="120"/><text x="38" y="46">FINANCE</text></g>
-    <g style="--d:.6s"><rect x="234" y="24" width="242" height="120"/><text x="248" y="46">SALES</text></g>
-    <g style="--d:.9s"><rect x="24" y="154" width="140" height="200"/><text x="38" y="176">PEOPLE</text></g>
-    <g style="--d:1.2s"><rect x="174" y="154" width="190" height="96"/><text x="188" y="176">OPERATIONS</text></g>
-    <g style="--d:1.5s"><rect x="374" y="154" width="102" height="200"/><text x="388" y="176">BUYING</text></g>
-    <g class="g" style="--d:1.9s"><rect x="174" y="260" width="190" height="94"/><text x="188" y="282">SYSTEMS</text></g>
-    <g class="pin" style="--d:2.6s"><circle class="ring" cx="424" cy="290" r="7"/><circle cx="424" cy="290" r="6"/><text x="424" y="322" text-anchor="middle">money found</text></g>
-    <g class="pin" style="--d:3.1s"><circle class="ring" cx="120" cy="100" r="7"/><circle cx="120" cy="100" r="6"/><text x="120" y="130" text-anchor="middle">money waiting</text></g>
-  </svg><span class="lab">A BLUEPRINT, DRAWN FROM THE COMPANY'S OWN FILES</span></div>
+  <div class="mk"><img class="b l" src="img/mark-left-c.png" alt=""><img class="b r" src="img/mark-right-c.png" alt=""><img class="s" src="img/star-crop.png" alt=""></div>
+</div></section>
+
+<!-- THE BLUEPRINT (moved from home) -->
+<section class="pad tight" id="blueprint" style="padding-top:20px"><div class="wrap">
+  <div class="head2">
+    <div><div class="tag rv">The blueprint</div><h2 class="rv d1">Your company, <b>drawn from its own files.</b></h2></div>
+    <p class="lede rv d2">One live map of how it really runs. Each pocket darkens as it is proven.</p>
+  </div>
+<div class="bp2 rv" id="bp2">
+  <span class="lbl">AN EXAMPLE BLUEPRINT · DRAWN FROM A COMPANY'S OWN FILES</span><span class="lbr" id="bpc">0 OF 8 FUNCTIONS MAPPED</span>
+  <div class="sc"><svg viewBox="0 -44 1180 484" id="bps" role="img" aria-label="A company blueprint: rooms for each function, the money found in each, and where work gets stuck">
+    <g class="flow"><path id="fp" d="M475,40 Q625,4 775,40 Q480,-50 190,40"/><circle class="dot" r="4.5"><animateMotion dur="5s" repeatCount="indefinite" begin="5s"><mpath href="#fp"/></animateMotion></circle></g>
+  </svg></div>
+  <div class="lg"><span><i style="background:rgba(93,118,134,.25);border-color:#5d7686"></i>GREYED</span><span><i style="background:rgba(139,166,183,.35);border-color:#8BA6B7"></i>NAMED</span><span><i style="background:#8BA6B7;border-color:#8BA6B7"></i>SIZED</span><span><i style="background:#F9FAF4;border-color:#F9FAF4"></i>BANKED</span><span><i class="gp"></i>PERSON</span><span><i class="ga"></i>AGENT</span><span class="hint">TAP A ROOM</span><span class="swipe">SWIPE TO SEE EVERY ROOM →</span></div>
+  <div class="tip" id="bpt"></div>
+</div>
+<script>
+(function(){
+  const NS='http://www.w3.org/2000/svg', svg=document.getElementById('bps'), wrap=document.getElementById('bp2'), tip=document.getElementById('bpt'), cnt=document.getElementById('bpc');
+  const ROOMS=[
+    {n:'FINANCE',x:40,y:40,w:300,h:170,m:1,pp:6,ag:2,read:'The ledger, bank statements and every invoice since 2023',found:'Cash that customers have held past 90 days'},
+    {n:'SALES',x:350,y:40,w:250,h:170,m:1,pp:9,ag:1,read:'The CRM, the price list and signed contracts',found:'Discounts that quietly became the price'},
+    {n:'OPERATIONS',x:610,y:40,w:330,h:170,m:1,pp:14,ag:1,read:'Schedules, the asset register and site reports',found:'Capacity the company owns that earned nothing'},
+    {n:'PROCUREMENT',x:950,y:40,w:190,h:360,m:1,pp:3,ag:1,read:'Supplier contracts and purchase orders',found:'One category bought three ways, at three prices'},
+    {n:'PEOPLE',x:40,y:220,w:220,h:180,m:1,pp:4,ag:0,read:'The org chart, roles and the monthly reports',found:'A report that takes days and feeds no decision'},
+    {n:'SYSTEMS',x:270,y:220,w:220,h:180,m:0,note:'not reached yet',who:'held by the IT team'},
+    {n:'LEGAL',x:500,y:220,w:210,h:180,m:0,note:'contracts not reached',who:'held by the legal team'},
+    {n:'SUPPLY',x:720,y:220,w:220,h:180,m:0,note:'not reached yet',who:'held by operations'}];
+  const POCKETS=[ // room index, label, value, path of states it climbs to
+    {r:0,t:'Cash past 90 days',to:3},{r:1,t:'Discounts that became the price',to:2},{r:2,t:'Capacity nobody sold',to:1},{r:3,t:'Bought three ways',to:2},{r:4,t:'The report nobody reads',to:1}];
+  const SN=['GREYED','NAMED','SIZED','BANKED'];
+  const el=(t,a,p)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);(p||svg).appendChild(e);return e;};
+  const fl=svg.querySelector('.flow');
+  ROOMS.forEach((r,i)=>{
+    const g=el('g',{class:'rm '+(r.m?'m':'g'),style:'--d:'+(i*.35)+'s',tabindex:0});
+    el('rect',{class:'box',x:r.x,y:r.y,width:r.w,height:r.h},g);
+    el('text',{class:'nm',x:r.x+16,y:r.y+26},g).textContent=r.n;
+    if(r.m){
+      const gl=el('g',{class:'gl'},g); let x=r.x+16,y=r.y+r.h-38;
+      for(let k=0;k<r.pp;k++){el('circle',{class:'p',cx:x+k*11,cy:y,r:3.2},gl);}
+      for(let k=0;k<r.ag;k++){const cx=x+r.pp*11+8+k*14;el('path',{class:'a',d:`M${cx},${y-5} L${cx+5},${y} L${cx},${y+5} L${cx-5},${y} Z`},gl);}
+      el('text',{class:'ct',x:r.x+16,y:r.y+r.h-14},g).textContent='TAP TO OPEN';
+    } else {
+      el('text',{class:'ct',x:r.x+16,y:r.y+50},g).textContent=r.note;
+      el('text',{class:'ct',x:r.x+16,y:r.y+68},g).textContent=r.who;
+    }
+    g.addEventListener('mouseenter',()=>showTip(i,g));g.addEventListener('mouseleave',hideTip);
+    g.addEventListener('click',e=>{e.stopPropagation();g.classList.contains('act')?hideTip():showTip(i,g);});
+    svg.insertBefore(g,fl);
+  });
+  const pkEls=POCKETS.map((p,j)=>{const r=ROOMS[p.r];const w=Math.min(r.w-32,Math.max(170,p.t.length*6.6+24));
+    const x=r.x+16,y=r.y+(p.r===3?120:44);
+    const g=el('g',{class:'pk',style:'--d:'+(3+j*.25)+'s','data-s':0});
+    el('rect',{x,y,width:w,height:p.v?50:36,rx:2},g);
+    el('text',{class:'st',x:x+10,y:y+14},g).textContent='GREYED';
+    el('text',{x:x+10,y:y+29},g).textContent=p.t;
+    if(p.v){const v=el('text',{x:x+10,y:y+44},g);v.textContent=p.v;v.setAttribute('font-weight','700');}
+    return g;});
+  // stuck mark on the order-to-cash hand-off
+  const st=el('g',{class:'stuck'});el('circle',{class:'rg',cx:687,cy:17,r:5},st);el('circle',{cx:687,cy:17,r:5},st);
+  const sl=el('text',{x:700,y:-20},st);sl.textContent='where work queues: order to invoice';
+  const ol=el('text',{x:330,y:-20,class:'ol'},fl);ol.textContent='ORDER TO CASH';
+  function showTip(i,g){const r=ROOMS[i];svg.querySelectorAll('.rm').forEach(x=>x.classList.remove('act'));g.classList.add('act');
+    tip.innerHTML=r.m?'<b>'+r.n+'</b><p><span>What we read:</span> '+r.read+'</p><p><span>What we found:</span> '+r.found+'</p>':'<b>'+r.n+'</b><p>'+r.note[0].toUpperCase()+r.note.slice(1)+', '+r.who+'.</p><p><span>It fills in the moment it arrives.</span></p>';
+    const sb=svg.getBoundingClientRect(),wb=wrap.getBoundingClientRect(),k=sb.width/1180;
+    let left=sb.left-wb.left+(r.x+r.w/2)*k-130, top=sb.top-wb.top+(r.y+44+r.h)*k-10;
+    left=Math.max(10,Math.min(wb.width-270,left)); if(top>wb.height-150) top=sb.top-wb.top+(r.y+44)*k-120;
+    tip.style.left=left+'px';tip.style.top=top+'px';tip.classList.add('on');}
+  function hideTip(){tip.classList.remove('on');svg.querySelectorAll('.rm').forEach(x=>x.classList.remove('act'));}
+  document.addEventListener('click',hideTip);
+  // the loop: pockets darken one by one, hold, then start again
+  const RM=matchMedia('(prefers-reduced-motion: reduce)').matches; let started=false;
+  function setS(g,s){g.dataset.s=s;g.querySelector('.st').textContent=SN[s];}
+  function cycle(){pkEls.forEach(g=>setS(g,0));let t=1200;
+    for(let s=1;s<=3;s++) POCKETS.forEach((p,j)=>{if(p.to>=s){setTimeout(()=>setS(pkEls[j],s),t);t+=700;}});
+    setTimeout(cycle,t+5200);}
+  function start(){if(started)return;started=true;
+    let n=0;const mapped=ROOMS.filter(r=>r.m).length;
+    ROOMS.forEach((r,i)=>{if(r.m)setTimeout(()=>{n++;cnt.textContent=n+' OF '+ROOMS.length+' FUNCTIONS MAPPED';},i*350+900);});
+    if(RM){pkEls.forEach((g,j)=>setS(g,POCKETS[j].to));cnt.textContent=mapped+' OF '+ROOMS.length+' FUNCTIONS MAPPED';return;}
+    setTimeout(cycle,3600);}
+  new IntersectionObserver((es,o)=>es.forEach(e=>{if(e.isIntersecting){wrap.classList.add('in');start();o.disconnect();}}),{threshold:.25}).observe(wrap);
+})();
+</script>
+
 </div></section>
 
 <!-- EIGHT STEPS -->
-<section class="pad" id="steps" style="padding-top:60px"><div class="wrap jr">
+<section class="pad tight" id="steps" style="padding-top:40px"><div class="wrap jr">
   <div class="side">
     <div class="tag rv">Eight steps, five rooms</div>
     <h2 class="rv d1">Every company walks <b>the same road.</b></h2>
-    <p class="lede rv d2">Each step lights up in the cockpit as it lands, so you always know where you are and what is next.</p>
+    <p class="lede rv d2">Each step lights up in the cockpit as it lands.</p>
     <div class="phase-now" id="phases"><span data-p="INPUT">INPUT</span><span data-p="CALIBRATE">CALIBRATE</span><span data-p="VALUE POCKETS">VALUE POCKETS</span><span data-p="THE WORK">THE WORK</span><span data-p="AI WORKFORCE">AI WORKFORCE</span></div>
   </div>
   <div class="steps" id="stepl"><div class="track"><i></i></div>
-    <div class="sp" data-p="INPUT"><div class="dot">1</div><div class="k">INPUT</div><h3>Plug in</h3><p>Your data, reports and documents, read where they sit. Our agents talk to your teams on the apps they already use. Nothing migrated.</p></div>
-    <div class="sp" data-p="CALIBRATE"><div class="dot">2</div><div class="k">CALIBRATE</div><h3>Form a view</h3><p>All of it drawn into one live picture of how the company really runs.</p></div>
-    <div class="sp" data-p="VALUE POCKETS"><div class="dot">3</div><div class="k">VALUE POCKETS</div><h3>Find the money</h3><p>Where the money sits, each place linked to the document it came from, and priced once your people confirm it.</p></div>
-    <div class="sp" data-p="VALUE POCKETS"><div class="dot">4</div><div class="k">VALUE POCKETS</div><h3>Rank it</h3><p>Ordered by what is at stake and what is ready. Your people choose the first move.</p></div>
-    <div class="sp" data-p="THE WORK"><div class="dot">5</div><div class="k">THE WORK</div><h3>Change how it is done</h3><p>Who does what, in what order, and what gets dropped. Written down and owned by a named person.</p></div>
+    <div class="sp" data-p="INPUT"><div class="dot">1</div><div class="k">INPUT</div><h3>Plug in</h3><p>Your data and documents, read where they sit. Nothing migrated.</p></div>
+    <div class="sp" data-p="CALIBRATE"><div class="dot">2</div><div class="k">CALIBRATE</div><h3>Form a view</h3><p>One live picture of how the company really runs.</p></div>
+    <div class="sp" data-p="VALUE POCKETS"><div class="dot">3</div><div class="k">VALUE POCKETS</div><h3>Find the money</h3><p>Each place linked to its document, priced once your people confirm it.</p></div>
+    <div class="sp" data-p="VALUE POCKETS"><div class="dot">4</div><div class="k">VALUE POCKETS</div><h3>Rank it</h3><p>By what is at stake and what is ready. Your people choose the first move.</p></div>
+    <div class="sp" data-p="THE WORK"><div class="dot">5</div><div class="k">THE WORK</div><h3>Change how it is done</h3><p>Who does what, in what order. Owned by a named person.</p></div>
     <div class="sp" data-p="THE WORK"><div class="dot">6</div><div class="k">THE WORK</div><h3>Check it stuck</h3><p>Measured at 30, 60 and 90 days against the way it ran before.</p></div>
-    <div class="sp seven" data-p="AI WORKFORCE"><div class="dot">7</div><div class="k">AI WORKFORCE</div><h3>Automate one</h3><p>One workflow live, measured against the manual baseline.</p></div>
-    <div class="sp" data-p="AI WORKFORCE" style="padding-bottom:0"><div class="dot">8</div><div class="k">AI WORKFORCE</div><h3>Keep going</h3><p>Then the next, and the next. The picture stays live as the company moves.</p></div>
+    <div class="sp seven" data-p="AI WORKFORCE"><div class="dot">7</div><div class="k">AI WORKFORCE</div><h3>Automate one</h3><p>One workflow live, measured against how it ran by hand.</p></div>
+    <div class="sp" data-p="AI WORKFORCE" style="padding-bottom:0"><div class="dot">8</div><div class="k">AI WORKFORCE</div><h3>Keep going</h3><p>Then the next. The picture stays live as the company moves.</p></div>
   </div>
 </div></section>
 
-<!-- THE PLAN (Peter, 6 Oct 2026) -->
-<section class="pad" id="plan" style="padding-top:40px"><div class="wrap">
-  <div class="head2">
-    <div><div class="tag rv">The plan</div><h2 class="rv d1">Two lanes, <b>months 1 to 6.</b></h2></div>
-    <p class="lede rv d2">Quick back-office wins start first and show live results. The value projects are scoped at the same time, and start as the first lane frees your people.</p>
-  </div>
-  <div class="plan rv" data-trigger>
-    <div class="u">Unit: months from the start</div>
-    <div class="pgrid">
-      <div class="sp0"></div><div class="pm"><span class="l">Month </span><span class="s">M</span>1</div><div class="pm"><span class="l">Month </span><span class="s">M</span>2</div><div class="pm"><span class="l">Month </span><span class="s">M</span>3</div><div class="pm"><span class="l">Month </span><span class="s">M</span>4</div><div class="pm"><span class="l">Month </span><span class="s">M</span>5</div><div class="pm"><span class="l">Month </span><span class="s">M</span>6</div>
-      <div class="plab"><b>1 · Back-office wins</b><span>Quick, first</span></div>
-      <div class="ptrack"><div class="pb a" style="grid-column:1/2">Start</div><div class="pb a2" style="grid-column:2/4">Live results</div><div class="pb a3" style="grid-column:4/7">More flows, same way</div></div>
-      <div class="plab"><b>2 · Value projects</b><span>Pricing · collections · operations</span></div>
-      <div class="ptrack"><div class="pb d" style="grid-column:1/3">Scoped in parallel</div><div class="pb b" style="grid-column:3/7">Started as lane 1 frees people</div></div>
-    </div>
-    <div class="pkey"><span><i class="a"></i>Back-office wins</span><span><i class="a3"></i>More back-office flows</span><span><i class="d"></i>Scoping</span><span><i class="b"></i>Value projects running</span></div>
-  </div>
-  <p class="plan-line rv">Quick wins come first. <b>The bigger value follows on freed time.</b></p>
-</div></section>
-
-<!-- SEVEN -->
-<section class="dark seven-band"><div class="wrap row">
+<!-- PROJECTS, NOT AGENTS -->
+<section class="dark seven-band" id="projects"><div class="wrap row">
   <div class="big7 rv">7</div>
   <div>
     <div class="tag rv">Why the agent waits</div>
     <h2 class="rv d1" style="margin-top:24px">Projects, not agents. <b>The agent comes in once the work is fixed.</b></h2>
-    <p class="lede rv d2">An agent pointed at a broken process only does the wrong work faster. So we fix the work first, prove it held, then hand the repeated part to a machine.</p>
+    <p class="lede rv d2">An agent on a broken process does the wrong work faster. We fix the work, prove it held, then hand the repeat to an agent.</p>
   </div>
 </div></section>
 
-<!-- RINGS -->
-<section class="pad"><div class="wrap">
+<!-- 30 60 90 -->
+<section class="pad tight"><div class="wrap">
   <div class="head2">
     <div><div class="tag rv">Proof it held</div><h2 class="rv d1">Checked at 30, 60 <b>and 90 days.</b></h2></div>
-    <p class="lede rv d2">Every change is measured against how the work ran before. A step counts as done when the agreed measure moves.</p>
+    <p class="lede rv d2">Done means the agreed measure moved.</p>
   </div>
   <div class="rings" data-trigger>
-    <div class="rg"><svg viewBox="0 0 110 110"><circle class="bg" cx="55" cy="55" r="45"/><circle class="fg" cx="55" cy="55" r="45" style="--o:189"/></svg><div><b>30 days</b><span>The new way is in use. Who owns it is written down.</span></div></div>
+    <div class="rg"><svg viewBox="0 0 110 110"><circle class="bg" cx="55" cy="55" r="45"/><circle class="fg" cx="55" cy="55" r="45" style="--o:189"/></svg><div><b>30 days</b><span>The new way is in use, its owner written down.</span></div></div>
     <div class="rg"><svg viewBox="0 0 110 110"><circle class="bg" cx="55" cy="55" r="45"/><circle class="fg" cx="55" cy="55" r="45" style="--o:94"/></svg><div><b>60 days</b><span>It holds without us chasing it.</span></div></div>
-    <div class="rg"><svg viewBox="0 0 110 110"><circle class="bg" cx="55" cy="55" r="45"/><circle class="fg" cx="55" cy="55" r="45" style="--o:0"/></svg><div><b>90 days</b><span>The number moved. Now it is ready for an agent.</span></div></div>
+    <div class="rg"><svg viewBox="0 0 110 110"><circle class="bg" cx="55" cy="55" r="45"/><circle class="fg" cx="55" cy="55" r="45" style="--o:0"/></svg><div><b>90 days</b><span>The number moved. Ready for an agent.</span></div></div>
   </div>
 </div></section>
 
-<!-- RUNNING -->
-<section class="pad" style="padding-top:20px"><div class="wrap run">
+<!-- ONE BOX (from Philosophy and the old home) -->
+<section class="pad tight" id="onebox" style="background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)"><div class="wrap merge">
   <div>
-    <div class="device rv"><video autoplay muted loop playsinline poster="img/poster_work.jpg"><source src="img/clip_work.webm" type="video/webm"><source src="img/clip_work.mp4" type="video/mp4"></video></div>
-    <div class="honest">A real cockpit, renamed · names and figures changed</div>
+    <div class="tag rv">One box</div>
+    <h2 class="rv d1" style="margin-top:22px">Four budgets, four suppliers. <b>We make it one box.</b></h2>
+    <p class="lede rv d2">Strategy, change, value and technology as one operated product. Paid from money you already spend.</p>
   </div>
-  <div>
-    <div class="tag rv">The work, running</div>
-    <h2 class="rv d1" style="margin-top:22px">Every pocket becomes <b>a piece of work.</b></h2>
-    <p class="lede rv d2" style="margin-top:22px">Four stages: write it down, make it right, give it a tool, give it an agent. Each one greys out until the one before is done.</p>
+  <div class="stackb" data-trigger id="bud">
+    <div class="bud">People <span>the biggest pot</span></div>
+    <div class="bud">Consulting <span>advice and change</span></div>
+    <div class="bud">Systems <span>ERP, CRM, the joins</span></div>
+    <div class="bud">Technology <span>staying current</span></div>
+    <div class="onebox">One box, one team <span>STRATEGY · CHANGE · VALUE · TECHNOLOGY</span></div>
   </div>
 </div></section>
 
-<!-- APPROVE -->
-<section class="pad" style="background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)"><div class="wrap ap">
+<!-- WHERE WE SIT (platform line, Peter 6 Oct 2026) -->
+<section class="pad tight" id="platform"><div class="wrap plat">
   <div>
-    <div class="tag rv">How you stay in charge</div>
-    <h2 class="rv d1" style="margin-top:22px">You approve the way <b>you reply to a message.</b></h2>
-    <ul class="rv d2">
-      <li><b>Every morning</b> three numbers that moved and one finding priced.</li>
-      <li><b>One decision</b> at a time, with the reason and the source attached.</li>
-      <li><b>Every reply</b> is logged. The call stays yours.</li>
-      <li><b>After launch</b> we run and update the agents for you.</li>
-    </ul>
+    <div class="tag rv">Where we sit</div>
+    <h2 class="rv d1" style="margin-top:22px;font-size:clamp(30px,3.3vw,46px)">A platform gives your IT team a tool. <b>We give your CEO projects that move money,</b> with a method behind every figure.</h2>
+    <p class="lede rv d2" style="margin-top:24px">A platform can sit under us.</p>
   </div>
-  <div class="chat" data-trigger>
-    <div class="hd"><img src="img/perspace-mark-ink.png" alt="">Perspace<small>● ONLINE</small></div>
-    <div class="msg"><div class="k">DECISION WAITING ON YOU</div><b>Approve the supplier ranking as the buying input?</b><p>Three suppliers, one ranked view, same spec. Closes about $340k a year.</p><div class="act"><span class="yes">Approve</span><span>See the source</span></div></div>
-    <div class="me">Approved</div>
-    <div class="done"><i></i>Ranking locked · finance told · logged to the record</div>
+  <div class="layers" data-trigger>
+    <div class="ly top">Projects that move money <span>for your CEO</span></div>
+    <div class="ly">The method <span>behind every figure</span></div>
+    <div class="ly base">A platform <span>can sit under us</span></div>
+  </div>
+</div></section>
+
+<!-- WHAT WE ARE SURE OF (from Philosophy) -->
+<section class="pad tight" id="beliefs" style="padding-top:20px"><div class="wrap">
+  <div class="head2">
+    <div><div class="tag rv">Why now</div><h2 class="rv d1">Technology stopped being the difference. <b>How you run on it is.</b></h2></div>
+    <p class="lede rv d2">Someone in your market will change how they run first. We would like it to be you.</p>
+  </div>
+  <div class="beliefs">
+    <div class="bf rv"><div class="n">01</div><h3>Software starts doing the work.</h3><p>You pay for the job done, not the seat.</p></div>
+    <div class="bf rv d1"><div class="n">02</div><h3>Machines carry the repeated work.</h3><p>Most office work is rules on repeat.</p></div>
+    <div class="bf rv d2"><div class="n">03</div><h3>People move up.</h3><p>Judgement, taste and the hard call.</p></div>
+    <div class="bf rv"><div class="n">04</div><h3>What you already know is the edge.</h3><p>The technology is the same for everyone. Your industry knowledge is not.</p></div>
+    <div class="bf rv d1"><div class="n">05</div><h3>Chasing every new tool is a trap.</h3><p>Go deep on what you know. We keep the technology current.</p></div>
+    <div class="bf rv d2"><div class="n">06</div><h3>The org chart gets a second kind of member.</h3><p>People and agents side by side, each with an owner.</p></div>
+  </div>
+</div></section>
+
+<!-- THE LIBRARY (from insights.html) -->
+<section class="pad tight" id="library" style="background:var(--card);border-top:1px solid var(--line)"><div class="wrap">
+  <div class="head2">
+    <div><div class="tag rv">The library</div><h2 class="rv d1">What we have learned, <b>written down.</b></h2></div>
+    <p class="lede rv d2">A play: a move one company made, read from a named source, that another company can repeat.</p>
+  </div>
+  <div class="libs">
+    <div class="shelf3 rv"><div class="k">Plays in the library<b data-count="1249" data-src="plays">1,249</b></div>
+      <button class="paper" data-id="price-list-invoice"><small>Play · read the paper</small><b>Between the price list and the invoice</b><em>Read &rarr;</em></button>
+      <div class="chips"><span>Bought three ways</span><span>Capacity nobody sold</span><span>Cash past 90 days</span><span>The report nobody reads</span></div></div>
+    <div class="shelf3 rv d1"><div class="k">Methods</div><h3>The same on every company</h3>
+      <button class="paper" data-id="grey-to-banked"><small>Method · read the paper</small><b>Grey to banked</b><em>Read &rarr;</em></button>
+      <div class="chips"><span>The blueprint</span><span>Four rungs</span><span>Build, source, or neither</span><span>One person on every line</span></div></div>
+    <div class="shelf3 rv d2"><div class="k">Territories</div><h3>Read in the same order</h3>
+      <button class="paper" data-id="margin"><small>Territory · read the paper</small><b>Margin</b><em>Read &rarr;</em></button>
+      <div class="chips"><span class="c" style="--c:#2F6D7A">Revenue</span><span class="c lt" style="--c:#A9ACAF">Margin</span><span class="c" style="--c:#091120">Operations</span><span class="c" style="--c:#9C3F35">Risk</span><span class="c lt" style="--c:#8BA6B7">Support</span></div></div>
   </div>
 </div></section>
 
 <section class="closeband"><div class="wrap">
   <div class="m rv"><img src="img/mark-left-c.png" alt=""><img class="s" src="img/star-crop.png" alt=""><img src="img/mark-right-c.png" alt=""></div>
-  <h2 class="rv d1">Start with <b>one pocket.</b></h2>
-  <p class="lede rv d2">We show you the money, go in and get it, and prove it moved.</p>
-  <div class="btns rv d3"><a class="btn dark" href="mailto:hello@perspace.ai?subject=Walkthrough">Book a walkthrough →</a><a class="btn line" href="cockpit.html">See the cockpit →</a></div>
+  <h2 class="rv d1">Start with <b>one project.</b></h2>
+  <p class="lede rv d2">See every step on one screen.</p>
+  <div class="btns rv d3"><a class="btn dark" href="mailto:hello@perspace.ai?subject=Walkthrough">Book a walkthrough →</a><a class="btn line" href="plugins.html">The plug-ins →</a></div>
+  <nav class="trail rv" aria-label="The site"><a href="index.html"><i></i>Home</a><a href="cockpit.html"><i></i>Cockpit</a><a class="on" href="method.html"><i></i>Method</a><a href="plugins.html"><i></i>Plug-ins</a></nav>
 </div></section>
+
+<div class="rd" id="rd" role="dialog" aria-modal="true" aria-labelledby="rdt"><div class="sheet" id="sheet"></div></div>
 
 <footer><div class="wrap">
   <a class="brand" href="index.html"><img src="img/perspace-mark-ink.png" alt="">Perspace</a>
-  <div class="ft"><a href="cockpit.html">Cockpit</a><a href="plugins.html">Plug-ins</a><a href="connects.html">What we connect to</a><a href="method.html">Method</a><a href="philosophy.html">Philosophy</a><a href="venture.html">Venture clienting</a><a href="insights.html">Library</a></div>
+  <div class="ft"><a href="index.html">Home</a><a href="cockpit.html">Cockpit</a><a href="method.html">Method</a><a href="plugins.html">Plug-ins</a></div>
   <div class="tl">We operate the future · Dubai · Abu Dhabi · hello@perspace.ai</div>
 </div></footer>
 <script src="site.js"></script>
@@ -264,5 +425,58 @@
   }
   addEventListener('scroll',f,{passive:true}); addEventListener('resize',f); f();
 })();
+// the library reader: the papers open in place (folded from the old library page)
+const SHELVES=[
+ {id:"plays",name:"Plays",def:"Repeatable ways we find money. The same play works across industries, because it fires on the shape of the data.",items:[
+  {id:"price-list-invoice",t:"Between the price list and the invoice",s:"What the company says it charges, against what it actually billed.",paper:{
+    sub:"Every company has a price. Very few charge it. The gap lives between two files nobody reads side by side.",
+    problem:"Sales agree a price in the room, finance invoices something else, and discounts that started as exceptions quietly become the price. Nobody is hiding anything. The two numbers simply live in different systems, owned by different people.",
+    signs:["Discounts that repeat on the same customers every month","A price list nobody has changed in years","Invoices that cannot be traced back to a signed price","Sales and finance each confident, and each with a different total"],
+    method:"We read the price list, the contracts and the invoices, and line them up customer by customer and line by line. Every gap is priced and traced to the file it came from. Then one person owns each gap: keep it on purpose, or close it.",
+    moves:"The share of revenue billed at the agreed price, month on month. The measure is the invoice, never the promise."}},
+  {id:"bought-three-ways",t:"The same thing, bought three ways",s:"One category, three suppliers, three prices, one spec."},
+  {id:"capacity-unsold",t:"Capacity nobody sold",s:"What the company owns that earned nothing this year."},
+  {id:"power-bill",t:"The money inside the power bill",s:"Contracts, assets and bills, read together for the first time."},
+  {id:"cash-90",t:"Cash past 90 days",s:"Money already earned, still sitting with the customer."},
+  {id:"report-nobody-reads",t:"The report nobody reads",s:"Hours of work every month that no decision depends on."}]},
+ {id:"methods",name:"Methods",def:"How we work, the same on every company. Each one is written down so it can be repeated, checked and improved.",items:[
+  {id:"grey-to-banked",t:"Grey to banked",s:"How a pocket of money earns its number.",paper:{
+    sub:"From the first day you see the whole shape of the company. Nothing is claimed before the files back it.",
+    problem:"Most programmes open on a big number. It is either a guess, or it takes months to prove, and by then nobody trusts it. The owner is asked to believe first and see later.",
+    signs:["A business case with one total and no sources","Savings claimed before anyone has checked the files","Numbers that change every time someone new presents them"],
+    method:"Every pocket moves through four states, and the cockpit shows each one in its own shade. Greyed: the company's own files keep pointing here, no number yet. Named: someone at the company has confirmed what it is, still no number. Sized: a range, an owner, and the measure we agree to move. Banked: the agreed measure moved, and the record shows it. A pocket only darkens when the evidence arrives.",
+    moves:"How much of the company has moved from greyed to banked. That is the only total worth reporting."}},
+  {id:"blueprint",t:"The blueprint, from your own files",s:"One live map of how the company really runs."},
+  {id:"four-rungs",t:"Four rungs, and why the agent comes last",s:"Write it down, make it right, give it a tool, give it an agent."},
+  {id:"build-or-source",t:"Build, source, or neither",s:"When we build, when we bring it in, and when it is a decision."},
+  {id:"one-person",t:"One person on every line",s:"Every piece of work carried by a person, an agent or a tool, with a person accountable."}]},
+ {id:"territories",name:"Territories",def:"The areas every company is read on, in the same order, so a chairman can compare one company with the next.",items:[
+  {id:"revenue",t:"Revenue",s:"Who pays, where new money comes from, and whether it comes back."},
+  {id:"margin",t:"Margin",s:"Where the money leaks between the price and the cash.",paper:{
+    sub:"Revenue tells you what came in. Margin tells you what the company kept, and most of what it lost it never saw leave.",
+    problem:"Margin is rarely lost in one place. It leaks a little at a time: a discount here, a supplier there, a cost nobody allocated. Each leak is too small to call a problem, and together they are the difference between a good year and a flat one.",
+    signs:["Revenue grows and margin does not","Costs grouped so broadly that nobody owns them","The same service costing very different amounts in different places","Margin reported once a quarter, long after the decisions were made"],
+    method:"We read margin line by line: the price, the discount, the cost to serve and the cost of what was bought. Each one is traced to its file and becomes a pocket once your people confirm the reading. What is most at stake goes first, each owned by a named person.",
+    moves:"Margin per line, against the way it ran before, checked at 30, 60 and 90 days."}},
+  {id:"operations",t:"Operations",s:"Where the time goes, and what waits on whom."},
+  {id:"risk",t:"Risk",s:"What would hurt, and whether anyone would see it coming."},
+  {id:"support",t:"Support",s:"The work that keeps everything else going."}]}
+];
+const written=SHELVES.flatMap(s=>s.items.filter(i=>i.paper).map(i=>({...i,shelf:s.name})));
+const rd=document.getElementById('rd'),sheet=document.getElementById('sheet');let last=null;
+function openP(id){const i=written.find(x=>x.id===id);if(!i)return false;const p=i.paper;
+  sheet.innerHTML='<button class="x" aria-label="Close">×</button><div class="k">'+i.shelf+'</div><h2 id="rdt">'+i.t+'</h2><p class="sub">'+p.sub+'</p>'+
+   '<section><h4>The problem</h4><p>'+p.problem+'</p></section><section><h4>The signs</h4><ul>'+p.signs.map(x=>'<li>'+x+'</li>').join('')+'</ul></section>'+
+   '<section><h4>The method</h4><p>'+p.method+'</p></section><section><h4>What moves</h4><p>'+p.moves+'</p></section>'+
+   '<div class="foot">Perspace library · '+i.shelf+' · <a href="#library" class="bk">Back to the library</a></div>';
+  rd.classList.add('open');document.body.style.overflow='hidden';sheet.scrollTop=0;
+  sheet.querySelector('.x').addEventListener('click',closeP);sheet.querySelector('.bk').addEventListener('click',e=>{e.preventDefault();closeP();});sheet.querySelector('.x').focus();
+  history.replaceState(null,'','#'+id);return true;}
+function closeP(){rd.classList.remove('open');document.body.style.overflow='';history.replaceState(null,'','#library');if(last)last.focus();}
+document.querySelectorAll('.paper').forEach(b=>b.addEventListener('click',()=>{last=b;openP(b.dataset.id);}));
+rd.addEventListener('click',e=>{if(e.target===rd)closeP();});
+addEventListener('keydown',e=>{if(e.key==='Escape'&&rd.classList.contains('open'))closeP();});
+if(location.hash&&!openP(location.hash.slice(1))&&!document.getElementById(location.hash.slice(1))){const l=document.getElementById('library');if(l)l.scrollIntoView();}
+addEventListener('hashchange',()=>{if(location.hash) openP(location.hash.slice(1));});
 </script>
 </body></html>

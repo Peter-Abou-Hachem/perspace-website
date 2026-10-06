@@ -2,176 +2,20 @@
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Philosophy · Perspace</title>
-<meta name="description" content="What Perspace believes about the next decade of work, and why one team should carry strategy, change, value and the technology together.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://perspace.ai/method.html#beliefs">
+<meta http-equiv="refresh" content="0; url=method.html#beliefs">
 <link rel="icon" type="image/png" href="img/favicon.png">
 <link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="site.css">
-<style>
-/* name story */
-.names{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--ink);border-bottom:1px solid var(--ink)}
-.nm{padding:40px 30px 44px 0;position:relative}
-.nm+.nm{padding-left:30px;border-left:1px solid var(--line)}
-.nm small{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent-ink);font-weight:500}
-.nm .w{font-size:clamp(42px,4.6vw,66px);font-weight:300;letter-spacing:-.03em;margin:16px 0 14px;line-height:1}
-.nm .w b{font-weight:700}
-.nm p{font-size:16.5px;line-height:1.55;color:var(--soft);max-width:22em}
-.nm.all{background:var(--card)}
-.nm.all .w{display:flex;align-items:center;gap:12px}
-.nm.all .w img{height:.95em}
-/* beliefs */
-.beliefs{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
-.bf{background:var(--ground);padding:34px 30px 38px;min-height:250px;position:relative;overflow:hidden;transition:background .4s}
-.bf:hover{background:var(--card)}
-.bf .n{font-size:56px;font-weight:300;letter-spacing:-.05em;color:transparent;-webkit-text-stroke:1px var(--accent);line-height:.8;margin-bottom:22px;transition:color .5s}
-.bf:hover .n{color:var(--blue)}
-.bf h3{font-size:24px;font-weight:700;letter-spacing:-.015em;max-width:12em;position:relative}
-.bf p{font-size:15.5px;line-height:1.55;color:var(--soft);margin-top:14px;max-width:21em;position:relative}
-/* budgets merge */
-.merge{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
-.stackb{position:relative;height:420px}
-.bud{position:absolute;left:0;right:0;height:64px;border:1px solid var(--ink);background:var(--card);display:flex;align-items:center;justify-content:space-between;padding:0 22px;font-weight:500;font-size:16px;opacity:0}
-.bud span{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint)}
-.bud:nth-child(1){top:0;--y:344px;--i:0}.bud:nth-child(2){top:86px;--y:258px;--i:1}.bud:nth-child(3){top:172px;--y:172px;--i:2}.bud:nth-child(4){top:258px;--y:86px;--i:3}
-.onebox{position:absolute;left:0;right:0;top:344px;height:76px;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 22px;font-weight:700;font-size:18px;opacity:0}
-.onebox span{font-size:11px;letter-spacing:.16em;color:var(--accent);font-weight:500}
-.stackb.in .bud{animation:budloop 14s var(--ease) infinite;animation-delay:calc(var(--i) * .35s)}
-.stackb.in .onebox{animation:boxloop 14s var(--ease) infinite}
-@keyframes budloop{0%{opacity:0;transform:translateY(-14px)}8%{opacity:1;transform:none}40%{opacity:1;transform:none}62%{opacity:0;transform:translateY(var(--y))}100%{opacity:0;transform:translateY(var(--y))}}
-@keyframes boxloop{0%,52%{opacity:0;transform:translateY(20px)}64%{opacity:1;transform:none}92%{opacity:1;transform:none}100%{opacity:0;transform:none}}
-@media (prefers-reduced-motion:reduce){.bud{opacity:1}.onebox{opacity:1;top:360px}}
-/* pull quote */
-.quote{padding:150px 0}
-.quote h2{font-size:clamp(38px,5vw,72px);max-width:16em}
-.quote h2 b{color:#fff}.quote h2{color:#8ea3b3}
-.quote .lede{margin-top:30px}
-/* notes */
-.notes{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.note{background:var(--card);border:1px solid var(--line);padding:28px 26px 26px;display:flex;flex-direction:column;gap:12px;min-height:280px;transition:transform .4s var(--ease),box-shadow .4s}
-.note:hover{transform:translateY(-4px);box-shadow:0 20px 40px rgba(9,17,32,.08)}
-.note .k{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-ink);font-weight:500}
-.note h3{font-size:23px;font-weight:700;letter-spacing:-.015em;line-height:1.2}
-.note p{font-size:15px;line-height:1.55;color:var(--soft)}
-.note .go{margin-top:auto;font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:500}
-/* platform (Peter, 6 Oct 2026) */
-.plat{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
-.layers{display:flex;flex-direction:column;gap:10px}
-.ly{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:0 22px;height:76px;border:1px solid var(--ink);background:var(--card);font-size:17px;font-weight:700;opacity:0;transform:translateY(-14px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
-.ly span{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);font-weight:500;text-align:right}
-.ly.top{background:var(--ink);color:#fff}.ly.top span{color:var(--accent)}
-.ly.base{background:transparent;border:1.5px dashed var(--silver);color:var(--soft);font-weight:500}
-.layers.in .ly{opacity:1;transform:none}.layers.in .ly:nth-child(2){transition-delay:.35s}.layers.in .ly:nth-child(3){transition-delay:.7s}
-@media (max-width:900px){.plat{grid-template-columns:1fr;gap:34px}.ly{height:auto;padding:16px;flex-direction:column;align-items:flex-start;gap:6px;font-size:16px}.ly span{text-align:left}}
-@media (prefers-reduced-motion:reduce){.ly{opacity:1;transform:none}}
-@media (max-width:900px){
-  .names,.beliefs,.notes,.merge{grid-template-columns:1fr}
-  .nm+.nm{padding-left:0;border-left:0;border-top:1px solid var(--line)}.nm{padding:30px 0}
-  .stackb{height:440px}
-}
-</style></head>
-<body>
-<nav id="nav"><div class="wrap">
+<script>(function(){var h=location.hash&&location.hash.length>1?location.hash:'#beliefs';h='#beliefs';location.replace('method.html'+h);})();</script>
+<style>.fwd{min-height:100vh;display:flex;align-items:center}.fwd .wrap>*+*{margin-top:22px}</style>
+</head><body>
+<section class="fwd"><div class="wrap">
   <a class="brand" href="index.html"><img src="img/perspace-mark-ink.png" alt="">Perspace</a>
-  <div class="links"><a class="nck" href="cockpit.html">Cockpit</a><a href="method.html">Method</a><a class="on" href="philosophy.html">Philosophy</a><a href="venture.html">Venture clienting</a></div>
-  <a class="btn dark" href="mailto:hello@perspace.ai?subject=Walkthrough">Book a walkthrough →</a>
-  <button class="mnu" aria-label="Menu" aria-expanded="false"><i></i><i></i></button>
-</div></nav>
-
-<section class="phero"><div class="glow"></div><div class="wrap grid">
-  <div class="copy">
-    <div class="tag rv">Philosophy · 01 Strategy</div>
-    <h1 class="rv d1">The next decade of work is already being built. <b>This is what we are sure of.</b></h1>
-    <p class="lede rv d2">Every company you know was built around people doing every task by hand. That was right for a hundred years. The companies that change how they run first will set the pace for everyone else.</p>
-  </div>
-  <div class="mk"><img class="b l" src="img/mark-left-c.png" alt=""><img class="b r" src="img/mark-right-c.png" alt=""><img class="s" src="img/star-crop.png" alt=""></div>
+  <div class="tag">Philosophy has moved</div>
+  <h1>What we are sure of, <b>on the Method page.</b></h1>
+  <p class="lede">It now lives on the Method page.</p>
+  <div class="btns"><a class="btn dark" href="method.html#beliefs">Go to Method &rarr;</a><a class="btn line" href="index.html">Home</a></div>
 </div></section>
-
-<!-- NAME -->
-<section class="pad" style="padding-top:40px"><div class="wrap">
-  <div class="tag rv">The name</div>
-  <div class="names rv d1" style="margin-top:30px">
-    <div class="nm"><small>Latin</small><div class="w">per</div><p>To see a thing clearly, all the way through.</p></div>
-    <div class="nm"><small>English</small><div class="w">space</div><p>A room only you are in.</p></div>
-    <div class="nm all"><small>Together</small><div class="w"><b>perspace</b><img src="img/star-crop.png" alt=""></div><p>The room where you see your whole company, drawn from its own files. Nothing leaves it that you have not allowed.</p></div>
-  </div>
-</div></section>
-
-<!-- BELIEFS -->
-<section class="pad" style="padding-top:20px"><div class="wrap">
-  <div class="head2">
-    <div><div class="tag rv">Six things we are sure of</div><h2 class="rv d1">What changes <b>in the next decade.</b></h2></div>
-    <p class="lede rv d2">None of these are predictions about technology. They are about how companies will be run.</p>
-  </div>
-  <div class="beliefs">
-    <div class="bf rv"><div class="n">01</div><h3>Software starts doing the work.</h3><p>You used to pay for seats and do the work yourself. Now you pay for the job done.</p></div>
-    <div class="bf rv d1"><div class="n">02</div><h3>Machines carry the repeated work.</h3><p>Most office work is rules on repeat. Machines are good at it and never tire.</p></div>
-    <div class="bf rv d2"><div class="n">03</div><h3>People move up.</h3><p>When machines take the busywork, people do what only people can: judgement, taste and the hard call.</p></div>
-    <div class="bf rv"><div class="n">04</div><h3>What you already know is the edge.</h3><p>The technology is the same for everyone and changes every week. Your industry knowledge does not.</p></div>
-    <div class="bf rv d1"><div class="n">05</div><h3>Chasing every new tool is a trap.</h3><p>It is a full time job that pulls you off your real one. Go deep on what you know, we keep the technology current.</p></div>
-    <div class="bf rv d2"><div class="n">06</div><h3>The org chart gets a second kind of member.</h3><p>People and agents side by side, each with a clear owner. Someone runs the machines the way a good manager runs a team.</p></div>
-  </div>
-</div></section>
-
-<!-- BUDGETS -->
-<section class="pad" style="background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)"><div class="wrap merge">
-  <div>
-    <div class="tag rv">Where the budget goes</div>
-    <h2 class="rv d1" style="margin-top:22px">Four budgets, four suppliers. <b>We make it one box.</b></h2>
-    <p class="lede rv d2" style="margin-top:24px">Changing how a company runs usually means paying for advice, for systems, for software and for the people who carry the work, then making them fit together yourself. We carry all four as one operated product, alongside whoever already advises you, paid from money you already spend.</p>
-  </div>
-  <div class="stackb" data-trigger id="bud">
-    <div class="bud">People <span>the biggest pot</span></div>
-    <div class="bud">Consulting <span>advice and change</span></div>
-    <div class="bud">Systems <span>ERP, CRM, the joins</span></div>
-    <div class="bud">Technology <span>staying current</span></div>
-    <div class="onebox">One box, one team <span>STRATEGY · CHANGE · VALUE · TECHNOLOGY</span></div>
-  </div>
-</div></section>
-
-<!-- QUOTE -->
-<section class="dark quote"><div class="wrap">
-  <div class="tag rv">Why now</div>
-  <h2 class="rv d1" style="margin-top:26px">Technology stopped being the difference. <b>How you run on it is the difference.</b></h2>
-  <p class="lede rv d2">Someone in your market will change how they run first. Every quarter after that, their company learns and yours waits. We would like it to be you.</p>
-</div></section>
-
-<!-- PLATFORM (Peter, 6 Oct 2026) -->
-<section class="pad"><div class="wrap plat">
-  <div>
-    <div class="tag rv">Where we sit</div>
-    <h2 class="rv d1" style="margin-top:22px;font-size:clamp(30px,3.3vw,46px)">A platform gives your IT team a tool. <b>We give your CEO projects that move money,</b> with a method behind every figure.</h2>
-    <p class="lede rv d2" style="margin-top:24px">A platform can sit under us.</p>
-  </div>
-  <div class="layers" data-trigger>
-    <div class="ly top">Projects that move money <span>for your CEO</span></div>
-    <div class="ly">The method <span>behind every figure</span></div>
-    <div class="ly base">A platform <span>can sit under us</span></div>
-  </div>
-</div></section>
-
-<!-- NOTES -->
-<section class="pad"><div class="wrap">
-  <div class="head2">
-    <div><div class="tag rv">The library</div><h2 class="rv d1">What we have learned, <b>written down.</b></h2></div>
-    <p class="lede rv d2">Repeatable plays, the methods we run on every company, and the territories every company is read on. A play is a move one company made, read from a named source, that another company can repeat. Written for owners and operators.</p>
-  </div>
-  <div class="notes">
-    <a class="note rv" href="insights.html#price-list-invoice"><div class="k">Play</div><h3>Between the price list and the invoice.</h3><p>What the company says it charges, against what it actually billed. The gap lives between two files nobody reads side by side.</p><div class="go">Read →</div></a>
-    <a class="note rv d1" href="insights.html#grey-to-banked"><div class="k">Method</div><h3>Grey to banked.</h3><p>How a pocket of money earns its number. Nothing is claimed before the files back it.</p><div class="go">Read →</div></a>
-    <a class="note rv d2" href="insights.html#margin"><div class="k">Territory</div><h3>Margin.</h3><p>Where the money leaks between the price and the cash, a little at a time.</p><div class="go">Read →</div></a>
-  </div>
-</div></section>
-
-<section class="closeband"><div class="wrap">
-  <div class="m rv"><img src="img/mark-left-c.png" alt=""><img class="s" src="img/star-crop.png" alt=""><img src="img/mark-right-c.png" alt=""></div>
-  <h2 class="rv d1">We operate <b>the future.</b></h2>
-  <p class="lede rv d2">Start with one pocket. We show you the money, go in and get it, and prove it moved.</p>
-  <div class="btns rv d3"><a class="btn dark" href="mailto:hello@perspace.ai?subject=Walkthrough">Book a walkthrough →</a><a class="btn line" href="method.html">See the method →</a></div>
-</div></section>
-
-<footer><div class="wrap">
-  <a class="brand" href="index.html"><img src="img/perspace-mark-ink.png" alt="">Perspace</a>
-  <div class="ft"><a href="cockpit.html">Cockpit</a><a href="plugins.html">Plug-ins</a><a href="connects.html">What we connect to</a><a href="method.html">Method</a><a href="philosophy.html">Philosophy</a><a href="venture.html">Venture clienting</a><a href="insights.html">Library</a></div>
-  <div class="tl">We operate the future · Dubai · Abu Dhabi · hello@perspace.ai</div>
-</div></footer>
-<script src="site.js"></script>
 </body></html>

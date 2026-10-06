@@ -70,7 +70,7 @@
 .bor:hover{border-color:var(--ink)}
 .bon{font-size:19px;font-weight:700;letter-spacing:-.01em}
 .bos{display:flex;align-items:center;gap:8px;background:var(--ink);padding:9px 12px;flex-wrap:wrap}
-.bos span{background:#16223a;color:#cfdbe4;padding:6px 11px;font-size:13.5px;font-weight:500}
+.bos span{background:#16223a;color:#fff;padding:6px 11px;font-size:13.5px;font-weight:500}
 .bos i{font-style:normal;color:#8BA6B7;font-size:14px}
 .bom{display:flex;align-items:center;gap:10px;border:1.5px solid var(--ink);background:#fff;padding:9px 12px}.bom b{font-size:14.5px}
 .bom small{display:none}
@@ -85,7 +85,7 @@
 .ywq{align-self:flex-end;background:#fff;border:1px solid var(--line);padding:9px 13px;font-size:14.5px;max-width:85%}
 .ywa{align-self:flex-start;display:flex;gap:9px;align-items:flex-start;background:var(--ink);padding:10px 13px;max-width:92%;border-left:3px solid #8BA6B7}
 .ywa .agi{margin-top:2px}
-.ywa b{display:block;color:#fff;font-size:14.5px;font-weight:500}.ywa small{display:block;color:#8BA6B7;font-size:12px;margin-top:3px}
+.ywa b{display:block;color:#fff;font-size:14.5px;font-weight:500}.ywa small{display:block;color:rgba(255,255,255,.75);font-size:12px;margin-top:3px}
 .ywb>*{opacity:0;transform:translateY(8px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
 .ywc.in .ywb>*{opacity:1;transform:none}
 .ywc.in .ywb>:nth-child(2){transition-delay:.5s}.ywc.in .ywb>:nth-child(3){transition-delay:1s}.ywc.in .ywb>:nth-child(4){transition-delay:1.5s}.ywc.in .ywb>:nth-child(5){transition-delay:2s}.ywc.in .ywb>:nth-child(6){transition-delay:2.5s}
@@ -125,39 +125,77 @@
 }
 @media (max-width:420px){.ywt4{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){.ywb>*{opacity:1;transform:none}.ywbar i{transform:none}}
-/* hero socket */
-.sock{position:relative;height:420px}
-.sock .port{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:240px;height:240px;border-radius:50%;background:var(--ink);display:grid;place-items:center;box-shadow:0 0 0 16px rgba(9,17,32,.05),0 0 0 34px rgba(9,17,32,.03)}
-.sock .port img{height:62px;animation:spin2 18s linear infinite;filter:brightness(1.4)}
-.sock .chip{position:absolute;background:var(--card);border:1px solid var(--ink);padding:10px 14px;font-size:14px;font-weight:700;display:flex;gap:10px;align-items:center;white-space:nowrap;box-shadow:0 14px 30px rgba(9,17,32,.08);animation:plug 6s var(--ease) infinite;animation-delay:var(--d)}
-.sock .chip i{width:8px;height:8px;border-radius:50%;background:var(--accent)}
-@keyframes plug{0%{opacity:0;transform:translate(var(--x),var(--y)) scale(.9)}14%{opacity:1;transform:translate(var(--x),var(--y)) scale(1)}55%{opacity:1;transform:translate(var(--x),var(--y))}66%{opacity:0;transform:translate(calc(var(--x)*.6),calc(var(--y)*.6)) scale(.8)}75%{opacity:0;transform:translate(0,0) scale(.4)}100%{opacity:0;transform:translate(0,0) scale(.4)}}
-.sock .chip{left:calc(50% - 60px);top:calc(50% - 20px);animation-fill-mode:backwards}
-/* origins */
-.orig{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.og{border:1px solid var(--line);background:var(--card);padding:28px 26px}
-.og .dot{width:12px;height:12px;border-radius:50%;margin-bottom:18px}
-.og b{font-size:21px;font-weight:700;letter-spacing:-.015em}
-.og p{font-size:15.5px;line-height:1.55;color:var(--soft);margin-top:10px}
-.d-shelf{background:var(--silver)}.d-cockpit{background:var(--accent)}.d-venture{background:var(--ink)}
-.og{display:block;transition:transform .3s var(--ease),border-color .3s}.og:hover{transform:translateY(-3px);border-color:var(--ink)}
-.pgo{margin-top:22px;font-size:15px;font-weight:700}
-@media (max-width:900px){.orig{grid-template-columns:1fr}.sock{height:320px}.sock .port{width:170px;height:170px}.sock .port img{height:46px}}
+
+/* ===== 6 Oct 2026 · the locked map ===== */
+.pad.tight{padding:100px 0}
+.phero{padding:150px 0 70px}
+/* four rooms: one viewer, four tabs (the home component, moved here) */
+.ck{display:grid;grid-template-columns:360px 1fr;gap:56px;align-items:start}
+.tabs{display:flex;flex-direction:column}
+.tab{padding:20px 0 18px;border-top:1px solid var(--line);cursor:pointer;position:relative;background:none;border-left:0;border-right:0;border-bottom:0;text-align:left;font:inherit;color:inherit}
+.tab:last-child{border-bottom:1px solid var(--line)}
+.tab .t{display:flex;gap:14px;align-items:baseline}
+.tab .t span{font-size:11px;letter-spacing:.16em;color:var(--faint);font-weight:500}
+.tab .t b{font-size:24px;font-weight:500;letter-spacing:-.01em;color:var(--faint);transition:color .3s}
+.tab:hover .t b{color:var(--soft)}
+.tab .tx{max-height:0;overflow:hidden;opacity:0;transition:max-height .6s var(--ease),opacity .6s,margin .6s;margin-top:0}
+.tab .tx p{font-size:15.5px;line-height:1.5;color:var(--soft)}
+.tab.on .t b{color:var(--ink);font-weight:700}
+.tab.on .tx{max-height:200px;opacity:1;margin-top:10px}
+.tab .bar{position:absolute;left:0;bottom:-1px;height:2px;background:var(--ink);width:0}
+.tab.on .bar{animation:prog var(--dur,9s) linear forwards}
+@keyframes prog{to{width:100%}}
+.pills{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.pills span{font-size:12.5px;font-weight:700;padding:6px 10px;border:1px solid var(--ink);background:var(--card)}
+.pills .c{color:#fff;border:0;background:var(--c)}
+.pills .c.lt{color:var(--ink)}
+.viewer .device video{opacity:0;transition:opacity .8s}
+.viewer .device video.on{opacity:1}
+.viewer .vk{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-top:18px;flex-wrap:wrap}
+.viewer .vk .honest{margin-top:0}
+.dots{display:flex;gap:8px}.dots i{width:28px;height:3px;background:var(--line);transition:background .3s}.dots i.on{background:var(--ink)}
+/* grey to banked + one finding, one section */
+.gb{display:grid;grid-template-columns:1.15fr .85fr;gap:50px;align-items:stretch;margin-top:10px}
+.ladder{grid-template-columns:repeat(2,1fr)}
+.lg:nth-child(3){border-left:0}.lg:nth-child(n+3){border-top:1px solid var(--line)}
+.lg{padding:26px 24px 28px}
+.lg .sw{margin-bottom:20px}
+.fcard{display:flex;flex-direction:column}
+.fcard .st4{display:flex;gap:4px;margin-top:18px}
+.fcard .st4 i{flex:1;height:8px;background:#d8dade}
+.fcard.in .st4 i:nth-child(1){background:#b9bfc7}.fcard.in .st4 i:nth-child(2){background:#8ba6b7;transition:background .6s .3s}
+.fcard .st4l{display:flex;justify-content:space-between;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);font-weight:500;margin-top:8px}
+.fcard .st4l b{color:var(--ink)}
+.path div code{border-bottom:1px solid var(--ink)}
+.trail{display:flex;justify-content:center;margin:56px auto 0;max-width:620px;position:relative}
+.trail::before{content:"";position:absolute;left:12%;right:12%;top:7px;height:1px;background:var(--ink);opacity:.25}
+.trail a{flex:1;display:flex;flex-direction:column;align-items:center;gap:10px;font-size:13px;font-weight:500;color:var(--soft);position:relative}
+.trail a i{width:15px;height:15px;border-radius:50%;border:1.5px solid var(--ink);background:var(--ground);transition:background .3s,transform .3s var(--ease)}
+.trail a:hover i{background:var(--accent);transform:scale(1.2)}
+.trail a.on{color:var(--ink);font-weight:700}.trail a.on i{background:var(--ink)}
+.closeband{padding:110px 0 80px}
+@media (max-width:900px){
+  .pad.tight{padding:76px 0}
+  .phero{padding:110px 0 50px}
+  .ck{grid-template-columns:1fr;gap:26px}
+  .gb{grid-template-columns:1fr;gap:26px}
+  .closeband{padding:80px 0 60px}
+}
 </style></head>
 <body>
 <nav id="nav"><div class="wrap">
   <a class="brand" href="index.html"><img src="img/perspace-mark-ink.png" alt="">Perspace</a>
-  <div class="links"><a class="nck on" href="cockpit.html">Cockpit</a><a href="method.html">Method</a><a href="philosophy.html">Philosophy</a><a href="venture.html">Venture clienting</a></div>
+  <div class="links"><a class="nck on" href="cockpit.html">Cockpit</a><a href="method.html">Method</a><a href="plugins.html">Plug-ins</a></div>
   <a class="btn dark" href="mailto:hello@perspace.ai?subject=Walkthrough">Book a walkthrough →</a>
   <button class="mnu" aria-label="Menu" aria-expanded="false"><i></i><i></i></button>
 </div></nav>
 
 <section class="phero"><div class="glow"></div><div class="wrap grid">
   <div class="copy">
-    <div class="tag rv">The cockpit · 03 Value creation</div>
+    <div class="tag rv">The cockpit</div>
     <h1 class="rv d1">Your whole company, <b>on one screen.</b></h1>
-    <p class="lede rv d2">Drawn from its own files and kept current as it moves. Where the money sits, what is moving, and who carries it. Every figure traces back to the document it came from.</p>
-    <div class="btns rv d3"><a class="btn dark" href="mailto:hello@perspace.ai?subject=Walkthrough">Book a walkthrough →</a><a class="btn line" href="#rooms">Walk the four rooms ↓</a></div>
+    <p class="lede rv d2">Drawn from its own files and kept current. Every figure opens to the document it came from.</p>
+    <div class="btns rv d3"><a class="btn dark" href="mailto:hello@perspace.ai?subject=Walkthrough">Book a walkthrough →</a><a class="btn line" href="#rooms">The four rooms ↓</a></div>
   </div>
   <div class="rv d2">
     <div class="device"><video autoplay muted loop playsinline poster="img/poster_today.jpg"><source src="img/clip_today.webm" type="video/webm"><source src="img/clip_today.mp4" type="video/mp4"></video></div>
@@ -166,41 +204,30 @@
 </div></section>
 
 <!-- FOUR ROOMS -->
-<section class="pad" id="rooms" style="padding-top:30px"><div class="wrap">
+<section class="pad tight" id="rooms" style="padding-top:40px"><div class="wrap">
   <div class="head2">
     <div><div class="tag rv">Four rooms</div><h2 class="rv d1">One company, <b>read four ways.</b></h2></div>
-    <p class="lede rv d2">The same company in every room. What you learn in one lights up the next.</p>
+    <p class="lede rv d2">What you learn in one room lights up the next.</p>
   </div>
-  <div class="rooms">
-    <div class="room">
-      <div class="vis rv"><div class="device"><video autoplay muted loop playsinline preload="none" poster="img/poster_calibrate.jpg"><source src="img/clip_calibrate.webm" type="video/webm"><source src="img/clip_calibrate.mp4" type="video/mp4"></video></div></div>
-      <div class="rv d1"><div class="k">01 · CALIBRATE</div><h3>The company, <b>as its files describe it.</b></h3><p>What we read, what it tells us, and what the files could not tell us yet.</p>
-        <ul><li>Every answer names who gave it and when it expires</li><li>Gaps are listed as questions, never guessed</li></ul></div>
+  <div class="ck">
+    <div class="tabs rv" role="tablist">
+      <button class="tab on" role="tab"><div class="t"><span>01</span><b>Calibrate</b></div><div class="tx"><p>The company as its files describe it. Gaps become questions, never guesses.</p></div><div class="bar"></div></button>
+      <button class="tab" role="tab"><div class="t"><span>02</span><b>Value</b></div><div class="tx"><p>Where the money sits, in five rows.</p><div class="pills"><span class="c" style="--c:#2F6D7A">Revenue</span><span class="c lt" style="--c:#A9ACAF">Margin</span><span class="c" style="--c:#091120">Operations</span><span class="c" style="--c:#9C3F35">Risk</span><span class="c lt" style="--c:#8BA6B7">Support</span></div></div><div class="bar"></div></button>
+      <button class="tab" role="tab"><div class="t"><span>03</span><b>Work</b></div><div class="tx"><p>Every pocket becomes a project, in four rungs.</p><div class="pills"><span>Write it down</span><span>Make it right</span><span>Give it a tool</span><span>Give it an agent</span></div></div><div class="bar"></div></button>
+      <button class="tab" role="tab"><div class="t"><span>04</span><b>Workforce</b></div><div class="tx"><p>People and agents on one chart. Money out, prices and anything legal stop at a person.</p></div><div class="bar"></div></button>
     </div>
-    <div class="room">
-      <div class="vis rv"><div class="device"><video autoplay muted loop playsinline preload="none" poster="img/poster_value.jpg"><source src="img/clip_value.webm" type="video/webm"><source src="img/clip_value.mp4" type="video/mp4"></video></div></div>
-      <div class="rv d1"><div class="k">02 · VALUE</div><h3>Where <b>the money sits.</b></h3><p>Every pocket named, sized and traced to its file. Look here first, then the rest, row by row.</p>
-        <ul><li>Revenue, margin, operations, risk, support</li><li>Each pocket darkens as it is proven</li></ul></div>
-    </div>
-    <div class="room">
-      <div class="vis rv"><div class="device"><video autoplay muted loop playsinline preload="none" poster="img/poster_work.jpg"><source src="img/clip_work.webm" type="video/webm"><source src="img/clip_work.mp4" type="video/mp4"></video></div></div>
-      <div class="rv d1"><div class="k">03 · WORK</div><h3>What is <b>moving.</b></h3><p>Every pocket becomes a piece of work. Each one says who holds it, what it needs and where it is stuck.</p>
-        <ul><li>Write it down, make it right, give it a tool, give it an agent</li><li>Done means the agreed measure moved</li></ul></div>
-    </div>
-    <div class="room">
-      <div class="vis rv"><div class="device"><video autoplay muted loop playsinline preload="none" poster="img/poster_workforce.jpg"><source src="img/clip_workforce.webm" type="video/webm"><source src="img/clip_workforce.mp4" type="video/mp4"></video></div></div>
-      <div class="rv d1"><div class="k">04 · WORKFORCE</div><h3>People and agents, <b>one chart.</b></h3><p>Every piece of work carried by a person, an agent or a tool, each with a person accountable.</p>
-        <ul><li>Name and role on every line</li><li>Money out, prices and anything legal stop at a person</li></ul></div>
+    <div class="viewer rv d1">
+      <div class="device"><video class="on" poster="img/poster_calibrate.jpg" muted playsinline preload="auto"><source src="img/clip_calibrate.webm" type="video/webm"><source src="img/clip_calibrate.mp4" type="video/mp4"></video><video poster="img/poster_value.jpg" muted playsinline preload="none"><source src="img/clip_value.webm" type="video/webm"><source src="img/clip_value.mp4" type="video/mp4"></video><video poster="img/poster_work.jpg" muted playsinline preload="none"><source src="img/clip_work.webm" type="video/webm"><source src="img/clip_work.mp4" type="video/mp4"></video><video poster="img/poster_workforce.jpg" muted playsinline preload="none"><source src="img/clip_workforce.webm" type="video/webm"><source src="img/clip_workforce.mp4" type="video/mp4"></video></div>
+      <div class="vk"><div class="honest">A real cockpit · name and figures changed</div><div class="dots"><i class="on"></i><i></i><i></i><i></i></div></div>
     </div>
   </div>
-  <div class="honest" style="text-align:center">A real cockpit · the company's name and every figure are changed</div>
 </div></section>
 
 <!-- BACK OFFICE, AUTOMATED (Peter, 6 Oct 2026) -->
-<section class="pad" id="backoffice" style="background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)"><div class="wrap">
+<section class="pad tight" id="backoffice" style="background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)"><div class="wrap">
   <div class="head2">
     <div><div class="tag rv">Back office, automated</div><h2 class="rv d1">The agent prepares. <b>Your person signs.</b></h2></div>
-    <p class="lede rv d2">Five flows every company runs. The agent does the steps in between, and the call at the end stays with a named person on your team.</p>
+    <p class="lede rv d2">Five flows every company runs. The call at the end stays with a named person.</p>
   </div>
   <div class="bo">
     <div class="boh"><span>Flow</span><span><svg viewBox="0 0 24 24" class="agi" aria-hidden="true"><path d="M12 2l2.6 7.4L22 12l-7.4 2.6L12 22l-2.6-7.4L2 12l7.4-2.6z"/></svg>The agent prepares</span><span><svg viewBox="0 0 24 24" class="psi" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8z"/></svg>Your team signs</span></div>
@@ -214,10 +241,10 @@
 </div></section>
 
 <!-- YOUR WAY: CHAT OR DASHBOARD (Peter, 6 Oct 2026) -->
-<section class="pad" id="yourway"><div class="wrap">
+<section class="pad tight" id="yourway"><div class="wrap">
   <div class="head2">
     <div><div class="tag rv">Your way</div><h2 class="rv d1">Chat <b>or dashboard.</b></h2></div>
-    <p class="lede rv d2">Ask the cockpit a question and get one line back, with its source. Or read one page at the start of the day. We shape the interface around how you work.</p>
+    <p class="lede rv d2">Ask a question, get one line back with its source. Or read one page each morning.</p>
   </div>
   <div class="yw">
     <div class="ywc rv" data-trigger><div class="ywh"><b>Ask</b><span>A manager asks, the cockpit answers</span><em>Illustrative figures</em></div><div class="ywb"><div class="ywq">Which invoices are overdue this week?</div><div class="ywa"><svg viewBox="0 0 24 24" class="agi" aria-hidden="true"><path d="M12 2l2.6 7.4L22 12l-7.4 2.6L12 22l-2.6-7.4L2 12l7.4-2.6z"/></svg><div><b>14 invoices, 5 of them over 30 days late.</b><small>Source: Collections agent, from the invoice ledger</small></div></div><div class="ywq">Which customers are priced below similar ones?</div><div class="ywa"><svg viewBox="0 0 24 24" class="agi" aria-hidden="true"><path d="M12 2l2.6 7.4L22 12l-7.4 2.6L12 22l-2.6-7.4L2 12l7.4-2.6z"/></svg><div><b>6 customers, about a tenth below similar ones.</b><small>Source: Pricing agent, from orders and contracts</small></div></div><div class="ywq">Which contracts renew this quarter?</div><div class="ywa"><svg viewBox="0 0 24 24" class="agi" aria-hidden="true"><path d="M12 2l2.6 7.4L22 12l-7.4 2.6L12 22l-2.6-7.4L2 12l7.4-2.6z"/></svg><div><b>9 contracts, 3 renewals already drafted.</b><small>Source: Contract register, updated this morning</small></div></div></div></div>
@@ -229,10 +256,10 @@
 </div></section>
 
 <!-- A DAY WITH PERSPACE (Peter, 6 Oct 2026) -->
-<section class="pad" id="day" style="padding-top:20px"><div class="wrap">
+<section class="pad tight" id="day" style="padding-top:20px"><div class="wrap">
   <div class="head2">
     <div><div class="tag rv">A day with Perspace</div><h2 class="rv d1">Four moments, <b>one week.</b></h2></div>
-    <p class="lede rv d2">What the cockpit asks of you, and when. Everything else runs without you.</p>
+    <p class="lede rv d2">What the cockpit asks of you, and when. Every reply is logged.</p>
   </div>
   <div class="dyr">
     <div class="dys rv"><div class="dyk">Morning</div><h3>The chairman screen</h3><div class="dyv"><div class="dyt"><i style="border-color:#2F6D7A"></i><i style="border-color:#091120"></i><i style="border-color:#A9ACAF"></i><i style="border-color:#9C3F35"></i></div></div><p>Four tiles, read with the coffee.</p></div>
@@ -242,109 +269,60 @@
   </div>
 </div></section>
 
-<!-- GREYING -->
-<section class="pad" style="background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)"><div class="wrap">
+<!-- EVERYTHING STARTS GREY · EVERY FIGURE OPENS TO ITS FILE -->
+<section class="pad tight" id="grey" style="background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)"><div class="wrap">
   <div class="head2">
     <div><div class="tag rv">How you read it</div><h2 class="rv d1">Everything starts grey. <b>It darkens as it is proven.</b></h2></div>
-    <p class="lede rv d2">From the first day you see the whole shape of the company. Nothing is claimed before the files back it.</p>
+    <p class="lede rv d2">You see the whole shape from day one. Nothing is claimed before the files back it.</p>
   </div>
-  <div class="ladder" data-trigger>
-    <div class="lg"><div class="sw"></div><b>Greyed</b><span>Your own files keep pointing here. No number yet.</span></div>
-    <div class="lg"><div class="sw"></div><b>Named</b><span>Someone at your company has confirmed what it is. Still no number.</span></div>
-    <div class="lg"><div class="sw"></div><b>Sized</b><span>A range, an owner, and the measure we agree to move.</span></div>
-    <div class="lg"><div class="sw"></div><b>Banked</b><span>The agreed measure moved, and the record shows it.</span></div>
-  </div>
-</div></section>
-
-<!-- ONE FINDING -->
-<section class="pad"><div class="wrap trace">
-  <div>
-    <div class="tag rv">One finding, traced</div>
-    <h2 class="rv d1" style="margin-top:22px">Every figure <b>opens to its file.</b></h2>
-    <p class="lede rv d2" style="margin-top:22px">Tap a number and you land on the contract, the invoice or the sheet it came from. If the file is not there yet, the cockpit says what would fill it.</p>
-  </div>
-  <div class="fcard" data-trigger>
-    <div class="k">VALUE · PROCUREMENT</div>
-    <h4>The same category, bought three ways at three prices.</h4>
-    <div class="v">≈ $340k <small>a year</small></div>
-    <div class="path">
-      <div><i></i>Three suppliers, one spec</div>
-      <div><i></i>Read from <code>Supplier_Contracts_2026.xlsx</code></div>
-      <div><i></i>One ranked view, waiting on one approval</div>
+  <div class="gb">
+    <div class="ladder" data-trigger>
+      <div class="lg"><div class="sw"></div><b>Greyed</b><span>Your own files keep pointing here. No number yet.</span></div>
+      <div class="lg"><div class="sw"></div><b>Named</b><span>Your people confirmed what it is.</span></div>
+      <div class="lg"><div class="sw"></div><b>Sized</b><span>A range, an owner, and the measure to move.</span></div>
+      <div class="lg"><div class="sw"></div><b>Banked</b><span>The measure moved, and the record shows it.</span></div>
     </div>
-  </div>
-</div></section>
-
-<!-- PLUGS INTO -->
-<section class="pad" style="padding-top:30px"><div class="wrap">
-  <div class="head2">
-    <div><div class="tag rv">Your data</div><h2 class="rv d1">It plugs into <b>what you already run.</b></h2></div>
-    <p class="lede rv d2">Nothing to migrate and nothing new to learn. It sees what you permit, acts where you permit, and logs every step. You choose where it runs.</p>
-  </div>
-  <div class="plugs">
-    <div class="pl rv"><div class="k">01</div><b>Connected</b><p>Runs on our hosting, in a UAE region if you want. The fastest way to start.</p></div>
-    <div class="pl rv d1"><div class="k">02</div><b>Hybrid</b><p>Raw data stays inside your walls. Only the finished record crosses.</p></div>
-    <div class="pl rv d2"><div class="k">03</div><b>Private</b><p>All of it inside your own cloud, the model included. For regulated work and government.</p></div>
-  </div>
-  <!-- CONNECT STRIP · generated by method/gen/write-connects.py. Do not edit here. -->
-<style>
-.cstrip{overflow:hidden;margin-top:14px;mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
-.cstrip:first-of-type{margin-top:40px}
-.cstrip .run{display:flex;gap:14px;width:max-content;align-items:center;padding:6px 0;animation:cdrift 96s linear infinite}
-.cstrip .run.r1{animation-duration:118s;animation-direction:reverse}
-@keyframes cdrift{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-.cstrip .lg{flex:none;height:56px;display:flex;align-items:center;gap:11px;padding:0 18px;background:var(--ground);border:1px solid var(--line);color:var(--soft)}
-.cstrip .lg img{height:20px;width:20px;opacity:.55;filter:grayscale(1);flex:none}
-.cstrip .lg i{font-style:normal;font-size:14px;font-weight:700;letter-spacing:-.01em;white-space:nowrap}
-.cmore{margin-top:22px;font-size:15.5px;color:var(--soft)}
-.cmore a{font-weight:700;color:var(--ink);border-bottom:1px solid var(--line);padding-bottom:1px}
-.cmore a:hover{border-bottom-color:currentColor}
-@media(prefers-reduced-motion:reduce){.cstrip .run{animation:none}}
-</style>
-<div class="cstrip rv"><div class="run r0"><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/sap.svg" alt=""><i>SAP</i></span><span class="lg wm"><i>Oracle NetSuite</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/salesforce.svg" alt=""><i>Salesforce</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/xero.svg" alt=""><i>Xero</i></span><span class="lg wm"><i>SharePoint Online</i></span><span class="lg wm"><i>Microsoft Dynamics 365 Finance and Operations</i></span><span class="lg wm"><i>Infor LN</i></span><span class="lg wm"><i>Power BI</i></span><span class="lg wm"><i>IFS Cloud</i></span><span class="lg wm"><i>Foodics</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/adyen.svg" alt=""><i>Adyen</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/apachekafka.svg" alt=""><i>Kafka</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/autodesk.svg" alt=""><i>Autodesk</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/clickup.svg" alt=""><i>ClickUp</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/databricks.svg" alt=""><i>Databricks</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/dropbox.svg" alt=""><i>Dropbox</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/github.svg" alt=""><i>GitHub</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/googleads.svg" alt=""><i>Google Ads</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/googlecloud.svg" alt=""><i>Google Cloud</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/greenhouse.svg" alt=""><i>Greenhouse</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/informatica.svg" alt=""><i>Informatica</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/jira.svg" alt=""><i>Jira</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/magento.svg" alt=""><i>Magento</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/mongodb.svg" alt=""><i>MongoDB</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/notion.svg" alt=""><i>Notion</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/paypal.svg" alt=""><i>PayPal</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/redis.svg" alt=""><i>Redis</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/siemens.svg" alt=""><i>Siemens</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/splunk.svg" alt=""><i>Splunk</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/tableau.svg" alt=""><i>Tableau</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/trello.svg" alt=""><i>Trello</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/ups.svg" alt=""><i>UPS</i></span><span class="lg wm"><i>Microsoft Exchange</i></span><span class="lg wm"><i>Infor M3</i></span><span class="lg wm"><i>Sage 300</i></span><span class="lg wm"><i>Kyriba</i></span><span class="lg wm"><i>DP World CARGOES</i></span><span class="lg wm"><i>Korber WMS</i></span><span class="lg wm"><i>Oracle Opera</i></span><span class="lg wm"><i>MRI Software</i></span><span class="lg wm"><i>SAP Plant Maintenance</i></span><span class="lg wm"><i>Network International</i></span><span class="lg wm"><i>Bayzat</i></span><span class="lg wm"><i>Wafeq</i></span><span class="lg wm"><i>Toast</i></span><span class="lg wm"><i>BambooHR</i></span><span class="lg wm"><i>Informatica</i></span><span class="lg wm"><i>Fivetran</i></span><span class="lg wm"><i>Microsoft 365</i></span><span class="lg wm"><i>Microsoft Dynamics 365 Business Central</i></span><span class="lg wm"><i>Workday</i></span><span class="lg wm"><i>Tally</i></span><span class="lg wm"><i>ServiceNow</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/odoo.svg" alt=""><i>Odoo</i></span><span class="lg wm"><i>Epicor Kinetic</i></span><span class="lg wm"><i>Zoho Books</i></span><span class="lg wm"><i>Aramex</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/amazonwebservices.svg" alt=""><i>AWS</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/auth0.svg" alt=""><i>Auth0</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/box.svg" alt=""><i>Box</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/confluence.svg" alt=""><i>Confluence</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/dhl.svg" alt=""><i>DHL</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/fedex.svg" alt=""><i>FedEx</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/gmail.svg" alt=""><i>Gmail</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/googlebigquery.svg" alt=""><i>BigQuery</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/googlesheets.svg" alt=""><i>Google Sheets</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/hubspot.svg" alt=""><i>HubSpot</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/jenkins.svg" alt=""><i>Jenkins</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/looker.svg" alt=""><i>Looker</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/meta.svg" alt=""><i>Meta</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/mysql.svg" alt=""><i>MySQL</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/sap.svg" alt=""><i>SAP</i></span><span class="lg wm"><i>Oracle NetSuite</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/salesforce.svg" alt=""><i>Salesforce</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/xero.svg" alt=""><i>Xero</i></span><span class="lg wm"><i>SharePoint Online</i></span><span class="lg wm"><i>Microsoft Dynamics 365 Finance and Operations</i></span><span class="lg wm"><i>Infor LN</i></span><span class="lg wm"><i>Power BI</i></span><span class="lg wm"><i>IFS Cloud</i></span><span class="lg wm"><i>Foodics</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/adyen.svg" alt=""><i>Adyen</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/apachekafka.svg" alt=""><i>Kafka</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/autodesk.svg" alt=""><i>Autodesk</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/clickup.svg" alt=""><i>ClickUp</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/databricks.svg" alt=""><i>Databricks</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/dropbox.svg" alt=""><i>Dropbox</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/github.svg" alt=""><i>GitHub</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/googleads.svg" alt=""><i>Google Ads</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/googlecloud.svg" alt=""><i>Google Cloud</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/greenhouse.svg" alt=""><i>Greenhouse</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/informatica.svg" alt=""><i>Informatica</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/jira.svg" alt=""><i>Jira</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/magento.svg" alt=""><i>Magento</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/mongodb.svg" alt=""><i>MongoDB</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/notion.svg" alt=""><i>Notion</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/paypal.svg" alt=""><i>PayPal</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/redis.svg" alt=""><i>Redis</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/siemens.svg" alt=""><i>Siemens</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/splunk.svg" alt=""><i>Splunk</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/tableau.svg" alt=""><i>Tableau</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/trello.svg" alt=""><i>Trello</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/ups.svg" alt=""><i>UPS</i></span><span class="lg wm"><i>Microsoft Exchange</i></span><span class="lg wm"><i>Infor M3</i></span><span class="lg wm"><i>Sage 300</i></span><span class="lg wm"><i>Kyriba</i></span><span class="lg wm"><i>DP World CARGOES</i></span><span class="lg wm"><i>Korber WMS</i></span><span class="lg wm"><i>Oracle Opera</i></span><span class="lg wm"><i>MRI Software</i></span><span class="lg wm"><i>SAP Plant Maintenance</i></span><span class="lg wm"><i>Network International</i></span><span class="lg wm"><i>Bayzat</i></span><span class="lg wm"><i>Wafeq</i></span><span class="lg wm"><i>Toast</i></span><span class="lg wm"><i>BambooHR</i></span><span class="lg wm"><i>Informatica</i></span><span class="lg wm"><i>Fivetran</i></span><span class="lg wm"><i>Microsoft 365</i></span><span class="lg wm"><i>Microsoft Dynamics 365 Business Central</i></span><span class="lg wm"><i>Workday</i></span><span class="lg wm"><i>Tally</i></span><span class="lg wm"><i>ServiceNow</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/odoo.svg" alt=""><i>Odoo</i></span><span class="lg wm"><i>Epicor Kinetic</i></span><span class="lg wm"><i>Zoho Books</i></span><span class="lg wm"><i>Aramex</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/amazonwebservices.svg" alt=""><i>AWS</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/auth0.svg" alt=""><i>Auth0</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/box.svg" alt=""><i>Box</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/confluence.svg" alt=""><i>Confluence</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/dhl.svg" alt=""><i>DHL</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/fedex.svg" alt=""><i>FedEx</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/gmail.svg" alt=""><i>Gmail</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/googlebigquery.svg" alt=""><i>BigQuery</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/googlesheets.svg" alt=""><i>Google Sheets</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/hubspot.svg" alt=""><i>HubSpot</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/jenkins.svg" alt=""><i>Jenkins</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/looker.svg" alt=""><i>Looker</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/meta.svg" alt=""><i>Meta</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/mysql.svg" alt=""><i>MySQL</i></span></div></div>
-<div class="cstrip rv"><div class="run r1"><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/oracle.svg" alt=""><i>Oracle</i></span><span class="lg wm"><i>SAP S/4HANA</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/zoho.svg" alt=""><i>Zoho</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/quickbooks.svg" alt=""><i>QuickBooks</i></span><span class="lg wm"><i>Sage Intacct</i></span><span class="lg wm"><i>Outlook</i></span><span class="lg wm"><i>Microsoft Teams</i></span><span class="lg wm"><i>Focus Softnet</i></span><span class="lg wm"><i>Emirates NBD</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/airtable.svg" alt=""><i>Airtable</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/asana.svg" alt=""><i>Asana</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/bitbucket.svg" alt=""><i>Bitbucket</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/cloudera.svg" alt=""><i>Cloudera</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/datadog.svg" alt=""><i>Datadog</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/elasticsearch.svg" alt=""><i>Elasticsearch</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/gitlab.svg" alt=""><i>GitLab</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/googleanalytics.svg" alt=""><i>Google Analytics</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/googledrive.svg" alt=""><i>Google Drive</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/gusto.svg" alt=""><i>Gusto</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/intuit.svg" alt=""><i>Intuit</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/linkedin.svg" alt=""><i>LinkedIn</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/mailchimp.svg" alt=""><i>Mailchimp</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/mulesoft.svg" alt=""><i>MuleSoft</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/okta.svg" alt=""><i>Okta</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/postgresql.svg" alt=""><i>PostgreSQL</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/sage.svg" alt=""><i>Sage</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/slack.svg" alt=""><i>Slack</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/square.svg" alt=""><i>Square</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/teradata.svg" alt=""><i>Teradata</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/twilio.svg" alt=""><i>Twilio</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/woocommerce.svg" alt=""><i>WooCommerce</i></span><span class="lg wm"><i>SAP Ariba</i></span><span class="lg wm"><i>Acumatica</i></span><span class="lg wm"><i>Docusign</i></span><span class="lg wm"><i>Finastra</i></span><span class="lg wm"><i>Blue Yonder</i></span><span class="lg wm"><i>IBM Maximo</i></span><span class="lg wm"><i>LS Retail</i></span><span class="lg wm"><i>RealPage</i></span><span class="lg wm"><i>Mashreq</i></span><span class="lg wm"><i>PayTabs</i></span><span class="lg wm"><i>Darwinbox</i></span><span class="lg wm"><i>Qoyod</i></span><span class="lg wm"><i>Freshservice</i></span><span class="lg wm"><i>Procore</i></span><span class="lg wm"><i>Celonis</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/pagerduty.svg" alt=""><i>PagerDuty</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/qlik.svg" alt=""><i>Qlik</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/shopify.svg" alt=""><i>Shopify</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/snowflake.svg" alt=""><i>Snowflake</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/stripe.svg" alt=""><i>Stripe</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/tiktok.svg" alt=""><i>TikTok</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/uipath.svg" alt=""><i>UiPath</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/zendesk.svg" alt=""><i>Zendesk</i></span><span class="lg wm"><i>IBM Db2</i></span><span class="lg wm"><i>TallyPrime</i></span><span class="lg wm"><i>Coupa</i></span><span class="lg wm"><i>Mambu</i></span><span class="lg wm"><i>Manhattan Associates</i></span><span class="lg wm"><i>Oracle MICROS Simphony</i></span><span class="lg wm"><i>Yardi</i></span><span class="lg wm"><i>Oracle Primavera Cloud</i></span><span class="lg wm"><i>First Abu Dhabi Bank</i></span><span class="lg wm"><i>Tap Payments</i></span><span class="lg wm"><i>greytHR</i></span><span class="lg wm"><i>Lightspeed Retail</i></span><span class="lg wm"><i>Smartsheet</i></span><span class="lg wm"><i>Samsara</i></span><span class="lg wm"><i>Palantir Foundry</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/oracle.svg" alt=""><i>Oracle</i></span><span class="lg wm"><i>SAP S/4HANA</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/zoho.svg" alt=""><i>Zoho</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/quickbooks.svg" alt=""><i>QuickBooks</i></span><span class="lg wm"><i>Sage Intacct</i></span><span class="lg wm"><i>Outlook</i></span><span class="lg wm"><i>Microsoft Teams</i></span><span class="lg wm"><i>Focus Softnet</i></span><span class="lg wm"><i>Emirates NBD</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/airtable.svg" alt=""><i>Airtable</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/asana.svg" alt=""><i>Asana</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/bitbucket.svg" alt=""><i>Bitbucket</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/cloudera.svg" alt=""><i>Cloudera</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/datadog.svg" alt=""><i>Datadog</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/elasticsearch.svg" alt=""><i>Elasticsearch</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/gitlab.svg" alt=""><i>GitLab</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/googleanalytics.svg" alt=""><i>Google Analytics</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/googledrive.svg" alt=""><i>Google Drive</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/gusto.svg" alt=""><i>Gusto</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/intuit.svg" alt=""><i>Intuit</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/linkedin.svg" alt=""><i>LinkedIn</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/mailchimp.svg" alt=""><i>Mailchimp</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/mulesoft.svg" alt=""><i>MuleSoft</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/okta.svg" alt=""><i>Okta</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/postgresql.svg" alt=""><i>PostgreSQL</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/sage.svg" alt=""><i>Sage</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/slack.svg" alt=""><i>Slack</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/square.svg" alt=""><i>Square</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/teradata.svg" alt=""><i>Teradata</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/twilio.svg" alt=""><i>Twilio</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/woocommerce.svg" alt=""><i>WooCommerce</i></span><span class="lg wm"><i>SAP Ariba</i></span><span class="lg wm"><i>Acumatica</i></span><span class="lg wm"><i>Docusign</i></span><span class="lg wm"><i>Finastra</i></span><span class="lg wm"><i>Blue Yonder</i></span><span class="lg wm"><i>IBM Maximo</i></span><span class="lg wm"><i>LS Retail</i></span><span class="lg wm"><i>RealPage</i></span><span class="lg wm"><i>Mashreq</i></span><span class="lg wm"><i>PayTabs</i></span><span class="lg wm"><i>Darwinbox</i></span><span class="lg wm"><i>Qoyod</i></span><span class="lg wm"><i>Freshservice</i></span><span class="lg wm"><i>Procore</i></span><span class="lg wm"><i>Celonis</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/pagerduty.svg" alt=""><i>PagerDuty</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/qlik.svg" alt=""><i>Qlik</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/shopify.svg" alt=""><i>Shopify</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/snowflake.svg" alt=""><i>Snowflake</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/stripe.svg" alt=""><i>Stripe</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/tiktok.svg" alt=""><i>TikTok</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/uipath.svg" alt=""><i>UiPath</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/zendesk.svg" alt=""><i>Zendesk</i></span><span class="lg wm"><i>IBM Db2</i></span><span class="lg wm"><i>TallyPrime</i></span><span class="lg wm"><i>Coupa</i></span><span class="lg wm"><i>Mambu</i></span><span class="lg wm"><i>Manhattan Associates</i></span><span class="lg wm"><i>Oracle MICROS Simphony</i></span><span class="lg wm"><i>Yardi</i></span><span class="lg wm"><i>Oracle Primavera Cloud</i></span><span class="lg wm"><i>First Abu Dhabi Bank</i></span><span class="lg wm"><i>Tap Payments</i></span><span class="lg wm"><i>greytHR</i></span><span class="lg wm"><i>Lightspeed Retail</i></span><span class="lg wm"><i>Smartsheet</i></span><span class="lg wm"><i>Samsara</i></span><span class="lg wm"><i>Palantir Foundry</i></span></div></div>
-<p class="cmore rv">1,004 systems, named one by one. <a href="connects.html">What we connect to &rarr;</a></p>
-<!-- /CONNECT STRIP -->
-</div></section>
-
-<!-- PLUG-INS: the opening of plugins.html, the full menu lives there -->
-<section class="pad" id="plugins" style="background:var(--card);border-top:1px solid var(--line)"><div class="wrap">
-  <div class="phero" style="padding:0"><div class="grid">
-    <div class="copy">
-      <div class="tag rv">Plug-ins</div>
-      <h2 class="rv d1">Plug in what <b>fixes your problem.</b></h2>
-      <p class="lede rv d2">The cockpit finds where you are losing money. You plug in the ones that fix it. Some are off the shelf, some are learned from a cockpit, some we source from the world.</p>
-      <div class="btns rv d3"><a class="btn dark" href="plugins.html">See all plug-ins →</a><a class="btn line" href="mailto:hello@perspace.ai?subject=Which%20plug-ins%20fit%20us">Which ones fit you? →</a></div>
+    <div class="fcard" id="trace" data-trigger>
+      <div class="k">EVERY FIGURE OPENS TO ITS FILE</div>
+      <h4>The same category, bought three ways at three prices.</h4>
+      <div class="st4"><i></i><i></i><i></i><i></i></div>
+      <div class="st4l"><span>Greyed</span><b>Named</b><span>Sized</span><span>Banked</span></div>
+      <div class="path">
+        <div><i></i>Three suppliers, one spec</div>
+        <div><i></i>Read from <code>Supplier_Contracts_2026.xlsx</code></div>
+        <div><i></i>Sized once your people confirm it</div>
+      </div>
     </div>
-    <div class="sock rv d2" aria-hidden="true">
-      <div class="port"><img src="img/star-crop.png" alt=""></div>
-      <div class="chip" style="--x:-150px;--y:-150px;--d:0s"><i></i>Collections</div>
-      <div class="chip" style="--x:140px;--y:-120px;--d:1s"><i></i>Contract Reader</div>
-      <div class="chip" style="--x:150px;--y:120px;--d:2s"><i></i>Polynome</div>
-      <div class="chip" style="--x:-170px;--y:140px;--d:3s"><i></i>Cash Forecast</div>
-      <div class="chip" style="--x:-5px;--y:-205px;--d:4s"><i></i>Recruiter</div>
-      <div class="chip" style="--x:10px;--y:180px;--d:5s"><i></i>Dispatch</div>
-    </div>
-  </div></div>
-  <div class="tag rv" style="margin-top:60px">Every plug-in says where it came from</div>
-  <div class="orig" style="margin-top:30px">
-    <a class="og rv" href="plugins.html#menu"><div class="dot d-shelf"></div><b>Off the shelf</b><p>Standard work every company has, ready on day one.</p><div class="pgo">See them →</div></a>
-    <a class="og rv d1" href="plugins.html#menu"><div class="dot d-cockpit"></div><b>Learned from a cockpit</b><p>Built once for a real client problem, then offered to every client after.</p><div class="pgo">See them →</div></a>
-    <a class="og rv d2" href="plugins.html#menu"><div class="dot d-venture"></div><b>Sourced from the world</b><p>Proven technology we find through venture clienting, when that beats building it.</p><div class="pgo">See them →</div></a>
   </div>
 </div></section>
 
 <section class="closeband"><div class="wrap">
   <div class="m rv"><img src="img/mark-left-c.png" alt=""><img class="s" src="img/star-crop.png" alt=""><img src="img/mark-right-c.png" alt=""></div>
   <h2 class="rv d1">See your company <b>on one screen.</b></h2>
-  <p class="lede rv d2">Start with one pocket. We show you the money, go in and get it, and prove it moved.</p>
-  <div class="btns rv d3"><a class="btn dark" href="mailto:hello@perspace.ai?subject=Walkthrough">Book a walkthrough →</a><a class="btn line" href="plugins.html">See the plug-ins →</a></div>
+  <p class="lede rv d2">Start with one project. See every step on one screen.</p>
+  <div class="btns rv d3"><a class="btn dark" href="mailto:hello@perspace.ai?subject=Walkthrough">Book a walkthrough →</a><a class="btn line" href="method.html">The method →</a></div>
+  <nav class="trail rv" aria-label="The site"><a href="index.html"><i></i>Home</a><a class="on" href="cockpit.html"><i></i>Cockpit</a><a href="method.html"><i></i>Method</a><a href="plugins.html"><i></i>Plug-ins</a></nav>
 </div></section>
 
 <footer><div class="wrap">
   <a class="brand" href="index.html"><img src="img/perspace-mark-ink.png" alt="">Perspace</a>
-  <div class="ft"><a href="cockpit.html">Cockpit</a><a href="plugins.html">Plug-ins</a><a href="connects.html">What we connect to</a><a href="method.html">Method</a><a href="philosophy.html">Philosophy</a><a href="venture.html">Venture clienting</a><a href="insights.html">Library</a></div>
+  <div class="ft"><a href="index.html">Home</a><a href="cockpit.html">Cockpit</a><a href="method.html">Method</a><a href="plugins.html">Plug-ins</a></div>
   <div class="tl">We operate the future · Dubai · Abu Dhabi · hello@perspace.ai</div>
 </div></footer>
 <script src="site.js"></script>
+<script>
+(function(){
+  // the four rooms: auto-advance, each tab plays its own real screen
+  const tabs=[...document.querySelectorAll('.tab')], vids=[...document.querySelectorAll('.viewer video')], dots=[...document.querySelectorAll('.dots i')];
+  let cur=0,timer;
+  function show(n){ cur=n; tabs.forEach((t,j)=>{t.classList.toggle('on',j===n); t.setAttribute('aria-selected',j===n); const b=t.querySelector('.bar'); b.style.animation='none'; b.offsetWidth; b.style.animation='';});
+    dots.forEach((d,j)=>d.classList.toggle('on',j===n));
+    vids.forEach((vd,j)=>{ if(j===n){vd.classList.add('on'); if(vd.preload==='none'){vd.preload='auto';vd.load();} try{vd.currentTime=0;vd.play().catch(()=>{});}catch(e){}} else {vd.classList.remove('on'); vd.pause();}});
+    const dur=(vids[n].duration&&isFinite(vids[n].duration))?vids[n].duration:10; tabs[n].style.setProperty('--dur',dur+'s');
+    clearTimeout(timer); timer=setTimeout(()=>show((n+1)%tabs.length),dur*1000); }
+  tabs.forEach((t,j)=>t.addEventListener('click',()=>show(j)));
+  vids.forEach(v=>v.addEventListener('loadedmetadata',()=>{ if(vids.indexOf(v)===cur) show(cur); },{once:true}));
+  show(0);
+})();
+</script>
 </body></html>

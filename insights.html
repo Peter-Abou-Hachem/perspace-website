@@ -1,170 +1,21 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Library · Perspace</title>
-<meta name="description" content="The Perspace library: repeatable plays that find money, the methods we run on every company, and the territories every company is read on.">
+<title>The library · Perspace</title>
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://perspace.ai/method.html#library">
+<meta http-equiv="refresh" content="0; url=method.html#library">
 <link rel="icon" type="image/png" href="img/favicon.png">
 <link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="site.css">
-<style>
-/* hero shelf */
-.phero .grid>*{min-width:0}
-.shelf{position:relative;height:400px;display:flex;align-items:flex-end;justify-content:center;gap:10px;padding-bottom:30px;border-bottom:2px solid var(--ink)}
-.bk2{flex:1 1 0;max-width:40px;min-width:0;overflow:hidden;background:#d8dade;border:1px solid var(--silver);position:relative;transform-origin:bottom;animation:rise 1.2s var(--ease) both;animation-delay:var(--d);display:flex;align-items:flex-end;justify-content:center;padding-bottom:12px}
-.bk2 span{writing-mode:vertical-rl;transform:rotate(180deg);font-size:10.5px;letter-spacing:.14em;font-weight:500;color:var(--faint);white-space:nowrap}
-.bk2.w{background:var(--ink);border-color:var(--ink)}.bk2.w span{color:#fff}
-.bk2.w::after{content:"";position:absolute;left:0;right:0;top:0;height:6px;background:var(--accent)}
-@keyframes rise{from{transform:scaleY(0);opacity:0}to{transform:scaleY(1);opacity:1}}
-/* shelves */
-.lib-top{display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap;margin-bottom:40px}
-.legend{display:flex;gap:18px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--soft);font-weight:500}
-.legend i{display:inline-block;width:10px;height:10px;margin-right:8px;vertical-align:-1px}
-.shelfrow{display:grid;grid-template-columns:260px 1fr;gap:40px;padding:44px 0;border-top:1px solid var(--ink)}
-.shelfrow h3{font-size:32px;font-weight:700;letter-spacing:-.02em}
-.shelfrow .def{font-size:15.5px;line-height:1.55;color:var(--soft);margin-top:12px}
-.shelfrow .n{font-size:12px;letter-spacing:.14em;color:var(--accent-ink);font-weight:500;margin-top:18px}
-.papers{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.pp{border:1px solid var(--line);background:var(--ground);padding:22px 20px 20px;min-height:170px;display:flex;flex-direction:column;gap:10px;text-align:left;font:inherit;color:inherit;cursor:default;position:relative}
-.pp .k{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:500;color:var(--faint)}
-.pp b{font-size:19px;font-weight:700;letter-spacing:-.01em;line-height:1.25;color:var(--faint)}
-.pp p{font-size:14px;line-height:1.5;color:var(--faint)}
-.pp .go{margin-top:auto;font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--faint)}
-.pp.w{background:var(--card);border-color:var(--ink);cursor:pointer;transition:transform .3s var(--ease),box-shadow .3s}
-.pp.w:hover{transform:translateY(-4px);box-shadow:0 20px 40px rgba(9,17,32,.1)}
-.pp.w .k{color:var(--accent-ink)}.pp.w b{color:var(--ink)}.pp.w p{color:var(--soft)}.pp.w .go{color:var(--ink)}
-.pp.w::before{content:"";position:absolute;left:-1px;right:-1px;top:-1px;height:4px;background:var(--ink)}
-/* reader */
-.rd{position:fixed;inset:0;z-index:80;background:rgba(9,17,32,.45);display:flex;justify-content:flex-end;opacity:0;pointer-events:none;transition:opacity .35s}
-.rd.open{opacity:1;pointer-events:auto}
-.rd .sheet{width:min(720px,100%);height:100%;background:var(--card);overflow-y:auto;transform:translateX(40px);transition:transform .45s var(--ease);padding:calc(env(safe-area-inset-top,0px) + 40px) 56px 80px}
-.rd.open .sheet{transform:none}
-.rd .x{position:sticky;top:0;float:right;width:42px;height:42px;border:1px solid var(--ink);background:var(--card);font:500 20px var(--f);cursor:pointer;color:var(--ink)}
-.rd .k{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent-ink);font-weight:500}
-.rd h2{font-size:clamp(32px,4vw,46px);margin-top:16px;max-width:14em}
-.rd .sub{font-size:19px;line-height:1.5;color:var(--soft);margin-top:18px;max-width:30em}
-.rd section{padding:30px 0 0;margin-top:30px;border-top:1px solid var(--line);overflow:visible}
-.rd section h4{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);font-weight:700}
-.rd section p{font-size:17px;line-height:1.65;color:var(--soft);margin-top:12px;max-width:34em}
-.rd section ul{list-style:none;margin-top:14px;display:grid;gap:10px}
-.rd section li{font-size:16.5px;line-height:1.5;color:var(--ink);padding-left:22px;position:relative}
-.rd section li::before{content:"";position:absolute;left:0;top:11px;width:10px;height:1px;background:var(--ink)}
-.rd .foot{margin-top:40px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
-.x:focus-visible,.pp.w:focus-visible{outline:2px solid var(--accent-ink);outline-offset:3px}
-@media (max-width:900px){
-  .shelfrow{grid-template-columns:1fr;gap:22px;padding:34px 0}
-  .papers{grid-template-columns:1fr 1fr}
-  .shelf{height:260px;gap:4px;overflow:hidden}.bk2 span{display:none}.phero .grid>*{min-width:0}
-  .rd .sheet{padding:calc(env(safe-area-inset-top,0px) + 24px) 22px 60px}
-}
-@media (max-width:480px){.papers{grid-template-columns:1fr}.pp{min-height:0}}
-</style></head>
-<body>
-<nav id="nav"><div class="wrap">
+<script>(function(){var h=location.hash&&location.hash.length>1?location.hash:'#library';location.replace('method.html'+h);})();</script>
+<style>.fwd{min-height:100vh;display:flex;align-items:center}.fwd .wrap>*+*{margin-top:22px}</style>
+</head><body>
+<section class="fwd"><div class="wrap">
   <a class="brand" href="index.html"><img src="img/perspace-mark-ink.png" alt="">Perspace</a>
-  <div class="links"><a class="nck" href="cockpit.html">Cockpit</a><a href="method.html">Method</a><a href="philosophy.html">Philosophy</a><a href="venture.html">Venture clienting</a></div>
-  <a class="btn dark" href="mailto:hello@perspace.ai?subject=Walkthrough">Book a walkthrough →</a>
-  <button class="mnu" aria-label="Menu" aria-expanded="false"><i></i><i></i></button>
-</div></nav>
-
-<section class="phero"><div class="glow"></div><div class="wrap grid">
-  <div class="copy">
-    <div class="tag rv">The library</div>
-    <h1 class="rv d1">What we have learned, <b>written down.</b></h1>
-    <p class="lede rv d2">The plays that find money, the methods we run on every company, and the territories every company is read on. Each one is a short paper: the problem, the signs, the method, and what moves.</p>
-    <p class="rv d3" style="font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-ink);font-weight:500" id="tally"></p>
-  </div>
-  <div class="shelf rv d2" id="shelf" aria-hidden="true"></div>
+  <div class="tag">The library has moved</div>
+  <h1>The library, <b>on the Method page.</b></h1>
+  <p class="lede">It now lives on the Method page.</p>
+  <div class="btns"><a class="btn dark" href="method.html#library">Go to Method &rarr;</a><a class="btn line" href="index.html">Home</a></div>
 </div></section>
-
-<section class="pad" style="padding-top:30px"><div class="wrap">
-  <div class="lib-top">
-    <div><div class="tag rv">Three shelves</div><h2 class="rv d1" style="margin-top:22px">Plays, methods <b>and territories.</b></h2></div>
-    <div class="legend rv d2"><span><i style="background:var(--ink)"></i>Written</span><span><i style="background:#d8dade;border:1px solid var(--silver)"></i>In writing</span></div>
-  </div>
-  <div id="lib"></div>
-</div></section>
-
-<section class="closeband"><div class="wrap">
-  <div class="m rv"><img src="img/mark-left-c.png" alt=""><img class="s" src="img/star-crop.png" alt=""><img src="img/mark-right-c.png" alt=""></div>
-  <h2 class="rv d1">Run the plays <b>on your company.</b></h2>
-  <p class="lede rv d2">Start with one pocket. We show you the money, go in and get it, and prove it moved.</p>
-  <div class="btns rv d3"><a class="btn dark" href="mailto:hello@perspace.ai?subject=Walkthrough">Book a walkthrough →</a><a class="btn line" href="method.html">See the method →</a></div>
-</div></section>
-
-<div class="rd" id="rd" role="dialog" aria-modal="true" aria-labelledby="rdt"><div class="sheet" id="sheet"></div></div>
-
-<footer><div class="wrap">
-  <a class="brand" href="index.html"><img src="img/perspace-mark-ink.png" alt="">Perspace</a>
-  <div class="ft"><a href="cockpit.html">Cockpit</a><a href="plugins.html">Plug-ins</a><a href="connects.html">What we connect to</a><a href="method.html">Method</a><a href="philosophy.html">Philosophy</a><a href="venture.html">Venture clienting</a><a href="insights.html">Library</a></div>
-  <div class="tl">We operate the future · Dubai · Abu Dhabi · hello@perspace.ai</div>
-</div></footer>
-<script src="site.js"></script>
-<script>
-const SHELVES=[
- {id:"plays",name:"Plays",def:"Repeatable ways we find money. The same play works across industries, because it fires on the shape of the data.",items:[
-  {id:"price-list-invoice",t:"Between the price list and the invoice",s:"What the company says it charges, against what it actually billed.",paper:{
-    sub:"Every company has a price. Very few charge it. The gap lives between two files nobody reads side by side.",
-    problem:"Sales agree a price in the room, finance invoices something else, and discounts that started as exceptions quietly become the price. Nobody is hiding anything. The two numbers simply live in different systems, owned by different people.",
-    signs:["Discounts that repeat on the same customers every month","A price list nobody has changed in years","Invoices that cannot be traced back to a signed price","Sales and finance each confident, and each with a different total"],
-    method:"We read the price list, the contracts and the invoices, and line them up customer by customer and line by line. Every gap is priced and traced to the file it came from. Then one person owns each gap: keep it on purpose, or close it.",
-    moves:"The share of revenue billed at the agreed price, month on month. The measure is the invoice, never the promise."}},
-  {id:"bought-three-ways",t:"The same thing, bought three ways",s:"One category, three suppliers, three prices, one spec."},
-  {id:"capacity-unsold",t:"Capacity nobody sold",s:"What the company owns that earned nothing this year."},
-  {id:"power-bill",t:"The money inside the power bill",s:"Contracts, assets and bills, read together for the first time."},
-  {id:"cash-90",t:"Cash past 90 days",s:"Money already earned, still sitting with the customer."},
-  {id:"report-nobody-reads",t:"The report nobody reads",s:"Hours of work every month that no decision depends on."}]},
- {id:"methods",name:"Methods",def:"How we work, the same on every company. Each one is written down so it can be repeated, checked and improved.",items:[
-  {id:"grey-to-banked",t:"Grey to banked",s:"How a pocket of money earns its number.",paper:{
-    sub:"From the first day you see the whole shape of the company. Nothing is claimed before the files back it.",
-    problem:"Most programmes open on a big number. It is either a guess, or it takes months to prove, and by then nobody trusts it. The owner is asked to believe first and see later.",
-    signs:["A business case with one total and no sources","Savings claimed before anyone has checked the files","Numbers that change every time someone new presents them"],
-    method:"Every pocket moves through four states, and the cockpit shows each one in its own shade. Greyed: the company's own files keep pointing here, no number yet. Named: someone at the company has confirmed what it is, still no number. Sized: a range, an owner, and the measure we agree to move. Banked: the agreed measure moved, and the record shows it. A pocket only darkens when the evidence arrives.",
-    moves:"How much of the company has moved from greyed to banked. That is the only total worth reporting."}},
-  {id:"blueprint",t:"The blueprint, from your own files",s:"One live map of how the company really runs."},
-  {id:"four-rungs",t:"Four rungs, and why the agent comes last",s:"Write it down, make it right, give it a tool, give it an agent."},
-  {id:"build-or-source",t:"Build, source, or neither",s:"When we build, when we bring it in, and when it is a decision."},
-  {id:"one-person",t:"One person on every line",s:"Every piece of work carried by a person, an agent or a tool, with a person accountable."}]},
- {id:"territories",name:"Territories",def:"The areas every company is read on, in the same order, so a chairman can compare one company with the next.",items:[
-  {id:"revenue",t:"Revenue",s:"Who pays, where new money comes from, and whether it comes back."},
-  {id:"margin",t:"Margin",s:"Where the money leaks between the price and the cash.",paper:{
-    sub:"Revenue tells you what came in. Margin tells you what the company kept, and most of what it lost it never saw leave.",
-    problem:"Margin is rarely lost in one place. It leaks a little at a time: a discount here, a supplier there, a cost nobody allocated. Each leak is too small to call a problem, and together they are the difference between a good year and a flat one.",
-    signs:["Revenue grows and margin does not","Costs grouped so broadly that nobody owns them","The same service costing very different amounts in different places","Margin reported once a quarter, long after the decisions were made"],
-    method:"We read margin line by line: the price, the discount, the cost to serve and the cost of what was bought. Each one is traced to its file and becomes a pocket once your people confirm the reading. What is most at stake goes first, each owned by a named person.",
-    moves:"Margin per line, against the way it ran before, checked at 30, 60 and 90 days."}},
-  {id:"operations",t:"Operations",s:"Where the time goes, and what waits on whom."},
-  {id:"risk",t:"Risk",s:"What would hurt, and whether anyone would see it coming."},
-  {id:"support",t:"Support",s:"The work that keeps everything else going."}]}
-];
-const all=SHELVES.flatMap(s=>s.items.map(i=>({...i,shelf:s.name})));
-const written=all.filter(i=>i.paper);
-document.getElementById('tally').textContent=written.length.toLocaleString('en-US')+' of '+all.length.toLocaleString('en-US')+' papers written · more every month';
-// hero shelf: one spine per paper
-const sh=document.getElementById('shelf');
-all.forEach((it,j)=>{const b=document.createElement('div');b.className='bk2'+(it.paper?' w':'');b.style.height=(200+((j*37)%130))+'px';b.style.setProperty('--d',(j*0.05)+'s');b.innerHTML='<span>'+it.t+'</span>';sh.appendChild(b);});
-// shelves
-const lib=document.getElementById('lib');
-SHELVES.forEach(s=>{const w=s.items.filter(i=>i.paper).length;
-  const row=document.createElement('div');row.className='shelfrow';
-  row.innerHTML='<div class="rv"><h3>'+s.name+'</h3><p class="def">'+s.def+'</p><div class="n">'+w+' OF '+s.items.length+' WRITTEN</div></div><div class="papers">'+
-   s.items.map(i=>i.paper?'<button class="pp w rv" data-id="'+i.id+'"><div class="k">'+s.name+' · written</div><b>'+i.t+'</b><p>'+i.s+'</p><div class="go">Read →</div></button>'
-     :'<div class="pp rv"><div class="k">'+s.name+' · in writing</div><b>'+i.t+'</b><p>'+i.s+'</p><div class="go">Coming soon</div></div>').join('')+'</div>';
-  lib.appendChild(row);});
-document.querySelectorAll('#lib .rv').forEach(el=>{new IntersectionObserver((es,o)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');o.unobserve(e.target);}}),{threshold:.15}).observe(el);});
-// reader
-const rd=document.getElementById('rd'),sheet=document.getElementById('sheet');let last=null;
-function openP(id,push){const i=written.find(x=>x.id===id);if(!i)return;const p=i.paper;
-  sheet.innerHTML='<button class="x" aria-label="Close">×</button><div class="k">'+i.shelf+'</div><h2 id="rdt">'+i.t+'</h2><p class="sub">'+p.sub+'</p>'+
-   '<section><h4>The problem</h4><p>'+p.problem+'</p></section><section><h4>The signs</h4><ul>'+p.signs.map(x=>'<li>'+x+'</li>').join('')+'</ul></section>'+
-   '<section><h4>The method</h4><p>'+p.method+'</p></section><section><h4>What moves</h4><p>'+p.moves+'</p></section>'+
-   '<div class="foot">Perspace library · '+i.shelf+'</div>';
-  rd.classList.add('open');document.body.style.overflow='hidden';sheet.scrollTop=0;sheet.querySelector('.x').addEventListener('click',closeP);sheet.querySelector('.x').focus();
-  if(push!==false) history.replaceState(null,'','#'+id);}
-function closeP(){rd.classList.remove('open');document.body.style.overflow='';history.replaceState(null,'',location.pathname);if(last)last.focus();}
-lib.addEventListener('click',e=>{const b=e.target.closest('.pp.w');if(b){last=b;openP(b.dataset.id);}});
-rd.addEventListener('click',e=>{if(e.target===rd)closeP();});
-addEventListener('keydown',e=>{if(e.key==='Escape'&&rd.classList.contains('open'))closeP();});
-if(location.hash) openP(location.hash.slice(1),false);
-addEventListener('hashchange',()=>{if(location.hash) openP(location.hash.slice(1),false);});
-</script>
 </body></html>

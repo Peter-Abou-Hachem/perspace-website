@@ -288,12 +288,113 @@ nav.open .mnu i:first-child{transform:translateY(3.75px) rotate(45deg)}nav.open 
   box-shadow:inset 0 0 0 .5px rgba(13,28,44,.35),0 0 0 2px rgba(166,169,170,.18);animation:ckturn 9s linear infinite}
 @keyframes ckturn{to{transform:rotate(360deg)}}
 @media (prefers-reduced-motion:reduce){.links a.nck::before{animation:none}}
+/* ===== 6 Oct 2026 · the locked map: home in five screens ===== */
+.links a.on{color:var(--ink);text-decoration:underline;text-underline-offset:8px;text-decoration-thickness:1px}
+.space{height:165vh}
+.space .note a{color:#fff;border-bottom:1px solid rgba(255,255,255,.35);padding-bottom:2px;margin-left:10px;transition:border-color .3s}
+.space .note a:hover{border-color:#fff}
+.sec{padding:100px 0}
+.data h2,.proof h2,.fd h2{font-size:clamp(30px,3.4vw,48px)}
+.hd2{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;margin-bottom:44px}
+.hd2 h2{margin-top:22px}
+/* the plan, two lanes */
+.plan{background:var(--card);border:1px solid var(--ink);padding:26px 28px 22px;box-shadow:0 40px 80px rgba(9,17,32,.08)}
+.plan .u{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);font-weight:500;margin-bottom:16px}
+.pgrid{display:grid;grid-template-columns:230px repeat(6,1fr);row-gap:14px;align-items:center}
+.pm{font-size:12.5px;font-weight:500;color:var(--soft);border-left:1px solid var(--line);padding:0 0 10px 10px}
+.pm .s{display:none}
+.plab b{display:block;font-size:19px;font-weight:700;letter-spacing:-.01em}
+.plab span{display:block;font-size:13.5px;color:var(--soft);margin-top:4px}
+.ptrack{grid-column:2/8;display:grid;grid-template-columns:repeat(6,1fr);height:72px;background:repeating-linear-gradient(90deg,var(--line) 0,var(--line) 1px,transparent 1px,transparent calc(100%/6))}
+.pb{margin:10px 4px;display:flex;align-items:center;padding:0 14px;font-size:14px;font-weight:700;color:#fff;line-height:1.2;transform-origin:left;transform:scaleX(0);transition:transform 1s var(--ease),filter .3s}
+.pb:hover{filter:brightness(1.12)}
+.plan.in .pb{transform:none}
+.plan.in .pb.a2{transition-delay:.5s}.plan.in .pb.a3{transition-delay:.9s}.plan.in .pb.d{transition-delay:.3s}.plan.in .pb.b{transition-delay:1.3s}
+.pb.a,.pb.a2{background:#2F6D7A}.pb.a3{background:#8BA6B7;color:var(--ink)}.pb.d{background:transparent;border:1.5px dashed var(--ink);color:var(--ink)}.pb.b{background:var(--ink)}
+.pkey{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:18px;padding-top:14px;border-top:1px solid var(--line);font-size:12.5px;color:var(--soft)}
+.pkey i{display:inline-block;width:12px;height:12px;margin-right:7px;vertical-align:-1px}
+.pkey .a{background:#2F6D7A}.pkey .a3{background:#8BA6B7}.pkey .d{border:1.5px dashed var(--ink)}.pkey .b{background:var(--ink)}
+.pfoot{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;margin-top:26px}
+.pfoot p{font-size:21px;color:var(--soft);letter-spacing:-.01em}.pfoot p b{color:var(--ink)}
+.more{font-size:15px;font-weight:700;border-bottom:1px solid var(--ink);padding-bottom:2px;display:inline-flex;gap:8px}
+.more i{font-style:normal;transition:transform .3s var(--ease)}.more:hover i{transform:translateX(4px)}
+/* your data + how we price: one dark field */
+.data .grid{row-gap:30px}
+.data .lede{margin-top:20px}
+.tstrip{grid-column:1/-1;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.tstrip div{border:1px solid rgba(255,255,255,.16);padding:16px 16px 18px;display:flex;flex-direction:column;gap:6px;transition:border-color .3s,background .3s}
+.tstrip div:hover{border-color:#8BA6B7;background:rgba(139,166,183,.06)}
+.tstrip b{font-size:18px;color:#fff;letter-spacing:-.01em}.tstrip span{font-size:14px;color:rgba(255,255,255,.72);line-height:1.4}
+.price{grid-column:1/-1;margin-top:34px;padding-top:40px;position:relative}
+.price::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(139,166,183,.45),transparent)}
+.plines{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(139,166,183,.25);border:1px solid rgba(139,166,183,.25);margin-top:24px}
+.pline{background:var(--ink);padding:26px 24px 28px;display:flex;flex-direction:column;gap:16px;position:relative;overflow:hidden;transition:background .3s}
+.pline:hover{background:#0e1b2e}
+.pline i{font-style:normal;font-size:11px;letter-spacing:.16em;color:var(--accent);font-weight:500}
+.pline b{font-size:24px;font-weight:700;letter-spacing:-.015em;line-height:1.25;color:#fff}
+.pline::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:0;background:#8BA6B7;transition:width 1.4s var(--ease) .4s}
+.pline.in::after{width:100%}.pline.d1::after{transition-delay:.7s}.pline.d2::after{transition-delay:1s}
+.dmore{grid-column:1/-1;font-size:15px;color:rgba(255,255,255,.72)}
+.dmore b{color:#fff}
+.dmore a{font-weight:700;color:#fff;border-bottom:1px solid rgba(255,255,255,.3);padding-bottom:1px;margin-left:6px}
+.dmore a:hover{border-color:#fff}
+/* where it has run, compact */
+.proof{padding:90px 0 80px}
+.prow{display:grid;grid-template-columns:1fr 300px;gap:18px;margin-top:40px}
+.cos{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.co2{background:var(--card);padding:22px 18px 24px;display:flex;flex-direction:column;gap:8px;transition:background .3s,transform .3s var(--ease)}
+.co2:hover{background:#fff}
+.co2 i{font-style:normal;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-ink);font-weight:500}
+.co2 b{font-size:19px;font-weight:700;letter-spacing:-.015em;line-height:1.15}
+.co2 span{font-size:13.5px;color:var(--soft);line-height:1.4}
+.ptile{background:var(--ink);color:#fff;padding:22px 22px 24px;display:flex;flex-direction:column;gap:8px;transition:transform .3s var(--ease)}
+.ptile:hover{transform:translateY(-3px)}
+.ptile i{font-style:normal;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:500}
+.ptile b{font-size:52px;font-weight:300;letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums}
+.ptile span{font-size:13.5px;line-height:1.45;color:rgba(255,255,255,.78)}
+.ptile em{font-style:normal;font-size:13px;font-weight:700;margin-top:auto}
+/* founder, compact */
+.fd{grid-template-columns:.8fr 1.2fr}
+.fd .ph img{aspect-ratio:4/3}
+.fd h2{font-size:clamp(30px,3.4vw,48px)}
+/* close + the chain of pages */
+.close{padding:100px 0 80px}
+.close .m{height:120px;margin-bottom:30px;gap:90px}.close .m img{height:112px}.close .m .s{height:40px}
+.trail{display:flex;justify-content:center;margin:56px auto 0;max-width:620px;position:relative}
+.trail::before{content:"";position:absolute;left:12%;right:12%;top:7px;height:1px;background:var(--ink);opacity:.25}
+.trail a{flex:1;display:flex;flex-direction:column;align-items:center;gap:10px;font-size:13px;font-weight:500;color:var(--soft);position:relative}
+.trail a i{width:15px;height:15px;border-radius:50%;border:1.5px solid var(--ink);background:var(--ground);transition:background .3s,transform .3s var(--ease)}
+.trail a:hover i{background:var(--accent);transform:scale(1.2)}
+.trail a.on{color:var(--ink);font-weight:700}.trail a.on i{background:var(--ink)}
+@media (max-width:900px){
+  .space{height:150vh}
+  .space .note a{display:table;margin:10px auto 0}
+  .sec{padding:84px 0}
+  .hd2{grid-template-columns:1fr;gap:20px;margin-bottom:30px}
+  .plan{padding:20px 14px 16px}
+  .pgrid{grid-template-columns:repeat(6,1fr);row-gap:8px}
+  .pgrid>.sp0{display:none}
+  .pm{font-size:11px;padding:0 0 6px 5px}.pm .l{display:none}.pm .s{display:inline}
+  .plab{grid-column:1/-1;margin-top:10px}.plab b{font-size:17px}
+  .ptrack{grid-column:1/-1;height:64px}
+  .pb{font-size:12px;padding:0 8px;margin:8px 2px}
+  .pfoot p{font-size:18px}
+  .tstrip{grid-template-columns:1fr 1fr}
+  .plines{grid-template-columns:1fr}.pline b{font-size:21px}
+  .proof{padding:80px 0}
+  .prow{grid-template-columns:1fr}
+  .cos{grid-template-columns:1fr 1fr}.co2:last-child{grid-column:1/-1}
+  .fd{grid-template-columns:1fr}
+  .close{padding:90px 0 70px}
+  .trail a{font-size:12px}
+}
+@media (prefers-reduced-motion:reduce){.pb{transform:none}}
 </style></head>
 <body>
 
 <nav id="nav"><div class="wrap">
   <a class="brand" href="index.html"><img src="img/perspace-mark-ink.png" alt="">Perspace</a>
-  <div class="links"><a class="nck" href="cockpit.html">Cockpit</a><a href="method.html">Method</a><a href="philosophy.html">Philosophy</a><a href="venture.html">Venture clienting</a></div>
+  <div class="links"><a class="nck" href="cockpit.html">Cockpit</a><a href="method.html">Method</a><a href="plugins.html">Plug-ins</a></div>
   <a class="btn dark" href="mailto:hello@perspace.ai?subject=Walkthrough">Book a walkthrough →</a>
   <button class="mnu" aria-label="Menu" aria-expanded="false"><i></i><i></i></button>
 </div></nav>
@@ -316,323 +417,106 @@ nav.open .mnu i:first-child{transform:translateY(3.75px) rotate(45deg)}nav.open 
   </div>
 </div><div class="scrollcue"><i></i>SCROLL</div></section>
 
-<!-- 2 · THE SPACE -->
+<!-- 2 · THE COCKPIT: the real clip, one line -->
 <section class="space" id="space"><div class="stick"><div class="grid2"></div>
   <div class="words">
     <div class="w" data-i="0"><small>per</small><h2>To see a thing <b>all the way through.</b></h2></div>
     <div class="w" data-i="1"><small>space</small><h2>A room <b>only you are in.</b></h2></div>
-    <div class="w" data-i="2"><small>perspace</small><h2>The room where you see <b>your whole company.</b></h2></div>
+    <div class="w" data-i="2"><small>perspace</small><h2>Your whole company, <b>on one screen.</b></h2></div>
   </div>
   <div class="frame">
     <img class="bk l" src="img/mark-left-c.png" alt=""><img class="bk r" src="img/mark-right-c.png" alt="">
     <div class="screen"><video poster="img/poster_today.jpg" muted loop playsinline autoplay><source src="img/clip_today.webm" type="video/webm"><source src="img/clip_today.mp4" type="video/mp4"></video></div>
   </div>
-  <div class="note">A real cockpit. The company's name and every figure are changed.</div>
+  <div class="note">A real cockpit, name and figures changed<a href="cockpit.html">Walk the four rooms &rarr;</a></div>
 </div></section>
 
-<!-- 3 · THE BOX -->
-<section class="pad"><div class="wrap">
-  <div class="boxhead">
-    <div><div class="tag rv">One team · one box</div><h2 class="rv d1" style="margin-top:22px">Four things you buy from four firms. <b>One box.</b></h2></div>
-    <p class="lede rv d2">Strategy, the change itself, the value it creates and the technology that keeps it running. One team, measured in one place, paid from budgets you already hold.</p>
+<!-- 3 · HOW A PROJECT RUNS (the plan, Peter 6 Oct 2026) -->
+<section class="sec" id="plan"><div class="wrap">
+  <div class="hd2">
+    <div><div class="tag rv">How a project runs</div><h2 class="rv d1">Two lanes, <b>months 1 to 6.</b></h2></div>
+    <p class="lede rv d2">Quick back-office wins first, with live results. Value projects are scoped beside them.</p>
   </div>
-  <div class="box rv d2">
-    <a class="tile" href="philosophy.html"><div class="n">01 · STRATEGY</div>
-      <svg class="ic ic-comp" viewBox="0 0 74 74"><circle cx="37" cy="37" r="30"/><circle cx="37" cy="37" r="2"/><path class="needle acc" d="M37 37 L37 14"/><path d="M37 7v5M37 62v5M7 37h5M62 37h5"/></svg>
-      <h3>Where to go</h3><p>Where the company should head, and what stands in the way.</p><div class="go">Philosophy <i>→</i></div></a>
-    <a class="tile" href="method.html"><div class="n">02 · TRANSFORMATION</div>
-      <svg class="ic ic-loop" viewBox="0 0 74 74"><circle cx="37" cy="37" r="26" style="stroke:var(--line)"/><circle class="arc acc" cx="37" cy="37" r="26" style="stroke-width:2"/><path d="M30 37l5 5 10-11"/></svg>
-      <h3>How the work changes</h3><p>A repeatable method that changes how the work is done, owned by a named person.</p><div class="go">Method <i>→</i></div></a>
-    <a class="tile" href="cockpit.html"><div class="n">03 · VALUE CREATION</div>
-      <svg class="ic ic-bars" viewBox="0 0 74 74"><path d="M8 66h58"/><rect x="12" y="30" width="9" height="36"/><rect x="27" y="20" width="9" height="46"/><rect class="acc" x="42" y="12" width="9" height="54"/><rect x="57" y="36" width="9" height="30" style="display:none"/></svg>
-      <h3>Where the money is</h3><p>Every pocket named, sized and traced to the file it came from.</p><div class="go">Cockpit <i>→</i></div></a>
-    <a class="tile ai" href="plugins.html"><div class="n">04 · AI AND THE RIGHT TOOLS</div>
-      <svg class="ic ic-net" viewBox="0 0 74 74"><path d="M16 20L37 37L58 20M16 54L37 37L58 54"/><circle class="p" cx="16" cy="20" r="5"/><circle class="p" cx="58" cy="20" r="5"/><circle class="p" cx="16" cy="54" r="5"/><circle cx="58" cy="54" r="5"/><circle class="acc" cx="37" cy="37" r="7"/></svg>
-      <h3>What keeps it running</h3><p>Agents and tools, built where it is your edge, sourced where it already exists.</p><div class="go">Plug-ins · Venture clienting <i>→</i></div></a>
-  </div>
-</div></section>
-
-<!-- 4 · THE COCKPIT -->
-<section class="ck pad" id="cockpit"><div class="wrap">
-  <div class="boxhead" style="margin-bottom:0">
-    <div><div class="tag rv">The cockpit</div><h2 class="rv d1" style="margin-top:22px">Your whole company, <b>on one screen.</b></h2></div>
-    <p class="lede rv d2">Drawn from its own files and kept current as it moves. Every figure traces back to the document it came from.</p>
-  </div>
-  <div class="grid">
-    <div class="tabs rv">
-      <div class="tab on" data-v="0"><div class="t"><span>01</span><b>Calibrate</b></div><p>The company as its own files describe it, and what those files could not tell us.</p><div class="bar"></div></div>
-      <div class="tab" data-v="1"><div class="t"><span>02</span><b>Value</b></div><p>Where the money sits. Look here first, then the rest, by row.</p><div class="bar"></div></div>
-      <div class="tab" data-v="2"><div class="t"><span>03</span><b>Work</b></div><p>What is moving. Every act says who holds it, what it needs and where it is stuck.</p><div class="bar"></div></div>
-      <div class="tab" data-v="3"><div class="t"><span>04</span><b>Workforce</b></div><p>People and agents on one chart, each with a person accountable.</p><div class="bar"></div></div>
+  <div class="plan rv">
+    <div class="u">Unit: months from the start</div>
+    <div class="pgrid">
+      <div class="sp0"></div><div class="pm"><span class="l">Month </span><span class="s">M</span>1</div><div class="pm"><span class="l">Month </span><span class="s">M</span>2</div><div class="pm"><span class="l">Month </span><span class="s">M</span>3</div><div class="pm"><span class="l">Month </span><span class="s">M</span>4</div><div class="pm"><span class="l">Month </span><span class="s">M</span>5</div><div class="pm"><span class="l">Month </span><span class="s">M</span>6</div>
+      <div class="plab"><b>1 · Back-office wins</b><span>Quick, first</span></div>
+      <div class="ptrack"><div class="pb a" style="grid-column:1/2">Start</div><div class="pb a2" style="grid-column:2/4">Live results</div><div class="pb a3" style="grid-column:4/7">More flows, same way</div></div>
+      <div class="plab"><b>2 · Value projects</b><span>Pricing · collections · operations</span></div>
+      <div class="ptrack"><div class="pb d" style="grid-column:1/3">Scoped in parallel</div><div class="pb b" style="grid-column:3/7">Started as lane 1 frees people</div></div>
     </div>
-    <div class="viewer rv d1">
-      <div class="device">
-        <video class="on" poster="img/poster_calibrate.jpg" muted playsinline preload="auto"><source src="img/clip_calibrate.webm" type="video/webm"><source src="img/clip_calibrate.mp4" type="video/mp4"></video>
-        <video poster="img/poster_value.jpg" muted playsinline preload="auto"><source src="img/clip_value.webm" type="video/webm"><source src="img/clip_value.mp4" type="video/mp4"></video>
-        <video poster="img/poster_work.jpg" muted playsinline preload="auto"><source src="img/clip_work.webm" type="video/webm"><source src="img/clip_work.mp4" type="video/mp4"></video>
-        <video poster="img/poster_workforce.jpg" muted playsinline preload="auto"><source src="img/clip_workforce.webm" type="video/webm"><source src="img/clip_workforce.mp4" type="video/mp4"></video>
-      </div>
-      <div class="stats" id="stats"></div>
-      <div class="honest">A real cockpit · the company's name and every figure are changed</div>
+    <div class="pkey"><span><i class="a"></i>Back-office wins</span><span><i class="a3"></i>More back-office flows</span><span><i class="d"></i>Scoping</span><span><i class="b"></i>Value projects running</span></div>
+  </div>
+  <div class="pfoot rv"><p>Quick wins first. <b>The bigger value follows on freed time.</b></p><a class="more" href="method.html#steps">The eight steps <i>&rarr;</i></a></div>
+</div></section>
+
+<!-- 4 · YOUR DATA + HOW WE PRICE: one dark field -->
+<section class="data sec" id="data"><div class="wrap grid">
+  <div><div class="tag rv" style="color:var(--accent)">Your data</div><h2 class="rv d1" style="margin-top:22px">It sees only what you allow. <b>You choose where it runs.</b></h2>
+    <p class="lede rv d2">Like connecting a bank account: it sees what you permit, and logs every step.</p></div>
+  <div class="rings rv d2">
+    <div class="ring"><svg width="70" height="70"><circle class="o" cx="35" cy="35" r="28"/><circle class="c" cx="35" cy="35" r="6"/></svg><h4>Connected</h4><p>On our hosting, in a UAE region if you want.</p></div>
+    <div class="ring"><svg width="70" height="70"><circle cx="35" cy="35" r="28"/><circle class="o" cx="35" cy="35" r="17"/><circle class="c" cx="35" cy="35" r="6"/></svg><h4>Hybrid</h4><p>Raw data stays inside your walls. Only the finished record crosses.</p></div>
+    <div class="ring"><svg width="70" height="70"><circle cx="35" cy="35" r="28"/><circle cx="35" cy="35" r="17"/><circle class="c o" cx="35" cy="35" r="8"/></svg><h4>Private</h4><p>All of it inside your own cloud, the model included.</p></div>
+  </div>
+  <div class="tstrip rv"><div><b>Only what you name</b><span>Each source in a signed data agreement.</span></div><div><b>Read only</b><span>We never write to your systems.</span></div><div><b>By person</b><span>You decide who sees what.</span></div><div><b>You keep everything</b><span>Data, registry, every configuration.</span></div></div>
+  <div class="price" id="price">
+    <div class="tag rv" style="color:var(--accent)">How we price</div>
+    <div class="plines">
+      <div class="pline rv"><i>01</i><b>By projects, running at a pace you choose.</b></div>
+      <div class="pline rv d1"><i>02</i><b>Never per seat or per agent.</b></div>
+      <div class="pline rv d2"><i>03</i><b>Anything beyond the plan is quoted before it starts.</b></div>
     </div>
   </div>
+  <p class="dmore rv"><b data-src="systems">1,004</b> systems we read where they sit.<a href="plugins.html#connects">What we connect to &rarr;</a></p>
 </div></section>
 
-<!-- 5 · METHOD -->
-<section class="pad" id="method"><div class="wrap">
-  <div class="mhead">
-    <div><div class="tag rv">The method · the same on every company</div><h2 class="rv d1" style="margin-top:22px">Projects first. <b>Agents beside your people.</b></h2></div>
-    <p class="lede rv d2">We read the company, draw its blueprint, find the money and change how the work runs. Each change is a project, run by your people with agents beside them, and measured from the first day.</p>
-  </div>
-  <div class="rail" id="rail"><span class="fill"></span>
-    <div class="st"><div class="dot">1</div><div class="k">READ</div><h4>Plug in</h4><p>Your data and documents, read where they sit.</p></div>
-    <div class="st"><div class="dot">2</div><div class="k">BLUEPRINT</div><h4>Draw the company</h4><p>One live map of how it really runs.</p></div>
-    <div class="st"><div class="dot">3</div><div class="k">VALUE</div><h4>Find the money</h4><p>Every place the money sits, traced to its file.</p></div>
-    <div class="st"><div class="dot">4</div><div class="k">CHANGE</div><h4>Change the work</h4><p>Owned by a person, checked at 30, 60, 90 days.</p></div>
-    <div class="st"><div class="dot">5</div><div class="k">RUN IT</div><h4>Projects, measured</h4><p>Each project done by your people with agents, measured from day one.</p></div>
-  </div>
-  <style>
-.bp2{position:relative;background:#0e1b2e;border:1px solid var(--ink);padding:54px 22px 20px;margin-top:70px;background-image:linear-gradient(rgba(139,166,183,.13) 1px,transparent 1px),linear-gradient(90deg,rgba(139,166,183,.13) 1px,transparent 1px);background-size:24px 24px;color:#cfdbe4}
-.bp2 .lbl,.bp2 .lbr{position:absolute;top:18px;font-size:10.5px;letter-spacing:.16em;color:#8BA6B7;font-weight:500}
-.bp2 .lbl{left:22px}.bp2 .lbr{right:22px;font-variant-numeric:tabular-nums}
-.bp2 .sc{overflow-x:auto;-webkit-overflow-scrolling:touch}
-.bp2 svg{display:block;width:100%;height:auto;min-width:760px}
-.bp2 .rm rect.box{fill:rgba(139,166,183,0);stroke:#8BA6B7;stroke-width:1.4;stroke-dasharray:1400;stroke-dashoffset:1400;transition:fill .4s}
-.bp2 .rm text{font-family:var(--f);opacity:0}
-.bp2 .rm .nm{fill:#cfdbe4;font-size:13px;letter-spacing:.14em}
-.bp2 .rm .ct{fill:#8BA6B7;font-size:11.5px;letter-spacing:.04em}
-.bp2 .rm .gl{opacity:0}
-.bp2 .rm .gl .p{fill:#cfdbe4}.bp2 .rm .gl .a{fill:none;stroke:#8BA6B7;stroke-width:1.3}.bp2 .rm .gl .f{fill:#5d7686}
-.bp2.in .rm.m rect.box{animation:bdraw 1.3s var(--d) ease forwards,bfill .8s calc(var(--d) + .9s) ease forwards}
-.bp2.in .rm text,.bp2.in .rm .gl{animation:bfade .7s calc(var(--d) + .7s) ease forwards}
-.bp2 .rm.g rect.box{stroke-dasharray:5 7;stroke-dashoffset:0;stroke:#5d7686;opacity:0}
-.bp2.in .rm.g rect.box{animation:bfade 1s var(--d) ease forwards}
-.bp2 .rm.g .nm{fill:#6f8796}.bp2 .rm.g .ct{fill:#5d7686;font-size:11px}
-.bp2 .rm{cursor:pointer}.bp2 .rm:hover rect.box,.bp2 .rm.act rect.box{fill:rgba(139,166,183,.16)!important}
-@keyframes bdraw{to{stroke-dashoffset:0}}@keyframes bfill{to{fill:rgba(139,166,183,.08)}}@keyframes bfade{to{opacity:1}}
-/* pockets */
-.bp2 .pk{opacity:0}.bp2.in .pk{animation:bfade .6s var(--d) ease forwards}
-.bp2 .pk rect{transition:fill 1.2s ease,stroke 1.2s ease}
-.bp2 .pk text{font-family:var(--f);font-size:11.5px;transition:fill 1.2s ease}
-.bp2 .pk .st{font-size:9.5px;letter-spacing:.14em;font-weight:500}
-.bp2 .pk[data-s="0"] rect{fill:rgba(93,118,134,.25);stroke:#5d7686}.bp2 .pk[data-s="0"] text{fill:#8aa0ae}
-.bp2 .pk[data-s="1"] rect{fill:rgba(139,166,183,.35);stroke:#8BA6B7}.bp2 .pk[data-s="1"] text{fill:#dfe8ee}
-.bp2 .pk[data-s="2"] rect{fill:#8BA6B7;stroke:#8BA6B7}.bp2 .pk[data-s="2"] text{fill:#091120}
-.bp2 .pk[data-s="3"] rect{fill:#F9FAF4;stroke:#F9FAF4}.bp2 .pk[data-s="3"] text{fill:#091120}
-.bp2 .pk .fl{opacity:0;transition:opacity .4s}.bp2 .pk.flash .fl{opacity:1}
-/* flow */
-.bp2 .flow path{fill:none;stroke:#8BA6B7;stroke-width:1.2;stroke-dasharray:3 6;opacity:0}
-.bp2.in .flow path{animation:bfade 1s 4.6s ease forwards}
-.bp2 .flow .ol{fill:#8BA6B7;font-family:var(--f);font-size:10.5px;letter-spacing:.16em;opacity:0}.bp2.in .flow .ol{animation:bfade 1s 4.6s ease forwards}
-.bp2 .flow .dot{fill:#F9FAF4;opacity:0}.bp2.in .flow .dot{animation:bfade .5s 5s ease forwards}
-.bp2 .stuck{opacity:0}.bp2.in .stuck{animation:bfade .6s 5.4s ease forwards}
-.bp2 .stuck circle{fill:#e0655a}.bp2 .stuck .rg{fill:none;stroke:#e0655a;stroke-width:1.3;transform-box:fill-box;transform-origin:center;animation:sping 2s ease-out infinite}
-.bp2 .stuck text{fill:#f3b1aa;font-family:var(--f);font-size:11.5px}
-@keyframes sping{0%{transform:scale(1);opacity:.9}100%{transform:scale(3.2);opacity:0}}
-/* legend + tip */
-.bp2 .lg{display:flex;flex-wrap:wrap;gap:18px;margin-top:14px;font-size:10.5px;letter-spacing:.14em;color:#8BA6B7;font-weight:500}
-.bp2 .lg i{display:inline-block;width:14px;height:9px;margin-right:8px;vertical-align:0;border:1px solid}
-.bp2 .lg .hint{margin-left:auto;color:#6f8796}.bp2 .lg .swipe{display:none;color:#6f8796}
-.bp2 .tip{position:absolute;z-index:3;width:260px;background:#F9FAF4;color:#091120;padding:14px 16px;font-size:13px;line-height:1.45;box-shadow:0 20px 40px rgba(0,0,0,.4);pointer-events:none;opacity:0;transform:translateY(6px);transition:opacity .25s,transform .25s}
-.bp2 .tip.on{opacity:1;transform:none}
-.bp2 .tip b{display:block;font-size:10.5px;letter-spacing:.16em;color:#3F5E6E;margin-bottom:6px}
-.bp2 .tip p+p{margin-top:6px}.bp2 .tip span{color:#4A5260}
-@media (max-width:900px){.bp2{padding-top:44px}.bp2 .lbr{display:none}.bp2 .lg .hint{display:none}.bp2 .lg .swipe{display:inline}.bp2 .tip{width:220px}}
-@media (prefers-reduced-motion:reduce){.bp2 .rm rect.box{stroke-dashoffset:0}.bp2 .rm text,.bp2 .rm .gl,.bp2 .pk,.bp2 .flow path,.bp2 .flow .dot,.bp2 .stuck{opacity:1}}
-</style>
-<div class="bp2" id="bp2" data-trigger>
-  <span class="lbl">THE BLUEPRINT · DRAWN FROM THE COMPANY'S OWN FILES</span><span class="lbr" id="bpc">0 OF 8 FUNCTIONS MAPPED</span>
-  <div class="sc"><svg viewBox="0 -44 1180 484" id="bps" role="img" aria-label="A company blueprint: rooms for each function, the money found in each, and where work gets stuck">
-    <g class="flow"><path id="fp" d="M475,40 Q625,4 775,40 Q480,-50 190,40"/><circle class="dot" r="4.5"><animateMotion dur="5s" repeatCount="indefinite" begin="5s"><mpath href="#fp"/></animateMotion></circle></g>
-  </svg></div>
-  <div class="lg"><span><i style="background:rgba(93,118,134,.25);border-color:#5d7686"></i>GREYED</span><span><i style="background:rgba(139,166,183,.35);border-color:#8BA6B7"></i>NAMED</span><span><i style="background:#8BA6B7;border-color:#8BA6B7"></i>SIZED</span><span><i style="background:#F9FAF4;border-color:#F9FAF4"></i>BANKED</span><span class="hint">TAP A ROOM</span><span class="swipe">SWIPE TO SEE EVERY ROOM →</span></div>
-  <div class="tip" id="bpt"></div>
-</div>
-<script>
-(function(){
-  const NS='http://www.w3.org/2000/svg', svg=document.getElementById('bps'), wrap=document.getElementById('bp2'), tip=document.getElementById('bpt'), cnt=document.getElementById('bpc');
-  const ROOMS=[
-    {n:'FINANCE',x:40,y:40,w:300,h:170,m:1,pp:6,ag:2,files:'214 files',read:'The ledger, bank statements and every invoice since 2023',found:'Cash that customers have held past 90 days'},
-    {n:'SALES',x:350,y:40,w:250,h:170,m:1,pp:9,ag:1,files:'96 files',read:'The CRM, the price list and signed contracts',found:'Discounts that quietly became the price'},
-    {n:'OPERATIONS',x:610,y:40,w:330,h:170,m:1,pp:14,ag:1,files:'131 files',read:'Schedules, the asset register and site reports',found:'Capacity the company owns that earned nothing'},
-    {n:'PROCUREMENT',x:950,y:40,w:190,h:360,m:1,pp:3,ag:1,files:'58 files',read:'Supplier contracts and purchase orders',found:'One category bought three ways, at three prices'},
-    {n:'PEOPLE',x:40,y:220,w:220,h:180,m:1,pp:4,ag:0,files:'42 files',read:'The org chart, roles and the monthly reports',found:'A report that takes days and feeds no decision'},
-    {n:'SYSTEMS',x:270,y:220,w:220,h:180,m:0,note:'not reached yet',who:'held by the IT team'},
-    {n:'LEGAL',x:500,y:220,w:210,h:180,m:0,note:'contracts not reached',who:'held by the legal team'},
-    {n:'SUPPLY',x:720,y:220,w:220,h:180,m:0,note:'not reached yet',who:'held by operations'}];
-  const POCKETS=[ // room index, label, value, path of states it climbs to
-    {r:0,t:'Cash past 90 days',to:3},{r:1,t:'Discounts that became the price',to:2},{r:2,t:'Capacity nobody sold',to:1},{r:3,t:'Bought three ways',v:'≈ AED 340k a year',to:2},{r:4,t:'The report nobody reads',to:1}];
-  const SN=['GREYED','NAMED','SIZED','BANKED'];
-  const el=(t,a,p)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);(p||svg).appendChild(e);return e;};
-  const fl=svg.querySelector('.flow');
-  ROOMS.forEach((r,i)=>{
-    const g=el('g',{class:'rm '+(r.m?'m':'g'),style:'--d:'+(i*.35)+'s',tabindex:0});
-    el('rect',{class:'box',x:r.x,y:r.y,width:r.w,height:r.h},g);
-    el('text',{class:'nm',x:r.x+16,y:r.y+26},g).textContent=r.n;
-    if(r.m){
-      const gl=el('g',{class:'gl'},g); let x=r.x+16,y=r.y+r.h-38;
-      for(let k=0;k<r.pp;k++){el('circle',{class:'p',cx:x+k*11,cy:y,r:3.2},gl);}
-      for(let k=0;k<r.ag;k++){const cx=x+r.pp*11+8+k*14;el('path',{class:'a',d:`M${cx},${y-5} L${cx+5},${y} L${cx},${y+5} L${cx-5},${y} Z`},gl);}
-      el('text',{class:'ct',x:r.x+16,y:r.y+r.h-14},g).textContent=r.pp+' people · '+r.ag+(r.ag===1?' agent':' agents')+' · '+r.files+' read';
-    } else {
-      el('text',{class:'ct',x:r.x+16,y:r.y+50},g).textContent=r.note;
-      el('text',{class:'ct',x:r.x+16,y:r.y+68},g).textContent=r.who;
-    }
-    g.addEventListener('mouseenter',()=>showTip(i,g));g.addEventListener('mouseleave',hideTip);
-    g.addEventListener('click',e=>{e.stopPropagation();g.classList.contains('act')?hideTip():showTip(i,g);});
-    svg.insertBefore(g,fl);
-  });
-  const pkEls=POCKETS.map((p,j)=>{const r=ROOMS[p.r];const w=Math.min(r.w-32,Math.max(170,p.t.length*6.6+24));
-    const x=r.x+16,y=r.y+(p.r===3?120:44);
-    const g=el('g',{class:'pk',style:'--d:'+(3+j*.25)+'s','data-s':0});
-    el('rect',{x,y,width:w,height:p.v?50:36,rx:2},g);
-    el('text',{class:'st',x:x+10,y:y+14},g).textContent='GREYED';
-    el('text',{x:x+10,y:y+29},g).textContent=p.t;
-    if(p.v){const v=el('text',{x:x+10,y:y+44},g);v.textContent=p.v;v.setAttribute('font-weight','700');}
-    return g;});
-  // stuck mark on the order-to-cash hand-off
-  const st=el('g',{class:'stuck'});el('circle',{class:'rg',cx:687,cy:17,r:5},st);el('circle',{cx:687,cy:17,r:5},st);
-  const sl=el('text',{x:700,y:-20},st);sl.textContent='stuck: orders waiting on an invoice';
-  const ol=el('text',{x:330,y:-20,class:'ol'},fl);ol.textContent='ORDER TO CASH';
-  function showTip(i,g){const r=ROOMS[i];svg.querySelectorAll('.rm').forEach(x=>x.classList.remove('act'));g.classList.add('act');
-    tip.innerHTML=r.m?'<b>'+r.n+'</b><p><span>What we read:</span> '+r.read+'</p><p><span>What we found:</span> '+r.found+'</p>':'<b>'+r.n+'</b><p>'+r.note[0].toUpperCase()+r.note.slice(1)+', '+r.who+'.</p><p><span>It fills in the moment it arrives.</span></p>';
-    const sb=svg.getBoundingClientRect(),wb=wrap.getBoundingClientRect(),k=sb.width/1180;
-    let left=sb.left-wb.left+(r.x+r.w/2)*k-130, top=sb.top-wb.top+(r.y+44+r.h)*k-10;
-    left=Math.max(10,Math.min(wb.width-270,left)); if(top>wb.height-150) top=sb.top-wb.top+(r.y+44)*k-120;
-    tip.style.left=left+'px';tip.style.top=top+'px';tip.classList.add('on');}
-  function hideTip(){tip.classList.remove('on');svg.querySelectorAll('.rm').forEach(x=>x.classList.remove('act'));}
-  document.addEventListener('click',hideTip);
-  // the loop: pockets darken one by one, hold, then start again
-  const RM=matchMedia('(prefers-reduced-motion: reduce)').matches; let started=false;
-  function setS(g,s){g.dataset.s=s;g.querySelector('.st').textContent=SN[s];}
-  function cycle(){pkEls.forEach(g=>setS(g,0));let t=1200;
-    for(let s=1;s<=3;s++) POCKETS.forEach((p,j)=>{if(p.to>=s){setTimeout(()=>setS(pkEls[j],s),t);t+=700;}});
-    setTimeout(cycle,t+5200);}
-  function start(){if(started)return;started=true;
-    let n=0;const mapped=ROOMS.filter(r=>r.m).length;
-    ROOMS.forEach((r,i)=>{if(r.m)setTimeout(()=>{n++;cnt.textContent=n+' OF '+ROOMS.length+' FUNCTIONS MAPPED';},i*350+900);});
-    if(RM){pkEls.forEach((g,j)=>setS(g,POCKETS[j].to));cnt.textContent=mapped+' OF '+ROOMS.length+' FUNCTIONS MAPPED';return;}
-    setTimeout(cycle,3600);}
-  new IntersectionObserver((es,o)=>es.forEach(e=>{if(e.isIntersecting){wrap.classList.add('in');start();o.disconnect();}}),{threshold:.25}).observe(wrap);
-})();
-</script>
-
-</div></section>
-
-<!-- 6 · PROOF -->
-<section class="pad" style="padding-top:40px"><div class="wrap">
+<!-- 5 · WHERE IT HAS RUN, compact -->
+<section class="proof" id="proof"><div class="wrap">
   <div class="mhead">
     <div><div class="tag rv">Where it has run</div><h2 class="rv d1" style="margin-top:22px">One engine. <b>Every company makes it better.</b></h2></div>
-    <p class="lede rv d2">What moves between companies is the method: the shape of a problem and how it was solved. No client data ever crosses. Not a number, not a file, not a name.</p>
+    <p class="lede rv d2">The method moves between companies. No client data ever crosses: not a number, not a file, not a name.</p>
   </div>
-  <div class="nums rv">
-    <div class="num"><b data-count="5">5</b><span>companies running on the engine</span></div>
-    <div class="num"><b data-count="80" data-suffix="%">80%</b><span>of value patterns re-used in another industry</span></div>
-    <div class="num"><b data-count="4">4</b><span>countries, from the Gulf to Mexico and London</span></div>
-    <div class="num"><b data-count="1249" data-src="plays">1,249</b><span>plays in the library, each read from a named source: a company's own report, a regulator or a trade body</span><small class="pq">A play: a move one company made, read from a named source, that another company can repeat.</small></div>
-  </div>
-  <div class="engine">
-    <svg viewBox="0 0 1168 470" preserveAspectRatio="none"><g stroke="#8BA6B7" stroke-width="1.2" stroke-dasharray="4 5" fill="none">
-      <line x1="584" y1="235" x2="454" y2="80"/><line x1="584" y1="235" x2="714" y2="80"/><line x1="584" y1="235" x2="245" y2="235"/><line x1="584" y1="235" x2="923" y2="235"/><line x1="584" y1="235" x2="584" y2="390"/></g>
-      <circle class="spark" r="4"><animateMotion dur="2.6s" repeatCount="indefinite" path="M454,80 L584,235"/></circle>
-      <circle class="spark" r="4"><animateMotion dur="2.6s" begin=".6s" repeatCount="indefinite" path="M584,235 L923,235"/></circle>
-      <circle class="spark" r="4"><animateMotion dur="2.6s" begin="1.2s" repeatCount="indefinite" path="M714,80 L584,235"/></circle>
-      <circle class="spark" r="4"><animateMotion dur="2.6s" begin="1.8s" repeatCount="indefinite" path="M584,235 L245,235"/></circle>
-      <circle class="spark" r="4"><animateMotion dur="2.6s" begin="2.2s" repeatCount="indefinite" path="M584,390 L584,235"/></circle></svg>
-    <div class="co" style="left:calc(50% - 250px);top:0"><i>🇦🇪 🇸🇦 · FAMILY CONGLOMERATE</i><b>A large family conglomerate</b>an operator across the region</div>
-    <div class="co" style="left:calc(50% + 30px);top:0"><i>🇲🇽 · MEDIA GROUP</i><b>Naranti</b>largest in Mexico and LatAm</div>
-    <div class="co" style="left:2%;top:calc(50% - 40px)"><i>🇦🇪 · PET CARE</i><b>Flourish Fund</b>the fund and its brands</div>
-    <div class="co" style="right:2%;top:calc(50% - 40px)"><i>🇬🇧 · BRAND</i><b>Lever Brands</b>brand and marketing, London</div>
-    <div class="co" style="left:50%;bottom:0;transform:translateX(-50%)"><i>🇦🇪 🇸🇦 🇱🇧 · MUSIC</i><b>Unfamiliar Familiar</b>and CloudPulse</div>
-    <div class="core"><div><img src="img/star-crop.png" alt=""><small>THE ENGINE</small></div></div>
+  <div class="prow">
+    <div class="cos rv">
+      <div class="co2"><i>Family conglomerate · UAE, KSA</i><b>A large family conglomerate</b><span>An operator across the region</span></div>
+      <div class="co2"><i>Media group · Mexico</i><b>Naranti</b><span>Largest in Mexico and LatAm</span></div>
+      <div class="co2"><i>Pet care · UAE</i><b>Flourish Fund</b><span>The fund and its brands</span></div>
+      <div class="co2"><i>Brand · UK</i><b>Lever Brands</b><span>Brand and marketing, London</span></div>
+      <div class="co2"><i>Music · UAE, KSA, Lebanon</i><b>Unfamiliar Familiar</b><span>And CloudPulse</span></div>
+    </div>
+    <a class="ptile rv d1" href="method.html#library"><i>Plays in the library</i><b data-count="1249" data-src="plays">1,249</b><span>A play: a move one company made, read from a named source, that another company can repeat.</span><em>The library &rarr;</em></a>
   </div>
 </div></section>
 
-<!-- 7 · FOUNDER -->
-<section class="pad" style="border-top:1px solid var(--line)"><div class="wrap">
-  <div class="tag rv">Founder-led</div>
-  <div class="fd" style="margin-top:40px">
+<!-- 6 · FOUNDER -->
+<section class="sec" style="border-top:1px solid var(--line)"><div class="wrap">
+  <div class="fd">
     <a class="ph rv" href="https://www.linkedin.com/in/peter-abou-hachem-2240b497/" target="_blank" rel="noopener"><img src="img/peter-stage.jpg" alt="Peter Abou Hachem speaking on the Hub71 stage"><span class="in">LinkedIn ↗</span></a>
     <div class="stack">
+      <div class="tag rv">Founder-led</div>
       <h2 class="rv d1">Built by someone who has sat <b>on your side of the table.</b></h2>
       <div class="rv d2"><a class="who" href="https://www.linkedin.com/in/peter-abou-hachem-2240b497/" target="_blank" rel="noopener">Peter Abou Hachem <span style="font-weight:300;font-size:22px">↗</span></a><div class="role">Founder and CEO</div></div>
-      <p class="lede rv d2">He has advised enterprises on strategy and commercial transformation, run growth as an operator, and spent six years building Abu Dhabi's tech ecosystem as Head of Growth and Strategy at Hub71. An angel investor with a background in venture capital and private equity, and a connector with a network of founders, investors and operators around the world.</p>
+      <p class="lede rv d2">Advisor on strategy and commercial transformation, operator, and Head of Growth and Strategy at Hub71. An angel investor with a venture capital and private equity background.</p>
       <div class="hats rv d3"><span>Advisor</span><span>Operator</span><span>Investor</span><span>Ecosystem connector</span></div>
       <div class="net rv d4"><span>Silicon Valley</span><span>New York</span><span>London</span><span>Europe</span><span>India</span><span>Korea</span><span>Japan</span><span>Singapore</span><span>LatAm</span></div>
     </div>
   </div>
 </div></section>
 
-<!-- 8a · HOW WE PRICE (Peter, 6 Oct 2026), one dark field with Your data -->
-<style>
-.price{padding:130px 0 0}
-.plines{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(139,166,183,.25);border:1px solid rgba(139,166,183,.25);margin-top:30px}
-.pline{background:var(--ink);padding:28px 24px 30px;display:flex;flex-direction:column;gap:18px;position:relative;overflow:hidden}
-.pline i{font-style:normal;font-size:11px;letter-spacing:.16em;color:var(--accent);font-weight:500}
-.pline b{font-size:26px;font-weight:700;letter-spacing:-.015em;line-height:1.25;color:#fff}
-.pline::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:0;background:#8BA6B7;transition:width 1.4s var(--ease) .4s}
-.pline.in::after{width:100%}.pline.d1::after{transition-delay:.7s}.pline.d2::after{transition-delay:1s}
-.price + .data{padding-top:110px}
-.price + .data::before{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:min(1168px,calc(100% - 112px));height:1px;background:linear-gradient(90deg,transparent,rgba(139,166,183,.45),transparent)}
-@media (max-width:900px){.price{padding:90px 0 0}.plines{grid-template-columns:1fr}.pline b{font-size:21px}.price + .data{padding-top:80px}.price + .data::before{width:calc(100% - 44px)}}
-</style>
-<section class="data price" id="price"><div class="wrap">
-  <div class="tag rv" style="color:var(--accent)">How we price</div>
-  <div class="plines">
-    <div class="pline rv"><i>01</i><b>By projects, running at a pace you choose.</b></div>
-    <div class="pline rv d1"><i>02</i><b>Never per seat or per agent.</b></div>
-    <div class="pline rv d2"><i>03</i><b>Anything beyond the plan is quoted before it starts.</b></div>
-  </div>
-</div></section>
-
-<!-- 8 · YOUR DATA -->
-<section class="data pad"><div class="wrap grid">
-  <div><div class="tag rv" style="color:var(--accent)">Your data</div><h2 class="rv d1" style="margin-top:22px">It sees only what you allow. <b>You choose where it runs.</b></h2>
-    <p class="lede rv d2" style="margin-top:22px">Like connecting a bank account: it sees what you permit, acts where you permit, and logs every step.</p></div>
-  <div class="rings rv d2">
-    <div class="ring"><svg width="70" height="70"><circle class="o" cx="35" cy="35" r="28"/><circle class="c" cx="35" cy="35" r="6"/></svg><h4>Connected</h4><p>Runs on our hosting, in a UAE region if you want.</p></div>
-    <div class="ring"><svg width="70" height="70"><circle cx="35" cy="35" r="28"/><circle class="o" cx="35" cy="35" r="17"/><circle class="c" cx="35" cy="35" r="6"/></svg><h4>Hybrid</h4><p>Raw data stays inside your walls. Only the finished record crosses.</p></div>
-    <div class="ring"><svg width="70" height="70"><circle cx="35" cy="35" r="28"/><circle cx="35" cy="35" r="17"/><circle class="c o" cx="35" cy="35" r="8"/></svg><h4>Private</h4><p>All of it inside your own cloud, the model included.</p></div>
-  </div>
-<!-- TRUST STRIP (5 Oct 2026, Peter: the trust points live here, no separate page) -->
-<style>.tstrip{grid-column:1/-1;display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:6px}
-.tstrip div{border:1px solid rgba(255,255,255,.16);padding:16px 16px 18px;display:flex;flex-direction:column;gap:6px}
-.tstrip b{font-size:18px;color:#fff;letter-spacing:-.01em}.tstrip span{font-size:14px;color:rgba(255,255,255,.62);line-height:1.4}
-@media(max-width:900px){.tstrip{grid-template-columns:1fr 1fr}}</style>
-<div class="tstrip rv"><div><b>Only what you name</b><span>Each source in a signed data agreement.</span></div><div><b>Read only</b><span>We never write to your systems.</span></div><div><b>By person</b><span>You decide who sees what.</span></div><div><b>You keep everything</b><span>Data, registry, every configuration.</span></div></div>
-<!-- CONNECT STRIP DARK · generated by method/gen/write-connects.py. Do not edit here. -->
-<style>
-.dstrip,.dmore{grid-column:1/-1}
-.data .grid{row-gap:26px}
-.dstrip{overflow:hidden;margin-top:14px;mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
-.dstrip:first-of-type{margin-top:10px}
-.dstrip .run{display:flex;gap:12px;width:max-content;align-items:center;padding:5px 0;animation:ddrift 96s linear infinite}
-.dstrip .run.d1{animation-duration:118s;animation-direction:reverse}
-@keyframes ddrift{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-.dstrip .lg{flex:none;height:52px;display:flex;align-items:center;gap:10px;padding:0 16px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.14);color:rgba(255,255,255,.72)}
-.dstrip .lg img{height:19px;width:19px;flex:none;opacity:.8;filter:grayscale(1) invert(1) brightness(1.6)}
-.dstrip .lg i{font-style:normal;font-size:13.5px;font-weight:700;letter-spacing:-.01em;white-space:nowrap}
-.dmore{margin-top:18px;font-size:15px;color:rgba(255,255,255,.62)}
-.dmore a{font-weight:700;color:#fff;border-bottom:1px solid rgba(255,255,255,.3);padding-bottom:1px}
-@media(prefers-reduced-motion:reduce){.dstrip .run{animation:none}}
-</style>
-<div class="dstrip rv"><div class="run d0"><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/sap.svg" alt=""><i>SAP</i></span><span class="lg wm"><i>Oracle NetSuite</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/salesforce.svg" alt=""><i>Salesforce</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/xero.svg" alt=""><i>Xero</i></span><span class="lg wm"><i>SharePoint Online</i></span><span class="lg wm"><i>Microsoft Dynamics 365 Finance and Operations</i></span><span class="lg wm"><i>Infor LN</i></span><span class="lg wm"><i>Power BI</i></span><span class="lg wm"><i>IFS Cloud</i></span><span class="lg wm"><i>Foodics</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/adyen.svg" alt=""><i>Adyen</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/apachekafka.svg" alt=""><i>Kafka</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/autodesk.svg" alt=""><i>Autodesk</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/clickup.svg" alt=""><i>ClickUp</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/databricks.svg" alt=""><i>Databricks</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/dropbox.svg" alt=""><i>Dropbox</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/github.svg" alt=""><i>GitHub</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/googleads.svg" alt=""><i>Google Ads</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/googlecloud.svg" alt=""><i>Google Cloud</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/greenhouse.svg" alt=""><i>Greenhouse</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/informatica.svg" alt=""><i>Informatica</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/jira.svg" alt=""><i>Jira</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/magento.svg" alt=""><i>Magento</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/mongodb.svg" alt=""><i>MongoDB</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/notion.svg" alt=""><i>Notion</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/paypal.svg" alt=""><i>PayPal</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/redis.svg" alt=""><i>Redis</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/siemens.svg" alt=""><i>Siemens</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/splunk.svg" alt=""><i>Splunk</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/tableau.svg" alt=""><i>Tableau</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/trello.svg" alt=""><i>Trello</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/ups.svg" alt=""><i>UPS</i></span><span class="lg wm"><i>Microsoft Exchange</i></span><span class="lg wm"><i>Infor M3</i></span><span class="lg wm"><i>Sage 300</i></span><span class="lg wm"><i>Kyriba</i></span><span class="lg wm"><i>DP World CARGOES</i></span><span class="lg wm"><i>Korber WMS</i></span><span class="lg wm"><i>Oracle Opera</i></span><span class="lg wm"><i>MRI Software</i></span><span class="lg wm"><i>SAP Plant Maintenance</i></span><span class="lg wm"><i>Network International</i></span><span class="lg wm"><i>Bayzat</i></span><span class="lg wm"><i>Wafeq</i></span><span class="lg wm"><i>Toast</i></span><span class="lg wm"><i>BambooHR</i></span><span class="lg wm"><i>Informatica</i></span><span class="lg wm"><i>Fivetran</i></span><span class="lg wm"><i>Microsoft 365</i></span><span class="lg wm"><i>Microsoft Dynamics 365 Business Central</i></span><span class="lg wm"><i>Workday</i></span><span class="lg wm"><i>Tally</i></span><span class="lg wm"><i>ServiceNow</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/odoo.svg" alt=""><i>Odoo</i></span><span class="lg wm"><i>Epicor Kinetic</i></span><span class="lg wm"><i>Zoho Books</i></span><span class="lg wm"><i>Aramex</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/amazonwebservices.svg" alt=""><i>AWS</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/auth0.svg" alt=""><i>Auth0</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/box.svg" alt=""><i>Box</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/confluence.svg" alt=""><i>Confluence</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/dhl.svg" alt=""><i>DHL</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/fedex.svg" alt=""><i>FedEx</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/gmail.svg" alt=""><i>Gmail</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/googlebigquery.svg" alt=""><i>BigQuery</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/googlesheets.svg" alt=""><i>Google Sheets</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/hubspot.svg" alt=""><i>HubSpot</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/jenkins.svg" alt=""><i>Jenkins</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/looker.svg" alt=""><i>Looker</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/meta.svg" alt=""><i>Meta</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/mysql.svg" alt=""><i>MySQL</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/sap.svg" alt=""><i>SAP</i></span><span class="lg wm"><i>Oracle NetSuite</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/salesforce.svg" alt=""><i>Salesforce</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/xero.svg" alt=""><i>Xero</i></span><span class="lg wm"><i>SharePoint Online</i></span><span class="lg wm"><i>Microsoft Dynamics 365 Finance and Operations</i></span><span class="lg wm"><i>Infor LN</i></span><span class="lg wm"><i>Power BI</i></span><span class="lg wm"><i>IFS Cloud</i></span><span class="lg wm"><i>Foodics</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/adyen.svg" alt=""><i>Adyen</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/apachekafka.svg" alt=""><i>Kafka</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/autodesk.svg" alt=""><i>Autodesk</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/clickup.svg" alt=""><i>ClickUp</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/databricks.svg" alt=""><i>Databricks</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/dropbox.svg" alt=""><i>Dropbox</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/github.svg" alt=""><i>GitHub</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/googleads.svg" alt=""><i>Google Ads</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/googlecloud.svg" alt=""><i>Google Cloud</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/greenhouse.svg" alt=""><i>Greenhouse</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/informatica.svg" alt=""><i>Informatica</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/jira.svg" alt=""><i>Jira</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/magento.svg" alt=""><i>Magento</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/mongodb.svg" alt=""><i>MongoDB</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/notion.svg" alt=""><i>Notion</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/paypal.svg" alt=""><i>PayPal</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/redis.svg" alt=""><i>Redis</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/siemens.svg" alt=""><i>Siemens</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/splunk.svg" alt=""><i>Splunk</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/tableau.svg" alt=""><i>Tableau</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/trello.svg" alt=""><i>Trello</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/ups.svg" alt=""><i>UPS</i></span><span class="lg wm"><i>Microsoft Exchange</i></span><span class="lg wm"><i>Infor M3</i></span><span class="lg wm"><i>Sage 300</i></span><span class="lg wm"><i>Kyriba</i></span><span class="lg wm"><i>DP World CARGOES</i></span><span class="lg wm"><i>Korber WMS</i></span><span class="lg wm"><i>Oracle Opera</i></span><span class="lg wm"><i>MRI Software</i></span><span class="lg wm"><i>SAP Plant Maintenance</i></span><span class="lg wm"><i>Network International</i></span><span class="lg wm"><i>Bayzat</i></span><span class="lg wm"><i>Wafeq</i></span><span class="lg wm"><i>Toast</i></span><span class="lg wm"><i>BambooHR</i></span><span class="lg wm"><i>Informatica</i></span><span class="lg wm"><i>Fivetran</i></span><span class="lg wm"><i>Microsoft 365</i></span><span class="lg wm"><i>Microsoft Dynamics 365 Business Central</i></span><span class="lg wm"><i>Workday</i></span><span class="lg wm"><i>Tally</i></span><span class="lg wm"><i>ServiceNow</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/odoo.svg" alt=""><i>Odoo</i></span><span class="lg wm"><i>Epicor Kinetic</i></span><span class="lg wm"><i>Zoho Books</i></span><span class="lg wm"><i>Aramex</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/amazonwebservices.svg" alt=""><i>AWS</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/auth0.svg" alt=""><i>Auth0</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/box.svg" alt=""><i>Box</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/confluence.svg" alt=""><i>Confluence</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/dhl.svg" alt=""><i>DHL</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/fedex.svg" alt=""><i>FedEx</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/gmail.svg" alt=""><i>Gmail</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/googlebigquery.svg" alt=""><i>BigQuery</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/googlesheets.svg" alt=""><i>Google Sheets</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/hubspot.svg" alt=""><i>HubSpot</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/jenkins.svg" alt=""><i>Jenkins</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/looker.svg" alt=""><i>Looker</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/meta.svg" alt=""><i>Meta</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/mysql.svg" alt=""><i>MySQL</i></span></div></div>
-<div class="dstrip rv"><div class="run d1"><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/oracle.svg" alt=""><i>Oracle</i></span><span class="lg wm"><i>SAP S/4HANA</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/zoho.svg" alt=""><i>Zoho</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/quickbooks.svg" alt=""><i>QuickBooks</i></span><span class="lg wm"><i>Sage Intacct</i></span><span class="lg wm"><i>Outlook</i></span><span class="lg wm"><i>Microsoft Teams</i></span><span class="lg wm"><i>Focus Softnet</i></span><span class="lg wm"><i>Emirates NBD</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/airtable.svg" alt=""><i>Airtable</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/asana.svg" alt=""><i>Asana</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/bitbucket.svg" alt=""><i>Bitbucket</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/cloudera.svg" alt=""><i>Cloudera</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/datadog.svg" alt=""><i>Datadog</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/elasticsearch.svg" alt=""><i>Elasticsearch</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/gitlab.svg" alt=""><i>GitLab</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/googleanalytics.svg" alt=""><i>Google Analytics</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/googledrive.svg" alt=""><i>Google Drive</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/gusto.svg" alt=""><i>Gusto</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/intuit.svg" alt=""><i>Intuit</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/linkedin.svg" alt=""><i>LinkedIn</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/mailchimp.svg" alt=""><i>Mailchimp</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/mulesoft.svg" alt=""><i>MuleSoft</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/okta.svg" alt=""><i>Okta</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/postgresql.svg" alt=""><i>PostgreSQL</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/sage.svg" alt=""><i>Sage</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/slack.svg" alt=""><i>Slack</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/square.svg" alt=""><i>Square</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/teradata.svg" alt=""><i>Teradata</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/twilio.svg" alt=""><i>Twilio</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/woocommerce.svg" alt=""><i>WooCommerce</i></span><span class="lg wm"><i>SAP Ariba</i></span><span class="lg wm"><i>Acumatica</i></span><span class="lg wm"><i>Docusign</i></span><span class="lg wm"><i>Finastra</i></span><span class="lg wm"><i>Blue Yonder</i></span><span class="lg wm"><i>IBM Maximo</i></span><span class="lg wm"><i>LS Retail</i></span><span class="lg wm"><i>RealPage</i></span><span class="lg wm"><i>Mashreq</i></span><span class="lg wm"><i>PayTabs</i></span><span class="lg wm"><i>Darwinbox</i></span><span class="lg wm"><i>Qoyod</i></span><span class="lg wm"><i>Freshservice</i></span><span class="lg wm"><i>Procore</i></span><span class="lg wm"><i>Celonis</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/pagerduty.svg" alt=""><i>PagerDuty</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/qlik.svg" alt=""><i>Qlik</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/shopify.svg" alt=""><i>Shopify</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/snowflake.svg" alt=""><i>Snowflake</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/stripe.svg" alt=""><i>Stripe</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/tiktok.svg" alt=""><i>TikTok</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/uipath.svg" alt=""><i>UiPath</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/zendesk.svg" alt=""><i>Zendesk</i></span><span class="lg wm"><i>IBM Db2</i></span><span class="lg wm"><i>TallyPrime</i></span><span class="lg wm"><i>Coupa</i></span><span class="lg wm"><i>Mambu</i></span><span class="lg wm"><i>Manhattan Associates</i></span><span class="lg wm"><i>Oracle MICROS Simphony</i></span><span class="lg wm"><i>Yardi</i></span><span class="lg wm"><i>Oracle Primavera Cloud</i></span><span class="lg wm"><i>First Abu Dhabi Bank</i></span><span class="lg wm"><i>Tap Payments</i></span><span class="lg wm"><i>greytHR</i></span><span class="lg wm"><i>Lightspeed Retail</i></span><span class="lg wm"><i>Smartsheet</i></span><span class="lg wm"><i>Samsara</i></span><span class="lg wm"><i>Palantir Foundry</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/oracle.svg" alt=""><i>Oracle</i></span><span class="lg wm"><i>SAP S/4HANA</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/zoho.svg" alt=""><i>Zoho</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/quickbooks.svg" alt=""><i>QuickBooks</i></span><span class="lg wm"><i>Sage Intacct</i></span><span class="lg wm"><i>Outlook</i></span><span class="lg wm"><i>Microsoft Teams</i></span><span class="lg wm"><i>Focus Softnet</i></span><span class="lg wm"><i>Emirates NBD</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/airtable.svg" alt=""><i>Airtable</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/asana.svg" alt=""><i>Asana</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/bitbucket.svg" alt=""><i>Bitbucket</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/cloudera.svg" alt=""><i>Cloudera</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/datadog.svg" alt=""><i>Datadog</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/elasticsearch.svg" alt=""><i>Elasticsearch</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/gitlab.svg" alt=""><i>GitLab</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/googleanalytics.svg" alt=""><i>Google Analytics</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/googledrive.svg" alt=""><i>Google Drive</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/gusto.svg" alt=""><i>Gusto</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/intuit.svg" alt=""><i>Intuit</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/linkedin.svg" alt=""><i>LinkedIn</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/mailchimp.svg" alt=""><i>Mailchimp</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/mulesoft.svg" alt=""><i>MuleSoft</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/okta.svg" alt=""><i>Okta</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/postgresql.svg" alt=""><i>PostgreSQL</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/sage.svg" alt=""><i>Sage</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/slack.svg" alt=""><i>Slack</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/square.svg" alt=""><i>Square</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/teradata.svg" alt=""><i>Teradata</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/twilio.svg" alt=""><i>Twilio</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/woocommerce.svg" alt=""><i>WooCommerce</i></span><span class="lg wm"><i>SAP Ariba</i></span><span class="lg wm"><i>Acumatica</i></span><span class="lg wm"><i>Docusign</i></span><span class="lg wm"><i>Finastra</i></span><span class="lg wm"><i>Blue Yonder</i></span><span class="lg wm"><i>IBM Maximo</i></span><span class="lg wm"><i>LS Retail</i></span><span class="lg wm"><i>RealPage</i></span><span class="lg wm"><i>Mashreq</i></span><span class="lg wm"><i>PayTabs</i></span><span class="lg wm"><i>Darwinbox</i></span><span class="lg wm"><i>Qoyod</i></span><span class="lg wm"><i>Freshservice</i></span><span class="lg wm"><i>Procore</i></span><span class="lg wm"><i>Celonis</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/pagerduty.svg" alt=""><i>PagerDuty</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/qlik.svg" alt=""><i>Qlik</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/shopify.svg" alt=""><i>Shopify</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/snowflake.svg" alt=""><i>Snowflake</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/stripe.svg" alt=""><i>Stripe</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/tiktok.svg" alt=""><i>TikTok</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/uipath.svg" alt=""><i>UiPath</i></span><span class="lg"><img loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/zendesk.svg" alt=""><i>Zendesk</i></span><span class="lg wm"><i>IBM Db2</i></span><span class="lg wm"><i>TallyPrime</i></span><span class="lg wm"><i>Coupa</i></span><span class="lg wm"><i>Mambu</i></span><span class="lg wm"><i>Manhattan Associates</i></span><span class="lg wm"><i>Oracle MICROS Simphony</i></span><span class="lg wm"><i>Yardi</i></span><span class="lg wm"><i>Oracle Primavera Cloud</i></span><span class="lg wm"><i>First Abu Dhabi Bank</i></span><span class="lg wm"><i>Tap Payments</i></span><span class="lg wm"><i>greytHR</i></span><span class="lg wm"><i>Lightspeed Retail</i></span><span class="lg wm"><i>Smartsheet</i></span><span class="lg wm"><i>Samsara</i></span><span class="lg wm"><i>Palantir Foundry</i></span></div></div>
-<p class="dmore rv">1,004 systems, named one by one. <a href="connects.html">What we connect to &rarr;</a></p>
-<!-- /CONNECT STRIP DARK -->
-</div></section>
-
-<!-- 9 · CLOSE -->
+<!-- 7 · BOOK A WALKTHROUGH -->
 <section class="close" id="close"><div class="wrap">
   <div class="m rv"><img src="img/mark-left-c.png" alt=""><img class="s" src="img/star-crop.png" alt=""><img src="img/mark-right-c.png" alt=""></div>
   <h2 class="rv d1">We operate <b>the future.</b></h2>
-  <p class="lede rv d2">Start with one pocket. We show you the money, go in and get it, and prove it moved.</p>
+  <p class="lede rv d2">Start with one project. See every step on one screen.</p>
   <div class="btns rv d3"><a class="btn dark" href="mailto:hello@perspace.ai?subject=Walkthrough">Book a walkthrough →</a><a class="btn line" href="mailto:hello@perspace.ai">hello@perspace.ai</a></div>
+  <nav class="trail rv" aria-label="The site"><a class="on" href="index.html"><i></i>Home</a><a href="cockpit.html"><i></i>Cockpit</a><a href="method.html"><i></i>Method</a><a href="plugins.html"><i></i>Plug-ins</a></nav>
 </div></section>
 
 <footer><div class="wrap">
   <a class="brand" href="index.html"><img src="img/perspace-mark-ink.png" alt="">Perspace</a>
-  <div class="ft"><a href="cockpit.html">Cockpit</a><a href="plugins.html">Plug-ins</a><a href="connects.html">What we connect to</a><a href="method.html">Method</a><a href="philosophy.html">Philosophy</a><a href="venture.html">Venture clienting</a><a href="insights.html">Library</a></div>
+  <div class="ft"><a href="index.html">Home</a><a href="cockpit.html">Cockpit</a><a href="method.html">Method</a><a href="plugins.html">Plug-ins</a></div>
   <div class="tl">We operate the future · Dubai · Abu Dhabi · hello@perspace.ai</div>
 </div></footer>
 
@@ -646,7 +530,7 @@ nav.open .mnu i:first-child{transform:translateY(3.75px) rotate(45deg)}nav.open 
 
   // reveal + one-shot triggers
   const io=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); if(e.target.dataset.count!==undefined) countUp(e.target); io.unobserve(e.target);} }),{threshold:.2});
-  document.querySelectorAll('.rv,#rail,#bp,[data-count]').forEach(el=>io.observe(el));
+  document.querySelectorAll('.rv,[data-count]').forEach(el=>io.observe(el));
   function countUp(el){ const to=+el.dataset.count, suf=el.dataset.suffix||''; if(RM){el.textContent=to.toLocaleString('en-US')+suf;return;} const t0=performance.now(),d=1400;
     (function f(t){const k=Math.min(1,(t-t0)/d);el.textContent=Math.round(to*(1-Math.pow(1-k,3))).toLocaleString('en-US')+suf; if(k<1) requestAnimationFrame(f);})(t0); }
 
@@ -674,23 +558,6 @@ nav.open .mnu i:first-child{transform:translateY(3.75px) rotate(45deg)}nav.open 
   function spaceQueue(){ if(!spTick){spTick=true;requestAnimationFrame(spaceFrame);} }
   addEventListener('scroll',spaceQueue,{passive:true}); let spW=innerWidth; addEventListener('resize',()=>{ if(innerWidth!==spW){spW=innerWidth;spLast='';spaceQueue();} }); spaceFrame();
   window.__spaceFrame=spaceFrame;
-
-  // COCKPIT tabs: auto-advance, each tab plays its own real screen
-  const tabs=[...document.querySelectorAll('.tab')], vids=[...document.querySelectorAll('.device video')], stats=document.getElementById('stats');
-  const S=[[["1,312","files read"],["3,548","depots on the register"],["259","shippers who pay"]],
-           [["40","places found"],["1,049 of 4,978","routes that sold nothing"],["5","rows, by what they do to money"]],
-           [["25","acts on 13 territories"],["47","ways of working to change"],["0","logged as moved, yet"]],
-           [["164","carriers of work"],["137","people"],["22","agents designed"]]];
-  let cur=0,timer;
-  function show(n){ cur=n; tabs.forEach((t,j)=>{t.classList.toggle('on',j===n); const b=t.querySelector('.bar'); b.style.animation='none'; b.offsetWidth; b.style.animation='';});
-    vids.forEach((vd,j)=>{ if(j===n){vd.classList.add('on'); try{vd.currentTime=0;vd.play();}catch(e){}} else {vd.classList.remove('on'); vd.pause();}});
-    stats.innerHTML=S[n].map(s=>`<div><b>${s[0]}</b><span>${s[1]}</span></div>`).join('');
-    const dur=(vids[n].duration&&isFinite(vids[n].duration))?vids[n].duration:10; tabs[n].style.setProperty('--dur',dur+'s');
-    clearTimeout(timer); timer=setTimeout(()=>show((n+1)%tabs.length),dur*1000); }
-  tabs.forEach((t,j)=>t.addEventListener('click',()=>show(j)));
-  vids.forEach(v=>v.addEventListener('loadedmetadata',()=>{ if(vids.indexOf(v)===cur) show(cur); },{once:true}));
-  show(0);
-  window.__showTab=show;
 })();
 </script>
 <script>(function(){const n=document.getElementById('nav'),b=n&&n.querySelector('.mnu');if(!b)return;
