@@ -5,6 +5,8 @@ plays    = files hq/method/play/*/*.md whose front matter says state: approved o
            and that were not merged into another play (no merged_into:).
 systems  = distinct system names in hq/method/connectors/catalogue.json
 core     = of those, the finance and ERP systems (groups erp + fin)
+industries = industries in hq/method/evidence/segments.json
+segments   = the segments those industries are split into, same file
 
 Writes data/site-counts.json and stamps each number into every element marked
 data-src="<key>" on every page (its data-count, if any, and its text), so the page shows the
@@ -16,7 +18,7 @@ from pathlib import Path
 
 SITE = Path(__file__).resolve().parent.parent
 HQ = Path(sys.argv[1]) if len(sys.argv) > 1 else Path.home() / 'hob-cockpit/hq'
-PAGES = ['index.html', 'cockpit.html', 'method.html', 'plugins.html']
+PAGES = ['index.html', 'cockpit.html', 'method.html', 'plugins.html', 'method-library.html']
 
 def front(p):
     t = p.read_text(encoding='utf-8', errors='replace')
@@ -40,7 +42,11 @@ cat = json.loads((HQ / 'method/connectors/catalogue.json').read_text(encoding='u
 systems = len({i['n'] for g in cat['groups'].values() for i in g['items']})
 core = len({i['n'] for k in ('erp', 'fin') for i in cat['groups'][k]['items']})
 
-counts = {'plays': plays, 'systems': systems, 'core': core}
+segs = json.loads((HQ / 'method/evidence/segments.json').read_text(encoding='utf-8'))['industries']
+industries = len(segs)
+segments = sum(len(v.get('segments', [])) for v in segs.values())
+
+counts = {'plays': plays, 'systems': systems, 'core': core, 'industries': industries, 'segments': segments}
 zero = [k for k, n in counts.items() if not n]
 if zero:
     sys.exit('site-counts: read 0 for %s from %s, refusing to write a zero' % (', '.join(zero), HQ))
@@ -51,6 +57,8 @@ if zero:
 stamped = {k: 0 for k in counts}
 for page in PAGES:
     f = SITE / page
+    if not f.exists():
+        continue
     html = f.read_text(encoding='utf-8')
     for key, n in counts.items():
         pat = re.compile(r'(<(\w+)\b[^>]*\bdata-src="' + key + r'"[^>]*>)[^<]*(</\2>)')

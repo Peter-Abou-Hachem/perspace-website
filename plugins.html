@@ -85,6 +85,21 @@
 .pi2:hover{transform:translateY(-2px);border-color:var(--ink)}
 .pi2 i{width:8px;height:8px;border-radius:50%;background:var(--accent);flex:none}
 .o-shelf i{background:var(--silver)}.o-venture{background:var(--ink);color:#fff;border-color:var(--ink)}.o-venture i{background:#fff}
+/* rotating menu (Peter, 6 Oct 2026): data/plugins.json, written by tools/write-plugins.py */
+.grp{cursor:pointer;position:relative}
+.grp h4{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.grp h4 small{font-size:10.5px;letter-spacing:.04em;text-transform:none;color:var(--faint);font-weight:500;white-space:nowrap}
+.pis{align-content:flex-start}
+.pi2{transition:transform .25s var(--ease),border-color .25s,opacity .45s var(--ease),filter .45s var(--ease)}
+.pi2.out{opacity:0;filter:blur(3px);transform:translateY(4px)}
+.pi2.in{animation:chipin .55s var(--ease)}
+@keyframes chipin{from{opacity:0;filter:blur(3px);transform:translateY(-4px)}to{opacity:1;filter:none;transform:none}}
+.grp .gmore{display:inline-flex;align-items:center;margin-top:10px;font-size:12.5px;font-weight:700;color:var(--ink);border:0;background:none;padding:0;cursor:pointer;font-family:inherit}
+.grp .gmore::after{content:"";width:6px;height:6px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg);margin:-3px 0 0 8px;transition:transform .3s}
+.grp.open .gmore::after{transform:rotate(-135deg);margin-top:3px}
+.grp.open{grid-column:1/-1}
+.grp.open .pis{animation:chipin .4s var(--ease)}
+.grp h4 small{transition:color .4s}.grp.tick h4 small{color:var(--accent-ink)}
 .mkey{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:30px;padding-top:14px;border-top:1px solid var(--line);font-size:12.5px;color:var(--soft)}
 .mkey i{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:7px}
 /* sourced */
@@ -275,4 +290,63 @@
   <div class="tl">We operate the future · Dubai · Abu Dhabi · hello@perspace.ai</div>
 </div></footer>
 <script src="site.js"></script>
+<script>
+(function(){
+  const box=document.querySelector('#menu .grps'); if(!box) return;
+  const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const cls={shelf:'o-shelf',cockpit:'o-cockpit',venture:'o-venture'};
+  fetch('data/plugins.json').then(r=>r.json()).then(d=>{
+    const shown={}; box.querySelectorAll('.grp').forEach(g=>{shown[g.querySelector('h4').textContent.trim()]=g.querySelectorAll('.pi2').length;});
+    const chip=it=>{const s=document.createElement('span');s.className='pi2 '+(cls[it.k]||'o-cockpit');s.innerHTML='<i></i>';s.appendChild(document.createTextNode(it.n));return s;};
+    const G=[];
+    box.innerHTML='';
+    d.blocks.forEach((b,bi)=>{
+      if(!b.items.length) return;
+      const n=Math.min(b.items.length, shown[b.n]||7);
+      const g=document.createElement('div'); g.className='grp rv in'; g.tabIndex=0; g.setAttribute('role','button'); g.setAttribute('aria-expanded','false');
+      g.innerHTML='<h4><span></span><small></small></h4><div class="pis"></div><button class="gmore" type="button" tabindex="-1"></button>';
+      g.querySelector('h4 span').textContent=b.n;
+      g.querySelector('h4 small').textContent=b.items.length+' in this block';
+      const pis=g.querySelector('.pis'), more=g.querySelector('.gmore');
+      // start with the original chips first, then the rest in a stable shuffle
+      const pool=b.items.map((it,i)=>i), rest=pool.slice(n);
+      for(let i=rest.length-1;i>0;i--){const j=(i*7+bi*3)%(i+1);[rest[i],rest[j]]=[rest[j],rest[i]];}
+      const st={b,g,pis,more,n,on:pool.slice(0,n),queue:rest,open:false,hover:false};
+      st.on.forEach(i=>pis.appendChild(chip(b.items[i])));
+      more.textContent=b.items.length>n?'Show all '+b.items.length:'';
+      function toggle(){
+        st.open=!st.open; g.classList.toggle('open',st.open); g.setAttribute('aria-expanded',st.open);
+        pis.innerHTML='';
+        (st.open?b.items.map((_,i)=>i):st.on).forEach(i=>pis.appendChild(chip(b.items[i])));
+        more.textContent=st.open?'Show fewer':(b.items.length>n?'Show all '+b.items.length:'');
+      }
+      g.addEventListener('click',toggle);
+      g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();toggle();}});
+      g.addEventListener('mouseenter',()=>st.hover=true); g.addEventListener('mouseleave',()=>st.hover=false);
+      box.appendChild(g); G.push(st);
+    });
+    if(RM) return;
+    // one block at a time, a few chips each, so the menu breathes without everything moving at once
+    let k=0, vis=false;
+    new IntersectionObserver(es=>{vis=es[0].isIntersecting;},{threshold:.1}).observe(box);
+    setInterval(()=>{
+      if(!vis||document.hidden) return;
+      const st=G[k++%G.length]; if(!st||st.open||st.hover||!st.queue.length) return;
+      const swap=Math.min(2,st.queue.length), els=[...st.pis.children];
+      const slots=[]; while(slots.length<swap){const x=Math.floor(Math.random()*els.length); if(!slots.includes(x)) slots.push(x);}
+      st.g.classList.add('tick'); setTimeout(()=>st.g.classList.remove('tick'),900);
+      slots.forEach((x,j)=>{
+        const el=els[x];
+        setTimeout(()=>{
+          el.classList.add('out');
+          setTimeout(()=>{
+            const ni=st.queue.shift(); st.queue.push(st.on[x]); st.on[x]=ni;
+            const c=chip(st.b.items[ni]); c.classList.add('in'); el.replaceWith(c);
+          },450);
+        },j*260);
+      });
+    },1700);
+  }).catch(()=>{});
+})();
+</script>
 </body></html>

@@ -19,33 +19,8 @@
 .room ul{list-style:none;margin-top:22px;display:grid;gap:10px}
 .room li{font-size:15.5px;color:var(--ink);padding-left:22px;position:relative;line-height:1.45}
 .room li::before{content:"";position:absolute;left:0;top:10px;width:10px;height:1px;background:var(--ink)}
-/* greying ladder */
-.ladder{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--ink)}
-.lg{padding:30px 26px 34px;border-left:1px solid var(--line);background:var(--card);transition:background 1s var(--ease),color 1s}
-.lg:first-child{border-left:0}
-.lg .sw{height:10px;margin-bottom:26px;background:#d8dade;transition:background 1s var(--ease)}
-.lg b{font-size:24px;font-weight:700;letter-spacing:-.015em;display:block;color:var(--faint);transition:color 1s}
-.lg span{display:block;font-size:15px;line-height:1.5;color:var(--soft);margin-top:10px}
-.ladder.in .lg:nth-child(1) .sw{background:#b9bfc7;transition-delay:.2s}
-.ladder.in .lg:nth-child(2) .sw{background:#8ba6b7;transition-delay:.6s}
-.ladder.in .lg:nth-child(3) .sw{background:#3f5e6e;transition-delay:1s}
-.ladder.in .lg:nth-child(4) .sw{background:#091120;transition-delay:1.4s}
-.ladder.in .lg b{color:var(--ink)}
-.ladder.in .lg:nth-child(2) b{transition-delay:.4s}.ladder.in .lg:nth-child(3) b{transition-delay:.8s}.ladder.in .lg:nth-child(4) b{transition-delay:1.2s}
 /* traced finding */
 .trace{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
-.fcard{background:var(--card);border:1px solid var(--ink);padding:30px;box-shadow:0 30px 60px rgba(9,17,32,.1)}
-.fcard .k{font-size:10.5px;letter-spacing:.16em;color:var(--accent-ink);font-weight:500}
-.fcard h4{font-size:24px;font-weight:700;letter-spacing:-.015em;margin-top:12px;line-height:1.25}
-.fcard .v{font-size:44px;font-weight:300;letter-spacing:-.03em;margin-top:18px}
-.fcard .v small{font-size:16px;color:var(--soft);letter-spacing:0}
-.path{margin-top:22px;display:grid;gap:0}
-.path div{display:flex;align-items:center;gap:12px;font-size:14px;padding:12px 0;border-top:1px dashed var(--line);opacity:0;transform:translateX(-10px);transition:all .7s var(--ease)}
-.path div i{width:8px;height:8px;border-radius:50%;background:var(--accent);flex:none}
-.path div:last-child i{background:var(--ink)}
-.path div code{font-family:var(--f);font-weight:700}
-.fcard.in .path div{opacity:1;transform:none}
-.fcard.in .path div:nth-child(2){transition-delay:.4s}.fcard.in .path div:nth-child(3){transition-delay:.8s}
 /* plugs */
 .plugs{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .pl{background:var(--card);border:1px solid var(--line);padding:30px 28px}
@@ -58,7 +33,6 @@
   .room,.room:nth-child(even),.trace,.plugs{grid-template-columns:1fr;gap:28px}
   .room:nth-child(even) .vis{order:0}
   .room{padding:50px 0}
-  .ladder{grid-template-columns:1fr 1fr}.lg:nth-child(3){border-left:0}.lg:nth-child(n+3){border-top:1px solid var(--line)}
 }
 /* back office, your way, a day (Peter, 6 Oct 2026; deck slides rebuilt in the site look) */
 .agi{width:16px;height:16px;fill:#8BA6B7;flex:none}.psi{width:16px;height:16px;fill:var(--ink);flex:none}
@@ -154,19 +128,6 @@
 .viewer .vk{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-top:18px;flex-wrap:wrap}
 .viewer .vk .honest{margin-top:0}
 .dots{display:flex;gap:8px}.dots i{width:28px;height:3px;background:var(--line);transition:background .3s}.dots i.on{background:var(--ink)}
-/* grey to banked + one finding, one section */
-.gb{display:grid;grid-template-columns:1.15fr .85fr;gap:50px;align-items:stretch;margin-top:10px}
-.ladder{grid-template-columns:repeat(2,1fr)}
-.lg:nth-child(3){border-left:0}.lg:nth-child(n+3){border-top:1px solid var(--line)}
-.lg{padding:26px 24px 28px}
-.lg .sw{margin-bottom:20px}
-.fcard{display:flex;flex-direction:column}
-.fcard .st4{display:flex;gap:4px;margin-top:18px}
-.fcard .st4 i{flex:1;height:8px;background:#d8dade}
-.fcard.in .st4 i:nth-child(1){background:#b9bfc7}.fcard.in .st4 i:nth-child(2){background:#8ba6b7;transition:background .6s .3s}
-.fcard .st4l{display:flex;justify-content:space-between;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);font-weight:500;margin-top:8px}
-.fcard .st4l b{color:var(--ink)}
-.path div code{border-bottom:1px solid var(--ink)}
 .trail{display:flex;justify-content:center;margin:56px auto 0;max-width:620px;position:relative}
 .trail::before{content:"";position:absolute;left:12%;right:12%;top:7px;height:1px;background:var(--ink);opacity:.25}
 .trail a{flex:1;display:flex;flex-direction:column;align-items:center;gap:10px;font-size:13px;font-weight:500;color:var(--soft);position:relative}
@@ -178,7 +139,6 @@
   .pad.tight{padding:76px 0}
   .phero{padding:110px 0 50px}
   .ck{grid-template-columns:1fr;gap:26px}
-  .gb{grid-template-columns:1fr;gap:26px}
   .closeband{padding:80px 0 60px}
 }
 </style></head>
@@ -266,33 +226,6 @@
     <div class="dys rv d1"><div class="dyk">Midday</div><h3>An agent asks for a yes</h3><div class="dyv"><div class="dyn"><span><svg viewBox="0 0 24 24" class="agi" aria-hidden="true"><path d="M12 2l2.6 7.4L22 12l-7.4 2.6L12 22l-2.6-7.4L2 12l7.4-2.6z"/></svg>Payment run ready, 12 suppliers</span><div class="cf"><span>Approve</span><span>Not yet</span></div></div></div><p>One tap, and the payments go out.</p></div>
     <div class="dys rv d2"><div class="dyk">Afternoon</div><h3>A question in the chat</h3><div class="dyv"><div class="ywq">Which invoices are overdue this week?</div></div><p>The answer comes with its source.</p></div>
     <div class="dys lit rv d3"><div class="dyk">Friday</div><h3>The weekly report</h3><div class="dyv"><div class="dyw"><span>What moved</span><span>What waits</span><span>What needs you</span></div></div><p>One page, in your inbox.</p></div>
-  </div>
-</div></section>
-
-<!-- EVERYTHING STARTS GREY · EVERY FIGURE OPENS TO ITS FILE -->
-<section class="pad tight" id="grey" style="background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)"><div class="wrap">
-  <div class="head2">
-    <div><div class="tag rv">How you read it</div><h2 class="rv d1">Everything starts grey. <b>It darkens as it is proven.</b></h2></div>
-    <p class="lede rv d2">You see the whole shape from day one. Nothing is claimed before the files back it.</p>
-  </div>
-  <div class="gb">
-    <div class="ladder" data-trigger>
-      <div class="lg"><div class="sw"></div><b>Greyed</b><span>Your own files keep pointing here. No number yet.</span></div>
-      <div class="lg"><div class="sw"></div><b>Named</b><span>Your people confirmed what it is.</span></div>
-      <div class="lg"><div class="sw"></div><b>Sized</b><span>A range, an owner, and the measure to move.</span></div>
-      <div class="lg"><div class="sw"></div><b>Banked</b><span>The measure moved, and the record shows it.</span></div>
-    </div>
-    <div class="fcard" id="trace" data-trigger>
-      <div class="k">EVERY FIGURE OPENS TO ITS FILE</div>
-      <h4>The same category, bought three ways at three prices.</h4>
-      <div class="st4"><i></i><i></i><i></i><i></i></div>
-      <div class="st4l"><span>Greyed</span><b>Named</b><span>Sized</span><span>Banked</span></div>
-      <div class="path">
-        <div><i></i>Three suppliers, one spec</div>
-        <div><i></i>Read from <code>Supplier_Contracts_2026.xlsx</code></div>
-        <div><i></i>Sized once your people confirm it</div>
-      </div>
-    </div>
   </div>
 </div></section>
 

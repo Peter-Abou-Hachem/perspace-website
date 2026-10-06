@@ -25,12 +25,6 @@
 .sp h3{font-size:30px;font-weight:700;letter-spacing:-.02em;margin-top:8px}
 .sp p{font-size:17px;line-height:1.55;color:var(--soft);margin-top:10px;max-width:30em}
 .sp.seven h3::after{content:"the agent";margin-left:12px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;padding:5px 9px;background:var(--blue);color:var(--accent-ink);vertical-align:middle}
-/* agent is seven */
-.seven-band{padding:140px 0}
-.seven-band .row{display:grid;grid-template-columns:auto 1fr;gap:70px;align-items:center}
-.big7{font-size:clamp(160px,20vw,300px);font-weight:300;line-height:.8;letter-spacing:-.06em;color:transparent;-webkit-text-stroke:1.5px var(--accent)}
-.seven-band h2{color:#8ea3b3}.seven-band h2 b{color:#fff}
-.seven-band .lede{margin-top:26px}
 /* rings */
 .rings{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .rg{background:var(--card);border:1px solid var(--line);padding:34px 30px;display:flex;gap:26px;align-items:center}
@@ -147,7 +141,6 @@
 .sp{padding:0 0 44px}
 .sp h3{font-size:27px}
 .sp p{font-size:16.5px}
-.seven-band{padding:110px 0}
 .rings{margin-top:0}
 .merge .lede{margin-top:22px}
 /* the library */
@@ -155,6 +148,13 @@
 .shelf3{background:var(--card);border:1px solid var(--line);padding:26px 24px 24px;display:flex;flex-direction:column;gap:14px}
 .shelf3 .k{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-ink);font-weight:500}
 .shelf3 .k b{display:block;font-size:56px;font-weight:300;letter-spacing:-.03em;line-height:1;color:var(--ink);margin-top:10px;font-variant-numeric:tabular-nums;text-transform:none}
+.shelf3 .kl{display:block;transition:opacity .3s}.shelf3 .kl:hover{opacity:.7}
+.btn.mx{justify-content:center;gap:12px}
+.mxg{display:grid;grid-template-columns:repeat(3,5px);gap:2px}
+.mxg i{width:5px;height:5px;background:#2F6D7A}
+.mxg i:nth-child(2),.mxg i:nth-child(6),.mxg i:nth-child(7){background:#8BA6B7}.mxg i:nth-child(4),.mxg i:nth-child(9){background:#fff}
+.btn.mx:hover .mxg i{animation:mxp .9s var(--ease)}
+@keyframes mxp{50%{transform:scale(.4)}}
 .shelf3 h3{font-size:28px;font-weight:700;letter-spacing:-.02em}
 .paper{display:flex;flex-direction:column;gap:8px;text-align:left;font:inherit;color:inherit;background:var(--ink);color:#fff;border:0;padding:18px 18px 16px;cursor:pointer;transition:transform .3s var(--ease),box-shadow .3s}
 .paper:hover{transform:translateY(-3px);box-shadow:0 20px 40px rgba(9,17,32,.18)}
@@ -174,10 +174,9 @@
 @media (max-width:900px){
   .pad.tight{padding:76px 0}
   .phero{padding:110px 0 40px}.phero .mk{height:260px}
-  .jr,.seven-band .row,.rings{grid-template-columns:1fr;gap:30px}
+  .jr,.rings{grid-template-columns:1fr;gap:30px}
   .jr .side{position:static}
   .sp h3{font-size:23px}
-  .seven-band{padding:80px 0}.big7{font-size:140px}
   .rg{padding:24px 20px}.rg svg{width:84px;height:84px}
   .beliefs,.merge,.libs{grid-template-columns:1fr}
   .stackb{height:440px}
@@ -308,16 +307,6 @@
   </div>
 </div></section>
 
-<!-- PROJECTS, NOT AGENTS -->
-<section class="dark seven-band" id="projects"><div class="wrap row">
-  <div class="big7 rv">7</div>
-  <div>
-    <div class="tag rv">Why the agent waits</div>
-    <h2 class="rv d1" style="margin-top:24px">Projects, not agents. <b>The agent comes in once the work is fixed.</b></h2>
-    <p class="lede rv d2">An agent on a broken process does the wrong work faster. We fix the work, prove it held, then hand the repeat to an agent.</p>
-  </div>
-</div></section>
-
 <!-- 30 60 90 -->
 <section class="pad tight"><div class="wrap">
   <div class="head2">
@@ -384,7 +373,8 @@
     <p class="lede rv d2">A play: a move one company made, read from a named source, that another company can repeat.</p>
   </div>
   <div class="libs">
-    <div class="shelf3 rv"><div class="k">Plays in the library<b data-count="1249" data-src="plays">1,249</b></div>
+    <div class="shelf3 rv"><a class="k kl" href="method-library.html">Plays in the library<b data-count="1249" data-src="plays">1,249</b></a>
+      <a class="btn dark mx" href="method-library.html"><span class="mxg" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>Open the matrix &rarr;</a>
       <button class="paper" data-id="price-list-invoice"><small>Play · read the paper</small><b>Between the price list and the invoice</b><em>Read &rarr;</em></button>
       <div class="chips"><span>Bought three ways</span><span>Capacity nobody sold</span><span>Cash past 90 days</span><span>The report nobody reads</span></div></div>
     <div class="shelf3 rv d1"><div class="k">Methods</div><h3>The same on every company</h3>

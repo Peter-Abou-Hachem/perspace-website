@@ -294,7 +294,7 @@ nav.open .mnu i:first-child{transform:translateY(3.75px) rotate(45deg)}nav.open 
 .space .note a{color:#fff;border-bottom:1px solid rgba(255,255,255,.35);padding-bottom:2px;margin-left:10px;transition:border-color .3s}
 .space .note a:hover{border-color:#fff}
 .sec{padding:100px 0}
-.data h2,.proof h2,.fd h2{font-size:clamp(30px,3.4vw,48px)}
+.data h2,.fd h2{font-size:clamp(30px,3.4vw,48px)}
 .hd2{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;margin-bottom:44px}
 .hd2 h2{margin-top:22px}
 /* the plan, two lanes */
@@ -338,21 +338,7 @@ nav.open .mnu i:first-child{transform:translateY(3.75px) rotate(45deg)}nav.open 
 .dmore b{color:#fff}
 .dmore a{font-weight:700;color:#fff;border-bottom:1px solid rgba(255,255,255,.3);padding-bottom:1px;margin-left:6px}
 .dmore a:hover{border-color:#fff}
-/* where it has run, compact */
-.proof{padding:90px 0 80px}
-.prow{display:grid;grid-template-columns:1fr 300px;gap:18px;margin-top:40px}
-.cos{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
-.co2{background:var(--card);padding:22px 18px 24px;display:flex;flex-direction:column;gap:8px;transition:background .3s,transform .3s var(--ease)}
-.co2:hover{background:#fff}
-.co2 i{font-style:normal;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-ink);font-weight:500}
-.co2 b{font-size:19px;font-weight:700;letter-spacing:-.015em;line-height:1.15}
-.co2 span{font-size:13.5px;color:var(--soft);line-height:1.4}
-.ptile{background:var(--ink);color:#fff;padding:22px 22px 24px;display:flex;flex-direction:column;gap:8px;transition:transform .3s var(--ease)}
-.ptile:hover{transform:translateY(-3px)}
-.ptile i{font-style:normal;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:500}
-.ptile b{font-size:52px;font-weight:300;letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums}
-.ptile span{font-size:13.5px;line-height:1.45;color:rgba(255,255,255,.78)}
-.ptile em{font-style:normal;font-size:13px;font-weight:700;margin-top:auto}
+.num a{display:block;color:inherit;transition:opacity .3s}.num a:hover{opacity:.7}
 /* founder, compact */
 .fd{grid-template-columns:.8fr 1.2fr}
 .fd .ph img{aspect-ratio:4/3}
@@ -381,9 +367,6 @@ nav.open .mnu i:first-child{transform:translateY(3.75px) rotate(45deg)}nav.open 
   .pfoot p{font-size:18px}
   .tstrip{grid-template-columns:1fr 1fr}
   .plines{grid-template-columns:1fr}.pline b{font-size:21px}
-  .proof{padding:80px 0}
-  .prow{grid-template-columns:1fr}
-  .cos{grid-template-columns:1fr 1fr}.co2:last-child{grid-column:1/-1}
   .fd{grid-template-columns:1fr}
   .close{padding:90px 0 70px}
   .trail a{font-size:12px}
@@ -472,21 +455,32 @@ nav.open .mnu i:first-child{transform:translateY(3.75px) rotate(45deg)}nav.open 
   <p class="dmore rv"><b data-src="systems">1,004</b> systems we read where they sit.<a href="plugins.html#connects">What we connect to &rarr;</a></p>
 </div></section>
 
-<!-- 5 · WHERE IT HAS RUN, compact -->
-<section class="proof" id="proof"><div class="wrap">
+<!-- 5 · WHERE IT HAS RUN (main design restored, Peter 6 Oct: "it was nicer before"; every figure but the company count is stamped by tools/site-counts.py) -->
+<section class="pad" id="proof" style="padding-top:100px"><div class="wrap">
   <div class="mhead">
     <div><div class="tag rv">Where it has run</div><h2 class="rv d1" style="margin-top:22px">One engine. <b>Every company makes it better.</b></h2></div>
-    <p class="lede rv d2">The method moves between companies. No client data ever crosses: not a number, not a file, not a name.</p>
+    <p class="lede rv d2">What moves between companies is the method: the shape of a problem and how it was solved. No client data ever crosses. Not a number, not a file, not a name.</p>
   </div>
-  <div class="prow">
-    <div class="cos rv">
-      <div class="co2"><i>Family conglomerate · UAE, KSA</i><b>A large family conglomerate</b><span>An operator across the region</span></div>
-      <div class="co2"><i>Media group · Mexico</i><b>Naranti</b><span>Largest in Mexico and LatAm</span></div>
-      <div class="co2"><i>Pet care · UAE</i><b>Flourish Fund</b><span>The fund and its brands</span></div>
-      <div class="co2"><i>Brand · UK</i><b>Lever Brands</b><span>Brand and marketing, London</span></div>
-      <div class="co2"><i>Music · UAE, KSA, Lebanon</i><b>Unfamiliar Familiar</b><span>And CloudPulse</span></div>
-    </div>
-    <a class="ptile rv d1" href="method.html#library"><i>Plays in the library</i><b data-count="1249" data-src="plays">1,249</b><span>A play: a move one company made, read from a named source, that another company can repeat.</span><em>The library &rarr;</em></a>
+  <div class="nums rv">
+    <div class="num"><b data-count="5">5</b><span>companies running on the engine</span></div>
+    <div class="num"><a href="method-library.html"><b data-count="1249" data-src="plays">1,249</b><span>plays in the library &rarr;</span></a></div>
+    <div class="num"><a href="method-library.html"><b data-count="45" data-src="industries">45</b><span>industries mapped &rarr;</span></a></div>
+    <div class="num"><b data-count="146" data-src="segments">146</b><span>segments, split by how they make money</span></div>
+  </div>
+  <div class="engine">
+    <svg viewBox="0 0 1168 470" preserveAspectRatio="none"><g stroke="#8BA6B7" stroke-width="1.2" stroke-dasharray="4 5" fill="none">
+      <line x1="584" y1="235" x2="454" y2="80"/><line x1="584" y1="235" x2="714" y2="80"/><line x1="584" y1="235" x2="245" y2="235"/><line x1="584" y1="235" x2="923" y2="235"/><line x1="584" y1="235" x2="584" y2="390"/></g>
+      <circle class="spark" r="4"><animateMotion dur="2.6s" repeatCount="indefinite" path="M454,80 L584,235"/></circle>
+      <circle class="spark" r="4"><animateMotion dur="2.6s" begin=".6s" repeatCount="indefinite" path="M584,235 L923,235"/></circle>
+      <circle class="spark" r="4"><animateMotion dur="2.6s" begin="1.2s" repeatCount="indefinite" path="M714,80 L584,235"/></circle>
+      <circle class="spark" r="4"><animateMotion dur="2.6s" begin="1.8s" repeatCount="indefinite" path="M584,235 L245,235"/></circle>
+      <circle class="spark" r="4"><animateMotion dur="2.6s" begin="2.2s" repeatCount="indefinite" path="M584,390 L584,235"/></circle></svg>
+    <div class="co" style="left:calc(50% - 250px);top:0"><i>🇦🇪 🇸🇦 · FAMILY CONGLOMERATE</i><b>A large family conglomerate</b>an operator across the region</div>
+    <div class="co" style="left:calc(50% + 30px);top:0"><i>🇲🇽 · MEDIA GROUP</i><b>Naranti</b>largest in Mexico and LatAm</div>
+    <div class="co" style="left:2%;top:calc(50% - 40px)"><i>🇦🇪 · PET CARE</i><b>Flourish Fund</b>the fund and its brands</div>
+    <div class="co" style="right:2%;top:calc(50% - 40px)"><i>🇬🇧 · BRAND</i><b>Lever Brands</b>brand and marketing, London</div>
+    <div class="co" style="left:50%;bottom:0;transform:translateX(-50%)"><i>🇦🇪 🇸🇦 🇱🇧 · MUSIC</i><b>Unfamiliar Familiar</b>and CloudPulse</div>
+    <div class="core"><div><img src="img/star-crop.png" alt=""><small>THE ENGINE</small></div></div>
   </div>
 </div></section>
 

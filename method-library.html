@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Play matrix · Perspace</title>
+<meta name="description" content="The Perspace library of plays, by industry and by the kind of money each play moves. Every play is read from a named public source.">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+<style>
+/* the play matrix · data/matrix.json, written by tools/write-matrix.py (Peter, 6 Oct 2026) */
+:root{--t0:#EEF3F3;--t1:#D3E2E4;--t2:#A9C7CC;--t3:#73A2AB;--t4:#4A8290;--t5:#2F6D7A;--t6:#1B4B56}
+.mhero{padding:150px 0 40px;position:relative}
+.mhero .back{font-size:13.5px;font-weight:500;color:var(--soft);display:inline-flex;gap:8px;align-items:center;margin-bottom:26px}
+.mhero .back:hover{color:var(--ink)}
+.mhero .grid{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:end;position:relative;z-index:1}
+.mhero h1{margin-top:22px}
+.mhero .lede{margin-top:22px}
+.mstats{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--ink);border-bottom:1px solid var(--ink)}
+.mstats div{padding:22px 18px 20px 0}.mstats div+div{padding-left:18px;border-left:1px solid var(--line)}
+.mstats b{display:block;font-weight:300;font-size:44px;letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums}
+.mstats span{display:block;margin-top:10px;font-size:13.5px;color:var(--soft)}
+
+.mbar{display:flex;gap:18px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin:34px 0 16px}
+.srch{position:relative;flex:0 1 340px}
+.srch input{width:100%;font:500 15px var(--f);color:var(--ink);background:var(--card);border:1px solid var(--line);padding:13px 40px 13px 42px;outline:none;transition:border-color .3s,box-shadow .3s}
+.srch input:focus{border-color:var(--ink);box-shadow:0 10px 30px rgba(9,17,32,.07)}
+.srch svg{position:absolute;left:14px;top:50%;width:16px;height:16px;transform:translateY(-50%);stroke:var(--faint);fill:none;stroke-width:2}
+.srch button{position:absolute;right:8px;top:50%;transform:translateY(-50%);border:0;background:none;font:500 18px var(--f);color:var(--faint);cursor:pointer;padding:4px 8px;display:none}
+.srch.has button{display:block}
+.legend{display:flex;align-items:center;gap:14px;font-size:12px;color:var(--soft);flex-wrap:wrap}
+.legend .u{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:500;color:var(--accent-ink)}
+.legend .sc{display:flex;align-items:center;gap:8px}
+.legend .sc i{display:block;width:22px;height:12px}
+.legend .sc .ramp{display:flex;gap:2px}
+.legend .z{width:22px;height:12px;border:1px dashed var(--silver)}
+
+.gwrap{position:relative;border:1px solid var(--ink);background:var(--card);box-shadow:0 30px 60px rgba(9,17,32,.08)}
+.gscroll{overflow:auto;max-height:min(78vh,900px);overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+.mx{display:grid;grid-template-columns:270px repeat(var(--nc),minmax(92px,1fr));min-width:calc(270px + var(--nc) * 92px)}
+.mx .ch{position:sticky;top:0;z-index:3;background:var(--card);padding:16px 12px 14px;border-bottom:1px solid var(--ink);border-left:1px solid var(--line);transition:background .25s,color .25s}
+.mx .ch b{display:block;font-size:14.5px;font-weight:700;letter-spacing:-.01em}
+.mx .ch span{display:block;font-size:11.5px;color:var(--faint);margin-top:4px;line-height:1.3}
+.mx .ch em{display:block;font-style:normal;font-size:11px;color:var(--accent-ink);margin-top:8px;font-variant-numeric:tabular-nums;font-weight:500}
+.mx .corner{position:sticky;top:0;left:0;z-index:4;background:var(--card);border-bottom:1px solid var(--ink);border-right:1px solid var(--ink);padding:16px 18px 14px;display:flex;flex-direction:column;justify-content:flex-end}
+.mx .corner b{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:500;color:var(--accent-ink)}
+.mx .corner span{font-size:11.5px;color:var(--faint);margin-top:4px}
+.mx .rh{position:sticky;left:0;z-index:2;background:var(--card);border-right:1px solid var(--ink);border-bottom:1px solid var(--line);padding:0 14px 0 18px;display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:44px;font-size:14px;font-weight:500;transition:background .25s,color .25s}
+.mx .rh span{line-height:1.25;padding:8px 0}
+.mx .rh em{font-style:normal;font-size:12px;color:var(--faint);font-variant-numeric:tabular-nums;flex:none}
+.mx .c{position:relative;border:0;border-bottom:1px solid var(--line);border-left:1px solid var(--line);background:transparent;padding:3px;cursor:pointer;font:inherit;min-height:44px;transition:background .25s}
+.mx .c i{position:absolute;inset:3px;background:var(--fill);transform:scale(.2);opacity:0;transition:transform .7s var(--ease),opacity .7s var(--ease),box-shadow .25s;transition-delay:var(--dl)}
+.mx.on .c i{transform:scale(1);opacity:1}
+.mx .c u{position:relative;z-index:1;text-decoration:none;font-size:13.5px;font-weight:700;font-variant-numeric:tabular-nums;color:var(--ink);opacity:0;transition:opacity .2s}
+.mx .c.dk u{color:#fff}
+.mx .c.e{cursor:default}
+.mx .c.e i{background:none;border:1px dashed rgba(169,172,175,.45);inset:9px}
+.mx .rh.hl,.mx .ch.hl{background:var(--blue);color:var(--ink)}
+.mx .c.hl{background:rgba(225,232,240,.6)}
+.mx .c:not(.e):hover i,.mx .c:not(.e):focus-visible i{box-shadow:0 0 0 2px var(--ink);transform:scale(1.04);transition-delay:0s}
+.mx .c:not(.e):hover u,.mx .c:not(.e):focus-visible u,.mx.nums .c u{opacity:1}
+.mx .c:focus-visible{outline:none}
+.mx .c.sel i{box-shadow:0 0 0 2px var(--ink)}
+.mx .hid{display:none}
+.nores{display:none;padding:40px 18px;font-size:15px;color:var(--soft)}
+.nores.on{display:block}
+.tip{position:fixed;z-index:30;pointer-events:none;background:var(--ink);color:#fff;padding:10px 12px;font-size:12.5px;line-height:1.4;max-width:240px;opacity:0;transform:translateY(4px);transition:opacity .15s,transform .15s}
+.tip.on{opacity:1;transform:none}
+.tip b{display:block;font-size:20px;font-weight:300;letter-spacing:-.02em}
+.tip small{display:block;color:#b9c6d2;margin-top:2px}
+.gfoot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:14px;font-size:12.5px;color:var(--faint)}
+.gfoot label{display:inline-flex;gap:8px;align-items:center;cursor:pointer;color:var(--soft);font-weight:500}
+.gfoot input{accent-color:#2F6D7A}
+.swipe{display:none;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-ink);font-weight:500;margin-bottom:10px}
+
+/* drawer */
+.scrim{position:fixed;inset:0;z-index:60;background:rgba(9,17,32,.32);opacity:0;pointer-events:none;transition:opacity .35s}
+.scrim.on{opacity:1;pointer-events:auto}
+.drw{position:fixed;z-index:61;top:0;right:0;bottom:0;width:min(560px,100vw);background:var(--ground);border-left:1px solid var(--ink);box-shadow:-30px 0 60px rgba(9,17,32,.12);transform:translateX(102%);transition:transform .5s var(--ease);display:flex;flex-direction:column}
+.drw.on{transform:none}
+.drw .dh{padding:26px 28px 20px;border-bottom:1px solid var(--line);background:var(--card)}
+.drw .dk{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
+.drw .dk .tag{font-size:10.5px}
+.drw .x{border:1px solid var(--ink);background:none;width:38px;height:38px;cursor:pointer;font:400 20px var(--f);color:var(--ink);flex:none;transition:background .2s}
+.drw .x:hover{background:var(--blue)}
+.drw h2{font-size:30px;margin-top:14px;line-height:1.1}
+.drw .dn{display:flex;align-items:baseline;gap:10px;margin-top:16px}
+.drw .dn b{font-size:44px;font-weight:300;letter-spacing:-.03em;line-height:1}
+.drw .dn span{font-size:13.5px;color:var(--soft)}
+.drw .dbar{height:6px;background:var(--line);margin-top:14px}.drw .dbar i{display:block;height:100%;background:#2F6D7A;width:0;transition:width .8s var(--ease) .2s}
+.drw .dl{overflow:auto;flex:1;padding:6px 28px 40px;overscroll-behavior:contain}
+.pl{padding:20px 0;border-bottom:1px solid var(--line);opacity:0;transform:translateY(10px);animation:plin .5s var(--ease) forwards}
+@keyframes plin{to{opacity:1;transform:none}}
+.pl h3{text-wrap:pretty;font-size:17px;font-weight:700;letter-spacing:-.01em;line-height:1.35}
+.pl p{font-size:14px;line-height:1.5;color:var(--soft);margin-top:8px}
+.pl p b{font-weight:500;color:var(--ink)}
+.pl ul{list-style:none;margin-top:10px;display:grid;gap:4px}
+.pl li{font-size:12.5px;line-height:1.45;color:var(--accent-ink);padding-left:14px;position:relative}
+.pl li::before{content:"";position:absolute;left:0;top:8px;width:6px;height:1px;background:currentColor}
+.more{margin:22px 0 0;width:100%;border:1px solid var(--ink);background:none;font:700 14px var(--f);padding:13px;cursor:pointer;color:var(--ink)}
+.more:hover{background:var(--card)}
+
+.ender{padding:90px 0 80px;text-align:center}
+.ender h2{font-size:clamp(32px,4vw,52px)}
+.ender .btns{justify-content:center;margin-top:30px}
+
+@media (max-width:900px){
+  .mhero{padding:118px 0 26px}
+  .mhero .grid{grid-template-columns:1fr;gap:30px}
+  .mstats b{font-size:34px}
+  .mbar{margin-top:26px}.srch{flex:1 1 100%}
+  .wrap.gw{padding:0 16px}
+  .mx{grid-template-columns:150px repeat(var(--nc),74px);min-width:calc(150px + var(--nc) * 74px)}
+  .mx .rh{font-size:12.5px;padding:0 8px 0 12px}
+  .mx .ch{padding:12px 8px}.mx .ch b{font-size:13px}.mx .ch span{display:none}
+  .mx .corner{padding:12px}
+  .gscroll{max-height:70vh}
+  .swipe{display:block}
+  .drw{top:auto;height:86vh;width:100vw;border-left:0;border-top:1px solid var(--ink);transform:translateY(102%)}
+  .drw .dh{padding:20px 18px 16px}.drw .dl{padding:4px 18px 30px}
+  .drw h2{font-size:24px}
+}
+</style></head>
+<body>
+<nav id="nav"><div class="wrap">
+  <a class="brand" href="index.html"><img src="img/perspace-mark-ink.png" alt="">Perspace</a>
+  <div class="links"><a class="nck" href="cockpit.html">Cockpit</a><a class="on" href="method.html">Method</a><a href="plugins.html">Plug-ins</a></div>
+  <a class="btn dark" href="mailto:hello@perspace.ai?subject=Walkthrough">Book a walkthrough →</a>
+  <button class="mnu" aria-label="Menu" aria-expanded="false"><i></i><i></i></button>
+</div></nav>
+
+<section class="mhero"><div class="glow"></div><div class="wrap">
+  <a class="back rv" href="method.html#library">&larr; Method</a>
+  <div class="grid">
+    <div>
+      <div class="tag rv">The library</div>
+      <h1 class="rv d1">The play <b>matrix.</b></h1>
+      <p class="lede rv d2">A play: a move one company made, read from a named source, that another company can repeat.</p>
+    </div>
+    <div class="mstats rv d2">
+      <div><b data-count="1249" data-src="plays">1,249</b><span>plays in the library</span></div>
+      <div><b data-count="45" data-src="industries">45</b><span>industries</span></div>
+      <div><b id="cellsN">0</b><span>squares with plays</span></div>
+    </div>
+  </div>
+</div></section>
+
+<section style="padding-bottom:20px"><div class="wrap gw">
+  <div class="mbar">
+    <div class="srch" id="srch"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><input id="q" type="search" placeholder="Find an industry" aria-label="Find an industry" autocomplete="off"><button type="button" id="qx" aria-label="Clear">&times;</button></div>
+    <div class="legend" aria-label="Legend"><span class="u">Unit: plays</span><span class="sc"><i class="z"></i>none</span><span class="sc"><span class="ramp" id="ramp"></span><span id="rampl"></span></span></div>
+  </div>
+  <div class="swipe">Swipe the grid to see every kind of money &rarr;</div>
+  <div class="gwrap">
+    <div class="gscroll" id="gs"><div class="mx" id="mx" role="grid" aria-label="Plays by industry and by the kind of money they move"></div><div class="nores" id="nores">No industry by that name.</div></div>
+  </div>
+  <div class="gfoot"><span>Rows: industries. Columns: the kind of money a play moves. Tap a square to read its plays.</span><label><input type="checkbox" id="shown"> Show every count</label></div>
+  <div class="gfoot" style="margin-top:6px"><span>Source: the Perspace library of plays, each read from a named public document. A play counts in every industry it fits.</span></div>
+</div></section>
+
+<section class="ender"><div class="wrap">
+  <h2 class="rv">Start with <b>one project.</b></h2>
+  <div class="btns rv d1"><a class="btn dark" href="mailto:hello@perspace.ai?subject=Walkthrough">Book a walkthrough →</a><a class="btn line" href="method.html">The method →</a></div>
+</div></section>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drw" id="drw" role="dialog" aria-modal="true" aria-labelledby="dt" aria-hidden="true">
+  <div class="dh">
+    <div class="dk"><div class="tag" id="dc"></div><button class="x" id="dx" aria-label="Close">&times;</button></div>
+    <h2 id="dt"></h2>
+    <div class="dn"><b id="dnb"></b><span id="dns"></span></div>
+    <div class="dbar"><i id="dbar"></i></div>
+  </div>
+  <div class="dl" id="dl"></div>
+</aside>
+<div class="tip" id="tip"></div>
+
+<footer><div class="wrap">
+  <a class="brand" href="index.html"><img src="img/perspace-mark-ink.png" alt="">Perspace</a>
+  <div class="ft"><a href="index.html">Home</a><a href="cockpit.html">Cockpit</a><a href="method.html">Method</a><a href="plugins.html">Plug-ins</a></div>
+  <div class="tl">We operate the future · Dubai · Abu Dhabi · hello@perspace.ai</div>
+</div></footer>
+<script src="site.js"></script>
+<script>
+(function(){
+  const $=id=>document.getElementById(id);
+  const mx=$('mx'), tip=$('tip'), drw=$('drw'), scrim=$('scrim');
+  const STEPS=['--t1','--t2','--t3','--t4','--t5','--t6'];
+  const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const fmt=n=>n.toLocaleString('en-US');
+  let D, max=1, last=null, sel=null;
+
+  function bin(n){ // square-root scale, six steps of one hue
+    return Math.min(STEPS.length-1, Math.floor(Math.sqrt(n/max)*STEPS.length-1e-9));
+  }
+  function build(){
+    const cols=D.cols, rows=D.rows;
+    mx.style.setProperty('--nc', cols.length);
+    rows.forEach(r=>cols.forEach(c=>{const n=(r.c[c.id]||[]).length; if(n>max) max=n;}));
+    // legend
+    $('ramp').innerHTML=STEPS.map(s=>'<i style="background:var('+s+')"></i>').join('');
+    $('rampl').textContent='1 to '+max+' plays';
+    let h='<div class="corner"><b>Industry</b><span>plays in the row</span></div>';
+    cols.forEach((c,j)=>{
+      const tot=new Set(); rows.forEach(r=>(r.c[c.id]||[]).forEach(i=>tot.add(i)));
+      h+='<div class="ch" data-c="'+j+'" role="columnheader"><b>'+c.n+'</b><span>'+c.b+'</span><em>'+fmt(tot.size)+' plays</em></div>';
+    });
+    let filled=0;
+    rows.forEach((r,i)=>{
+      const rt=new Set(); Object.values(r.c).forEach(l=>l.forEach(x=>rt.add(x)));
+      h+='<div class="rh" data-r="'+i+'" role="rowheader"><span>'+r.n+'</span><em>'+fmt(rt.size)+'</em></div>';
+      cols.forEach((c,j)=>{
+        const n=(r.c[c.id]||[]).length;
+        if(!n){h+='<div class="c e" data-r="'+i+'" data-c="'+j+'" role="gridcell" aria-label="'+r.n+', '+c.n+': no plays"><i></i></div>';return;}
+        filled++;
+        const b=bin(n), dl=RM?0:Math.min(1.4,(i*0.022+j*0.05));
+        h+='<button class="c'+(b>=3?' dk':'')+'" data-r="'+i+'" data-c="'+j+'" role="gridcell" aria-label="'+r.n+', '+c.n+': '+n+' plays" style="--fill:var('+STEPS[b]+');--dl:'+dl.toFixed(2)+'s"><i></i><u>'+n+'</u></button>';
+      });
+    });
+    mx.innerHTML=h;
+    // count-up for squares with plays, from the file
+    const cn=$('cellsN'); cn.dataset.count=filled;
+    if(window.PS) PS.countUp(cn); else cn.textContent=fmt(filled);
+    const io=new IntersectionObserver(es=>{if(es[0].isIntersecting){mx.classList.add('on');io.disconnect();}},{threshold:.05});
+    io.observe(mx);
+  }
+  function hl(r,c){
+    if(last){mx.querySelectorAll('.hl').forEach(e=>e.classList.remove('hl'));}
+    if(r==null){last=null;return;}
+    last=[r,c];
+    mx.querySelectorAll('[data-r="'+r+'"],[data-c="'+c+'"]').forEach(e=>e.classList.add('hl'));
+  }
+  mx.addEventListener('pointerover',e=>{
+    const t=e.target.closest('.c'); if(!t){return;}
+    hl(t.dataset.r,t.dataset.c);
+    if(e.pointerType==='mouse' && !t.classList.contains('e')){
+      const r=D.rows[t.dataset.r], c=D.cols[t.dataset.c], n=r.c[c.id].length;
+      tip.innerHTML='<b>'+n+' '+(n===1?'play':'plays')+'</b>'+r.n+'<small>'+c.n+': '+c.b+'</small>';
+      tip.classList.add('on');
+    } else tip.classList.remove('on');
+  });
+  mx.addEventListener('pointermove',e=>{
+    if(!tip.classList.contains('on')) return;
+    let x=e.clientX+16, y=e.clientY+16;
+    if(x+250>innerWidth) x=e.clientX-256;
+    if(y+110>innerHeight) y=e.clientY-100;
+    tip.style.left=x+'px'; tip.style.top=y+'px';
+  });
+  mx.addEventListener('pointerleave',()=>{hl(null);tip.classList.remove('on');});
+
+  const PAGE=40;
+  function open(r,c,btn){
+    const R=D.rows[r], C=D.cols[c], ids=R.c[C.id]||[];
+    if(!ids.length) return;
+    if(sel) sel.classList.remove('sel'); sel=btn; btn.classList.add('sel');
+    $('dc').textContent=C.n+' · '+C.b;
+    $('dt').textContent=R.n;
+    $('dnb').textContent=ids.length;
+    $('dns').textContent=(ids.length===1?'play':'plays')+' on '+C.n.toLowerCase()+' for this industry';
+    const rowTot=new Set(); Object.values(R.c).forEach(l=>l.forEach(x=>rowTot.add(x)));
+    const bar=$('dbar'); bar.style.width='0';
+    const dl=$('dl'); dl.innerHTML=''; dl.scrollTop=0;
+    let shown=0;
+    function more(){
+      const chunk=ids.slice(shown,shown+PAGE);
+      const frag=document.createDocumentFragment();
+      chunk.forEach((id,k)=>{
+        const p=D.plays[id], el=document.createElement('article');
+        el.className='pl'; el.style.animationDelay=(RM?0:Math.min(k,12)*0.04)+'s';
+        const h3=document.createElement('h3'); h3.textContent=p.t; el.appendChild(h3);
+        if(p.w){const q=document.createElement('p'); q.innerHTML='<b>When it fits: </b>'; q.appendChild(document.createTextNode(p.w)); el.appendChild(q);}
+        if(p.s.length){const ul=document.createElement('ul'); p.s.forEach(s=>{const li=document.createElement('li'); li.textContent='Read from '+s; ul.appendChild(li);}); el.appendChild(ul);}
+        frag.appendChild(el);
+      });
+      const old=dl.querySelector('.more'); if(old) old.remove();
+      dl.appendChild(frag); shown+=chunk.length;
+      if(shown<ids.length){const b=document.createElement('button'); b.className='more'; b.textContent='Show '+Math.min(PAGE,ids.length-shown)+' more of '+(ids.length-shown); b.onclick=more; dl.appendChild(b);}
+    }
+    more();
+    scrim.classList.add('on'); drw.classList.add('on'); drw.setAttribute('aria-hidden','false');
+    requestAnimationFrame(()=>{bar.style.width=Math.round(ids.length/rowTot.size*100)+'%';});
+    $('dx').focus({preventScroll:true});
+    tip.classList.remove('on');
+  }
+  function close(){
+    drw.classList.remove('on'); scrim.classList.remove('on'); drw.setAttribute('aria-hidden','true');
+    if(sel){sel.classList.remove('sel'); sel.focus({preventScroll:true});}
+  }
+  mx.addEventListener('click',e=>{const t=e.target.closest('button.c'); if(t) open(+t.dataset.r,+t.dataset.c,t);});
+  $('dx').onclick=close; scrim.onclick=close;
+  addEventListener('keydown',e=>{if(e.key==='Escape'&&drw.classList.contains('on')) close();});
+  $('shown').onchange=e=>mx.classList.toggle('nums',e.target.checked);
+
+  // search: filter industries
+  const q=$('q');
+  function filt(){
+    const v=q.value.trim().toLowerCase(); let any=false;
+    $('srch').classList.toggle('has',!!v);
+    D.rows.forEach((r,i)=>{
+      const hit=!v||r.n.toLowerCase().includes(v); if(hit) any=true;
+      mx.querySelectorAll('[data-r="'+i+'"]').forEach(e=>e.classList.toggle('hid',!hit));
+    });
+    $('nores').classList.toggle('on',!any);
+  }
+  q.addEventListener('input',filt);
+  $('qx').onclick=()=>{q.value='';filt();q.focus();};
+
+  fetch('data/matrix.json').then(r=>r.json()).then(d=>{D=d;build();}).catch(()=>{mx.innerHTML='<div class="nores on">The matrix could not load. Refresh the page.</div>';});
+})();
+</script>
+</body></html>

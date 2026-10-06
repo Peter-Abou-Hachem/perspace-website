@@ -1,0 +1,1127 @@
+{
+ "kinds": {
+  "shelf": "Off the shelf",
+  "cockpit": "Learned from a cockpit",
+  "venture": "Sourced from the world"
+ },
+ "blocks": [
+  {
+   "n": "Finance",
+   "items": [
+    {
+     "n": "Collections",
+     "k": "shelf"
+    },
+    {
+     "n": "Invoice",
+     "k": "cockpit"
+    },
+    {
+     "n": "Reconciler",
+     "k": "cockpit"
+    },
+    {
+     "n": "Expense Audit",
+     "k": "cockpit"
+    },
+    {
+     "n": "Cash Forecast",
+     "k": "cockpit"
+    },
+    {
+     "n": "Payroll",
+     "k": "cockpit"
+    },
+    {
+     "n": "Revenue Recognition",
+     "k": "cockpit"
+    },
+    {
+     "n": "Payment Terms Setter",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Billing Rhythm Planner",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Receivable Age Tracker",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Retention Release Tracker",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Overdue Account Chaser",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Deposit Advance Collector",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Claim Recovery Clerk",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Demurrage Claim Tracker",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Government Invoice Tracker",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Cash Float Separator",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Bad Debt Watch",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Customer Credit Reviewer",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Debt Ceiling Monitor",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Covenant Grade Watcher",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Acquisition Price Checker",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Fund Fee Auditor",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Intercompany Fee Checker",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Rebate Override Chaser",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Media Margin Checker",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Supplier Payment Balancer",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Capital Allocation Reviewer",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Service Charge Closer",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Owner Statement Reconciler",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Arrears Recovery Planner",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Rent Escalation Tracker",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Premium Collection Tracker",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Milestone Billing Clerk",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Project Margin Watcher",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Deferred Revenue Checker",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Franchise Fee Reviewer",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Minimum Guarantee Tracker",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Student Fee Collector",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Exposure Concentration Checker",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Guarantee Bond Tracker",
+     "k": "cockpit",
+     "plays": 4
+    },
+    {
+     "n": "Dividend Flow Checker",
+     "k": "cockpit",
+     "plays": 4
+    },
+    {
+     "n": "Contract Claim Settler",
+     "k": "cockpit",
+     "plays": 4
+    },
+    {
+     "n": "Chargeback Loss Tracker",
+     "k": "cockpit",
+     "plays": 4
+    },
+    {
+     "n": "Cash Cycle Reporter",
+     "k": "cockpit",
+     "plays": 4
+    },
+    {
+     "n": "Earnout Ledger Keeper",
+     "k": "cockpit",
+     "plays": 3
+    },
+    {
+     "n": "Currency Mismatch Reviewer",
+     "k": "cockpit",
+     "plays": 3
+    },
+    {
+     "n": "Change Order Tracker",
+     "k": "cockpit",
+     "plays": 3
+    },
+    {
+     "n": "Build Period Negotiator",
+     "k": "cockpit",
+     "plays": 3
+    },
+    {
+     "n": "Program Rights Scheduler",
+     "k": "cockpit",
+     "plays": 3
+    },
+    {
+     "n": "Key Money Negotiator",
+     "k": "cockpit",
+     "plays": 2
+    },
+    {
+     "n": "Staff Loan Reconciler",
+     "k": "cockpit",
+     "plays": 2
+    },
+    {
+     "n": "Working Capital Reviewer",
+     "k": "cockpit",
+     "plays": 2
+    }
+   ]
+  },
+  {
+   "n": "People",
+   "items": [
+    {
+     "n": "Recruiter",
+     "k": "cockpit"
+    },
+    {
+     "n": "Onboarding",
+     "k": "cockpit"
+    },
+    {
+     "n": "Leave & Attendance",
+     "k": "cockpit"
+    },
+    {
+     "n": "Letters",
+     "k": "cockpit"
+    },
+    {
+     "n": "Rostering",
+     "k": "cockpit"
+    },
+    {
+     "n": "Leaver Cost Tracker",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Staffing Plan Scheduler",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Fee Earner Tracker",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Headcount Productivity Checker",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Crew Retention Planner",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Idle Labour Tracker",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Succession Readiness Checker",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Shift Coverage Planner",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Therapist Capacity Planner",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Vet Staffing Reviewer",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Clinical Shift Planner",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Driver Turnover Tracker",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Guard Coverage Planner",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Branch Staffing Reviewer",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Seasonal Staff Planner",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Safety Record Reviewer",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Sales Capacity Planner",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Utilisation Reviewer",
+     "k": "cockpit",
+     "plays": 4
+    },
+    {
+     "n": "Recruiter Cost Watcher",
+     "k": "cockpit",
+     "plays": 4
+    },
+    {
+     "n": "Portfolio Partner Reviewer",
+     "k": "cockpit",
+     "plays": 4
+    },
+    {
+     "n": "Acquisition Integration Planner",
+     "k": "cockpit",
+     "plays": 4
+    },
+    {
+     "n": "Engineer Load Balancer",
+     "k": "cockpit",
+     "plays": 4
+    },
+    {
+     "n": "Freelance Mix Planner",
+     "k": "cockpit",
+     "plays": 4
+    },
+    {
+     "n": "Account Team Sizer",
+     "k": "cockpit",
+     "plays": 3
+    },
+    {
+     "n": "Pay Band Reviewer",
+     "k": "cockpit",
+     "plays": 3
+    },
+    {
+     "n": "Audit Team Reviewer",
+     "k": "cockpit",
+     "plays": 3
+    },
+    {
+     "n": "Client Risk Successor",
+     "k": "cockpit",
+     "plays": 3
+    },
+    {
+     "n": "Overtime Cost Reviewer",
+     "k": "cockpit",
+     "plays": 3
+    },
+    {
+     "n": "Buyback Incentive Planner",
+     "k": "cockpit",
+     "plays": 2
+    },
+    {
+     "n": "Retainer Hour Tracker",
+     "k": "cockpit",
+     "plays": 2
+    }
+   ]
+  },
+  {
+   "n": "Sales",
+   "items": [
+    {
+     "n": "Quote Builder",
+     "k": "cockpit"
+    },
+    {
+     "n": "Lead Qualifier",
+     "k": "cockpit"
+    },
+    {
+     "n": "Pricing",
+     "k": "cockpit"
+    },
+    {
+     "n": "Renewals",
+     "k": "cockpit"
+    },
+    {
+     "n": "Proposal",
+     "k": "cockpit"
+    },
+    {
+     "n": "Pipeline Review",
+     "k": "cockpit"
+    },
+    {
+     "n": "Churn Watch",
+     "k": "cockpit"
+    },
+    {
+     "n": "Pipeline Backlog Reviewer",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Renewal Risk Watcher",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Account Concentration Checker",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Channel Mix Reviewer",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Loyalty Lift Checker",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Price Rise Tester",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Cancellation Reason Tracker",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Expiring Treatment Tracker",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Membership Usage Reviewer",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Renewal Pricing Analyst",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Wholesale Account Reviewer",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Exhibitor Value Tracker",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Commission Reconciler",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Promotion Margin Checker",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Demand Capture Planner",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Rate Mix Optimizer",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Route Profitability Reviewer",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Fleet Utilisation Planner",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Capacity Expansion Reviewer",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Contract Renewal Planner",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Category Mix Reviewer",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Guaranteed Minimum Reviewer",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Wallet Share Estimator",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Stand Space Pricer",
+     "k": "cockpit",
+     "plays": 4
+    },
+    {
+     "n": "Seat Usage Reviewer",
+     "k": "cockpit",
+     "plays": 4
+    },
+    {
+     "n": "Program Rebooking Tracker",
+     "k": "cockpit",
+     "plays": 4
+    },
+    {
+     "n": "Repeat Customer Tracker",
+     "k": "cockpit",
+     "plays": 3
+    },
+    {
+     "n": "Return Rate Reviewer",
+     "k": "cockpit",
+     "plays": 3
+    },
+    {
+     "n": "Referral Source Tracker",
+     "k": "cockpit",
+     "plays": 3
+    }
+   ]
+  },
+  {
+   "n": "Legal and risk",
+   "items": [
+    {
+     "n": "Contract Reader",
+     "k": "cockpit"
+    },
+    {
+     "n": "Compliance",
+     "k": "cockpit"
+    },
+    {
+     "n": "KYC",
+     "k": "cockpit"
+    },
+    {
+     "n": "Approvals",
+     "k": "cockpit"
+    },
+    {
+     "n": "Audit Trail",
+     "k": "cockpit"
+    },
+    {
+     "n": "Claims",
+     "k": "cockpit"
+    },
+    {
+     "n": "Fraud Watch",
+     "k": "cockpit"
+    },
+    {
+     "n": "Lease Terms Auditor",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Dispute Evidence Builder",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Contract Clause Checker",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Licence Expiry Tracker",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Permit Compliance Checker",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Registration Renewal Clerk",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Advertising Standards Checker",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Data Privacy Checker",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Wage Compliance Checker",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Nationalisation Quota Tracker",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Franchise Agreement Reviewer",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Guarantee Expiry Tracker",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Regulatory Threshold Watcher",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Concession Renewal Planner",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Insurance Retention Reviewer",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Tariff Approval Tracker",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Occupational Safety Checker",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Agency Termination Planner",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Concession Fee Negotiator",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Clinic Licence Checker",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Property Permit Reviewer",
+     "k": "cockpit",
+     "plays": 4
+    },
+    {
+     "n": "Competition Exposure Checker",
+     "k": "cockpit",
+     "plays": 3
+    },
+    {
+     "n": "Export Compliance Checker",
+     "k": "cockpit",
+     "plays": 3
+    },
+    {
+     "n": "Fine Recovery Tracker",
+     "k": "cockpit",
+     "plays": 3
+    },
+    {
+     "n": "Regulatory Capital Watcher",
+     "k": "cockpit",
+     "plays": 3
+    },
+    {
+     "n": "Loan Disclosure Checker",
+     "k": "cockpit",
+     "plays": 3
+    },
+    {
+     "n": "Churn Reporting Auditor",
+     "k": "cockpit",
+     "plays": 3
+    },
+    {
+     "n": "Deduction Breach Tracker",
+     "k": "cockpit",
+     "plays": 2
+    }
+   ]
+  },
+  {
+   "n": "Operations",
+   "items": [
+    {
+     "n": "Polynome",
+     "k": "venture"
+    },
+    {
+     "n": "Inbox Triage",
+     "k": "cockpit"
+    },
+    {
+     "n": "Scheduler",
+     "k": "cockpit"
+    },
+    {
+     "n": "Dispatch",
+     "k": "cockpit"
+    },
+    {
+     "n": "Site Tracker",
+     "k": "cockpit"
+    },
+    {
+     "n": "Handoff",
+     "k": "cockpit"
+    },
+    {
+     "n": "Escalation",
+     "k": "cockpit"
+    },
+    {
+     "n": "Ticket Triage",
+     "k": "cockpit"
+    },
+    {
+     "n": "Route Rebid Planner",
+     "k": "cockpit",
+     "plays": 2
+    },
+    {
+     "n": "Improvement Program Lead",
+     "k": "cockpit",
+     "plays": 1
+    }
+   ]
+  },
+  {
+   "n": "Supply",
+   "items": [
+    {
+     "n": "Inventory",
+     "k": "cockpit"
+    },
+    {
+     "n": "Forecaster",
+     "k": "cockpit"
+    },
+    {
+     "n": "Vendor Screener",
+     "k": "cockpit"
+    },
+    {
+     "n": "Catalogue Scout",
+     "k": "cockpit"
+    },
+    {
+     "n": "Order Desk",
+     "k": "cockpit"
+    },
+    {
+     "n": "Restock",
+     "k": "cockpit"
+    },
+    {
+     "n": "Quality QC",
+     "k": "cockpit"
+    },
+    {
+     "n": "Order Backlog Reviewer",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Stock Age Reviewer",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Slow Mover Clearer",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Supplier Concentration Checker",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Contract Escalator Reviewer",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Rebate Recovery Tracker",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Waste Stream Planner",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Grower Contract Reviewer",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Power Contract Reviewer",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Outage Cost Tracker",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Second Source Finder",
+     "k": "cockpit",
+     "plays": 4
+    },
+    {
+     "n": "Vessel Charter Reviewer",
+     "k": "cockpit",
+     "plays": 4
+    },
+    {
+     "n": "Machine Capacity Planner",
+     "k": "cockpit",
+     "plays": 4
+    },
+    {
+     "n": "Fuel Surcharge Checker",
+     "k": "cockpit",
+     "plays": 3
+    },
+    {
+     "n": "Fleet Maintenance Reviewer",
+     "k": "cockpit",
+     "plays": 3
+    },
+    {
+     "n": "Distributor Risk Reviewer",
+     "k": "cockpit",
+     "plays": 3
+    },
+    {
+     "n": "Content Licence Tracker",
+     "k": "cockpit",
+     "plays": 3
+    },
+    {
+     "n": "Recall Exposure Checker",
+     "k": "cockpit",
+     "plays": 3
+    },
+    {
+     "n": "Brand Fee Reviewer",
+     "k": "cockpit",
+     "plays": 3
+    },
+    {
+     "n": "Cold Chain Reviewer",
+     "k": "cockpit",
+     "plays": 2
+    },
+    {
+     "n": "Reinsurer Risk Reviewer",
+     "k": "cockpit",
+     "plays": 2
+    },
+    {
+     "n": "Buying Group Comparator",
+     "k": "cockpit",
+     "plays": 2
+    },
+    {
+     "n": "Should Cost Analyst",
+     "k": "cockpit",
+     "plays": 2
+    },
+    {
+     "n": "Volume Threshold Tracker",
+     "k": "cockpit",
+     "plays": 2
+    },
+    {
+     "n": "Grower Payment Auditor",
+     "k": "cockpit",
+     "plays": 2
+    },
+    {
+     "n": "Franchise Profit Reviewer",
+     "k": "cockpit",
+     "plays": 2
+    },
+    {
+     "n": "Exclusive Rights Tracker",
+     "k": "cockpit",
+     "plays": 2
+    },
+    {
+     "n": "Component Supplier Mapper",
+     "k": "cockpit",
+     "plays": 2
+    }
+   ]
+  },
+  {
+   "n": "Reporting and content",
+   "items": [
+    {
+     "n": "Report Writer",
+     "k": "cockpit"
+    },
+    {
+     "n": "Data Cleaner",
+     "k": "cockpit"
+    },
+    {
+     "n": "Doc Filer",
+     "k": "cockpit"
+    },
+    {
+     "n": "Meeting Notes",
+     "k": "cockpit"
+    },
+    {
+     "n": "Content Drafter",
+     "k": "cockpit"
+    },
+    {
+     "n": "SEO",
+     "k": "cockpit"
+    },
+    {
+     "n": "Social",
+     "k": "cockpit"
+    },
+    {
+     "n": "Sentiment",
+     "k": "cockpit"
+    },
+    {
+     "n": "Metric Consistency Checker",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Readership Retention Tracker",
+     "k": "cockpit",
+     "plays": 5
+    },
+    {
+     "n": "Report Definition Checker",
+     "k": "cockpit",
+     "plays": 4
+    },
+    {
+     "n": "Attribution Method Writer",
+     "k": "cockpit",
+     "plays": 4
+    },
+    {
+     "n": "Content Turnaround Tracker",
+     "k": "cockpit",
+     "plays": 4
+    },
+    {
+     "n": "Engagement Quality Checker",
+     "k": "cockpit",
+     "plays": 4
+    },
+    {
+     "n": "Deliverable Compliance Tracker",
+     "k": "cockpit",
+     "plays": 3
+    },
+    {
+     "n": "Programmatic Buyer Tracker",
+     "k": "cockpit",
+     "plays": 3
+    },
+    {
+     "n": "Inventory Waste Pricer",
+     "k": "cockpit",
+     "plays": 3
+    },
+    {
+     "n": "Production Cost Mapper",
+     "k": "cockpit",
+     "plays": 3
+    },
+    {
+     "n": "Edition Timeline Tracker",
+     "k": "cockpit",
+     "plays": 3
+    },
+    {
+     "n": "Comparable Store Reporter",
+     "k": "cockpit",
+     "plays": 2
+    },
+    {
+     "n": "Research Hours Tracker",
+     "k": "cockpit",
+     "plays": 2
+    },
+    {
+     "n": "Sentiment Accuracy Checker",
+     "k": "cockpit",
+     "plays": 2
+    }
+   ]
+  }
+ ],
+ "from_plays": 1249,
+ "model": "claude-sonnet-5"
+}
