@@ -52,6 +52,16 @@
 .note h3{font-size:23px;font-weight:700;letter-spacing:-.015em;line-height:1.2}
 .note p{font-size:15px;line-height:1.55;color:var(--soft)}
 .note .go{margin-top:auto;font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:500}
+/* platform (Peter, 6 Oct 2026) */
+.plat{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.layers{display:flex;flex-direction:column;gap:10px}
+.ly{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:0 22px;height:76px;border:1px solid var(--ink);background:var(--card);font-size:17px;font-weight:700;opacity:0;transform:translateY(-14px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.ly span{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);font-weight:500;text-align:right}
+.ly.top{background:var(--ink);color:#fff}.ly.top span{color:var(--accent)}
+.ly.base{background:transparent;border:1.5px dashed var(--silver);color:var(--soft);font-weight:500}
+.layers.in .ly{opacity:1;transform:none}.layers.in .ly:nth-child(2){transition-delay:.35s}.layers.in .ly:nth-child(3){transition-delay:.7s}
+@media (max-width:900px){.plat{grid-template-columns:1fr;gap:34px}.ly{height:auto;padding:16px;flex-direction:column;align-items:flex-start;gap:6px;font-size:16px}.ly span{text-align:left}}
+@media (prefers-reduced-motion:reduce){.ly{opacity:1;transform:none}}
 @media (max-width:900px){
   .names,.beliefs,.notes,.merge{grid-template-columns:1fr}
   .nm+.nm{padding-left:0;border-left:0;border-top:1px solid var(--line)}.nm{padding:30px 0}
@@ -124,11 +134,25 @@
   <p class="lede rv d2">Someone in your market will change how they run first. Every quarter after that, their company learns and yours waits. We would like it to be you.</p>
 </div></section>
 
+<!-- PLATFORM (Peter, 6 Oct 2026) -->
+<section class="pad"><div class="wrap plat">
+  <div>
+    <div class="tag rv">Where we sit</div>
+    <h2 class="rv d1" style="margin-top:22px;font-size:clamp(30px,3.3vw,46px)">A platform gives your IT team a tool. <b>We give your CEO projects that move money,</b> with a method behind every figure.</h2>
+    <p class="lede rv d2" style="margin-top:24px">A platform can sit under us.</p>
+  </div>
+  <div class="layers" data-trigger>
+    <div class="ly top">Projects that move money <span>for your CEO</span></div>
+    <div class="ly">The method <span>behind every figure</span></div>
+    <div class="ly base">A platform <span>can sit under us</span></div>
+  </div>
+</div></section>
+
 <!-- NOTES -->
 <section class="pad"><div class="wrap">
   <div class="head2">
     <div><div class="tag rv">The library</div><h2 class="rv d1">What we have learned, <b>written down.</b></h2></div>
-    <p class="lede rv d2">Repeatable plays, the methods we run on every company, and the territories every company is read on. Written for owners and operators.</p>
+    <p class="lede rv d2">Repeatable plays, the methods we run on every company, and the territories every company is read on. A play is a move one company made, read from its own report, that another company can repeat. Written for owners and operators.</p>
   </div>
   <div class="notes">
     <a class="note rv" href="insights.html#price-list-invoice"><div class="k">Play</div><h3>Between the price list and the invoice.</h3><p>What the company says it charges, against what it actually billed. The gap lives between two files nobody reads side by side.</p><div class="go">Read →</div></a>

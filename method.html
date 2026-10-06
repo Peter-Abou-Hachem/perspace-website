@@ -77,6 +77,33 @@
 .ap li{font-size:16.5px;line-height:1.5;color:var(--soft);padding-left:22px;position:relative}
 .ap li::before{content:"";position:absolute;left:0;top:10px;width:10px;height:1px;background:var(--ink)}
 .ap li b{color:var(--ink)}
+/* the plan, two lanes (Peter, 6 Oct 2026; deck slide rebuilt in the site look) */
+.plan{background:var(--card);border:1px solid var(--ink);padding:26px 28px 22px;box-shadow:0 40px 80px rgba(9,17,32,.08)}
+.plan .u{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);font-weight:500;margin-bottom:16px}
+.pgrid{display:grid;grid-template-columns:230px repeat(6,1fr);row-gap:14px;align-items:center}
+.pm{font-size:12.5px;font-weight:500;color:var(--soft);border-left:1px solid var(--line);padding:0 0 10px 10px}
+.pm .s{display:none}
+.plab b{display:block;font-size:19px;font-weight:700;letter-spacing:-.01em}
+.plab span{display:block;font-size:13.5px;color:var(--soft);margin-top:4px}
+.ptrack{grid-column:2/8;display:grid;grid-template-columns:repeat(6,1fr);height:72px;background:repeating-linear-gradient(90deg,var(--line) 0,var(--line) 1px,transparent 1px,transparent calc(100%/6))}
+.pb{margin:10px 4px;display:flex;align-items:center;padding:0 14px;font-size:14px;font-weight:700;color:#fff;line-height:1.2;transform-origin:left;transform:scaleX(0);transition:transform 1s var(--ease)}
+.plan.in .pb{transform:none}
+.plan.in .pb.a2{transition-delay:.5s}.plan.in .pb.a3{transition-delay:.9s}.plan.in .pb.d{transition-delay:.3s}.plan.in .pb.b{transition-delay:1.3s}
+.pb.a,.pb.a2{background:#2F6D7A}.pb.a3{background:#8BA6B7;color:var(--ink)}.pb.d{background:transparent;border:1.5px dashed var(--ink);color:var(--ink)}.pb.b{background:var(--ink)}
+.pkey{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:18px;padding-top:14px;border-top:1px solid var(--line);font-size:12.5px;color:var(--soft)}
+.pkey i{display:inline-block;width:12px;height:12px;margin-right:7px;vertical-align:-1px}
+.pkey .a{background:#2F6D7A}.pkey .a3{background:#8BA6B7}.pkey .d{border:1.5px dashed var(--ink)}.pkey .b{background:var(--ink)}
+.plan-line{margin-top:26px;font-size:19px;color:var(--soft)}.plan-line b{color:var(--ink)}
+@media (max-width:900px){
+  .plan{padding:20px 14px 16px}
+  .pgrid{grid-template-columns:repeat(6,1fr);row-gap:8px}
+  .pgrid>.sp0{display:none}
+  .pm{font-size:11px;padding:0 0 6px 5px}.pm .l{display:none}.pm .s{display:inline}
+  .plab{grid-column:1/-1;margin-top:10px}.plab b{font-size:17px}
+  .ptrack{grid-column:1/-1;height:64px}
+  .pb{font-size:12px;padding:0 8px;margin:8px 2px}
+}
+@media (prefers-reduced-motion:reduce){.pb{transform:none}}
 /* running */
 .run{display:grid;grid-template-columns:1.3fr .7fr;gap:50px;align-items:center}
 @media (max-width:900px){
@@ -135,12 +162,32 @@
   </div>
 </div></section>
 
+<!-- THE PLAN (Peter, 6 Oct 2026) -->
+<section class="pad" id="plan" style="padding-top:40px"><div class="wrap">
+  <div class="head2">
+    <div><div class="tag rv">The plan</div><h2 class="rv d1">Two lanes, <b>months 1 to 6.</b></h2></div>
+    <p class="lede rv d2">Quick back-office wins start first and show live results. The value projects are scoped at the same time, and start as the first lane frees your people.</p>
+  </div>
+  <div class="plan rv" data-trigger>
+    <div class="u">Unit: months from the start</div>
+    <div class="pgrid">
+      <div class="sp0"></div><div class="pm"><span class="l">Month </span><span class="s">M</span>1</div><div class="pm"><span class="l">Month </span><span class="s">M</span>2</div><div class="pm"><span class="l">Month </span><span class="s">M</span>3</div><div class="pm"><span class="l">Month </span><span class="s">M</span>4</div><div class="pm"><span class="l">Month </span><span class="s">M</span>5</div><div class="pm"><span class="l">Month </span><span class="s">M</span>6</div>
+      <div class="plab"><b>1 · Back-office wins</b><span>Quick, first</span></div>
+      <div class="ptrack"><div class="pb a" style="grid-column:1/2">Start</div><div class="pb a2" style="grid-column:2/4">Live results</div><div class="pb a3" style="grid-column:4/7">More flows, same way</div></div>
+      <div class="plab"><b>2 · Value projects</b><span>Pricing · collections · operations</span></div>
+      <div class="ptrack"><div class="pb d" style="grid-column:1/3">Scoped in parallel</div><div class="pb b" style="grid-column:3/7">Started as lane 1 frees people</div></div>
+    </div>
+    <div class="pkey"><span><i class="a"></i>Back-office wins</span><span><i class="a3"></i>More back-office flows</span><span><i class="d"></i>Scoping</span><span><i class="b"></i>Value projects running</span></div>
+  </div>
+  <p class="plan-line rv">Quick wins come first. <b>The bigger value follows on freed time.</b></p>
+</div></section>
+
 <!-- SEVEN -->
 <section class="dark seven-band"><div class="wrap row">
   <div class="big7 rv">7</div>
   <div>
     <div class="tag rv">Why the agent waits</div>
-    <h2 class="rv d1" style="margin-top:24px">The agent is step seven. <b>It works on work that has been fixed.</b></h2>
+    <h2 class="rv d1" style="margin-top:24px">Projects, not agents. <b>The agent comes in once the work is fixed.</b></h2>
     <p class="lede rv d2">An agent pointed at a broken process only does the wrong work faster. So we fix the work first, prove it held, then hand the repeated part to a machine.</p>
   </div>
 </div></section>
