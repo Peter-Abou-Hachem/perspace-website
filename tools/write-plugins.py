@@ -5,7 +5,7 @@ Every approved or proven, not merged play in hq/method/play/*/*.md is a move a h
 run. One model call (Claude Sonnet 5, thinking off) turns the plays into short helper names and
 says which plays each name runs. The script keeps a name only if it cites real plays, has no
 number, no dash, no client or competitor name, and is not a duplicate. The menu that existed on
-6 Oct (SEED) is kept with its kinds; every library-derived name is "learned from a cockpit".
+6 Oct (SEED) is kept with its kinds; every library-derived name is "learned in Grip".
 
     python3 tools/write-plugins.py [path/to/hq]      -> data/plugins.json
 Needs ANTHROPIC_API_KEY (read from ~/.openclaw/.env if not in the environment).
@@ -139,7 +139,7 @@ while left > 0:
         quota[b] += 1; left -= 1
 out = [o for b in groups for o in groups[b][:quota[b]]]
 order = BLOCKS[:5] + keep_extra + BLOCKS[5:]
-js = {'kinds': {'shelf': 'Off the shelf', 'cockpit': 'Learned from a cockpit', 'venture': 'Sourced from the world'},
+js = {'kinds': {'shelf': 'Off the shelf', 'cockpit': 'Learned in Grip', 'venture': 'Sourced from the world'},
       'blocks': [{'n': b, 'items': [{k: v for k, v in o.items() if k != 'b'} for o in out if o['b'] == b]} for b in order],
       'from_plays': len(plays), 'model': MODEL}
 text = json.dumps(js, ensure_ascii=False, indent=1)
