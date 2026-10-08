@@ -33,7 +33,7 @@ def f(n):
 
 nums = ('  <div class="nums rv">\n'
         f'    <div class="num"><b data-count="{E["stat"]["n"]}">{E["stat"]["n"]}</b><span>{E["stat"]["label"]}</span></div>\n'
-        f'    <div class="num"><b data-count="{C["plays"]}" data-src="plays">{f(C["plays"])}</b><span>plays in the library</span></div>\n'
+        f'    <div class="num"><b data-count="{C["plays"]}" data-src="plays">{f(C["plays"])}</b><span>transformation initiatives in the library</span></div>\n'
         f'    <div class="num"><b data-count="{C["industries"]}" data-src="industries">{f(C["industries"])}</b><span>industries mapped</span></div>\n'
         f'    <div class="num"><b data-count="{C["segments"]}" data-src="segments">{f(C["segments"])}</b><span>segments, split by how they make money</span></div>\n'
         '  </div>\n')
