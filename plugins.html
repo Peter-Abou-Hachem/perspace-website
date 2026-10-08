@@ -85,6 +85,15 @@
 .pi2:hover{transform:translateY(-2px);border-color:var(--ink)}
 .pi2 i{width:8px;height:8px;border-radius:50%;background:var(--accent);flex:none}
 .o-shelf i{background:var(--silver)}.o-venture{background:var(--ink);color:#fff;border-color:var(--ink)}.o-venture i{background:#fff}
+
+/* plug-in menu as slow tickers, like the systems wall (Peter, 8 Oct 2026: "more like the connectors rotation, more seamless") */
+.tk{overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);margin:2px 0}
+.tk .run{display:flex;gap:8px;width:max-content;padding:3px 0;animation:drift var(--dur,60s) linear infinite}
+.tk.rev .run{animation-direction:reverse}
+.grp:hover .tk .run{animation-play-state:paused}
+.tk .pi2{flex:none}
+.grp{min-width:0}.grp .pis{display:block;min-width:0;overflow:hidden}
+@media(prefers-reduced-motion:reduce){.tk .run{animation:none}}
 /* rotating menu (Peter, 6 Oct 2026): data/plugins.json, written by tools/write-plugins.py */
 .grp{cursor:pointer;position:relative}
 .grp h4{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
@@ -312,12 +321,24 @@
       const pool=b.items.map((it,i)=>i), rest=pool.slice(n);
       for(let i=rest.length-1;i>0;i--){const j=(i*7+bi*3)%(i+1);[rest[i],rest[j]]=[rest[j],rest[i]];}
       const st={b,g,pis,more,n,on:pool.slice(0,n),queue:rest,open:false,hover:false};
-      st.on.forEach(i=>pis.appendChild(chip(b.items[i])));
+      function tickers(){
+        pis.innerHTML='';
+        const rows=Math.min(3,Math.max(1,Math.ceil(b.items.length/6)));
+        for(let r=0;r<rows;r++){
+          const its=b.items.filter((_,x)=>x%rows===r);
+          const tk=document.createElement('div'); tk.className='tk'+(r%2?' rev':'');
+          const run=document.createElement('div'); run.className='run';
+          run.style.setProperty('--dur',(Math.max(40,its.length*7)+bi*5+r*9)+'s');
+          [0,1].forEach(()=>its.forEach(it=>run.appendChild(chip(it))));
+          tk.appendChild(run); pis.appendChild(tk);
+        }
+      }
+      tickers();
       more.textContent=b.items.length>n?'Show all '+b.items.length:'';
       function toggle(){
         st.open=!st.open; g.classList.toggle('open',st.open); g.setAttribute('aria-expanded',st.open);
         pis.innerHTML='';
-        (st.open?b.items.map((_,i)=>i):st.on).forEach(i=>pis.appendChild(chip(b.items[i])));
+        if(st.open) b.items.forEach(it=>pis.appendChild(chip(it))); else tickers();
         more.textContent=st.open?'Show fewer':(b.items.length>n?'Show all '+b.items.length:'');
       }
       g.addEventListener('click',toggle);
@@ -325,27 +346,6 @@
       g.addEventListener('mouseenter',()=>st.hover=true); g.addEventListener('mouseleave',()=>st.hover=false);
       box.appendChild(g); G.push(st);
     });
-    if(RM) return;
-    // one block at a time, a few chips each, so the menu breathes without everything moving at once
-    let k=0, vis=false;
-    new IntersectionObserver(es=>{vis=es[0].isIntersecting;},{threshold:.1}).observe(box);
-    setInterval(()=>{
-      if(!vis||document.hidden) return;
-      const st=G[k++%G.length]; if(!st||st.open||st.hover||!st.queue.length) return;
-      const swap=Math.min(2,st.queue.length), els=[...st.pis.children];
-      const slots=[]; while(slots.length<swap){const x=Math.floor(Math.random()*els.length); if(!slots.includes(x)) slots.push(x);}
-      st.g.classList.add('tick'); setTimeout(()=>st.g.classList.remove('tick'),900);
-      slots.forEach((x,j)=>{
-        const el=els[x];
-        setTimeout(()=>{
-          el.classList.add('out');
-          setTimeout(()=>{
-            const ni=st.queue.shift(); st.queue.push(st.on[x]); st.on[x]=ni;
-            const c=chip(st.b.items[ni]); c.classList.add('in'); el.replaceWith(c);
-          },450);
-        },j*260);
-      });
-    },1700);
   }).catch(()=>{});
 })();
 </script>
