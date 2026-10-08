@@ -1,0 +1,15 @@
+{
+ "_about": "ONE SOURCE for the engine block (Peter, 8 Oct 2026: 'the engine should have one source of truth and should match the live site'). The site's index.html is written from this file by tools/write-engine.py; every Perspace deck's 'Where it runs' slide is rendered from it at build time (hob-cockpit hq/decks/perspace/src/shared_slides.py) and checked by hq/decks/qc-engine.mjs. Edit here only.",
+ "tag": "Examples of ongoing projects",
+ "stat": {"n": 5, "label": "companies running on the engine"},
+ "projects": [
+  {"order": 1, "flags": ["🇦🇪", "🇸🇦"], "category": "Family conglomerate", "name": "A large family conglomerate", "line": "an operator across the region"},
+  {"order": 2, "flags": ["🇲🇽"], "category": "Media group", "name": "Naranti", "line": "largest in Mexico and LatAm"},
+  {"order": 3, "flags": ["🇦🇪"], "category": "Industrial", "name": "An industrial manufacturer", "line": "made in the UAE"},
+  {"order": 4, "flags": ["🇬🇧"], "category": "Brand", "name": "Lever Brands", "line": "brand and marketing, London"},
+  {"order": 5, "flags": ["🇲🇽"], "category": "Food", "name": "A food manufacturer", "line": "in Mexico"},
+  {"order": 6, "flags": ["🇦🇪", "🇸🇦", "🇱🇧"], "category": "Music", "name": "Unfamiliar Familiar", "line": "and CloudPulse"},
+  {"order": 7, "flags": ["🇦🇪"], "category": "Finance", "name": "A government-backed financial institution", "line": "in the UAE"},
+  {"order": 8, "flags": ["🇦🇪"], "category": "Pet care", "name": "Flourish Fund", "line": "the fund and its brands"}
+ ]
+}
