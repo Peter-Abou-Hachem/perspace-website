@@ -6,7 +6,7 @@
 <link rel="icon" type="image/png" href="img/favicon.png">
 <meta property="og:title" content="Perspace · We operate the future">
 <meta property="og:description" content="Every company will run on a new operating system. We build yours.">
-<meta property="og:image" content="https://perspace.ai/img/og-perspace.jpg?v=20261009">
+<meta property="og:image" content="https://perspace.ai/img/og-perspace.jpg?v=20261009b">
 <meta property="og:url" content="https://perspace.ai/">
 <meta name="twitter:card" content="summary_large_image">
 <link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&display=swap" rel="stylesheet">
@@ -399,9 +399,9 @@ nav.open .mnu i:first-child{transform:translateY(3.75px) rotate(45deg)}nav.open 
   <div class="mark">
     <div class="markbox"><img class="b l" src="img/mark-left-c.png" alt=""><img class="b r" src="img/mark-right-c.png" alt="">
     <img class="s" src="img/star-crop.png" alt=""><div class="shine"></div></div>
-    <div class="live"><div class="top"><span class="dotlive"><i></i>Value in play, live</span><span>A real Grip screen, renamed</span></div>
+    <div class="live"><div class="top"><span class="dotlive"><i></i>Value in play, live</span><span>A demo company</span></div>
       <div class="big"><small>AED</small><span id="ctr">0</span></div>
-      <div class="sub">found, owned and moving · a real Grip screen, figures changed</div>
+      <div class="sub">found, owned and moving · a demo company, figures illustrative</div>
       <div class="feed" id="feed"></div></div>
   </div>
 </div><div class="scrollcue"><i></i>SCROLL</div></section>
@@ -525,10 +525,10 @@ nav.open .mnu i:first-child{transform:translateY(3.75px) rotate(45deg)}nav.open 
   function countUp(el){ const to=+el.dataset.count, suf=el.dataset.suffix||''; if(RM){el.textContent=to.toLocaleString('en-US')+suf;return;} const t0=performance.now(),d=1400;
     (function f(t){const k=Math.min(1,(t-t0)/d);el.textContent=Math.round(to*(1-Math.pow(1-k,3))).toLocaleString('en-US')+suf; if(k<1) requestAnimationFrame(f);})(t0); }
 
-  // live value meter (figures from the renamed company)
+  // live value meter (figures from the Meridian demo world, hob-cockpit hq/method/dashboard/demo/demo-world.js: never a client, Peter 9 Oct 2026)
   const ctr=document.getElementById('ctr'),feed=document.getElementById('feed');
   /* the meter adds up: it counts to a fixed base once, then moves only by the amount of each line that lands, then holds */
-  const BASE=52114600, ev=[["Pocket found","Routes that sold nothing","+ 1,049 routes",0],["Workflow live","Collections, invoices chased","+ 241,700",241700],["Traced","Rate card against invoice","file linked",0],["Decision approved","Supplier contract, priced","+ 31,900",31900],["Pocket found","Routes waiting to be filled","+ 541 of 8,369",0],["Workflow live","Monthly report, now minutes","+ 15,000",15000]];
+  const BASE=5500000, ev=[["Pocket found","Price list leakage","invoices vs price list",0],["Workflow live","Rebates claimed on time","+ 182,000",182000],["Traced","Route log against delivery notes","file linked",0],["Decision approved","Idle truck days, rerouted","+ 96,400",96400],["Pocket found","Lines lost at top customers","orders by line",0],["Workflow live","Monthly report, now minutes","+ 15,000",15000]];
   const fmt=n=>Math.round(n).toLocaleString('en-US'); let v=0,shown=0,i=0,tok=0;
   function tween(to,ms){const from=shown,t0=performance.now(),me=++tok;v=to;(function f(t){if(me!==tok)return;const k=Math.min(1,(t-t0)/ms),e=1-Math.pow(1-k,3);shown=from+(to-from)*e;ctr.textContent=fmt(shown);if(k<1)requestAnimationFrame(f);})(t0);}
   function add(){const e=ev[i++];const r=document.createElement('div');r.className='row';r.innerHTML='<span class="k">'+e[0]+'</span><span>'+e[1]+'</span><span class="v">'+e[2]+'</span>';feed.insertBefore(r,feed.firstChild);while(feed.children.length>3)feed.removeChild(feed.lastChild);if(e[3])tween(v+e[3],900);}
