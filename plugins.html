@@ -78,7 +78,8 @@
 .orig a.og{display:block;transition:transform .3s var(--ease),border-color .3s}.orig a.og:hover{transform:translateY(-3px);border-color:var(--ink)}
 .og .pgo{margin-top:16px;font-size:14px;font-weight:700}
 /* menu: one calm shelf per block, chromatic metal (Peter picked D3 with "a bit of metallic", 9 Oct 2026) */
-.shf{--metal:linear-gradient(172deg,#FBFBFA 0%,#D7DADA 30%,var(--ps-silver) 58%,#C4CACD 80%,#E4E7E6 100%);
+.shf{--metal:linear-gradient(100deg,var(--ps-warm-white) 0%,var(--ps-silver) 16%,var(--ps-ice-blue) 30%,#6E7377 46%,var(--ps-silver) 58%,var(--ps-warm-white) 70%,#8C9194 86%,var(--ps-ice-blue) 100%);
+  --metal-hi:linear-gradient(100deg,#fff 0%,#8C9194 16%,var(--ps-ice-blue) 30%,#565B5F 46%,#8C9194 58%,#fff 70%,#6E7377 86%,var(--ps-ice-blue) 100%);
   --chroma:linear-gradient(90deg,color-mix(in srgb,var(--ps-ice-blue) 70%,transparent) 0%,transparent 35%,color-mix(in srgb,#D9CDB8 55%,transparent) 68%,transparent 100%);
   display:flex;flex-direction:column}
 .sb{display:grid;grid-template-columns:270px minmax(0,1fr);align-items:center;gap:24px;padding:18px 0;border-top:1px solid var(--ps-line-strong);cursor:pointer;outline:0}
@@ -92,12 +93,12 @@
 .sl .run{display:flex;gap:12px;width:max-content;animation:drift var(--dur,240s) linear infinite}
 .sb:hover .run,.sb:focus-within .run{animation-play-state:paused}
 .pl{position:relative;overflow:hidden;isolation:isolate;display:inline-flex;align-items:center;gap:9px;flex:none;height:40px;padding:0 18px;border-radius:999px;
-  font-size:15px;font-weight:500;color:var(--ps-ink);white-space:nowrap;border:1px solid transparent;
-  background:linear-gradient(#fff,#fff) padding-box,var(--chroma) border-box,var(--metal) border-box;
-  box-shadow:0 1px 0 rgba(255,255,255,.9) inset,0 1px 2px rgba(13,28,44,.04),0 4px 10px -6px rgba(13,28,44,.10);transition:box-shadow .5s var(--ease)}
+  font-size:15px;font-weight:500;color:var(--ps-ink);white-space:nowrap;border:1.5px solid transparent;
+  background:linear-gradient(180deg,#fff 0%,#fff 55%,var(--ps-warm-white) 100%) padding-box,var(--metal) border-box;
+  box-shadow:inset 0 1px 0 #fff,inset 0 -1px 0 color-mix(in srgb,var(--ps-silver) 22%,transparent),0 1px 2px rgba(13,28,44,.04),0 4px 10px -6px rgba(13,28,44,.10);transition:box-shadow .5s var(--ease)}
 .pl::after{content:"";position:absolute;inset:-1px;z-index:-1;pointer-events:none;border-radius:inherit;opacity:0;transform:translateX(-110%);
   background:linear-gradient(105deg,transparent 22%,color-mix(in srgb,var(--ps-ice-blue) 55%,transparent) 40%,color-mix(in srgb,var(--ps-silver) 16%,#fff) 50%,color-mix(in srgb,#E3D6C0 45%,transparent) 60%,transparent 78%)}
-.pl:hover{background:linear-gradient(#fff,#fff) padding-box,var(--chroma) border-box,linear-gradient(172deg,#FBFBFA 0%,var(--ps-silver) 45%,#8E9395 62%,#C4CACD 100%) border-box;box-shadow:0 1px 0 rgba(255,255,255,.9) inset,0 1px 2px rgba(13,28,44,.05),0 6px 14px -9px rgba(13,28,44,.16)}
+.pl:hover{background:linear-gradient(180deg,#fff 0%,#fff 55%,var(--ps-warm-white) 100%) padding-box,var(--metal-hi) border-box;box-shadow:inset 0 1px 0 #fff,inset 0 -1px 0 color-mix(in srgb,var(--ps-silver) 22%,transparent),0 1px 2px rgba(13,28,44,.05),0 6px 14px -9px rgba(13,28,44,.16)}
 .pl:hover::after{animation:sheen 1.6s cubic-bezier(.45,0,.25,1) forwards}
 @keyframes sheen{0%{opacity:0;transform:translateX(-110%)}15%{opacity:1}85%{opacity:1}100%{opacity:0;transform:translateX(110%)}}
 .pl i,.skey i{width:7px;height:7px;border-radius:50%;flex:none;display:inline-block}
