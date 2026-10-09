@@ -1,0 +1,24 @@
+/* perspace.ai · the site's own brand layer. Loaded last by tools/sync-brand.py, after /brand/themes/website.css.
+   Uses only var(--ps-*) tokens from hq/brand/brand.json: never type a brand value here. Re-skin, not redesign. */
+
+/* headings: Donegal One has one weight, so the emphasis the old bold carried moves to colour */
+h1:has(b),h2:has(b){color:var(--ps-ink-2)}
+h1 b,h2 b{color:var(--ps-ink)}
+.dark h1:has(b),.dark h2:has(b),.space h2:has(b),.data h2:has(b){color:var(--ps-steel-blue)}
+.dark h1 b,.dark h2 b,.space h2 b,.data h2 b{color:var(--ps-warm-white)}
+h1,h2,h3{text-wrap:balance;overflow-wrap:break-word}
+
+/* the wordmark is Donegal One (brandbook); the mark beside it stays the brand symbol */
+.brand{font-family:var(--ps-font-head);font-weight:400;letter-spacing:0}
+
+/* navy bands carry Warm White, the brandbook's primary dark pairing */
+.dark,.space,.data{background-color:var(--ps-midnight-navy)}
+
+/* brand moments only: the hero and the closing band (effects: glass, grain, gradient 1, chromatic metal) */
+.glow{background:radial-gradient(circle,var(--ps-ice-blue) 0%,color-mix(in srgb,var(--ps-ice-blue) 45%,transparent) 38%,transparent 70%)}
+nav.sc{background:color-mix(in srgb,var(--ps-warm-white) 62%,transparent);backdrop-filter:blur(20px) saturate(1.1);-webkit-backdrop-filter:blur(20px) saturate(1.1)}
+.hero,.phero{isolation:isolate}
+.hero::after,.phero::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:var(--ps-grain-opacity);mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.closeband{background:var(--ps-grad-1)}
+.live,.plan{background:color-mix(in srgb,var(--ps-warm-white) 72%,transparent);backdrop-filter:blur(20px) saturate(1.1);-webkit-backdrop-filter:blur(20px) saturate(1.1)}

@@ -2,7 +2,7 @@
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Method · Perspace</title>
-<meta name="description" content="The Perspace method: read the company, find the money, and run each change as a project your people own, with AI agents beside them. Eight steps, the same on every company.">
+<meta name="description" content="The Perspace method: read the company, find the money, and run each change as a project. Our people and AI agents do the work together. Eight steps, the same on every company.">
 <link rel="icon" type="image/png" href="img/favicon.png">
 <link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="site.css">
@@ -68,7 +68,7 @@
 @media (max-width:900px){.plat{grid-template-columns:1fr;gap:34px}.ly{height:auto;padding:16px;flex-direction:column;align-items:flex-start;gap:6px;font-size:16px}.ly span{text-align:left}}
 @media (prefers-reduced-motion:reduce){.ly{opacity:1;transform:none}}
 /* reader */
-.rd{position:fixed;inset:0;z-index:80;background:rgba(9,17,32,.45);display:flex;justify-content:flex-end;opacity:0;pointer-events:none;transition:opacity .35s}
+.rd{position:fixed;inset:0;z-index:80;background:color-mix(in srgb,var(--ink) 45%,transparent);display:flex;justify-content:flex-end;opacity:0;pointer-events:none;transition:opacity .35s}
 .rd.open{opacity:1;pointer-events:auto}
 .rd .sheet{width:min(720px,100%);height:100%;background:var(--card);overflow-y:auto;transform:translateX(40px);transition:transform .45s var(--ease);padding:calc(env(safe-area-inset-top,0px) + 40px) 56px 80px}
 .rd.open .sheet{transform:none}
@@ -84,52 +84,52 @@
 .rd section li::before{content:"";position:absolute;left:0;top:11px;width:10px;height:1px;background:var(--ink)}
 .rd .foot{margin-top:40px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
 .x:focus-visible,.pp.w:focus-visible{outline:2px solid var(--accent-ink);outline-offset:3px}
-.bp2{position:relative;background:#0e1b2e;border:1px solid var(--ink);padding:54px 22px 20px;margin-top:70px;background-image:linear-gradient(rgba(139,166,183,.13) 1px,transparent 1px),linear-gradient(90deg,rgba(139,166,183,.13) 1px,transparent 1px);background-size:24px 24px;color:#fff}
+.bp2{position:relative;background:var(--ps-midnight-navy);border:1px solid var(--ink);padding:54px 22px 20px;margin-top:70px;background-image:linear-gradient(color-mix(in srgb,var(--accent) 13%,transparent) 1px,transparent 1px),linear-gradient(90deg,color-mix(in srgb,var(--accent) 13%,transparent) 1px,transparent 1px);background-size:24px 24px;color:#fff}
 .bp2 .lbl,.bp2 .lbr{position:absolute;top:18px;font-size:10.5px;letter-spacing:.16em;color:#fff;font-weight:500}
 .bp2 .lbl{left:22px}.bp2 .lbr{right:22px;font-variant-numeric:tabular-nums}
 .bp2 .sc{overflow-x:auto;-webkit-overflow-scrolling:touch}
 .bp2 svg{display:block;width:100%;height:auto;min-width:760px}
-.bp2 .rm rect.box{fill:rgba(139,166,183,0);stroke:#8BA6B7;stroke-width:1.4;stroke-dasharray:1400;stroke-dashoffset:1400;transition:fill .4s}
+.bp2 .rm rect.box{fill:color-mix(in srgb,var(--accent) 0%,transparent);stroke:var(--accent);stroke-width:1.4;stroke-dasharray:1400;stroke-dashoffset:1400;transition:fill .4s}
 .bp2 .rm text{font-family:var(--f);opacity:0}
 .bp2 .rm .nm{fill:#fff;font-size:13px;letter-spacing:.14em}
 .bp2 .rm .ct{fill:#fff;opacity:.7;font-size:11.5px;letter-spacing:.04em}
 .bp2 .rm .gl{opacity:0}
-.bp2 .rm .gl .p{fill:#fff}.bp2 .rm .gl .a{fill:none;stroke:#8BA6B7;stroke-width:1.3}.bp2 .rm .gl .f{fill:#5d7686}
+.bp2 .rm .gl .p{fill:#fff}.bp2 .rm .gl .a{fill:none;stroke:var(--accent);stroke-width:1.3}.bp2 .rm .gl .f{fill:var(--ps-data-support)}
 .bp2.in .rm.m rect.box{animation:bdraw 1.3s var(--d) ease forwards,bfill .8s calc(var(--d) + .9s) ease forwards}
 .bp2.in .rm text,.bp2.in .rm .gl{animation:bfade .7s calc(var(--d) + .7s) ease forwards}
-.bp2 .rm.g rect.box{stroke-dasharray:5 7;stroke-dashoffset:0;stroke:#5d7686;opacity:0}
+.bp2 .rm.g rect.box{stroke-dasharray:5 7;stroke-dashoffset:0;stroke:var(--ps-data-support);opacity:0}
 .bp2.in .rm.g rect.box{animation:bfade 1s var(--d) ease forwards}
 .bp2 .rm.g .nm{fill:#fff;opacity:.5}.bp2 .rm.g .ct{fill:#fff;opacity:.4;font-size:11px}
-.bp2 .rm{cursor:pointer}.bp2 .rm:hover rect.box,.bp2 .rm.act rect.box{fill:rgba(139,166,183,.16)!important}
-@keyframes bdraw{to{stroke-dashoffset:0}}@keyframes bfill{to{fill:rgba(139,166,183,.08)}}@keyframes bfade{to{opacity:1}}
+.bp2 .rm{cursor:pointer}.bp2 .rm:hover rect.box,.bp2 .rm.act rect.box{fill:color-mix(in srgb,var(--accent) 16%,transparent)!important}
+@keyframes bdraw{to{stroke-dashoffset:0}}@keyframes bfill{to{fill:color-mix(in srgb,var(--accent) 8%,transparent)}}@keyframes bfade{to{opacity:1}}
 /* pockets */
 .bp2 .pk{opacity:0}.bp2.in .pk{animation:bfade .6s var(--d) ease forwards}
 .bp2 .pk rect{transition:fill 1.2s ease,stroke 1.2s ease}
 .bp2 .pk text{font-family:var(--f);font-size:11.5px;transition:fill 1.2s ease}
 .bp2 .pk .st{font-size:9.5px;letter-spacing:.14em;font-weight:500}
-.bp2 .pk[data-s="0"] rect{fill:rgba(93,118,134,.25);stroke:#5d7686}.bp2 .pk[data-s="0"] text{fill:#fff;opacity:.75}
-.bp2 .pk[data-s="1"] rect{fill:rgba(139,166,183,.35);stroke:#8BA6B7}.bp2 .pk[data-s="1"] text{fill:#fff}
-.bp2 .pk[data-s="2"] rect{fill:#8BA6B7;stroke:#8BA6B7}.bp2 .pk[data-s="2"] text{fill:#091120}
-.bp2 .pk[data-s="3"] rect{fill:#F9FAF4;stroke:#F9FAF4}.bp2 .pk[data-s="3"] text{fill:#091120}
+.bp2 .pk[data-s="0"] rect{fill:color-mix(in srgb,var(--ps-data-support) 25%,transparent);stroke:var(--ps-data-support)}.bp2 .pk[data-s="0"] text{fill:#fff;opacity:.75}
+.bp2 .pk[data-s="1"] rect{fill:color-mix(in srgb,var(--accent) 35%,transparent);stroke:var(--accent)}.bp2 .pk[data-s="1"] text{fill:#fff}
+.bp2 .pk[data-s="2"] rect{fill:var(--accent);stroke:var(--accent)}.bp2 .pk[data-s="2"] text{fill:var(--ink)}
+.bp2 .pk[data-s="3"] rect{fill:var(--card);stroke:var(--card)}.bp2 .pk[data-s="3"] text{fill:var(--ink)}
 .bp2 .pk .fl{opacity:0;transition:opacity .4s}.bp2 .pk.flash .fl{opacity:1}
 /* flow */
-.bp2 .flow path{fill:none;stroke:#8BA6B7;stroke-width:1.2;stroke-dasharray:3 6;opacity:0}
+.bp2 .flow path{fill:none;stroke:var(--accent);stroke-width:1.2;stroke-dasharray:3 6;opacity:0}
 .bp2.in .flow path{animation:bfade 1s 4.6s ease forwards}
 .bp2 .flow .ol{fill:#fff;font-family:var(--f);font-size:10.5px;letter-spacing:.16em;opacity:0}.bp2.in .flow .ol{animation:bfade 1s 4.6s ease forwards}
-.bp2 .flow .dot{fill:#F9FAF4;opacity:0}.bp2.in .flow .dot{animation:bfade .5s 5s ease forwards}
+.bp2 .flow .dot{fill:var(--card);opacity:0}.bp2.in .flow .dot{animation:bfade .5s 5s ease forwards}
 .bp2 .stuck{opacity:0}.bp2.in .stuck{animation:bfade .6s 5.4s ease forwards}
-.bp2 .stuck circle{fill:#9C3F35;stroke:#fff;stroke-width:1}.bp2 .stuck .rg{fill:none;stroke:#9C3F35;stroke-width:1.3;transform-box:fill-box;transform-origin:center;animation:sping 2s ease-out infinite}
+.bp2 .stuck circle{fill:var(--ps-data-risk);stroke:#fff;stroke-width:1}.bp2 .stuck .rg{fill:none;stroke:var(--ps-data-risk);stroke-width:1.3;transform-box:fill-box;transform-origin:center;animation:sping 2s ease-out infinite}
 .bp2 .stuck text{fill:#fff;font-family:var(--f);font-size:11.5px}
 @keyframes sping{0%{transform:scale(1);opacity:.9}100%{transform:scale(3.2);opacity:0}}
 /* legend + tip */
 .bp2 .lg{display:flex;flex-wrap:wrap;gap:18px;margin-top:14px;font-size:10.5px;letter-spacing:.14em;color:#fff;font-weight:500}
 .bp2 .lg i{display:inline-block;width:14px;height:9px;margin-right:8px;vertical-align:0;border:1px solid}
 .bp2 .lg .hint{margin-left:auto;opacity:.7}.bp2 .lg .swipe{display:none;opacity:.7}
-.bp2 .lg .gp{display:inline-block;width:7px;height:7px;border-radius:50%;background:#fff;margin-right:8px}.bp2 .lg .ga{display:inline-block;width:8px;height:8px;border:1.3px solid #8BA6B7;transform:rotate(45deg);margin-right:9px}
-.bp2 .tip{position:absolute;z-index:3;width:260px;background:#F9FAF4;color:#091120;padding:14px 16px;font-size:13px;line-height:1.45;box-shadow:0 20px 40px rgba(0,0,0,.4);pointer-events:none;opacity:0;transform:translateY(6px);transition:opacity .25s,transform .25s}
+.bp2 .lg .gp{display:inline-block;width:7px;height:7px;border-radius:50%;background:#fff;margin-right:8px}.bp2 .lg .ga{display:inline-block;width:8px;height:8px;border:1.3px solid var(--accent);transform:rotate(45deg);margin-right:9px}
+.bp2 .tip{position:absolute;z-index:3;width:260px;background:var(--card);color:var(--ink);padding:14px 16px;font-size:13px;line-height:1.45;box-shadow:0 20px 40px rgba(0,0,0,.4);pointer-events:none;opacity:0;transform:translateY(6px);transition:opacity .25s,transform .25s}
 .bp2 .tip.on{opacity:1;transform:none}
-.bp2 .tip b{display:block;font-size:10.5px;letter-spacing:.16em;color:#3F5E6E;margin-bottom:6px}
-.bp2 .tip p+p{margin-top:6px}.bp2 .tip span{color:#4A5260}
+.bp2 .tip b{display:block;font-size:10.5px;letter-spacing:.16em;color:var(--accent-ink);margin-bottom:6px}
+.bp2 .tip p+p{margin-top:6px}.bp2 .tip span{color:var(--soft)}
 @media (max-width:900px){.bp2{padding-top:44px}.bp2 .lbr{display:none}.bp2 .lg .hint{display:none}.bp2 .lg .swipe{display:inline}.bp2 .tip{width:220px}}
 @media (prefers-reduced-motion:reduce){.bp2 .rm rect.box{stroke-dashoffset:0}.bp2 .rm text,.bp2 .rm .gl,.bp2 .pk,.bp2 .flow path,.bp2 .flow .dot,.bp2 .stuck{opacity:1}}
 
@@ -151,13 +151,13 @@
 .shelf3 .kl{display:block;transition:opacity .3s}.shelf3 .kl:hover{opacity:.7}
 .btn.mx{justify-content:center;gap:12px}
 .mxg{display:grid;grid-template-columns:repeat(3,5px);gap:2px}
-.mxg i{width:5px;height:5px;background:#2F6D7A}
-.mxg i:nth-child(2),.mxg i:nth-child(6),.mxg i:nth-child(7){background:#8BA6B7}.mxg i:nth-child(4),.mxg i:nth-child(9){background:#fff}
+.mxg i{width:5px;height:5px;background:var(--ps-data-revenue)}
+.mxg i:nth-child(2),.mxg i:nth-child(6),.mxg i:nth-child(7){background:var(--accent)}.mxg i:nth-child(4),.mxg i:nth-child(9){background:#fff}
 .btn.mx:hover .mxg i{animation:mxp .9s var(--ease)}
 @keyframes mxp{50%{transform:scale(.4)}}
 .shelf3 h3{font-size:28px;font-weight:700;letter-spacing:-.02em}
 .paper{display:flex;flex-direction:column;gap:8px;text-align:left;font:inherit;color:inherit;background:var(--ink);color:#fff;border:0;padding:18px 18px 16px;cursor:pointer;transition:transform .3s var(--ease),box-shadow .3s}
-.paper:hover{transform:translateY(-3px);box-shadow:0 20px 40px rgba(9,17,32,.18)}
+.paper:hover{transform:translateY(-3px);box-shadow:0 20px 40px color-mix(in srgb,var(--ink) 18%,transparent)}
 .paper small{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#fff;opacity:.75;font-weight:500}
 .paper b{font-size:19px;letter-spacing:-.01em;line-height:1.25}
 .paper em{font-style:normal;font-size:13px;font-weight:700}
@@ -183,7 +183,12 @@
   .closeband{padding:80px 0 60px}
   .rd .sheet{padding:calc(env(safe-area-inset-top,0px) + 24px) 22px 60px}
 }
-</style></head>
+</style><!-- brand:begin · tools/sync-brand.py, from hq/brand. Do not edit by hand. -->
+<link rel="stylesheet" href="/brand/themes/website.css">
+<link rel="icon" href="/brand/assets/favicon.png">
+<link rel="stylesheet" href="/site-brand.css">
+<!-- brand:end -->
+</head>
 <body>
 <nav id="nav"><div class="wrap">
   <a class="brand" href="index.html"><img src="img/perspace-mark-ink.png" alt="">Perspace</a>
@@ -195,8 +200,8 @@
 <section class="phero"><div class="glow"></div><div class="wrap grid">
   <div class="copy">
     <div class="tag rv">The method · the same on every company</div>
-    <h1 class="rv d1">Projects first. <b>AI agents beside your people.</b></h1>
-    <p class="lede rv d2">We read the company, find the money and change how the work runs. Each change is a project your people run, with AI agents beside them.</p>
+    <h1 class="rv d1">Projects first. <b>Our people and AI agents do the work together.</b></h1>
+    <p class="lede rv d2">We read the company, find the money and change how the work runs. Each change is a project. Our people and AI agents do the work together.</p>
     <div class="btns rv d3"><a class="btn dark" href="#steps">The eight steps ↓</a><a class="btn line" href="index.html#plan">How a project runs →</a></div>
   </div>
   <div class="mk"><img class="b l" src="img/mark-left-c.png" alt=""><img class="b r" src="img/mark-right-c.png" alt=""><img class="s" src="img/star-crop.png" alt=""></div>
@@ -213,7 +218,7 @@
   <div class="sc"><svg viewBox="0 -44 1180 484" id="bps" role="img" aria-label="A company blueprint: rooms for each function, the money found in each, and where work gets stuck">
     <g class="flow"><path id="fp" d="M475,40 Q625,4 775,40 Q480,-50 190,40"/><circle class="dot" r="4.5"><animateMotion dur="5s" repeatCount="indefinite" begin="5s"><mpath href="#fp"/></animateMotion></circle></g>
   </svg></div>
-  <div class="lg"><span><i style="background:rgba(93,118,134,.25);border-color:#5d7686"></i>GREYED</span><span><i style="background:rgba(139,166,183,.35);border-color:#8BA6B7"></i>NAMED</span><span><i style="background:#8BA6B7;border-color:#8BA6B7"></i>SIZED</span><span><i style="background:#F9FAF4;border-color:#F9FAF4"></i>BANKED</span><span><i class="gp"></i>PERSON</span><span><i class="ga"></i>AGENT</span><span class="hint">TAP A ROOM</span><span class="swipe">SWIPE TO SEE EVERY ROOM →</span></div>
+  <div class="lg"><span><i style="background:color-mix(in srgb,var(--ps-data-support) 25%,transparent);border-color:var(--ps-data-support)"></i>GREYED</span><span><i style="background:color-mix(in srgb,var(--accent) 35%,transparent);border-color:var(--accent)"></i>NAMED</span><span><i style="background:var(--accent);border-color:var(--accent)"></i>SIZED</span><span><i style="background:var(--card);border-color:var(--card)"></i>BANKED</span><span><i class="gp"></i>PERSON</span><span><i class="ga"></i>AGENT</span><span class="hint">TAP A ROOM</span><span class="swipe">SWIPE TO SEE EVERY ROOM →</span></div>
   <div class="tip" id="bpt"></div>
 </div>
 <script>
@@ -381,7 +386,7 @@
       <div class="chips"><span>The blueprint</span><span>Four rungs</span><span>Build, source, or neither</span><span>One person on every line</span></div></div>
     <div class="shelf3 rv d2"><div class="k">Territories</div><h3>Read in the same order</h3>
       <button class="paper" data-id="margin"><small>Territory · read the paper</small><b>Margin</b><em>Read &rarr;</em></button>
-      <div class="chips"><span class="c" style="--c:#2F6D7A">Revenue</span><span class="c lt" style="--c:#A9ACAF">Margin</span><span class="c" style="--c:#091120">Operations</span><span class="c" style="--c:#9C3F35">Risk</span><span class="c lt" style="--c:#8BA6B7">Support</span></div></div>
+      <div class="chips"><span class="c" style="--c:var(--ps-data-revenue)">Revenue</span><span class="c lt" style="--c:var(--ps-data-margin)">Margin</span><span class="c" style="--c:var(--ps-data-operations)">Operations</span><span class="c" style="--c:var(--ps-data-risk)">Risk</span><span class="c lt" style="--c:var(--ps-data-support)">Support</span></div></div>
   </div>
 </div></section>
 

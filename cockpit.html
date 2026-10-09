@@ -7,7 +7,7 @@
 <link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="site.css">
 <style>
-.phero .device{box-shadow:0 50px 100px rgba(9,17,32,.2)}
+.phero .device{box-shadow:0 50px 100px color-mix(in srgb,var(--ink) 20%,transparent)}
 /* rooms */
 .room{display:grid;grid-template-columns:1.25fr .75fr;gap:60px;align-items:center;padding:70px 0;border-top:1px solid var(--line)}
 .room:nth-child(even){grid-template-columns:.75fr 1.25fr}
@@ -35,29 +35,29 @@
   .room{padding:50px 0}
 }
 /* back office, your way, a day (Peter, 6 Oct 2026; deck slides rebuilt in the site look) */
-.agi{width:16px;height:16px;fill:#8BA6B7;flex:none}.psi{width:16px;height:16px;fill:var(--ink);flex:none}
+.agi{width:16px;height:16px;fill:var(--accent);flex:none}.psi{width:16px;height:16px;fill:var(--ink);flex:none}
 .bo{display:flex;flex-direction:column;gap:8px}
 .boh,.bor{display:grid;grid-template-columns:220px 1fr 260px;gap:16px;align-items:center}
 .boh span{display:flex;align-items:center;gap:8px;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);font-weight:500;padding:0 0 6px}
-.boh .agi{fill:#2F6D7A}
+.boh .agi{fill:var(--ps-data-revenue)}
 .bor{background:var(--card);border:1px solid var(--line);padding:12px 14px;transition:border-color .3s}
 .bor:hover{border-color:var(--ink)}
 .bon{font-size:19px;font-weight:700;letter-spacing:-.01em}
 .bos{display:flex;align-items:center;gap:8px;background:var(--ink);padding:9px 12px;flex-wrap:wrap}
-.bos span{background:#16223a;color:#fff;padding:6px 11px;font-size:13.5px;font-weight:500}
-.bos i{font-style:normal;color:#8BA6B7;font-size:14px}
+.bos span{background:var(--ps-midnight-navy);color:#fff;padding:6px 11px;font-size:13.5px;font-weight:500}
+.bos i{font-style:normal;color:var(--accent);font-size:14px}
 .bom{display:flex;align-items:center;gap:10px;border:1.5px solid var(--ink);background:#fff;padding:9px 12px}.bom b{font-size:14.5px}
 .bom small{display:none}
 .boline{margin-top:26px;font-size:19px;color:var(--soft)}.boline b{color:var(--ink)}
 /* your way */
 .yw{display:grid;grid-template-columns:1fr 1.25fr;gap:18px;align-items:stretch}
-.ywc,.ywd{background:#fff;border:1px solid var(--ink);box-shadow:0 40px 80px rgba(9,17,32,.10);display:flex;flex-direction:column;min-width:0}
+.ywc,.ywd{background:#fff;border:1px solid var(--ink);box-shadow:0 40px 80px color-mix(in srgb,var(--ink) 10%,transparent);display:flex;flex-direction:column;min-width:0}
 .ywh{display:flex;gap:12px;align-items:baseline;flex-wrap:wrap;padding:12px 16px;border-bottom:1px solid var(--line)}
 .ywh b{font-size:15px}.ywh span{font-size:12.5px;color:var(--soft)}
 .ywh em{margin-left:auto;font-style:normal;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);font-weight:500}
-.ywb{padding:16px;display:flex;flex-direction:column;gap:10px;background:#f4f6f8;flex:1}
+.ywb{padding:16px;display:flex;flex-direction:column;gap:10px;background:var(--ps-soft-grey);flex:1}
 .ywq{align-self:flex-end;background:#fff;border:1px solid var(--line);padding:9px 13px;font-size:14.5px;max-width:85%}
-.ywa{align-self:flex-start;display:flex;gap:9px;align-items:flex-start;background:var(--ink);padding:10px 13px;max-width:92%;border-left:3px solid #8BA6B7}
+.ywa{align-self:flex-start;display:flex;gap:9px;align-items:flex-start;background:var(--ink);padding:10px 13px;max-width:92%;border-left:3px solid var(--accent)}
 .ywa .agi{margin-top:2px}
 .ywa b{display:block;color:#fff;font-size:14.5px;font-weight:500}.ywa small{display:block;color:rgba(255,255,255,.75);font-size:12px;margin-top:3px}
 .ywb>*{opacity:0;transform:translateY(8px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
@@ -70,7 +70,7 @@
 .ywbar{height:8px;background:var(--blue)}.ywbar i{display:block;height:100%;background:var(--c);transform-origin:left;transform:scaleX(0);transition:transform 1.2s var(--ease) .4s}
 .ywd.in .ywbar i{transform:none}
 .ywt ul{list-style:none;font-size:13px;line-height:1.45;display:grid;gap:3px}.ywt li{padding-left:14px;position:relative}.ywt li::before{content:"";position:absolute;left:0;top:9px;width:7px;height:1px;background:var(--ink)}
-.ywt.rk .ywn{color:#9C3F35}
+.ywt.rk .ywn{color:var(--ps-data-risk)}
 .ywx{font-size:11px;color:var(--faint);margin-top:auto;line-height:1.4}
 .ywk{display:flex;gap:16px;padding:12px 16px 14px;font-size:12px;color:var(--soft);flex-wrap:wrap}.ywk i{display:inline-block;width:10px;height:10px;margin-right:6px;vertical-align:-1px}
 /* a day */
@@ -86,7 +86,7 @@
 .dyn{background:var(--ink);padding:13px;display:flex;flex-direction:column;gap:9px;width:100%}.dyn>span{color:#fff;font-size:14px;display:flex;gap:8px;align-items:center}
 .dyn .cf{display:flex;gap:8px}.dyn .cf span{border:1px solid rgba(255,255,255,.35);color:#fff;font-size:12px;font-weight:700;padding:7px 11px}.dyn .cf span:first-child{background:#fff;color:var(--ink);border-color:#fff}
 .dyv .ywq{align-self:center;max-width:100%}
-.dyw{background:#fff;width:78%;padding:13px;display:flex;flex-direction:column;gap:7px}.dyw span{border-left:3px solid #2F6D7A;padding-left:9px;font-size:13.5px;font-weight:500}
+.dyw{background:#fff;width:78%;padding:13px;display:flex;flex-direction:column;gap:7px}.dyw span{border-left:3px solid var(--ps-data-revenue);padding-left:9px;font-size:13.5px;font-weight:500}
 .dys.lit .dyv{background:var(--ink)}
 @media (max-width:900px){
   .boh{display:none}
@@ -146,7 +146,12 @@
   .ck{grid-template-columns:1fr;gap:26px}
   .closeband{padding:80px 0 60px}
 }
-</style></head>
+</style><!-- brand:begin · tools/sync-brand.py, from hq/brand. Do not edit by hand. -->
+<link rel="stylesheet" href="/brand/themes/website.css">
+<link rel="icon" href="/brand/assets/favicon.png">
+<link rel="stylesheet" href="/site-brand.css">
+<!-- brand:end -->
+</head>
 <body>
 <nav id="nav"><div class="wrap">
   <a class="brand" href="index.html"><img src="img/perspace-mark-ink.png" alt="">Perspace</a>
@@ -177,7 +182,7 @@
   <div class="ck">
     <div class="tabs rv" role="tablist">
       <button class="tab on" role="tab"><div class="t"><span>01</span><b>Calibrate</b></div><div class="tx"><p>What the company's own figures say. Gaps become questions, never guesses.</p></div><div class="bar"></div></button>
-      <button class="tab" role="tab"><div class="t"><span>02</span><b>Value</b></div><div class="tx"><p>Where the money sits, in five rows, and how sure we are of it.</p><div class="pills"><span class="c" style="--c:#2F6D7A">Revenue</span><span class="c lt" style="--c:#A9ACAF">Margin</span><span class="c" style="--c:#091120">Operations</span><span class="c" style="--c:#9C3F35">Risk</span><span class="c lt" style="--c:#8BA6B7">Support</span></div></div><div class="bar"></div></button>
+      <button class="tab" role="tab"><div class="t"><span>02</span><b>Value</b></div><div class="tx"><p>Where the money sits, in five rows, and how sure we are of it.</p><div class="pills"><span class="c" style="--c:var(--ps-data-revenue)">Revenue</span><span class="c lt" style="--c:var(--ps-data-margin)">Margin</span><span class="c" style="--c:var(--ps-data-operations)">Operations</span><span class="c" style="--c:var(--ps-data-risk)">Risk</span><span class="c lt" style="--c:var(--ps-data-support)">Support</span></div></div><div class="bar"></div></button>
       <button class="tab" role="tab"><div class="t"><span>03</span><b>Work</b></div><div class="tx"><p>The business outcomes each project moves, in four rungs.</p><div class="pills"><span>Write it down</span><span>Make it right</span><span>Give it a tool</span><span>Give it an agent</span></div></div><div class="bar"></div></button>
       <button class="tab" role="tab"><div class="t"><span>04</span><b>Workforce</b></div><div class="tx"><p>How the company is organised, people and agents on one chart. Money out, prices and anything legal stop at a person.</p></div><div class="bar"></div></button>
     </div>
@@ -226,8 +231,8 @@
   <div class="yw">
     <div class="ywc rv" data-trigger><div class="ywh"><b>Ask</b><span>A manager asks, Grip answers</span><em>Illustrative figures</em></div><div class="ywb"><div class="ywq">Which invoices are overdue this week?</div><div class="ywa"><svg viewBox="0 0 24 24" class="agi" aria-hidden="true"><path d="M12 2l2.6 7.4L22 12l-7.4 2.6L12 22l-2.6-7.4L2 12l7.4-2.6z"/></svg><div><b>14 invoices, 5 of them over 30 days late.</b><small>Source: Collections agent, from the invoice ledger</small></div></div><div class="ywq">Which customers are priced below similar ones?</div><div class="ywa"><svg viewBox="0 0 24 24" class="agi" aria-hidden="true"><path d="M12 2l2.6 7.4L22 12l-7.4 2.6L12 22l-2.6-7.4L2 12l7.4-2.6z"/></svg><div><b>6 customers, about a tenth below similar ones.</b><small>Source: Pricing agent, from orders and contracts</small></div></div><div class="ywq">Which contracts renew this quarter?</div><div class="ywa"><svg viewBox="0 0 24 24" class="agi" aria-hidden="true"><path d="M12 2l2.6 7.4L22 12l-7.4 2.6L12 22l-2.6-7.4L2 12l7.4-2.6z"/></svg><div><b>9 contracts, 3 renewals already drafted.</b><small>Source: Contract register, updated this morning</small></div></div></div></div>
     <div class="ywd rv d1" data-trigger><div class="ywh"><b>Chairman screen</b><span>One page, read in ten seconds</span><em>Illustrative figures</em></div>
-      <div class="ywt4"><div class="ywt" style="--c:#2F6D7A"><div class="u">Cash in this month</div><div class="ywn">78<small>%</small></div><div class="ywbar"><i style="width:78%"></i></div><div class="ywx">Unit: % of invoices due, collected · Source: invoice ledger</div></div><div class="ywt" style="--c:#091120"><div class="u">Orders on time</div><div class="ywn">91<small>%</small></div><div class="ywbar"><i style="width:91%"></i></div><div class="ywx">Unit: % of orders delivered on the promised date · Source: order records</div></div><div class="ywt" style="--c:#A9ACAF"><div class="u">Customers priced right</div><div class="ywn">84<small>%</small></div><div class="ywbar"><i style="width:84%"></i></div><div class="ywx">Unit: % of customers priced in line with similar ones · Source: pricing agent</div></div><div class="ywt rk" style="--c:#9C3F35"><div class="u">What needs you today</div><div class="ywn">3<small>decisions</small></div><ul><li>Release a supplier payment run</li><li>Sign a contract renewal</li><li>Clear a records flag</li></ul><div class="ywx">Unit: decisions waiting · Source: agents' queue</div></div></div>
-      <div class="ywk"><span><i style="background:#2F6D7A"></i>Revenue</span><span><i style="background:#A9ACAF"></i>Margin</span><span><i style="background:#091120"></i>Ops</span><span><i style="background:#9C3F35"></i>Risk</span></div>
+      <div class="ywt4"><div class="ywt" style="--c:var(--ps-data-revenue)"><div class="u">Cash in this month</div><div class="ywn">78<small>%</small></div><div class="ywbar"><i style="width:78%"></i></div><div class="ywx">Unit: % of invoices due, collected · Source: invoice ledger</div></div><div class="ywt" style="--c:var(--ps-data-operations)"><div class="u">Orders on time</div><div class="ywn">91<small>%</small></div><div class="ywbar"><i style="width:91%"></i></div><div class="ywx">Unit: % of orders delivered on the promised date · Source: order records</div></div><div class="ywt" style="--c:var(--ps-data-margin)"><div class="u">Customers priced right</div><div class="ywn">84<small>%</small></div><div class="ywbar"><i style="width:84%"></i></div><div class="ywx">Unit: % of customers priced in line with similar ones · Source: pricing agent</div></div><div class="ywt rk" style="--c:var(--ps-data-risk)"><div class="u">What needs you today</div><div class="ywn">3<small>decisions</small></div><ul><li>Release a supplier payment run</li><li>Sign a contract renewal</li><li>Clear a records flag</li></ul><div class="ywx">Unit: decisions waiting · Source: agents' queue</div></div></div>
+      <div class="ywk"><span><i style="background:var(--ps-data-revenue)"></i>Revenue</span><span><i style="background:var(--ps-data-margin)"></i>Margin</span><span><i style="background:var(--ps-data-operations)"></i>Ops</span><span><i style="background:var(--ps-data-risk)"></i>Risk</span></div>
     </div>
   </div>
 </div></section>
@@ -239,7 +244,7 @@
     <p class="lede rv d2">What Grip asks of you, and when. Every reply is logged.</p>
   </div>
   <div class="dyr">
-    <div class="dys rv"><div class="dyk">Morning</div><h3>The chairman screen</h3><div class="dyv"><div class="dyt"><i style="border-color:#2F6D7A"></i><i style="border-color:#091120"></i><i style="border-color:#A9ACAF"></i><i style="border-color:#9C3F35"></i></div></div><p>Four tiles, read with the coffee.</p></div>
+    <div class="dys rv"><div class="dyk">Morning</div><h3>The chairman screen</h3><div class="dyv"><div class="dyt"><i style="border-color:var(--ps-data-revenue)"></i><i style="border-color:var(--ps-data-operations)"></i><i style="border-color:var(--ps-data-margin)"></i><i style="border-color:var(--ps-data-risk)"></i></div></div><p>Four tiles, read with the coffee.</p></div>
     <div class="dys rv d1"><div class="dyk">Midday</div><h3>An agent asks for a yes</h3><div class="dyv"><div class="dyn"><span><svg viewBox="0 0 24 24" class="agi" aria-hidden="true"><path d="M12 2l2.6 7.4L22 12l-7.4 2.6L12 22l-2.6-7.4L2 12l7.4-2.6z"/></svg>Payment run ready, 12 suppliers</span><div class="cf"><span>Approve</span><span>Not yet</span></div></div></div><p>One tap, and the payments go out.</p></div>
     <div class="dys rv d2"><div class="dyk">Afternoon</div><h3>A question in the chat</h3><div class="dyv"><div class="ywq">Which invoices are overdue this week?</div></div><p>The answer comes with its source.</p></div>
     <div class="dys lit rv d3"><div class="dyk">Friday</div><h3>The weekly report</h3><div class="dyv"><div class="dyw"><span>What moved</span><span>What waits</span><span>What needs you</span></div></div><p>One page, in your inbox.</p></div>

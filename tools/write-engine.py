@@ -49,7 +49,7 @@ nodes = ''.join(
     for p, (x, y) in zip(P, pts))
 engine = (f'  <div class="engtag">{E["tag"]}</div>\n'
           '  <div class="engine">\n'
-          f'    <svg viewBox="0 0 {W} {H}" preserveAspectRatio="none"><g stroke="#8BA6B7" stroke-width="1.2" stroke-dasharray="4 5" fill="none">{lines}</g>{sparks}</svg>\n'
+          f'    <svg viewBox="0 0 {W} {H}" preserveAspectRatio="none"><g style="stroke:var(--accent)" stroke-width="1.2" stroke-dasharray="4 5" fill="none">{lines}</g>{sparks}</svg>\n'
           f'    {nodes}\n'
           '    <div class="core"><div><img src="img/star-crop.png" alt=""><small>THE ENGINE</small></div></div>\n'
           '  </div>\n')

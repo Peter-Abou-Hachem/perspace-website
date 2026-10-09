@@ -9,9 +9,9 @@
 <style>
 /* hero socket */
 .sock{position:relative;height:420px}
-.sock .port{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:240px;height:240px;border-radius:50%;background:var(--ink);display:grid;place-items:center;box-shadow:0 0 0 16px rgba(9,17,32,.05),0 0 0 34px rgba(9,17,32,.03)}
+.sock .port{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:240px;height:240px;border-radius:50%;background:var(--ink);display:grid;place-items:center;box-shadow:0 0 0 16px color-mix(in srgb,var(--ink) 5%,transparent),0 0 0 34px color-mix(in srgb,var(--ink) 3%,transparent)}
 .sock .port img{height:62px;animation:spin2 18s linear infinite;filter:brightness(1.4)}
-.sock .chip{position:absolute;background:var(--card);border:1px solid var(--ink);padding:10px 14px;font-size:14px;font-weight:700;display:flex;gap:10px;align-items:center;white-space:nowrap;box-shadow:0 14px 30px rgba(9,17,32,.08);animation:plug 6s var(--ease) infinite;animation-delay:var(--d)}
+.sock .chip{position:absolute;background:var(--card);border:1px solid var(--ink);padding:10px 14px;font-size:14px;font-weight:700;display:flex;gap:10px;align-items:center;white-space:nowrap;box-shadow:0 14px 30px color-mix(in srgb,var(--ink) 8%,transparent);animation:plug 6s var(--ease) infinite;animation-delay:var(--d)}
 .sock .chip i{width:8px;height:8px;border-radius:50%;background:var(--accent)}
 @keyframes plug{0%{opacity:0;transform:translate(var(--x),var(--y)) scale(.9)}14%{opacity:1;transform:translate(var(--x),var(--y)) scale(1)}55%{opacity:1;transform:translate(var(--x),var(--y))}66%{opacity:0;transform:translate(calc(var(--x)*.6),calc(var(--y)*.6)) scale(.8)}75%{opacity:0;transform:translate(0,0) scale(.4)}100%{opacity:0;transform:translate(0,0) scale(.4)}}
 .sock .chip{left:calc(50% - 60px);top:calc(50% - 20px);animation-fill-mode:backwards}
@@ -58,7 +58,7 @@
 .ch{background:var(--ink);padding:34px 30px}
 .ch .k{font-size:10.5px;letter-spacing:.16em;color:var(--accent);font-weight:500}
 .ch b{display:block;font-size:26px;font-weight:700;letter-spacing:-.02em;margin-top:14px}
-.ch p{font-size:15.5px;line-height:1.55;color:#b9c6d2;margin-top:10px}
+.ch p{font-size:15.5px;line-height:1.55;color:var(--ps-steel-blue);margin-top:10px}
 .strip{overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent);
  -webkit-mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent)}
 .wall .run{display:flex;gap:16px;width:max-content;align-items:center;padding:8px 0}
@@ -127,13 +127,13 @@
 /* running */
 .runs{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
 .rn{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--ink);padding:20px 20px 22px;transition:transform .3s var(--ease),box-shadow .3s}
-.rn:hover{transform:translateY(-3px);box-shadow:0 18px 36px rgba(9,17,32,.08)}
+.rn:hover{transform:translateY(-3px);box-shadow:0 18px 36px color-mix(in srgb,var(--ink) 8%,transparent)}
 .rn small{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-ink);font-weight:500}
 .rn b{display:block;font-size:19px;font-weight:700;letter-spacing:-.015em;line-height:1.25;margin-top:8px}
 .czs2{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:30px}
 .cz2{display:flex;gap:12px;align-items:flex-start;padding:12px 14px;border:1px solid var(--line);background:var(--ground);transition:border-color .25s}
 .cz2:hover{border-color:var(--ink)}
-.cz2>i{width:10px;height:10px;border-radius:50%;margin-top:4px;flex:none;background:#8BA6B7}
+.cz2>i{width:10px;height:10px;border-radius:50%;margin-top:4px;flex:none;background:var(--accent)}
 .cz2.s-d>i{background:var(--ink)}
 .cz2 small{display:block;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);font-weight:500}
 .cz2 b{display:block;font-size:15px;margin-top:3px}
@@ -168,7 +168,12 @@
 }
 @media (max-width:480px){.grps{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){.wall .run{animation:none}}
-</style></head>
+</style><!-- brand:begin · tools/sync-brand.py, from hq/brand. Do not edit by hand. -->
+<link rel="stylesheet" href="/brand/themes/website.css">
+<link rel="icon" href="/brand/assets/favicon.png">
+<link rel="stylesheet" href="/site-brand.css">
+<!-- brand:end -->
+</head>
 <body>
 <nav id="nav"><div class="wrap">
   <a class="brand" href="index.html"><img src="img/perspace-mark-ink.png" alt="">Perspace</a>
@@ -218,7 +223,7 @@
 <!-- BORN -->
 <section class="dark pad tight" id="born"><div class="wrap">
   <div class="tag rv">How a plug-in is born</div>
-  <h2 class="rv d1" style="margin-top:24px;color:#8ea3b3">One client, one problem. <b style="color:#fff">Then every client after.</b></h2>
+  <h2 class="rv d1" style="margin-top:24px;color:var(--ps-data-support)">One client, one problem. <b style="color:#fff">Then every client after.</b></h2>
   <div class="born">
     <div class="bn rv"><div class="n">1</div><h3>One client, one problem.</h3><p>A construction group could not see its sites between weekly reports.</p></div>
     <div class="bn rv d1"><div class="n">2</div><h3>We source the answer once.</h3><p>Polynome: cameras and microphones that read a site the way a foreman would.</p></div>
@@ -265,7 +270,7 @@
     <div class="rn rv d2"><small>Energy company</small><b>One category, bought three ways, read and priced.</b></div>
   </div>
   <div class="czs2"><div class="cz2 s-d rv"><i></i><div><small>Retail bank</small><b>Document reading and checks</b></div></div><div class="cz2 s-t rv"><i></i><div><small>Telecom operator</small><b>Predictive network operations</b></div></div><div class="cz2 s-d rv"><i></i><div><small>Logistics group</small><b>Routing and tracking</b></div></div><div class="cz2 s-t rv"><i></i><div><small>Healthcare network</small><b>Imaging support</b></div></div><div class="cz2 s-d rv"><i></i><div><small>Real-estate developer</small><b>Sales system and follow-up</b></div></div><div class="cz2 s-t rv"><i></i><div><small>Government department</small><b>Automated help desk</b></div></div><div class="cz2 s-t rv"><i></i><div><small>Insurer</small><b>Claims automation</b></div></div><div class="cz2 s-t rv"><i></i><div><small>Manufacturer</small><b>Vision quality control</b></div></div><div class="cz2 s-d rv"><i></i><div><small>Media group</small><b>Dynamic pricing and yield</b></div></div><div class="cz2 s-t rv"><i></i><div><small>Food and beverage chain</small><b>Demand forecasting</b></div></div><div class="cz2 s-t rv"><i></i><div><small>Airline</small><b>Rostering</b></div></div><div class="cz2 s-d rv"><i></i><div><small>Hospitality group</small><b>One guest desk</b></div></div><div class="cz2 s-t rv"><i></i><div><small>Construction</small><b>Site progress tracking</b></div></div><div class="cz2 s-d rv"><i></i><div><small>Pharma distributor</small><b>Order reconciliation</b></div></div><div class="cz2 s-t rv"><i></i><div><small>Education group</small><b>Admissions workflow</b></div></div><div class="cz2 s-t rv"><i></i><div><small>Ports and terminals</small><b>Gate and yard tracking</b></div></div><div class="cz2 s-d rv"><i></i><div><small>Retail chain</small><b>Replenishment, per store</b></div></div><div class="cz2 s-t rv"><i></i><div><small>Public sector</small><b>Approvals automation</b></div></div></div>
-  <div class="ckey rv"><span><i style="background:var(--ink)"></i>Deployed</span><span><i style="background:#8BA6B7"></i>In trial</span></div>
+  <div class="ckey rv"><span><i style="background:var(--ink)"></i>Deployed</span><span><i style="background:var(--accent)"></i>In trial</span></div>
 </div></section>
 
 <!-- WHAT WE CONNECT TO (from connects.html) -->
