@@ -77,40 +77,50 @@
 .phero{padding:150px 0 60px}
 .orig a.og{display:block;transition:transform .3s var(--ease),border-color .3s}.orig a.og:hover{transform:translateY(-3px);border-color:var(--ink)}
 .og .pgo{margin-top:16px;font-size:14px;font-weight:700}
-/* menu, grouped, no filters */
-.grps{display:grid;grid-template-columns:repeat(4,1fr);gap:28px 22px}
-.grp h4{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-ink);font-weight:500;padding-bottom:10px;border-bottom:1px solid var(--ink);margin-bottom:10px}
-.pis{display:flex;flex-wrap:wrap;gap:6px}
-.pi2{display:inline-flex;align-items:center;gap:7px;font-size:14px;font-weight:700;padding:8px 11px;background:var(--card);border:1px solid var(--line);transition:transform .25s var(--ease),border-color .25s}
-.pi2:hover{transform:translateY(-2px);border-color:var(--ink)}
-.pi2 i{width:8px;height:8px;border-radius:50%;background:var(--accent);flex:none}
-.o-shelf i{background:var(--silver)}.o-venture{background:var(--ink);color:#fff;border-color:var(--ink)}.o-venture i{background:#fff}
-
-/* plug-in menu as slow tickers, like the systems wall (Peter, 8 Oct 2026: "more like the connectors rotation, more seamless") */
-.tk{overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);margin:2px 0}
-.tk .run{display:flex;gap:8px;width:max-content;padding:3px 0;animation:drift var(--dur,60s) linear infinite}
-.tk.rev .run{animation-direction:reverse}
-.grp:hover .tk .run{animation-play-state:paused}
-.tk .pi2{flex:none}
-.grp{min-width:0}.grp .pis{display:block;min-width:0;overflow:hidden}
-@media(prefers-reduced-motion:reduce){.tk .run{animation:none}}
-/* rotating menu (Peter, 6 Oct 2026): data/plugins.json, written by tools/write-plugins.py */
-.grp{cursor:pointer;position:relative}
-.grp h4{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
-.grp h4 small{font-size:10.5px;letter-spacing:.04em;text-transform:none;color:var(--faint);font-weight:500;white-space:nowrap}
-.pis{align-content:flex-start}
-.pi2{transition:transform .25s var(--ease),border-color .25s,opacity .45s var(--ease),filter .45s var(--ease)}
-.pi2.out{opacity:0;filter:blur(3px);transform:translateY(4px)}
-.pi2.in{animation:chipin .55s var(--ease)}
-@keyframes chipin{from{opacity:0;filter:blur(3px);transform:translateY(-4px)}to{opacity:1;filter:none;transform:none}}
-.grp .gmore{display:inline-flex;align-items:center;margin-top:10px;font-size:12.5px;font-weight:700;color:var(--ink);border:0;background:none;padding:0;cursor:pointer;font-family:inherit}
-.grp .gmore::after{content:"";width:6px;height:6px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg);margin:-3px 0 0 8px;transition:transform .3s}
-.grp.open .gmore::after{transform:rotate(-135deg);margin-top:3px}
-.grp.open{grid-column:1/-1}
-.grp.open .pis{animation:chipin .4s var(--ease)}
-.grp h4 small{transition:color .4s}.grp.tick h4 small{color:var(--accent-ink)}
-.mkey{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:30px;padding-top:14px;border-top:1px solid var(--line);font-size:12.5px;color:var(--soft)}
-.mkey i{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:7px}
+/* menu: one calm shelf per block, chromatic metal (Peter picked D3 with "a bit of metallic", 9 Oct 2026) */
+.shf{--metal:linear-gradient(172deg,#FBFBFA 0%,#D7DADA 30%,var(--ps-silver) 58%,#C4CACD 80%,#E4E7E6 100%);
+  --chroma:linear-gradient(90deg,color-mix(in srgb,var(--ps-ice-blue) 70%,transparent) 0%,transparent 35%,color-mix(in srgb,#D9CDB8 55%,transparent) 68%,transparent 100%);
+  display:flex;flex-direction:column}
+.sb{display:grid;grid-template-columns:270px minmax(0,1fr);align-items:center;gap:24px;padding:18px 0;border-top:1px solid var(--ps-line-strong);cursor:pointer;outline:0}
+.sb:last-child{border-bottom:1px solid var(--ps-line-strong)}
+.sb:focus-visible .sbh b{text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--ps-silver)}
+.sbh{display:flex;align-items:flex-start;gap:12px;min-width:0}
+.sbh .brace{width:14px;height:14px;flex:none;margin-top:5px;filter:drop-shadow(0 1px 1px rgba(13,28,44,.12))}
+.sbh b{display:block;white-space:nowrap;font-family:var(--ps-font-head);font-weight:400;font-size:20px;line-height:1.15;color:var(--ps-ink)}
+.sbh small{display:block;margin-top:3px;font-size:12px;color:var(--ps-ink-3);font-variant-numeric:tabular-nums}
+.sl{overflow:hidden;min-width:0;padding:6px 0;mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent)}
+.sl .run{display:flex;gap:12px;width:max-content;animation:drift var(--dur,240s) linear infinite}
+.sb:hover .run,.sb:focus-within .run{animation-play-state:paused}
+.pl{position:relative;overflow:hidden;isolation:isolate;display:inline-flex;align-items:center;gap:9px;flex:none;height:40px;padding:0 18px;border-radius:999px;
+  font-size:15px;font-weight:500;color:var(--ps-ink);white-space:nowrap;border:1px solid transparent;
+  background:linear-gradient(#fff,#fff) padding-box,var(--chroma) border-box,var(--metal) border-box;
+  box-shadow:0 1px 0 rgba(255,255,255,.9) inset,0 1px 2px rgba(13,28,44,.04),0 4px 10px -6px rgba(13,28,44,.10);transition:box-shadow .5s var(--ease)}
+.pl::after{content:"";position:absolute;inset:-1px;z-index:-1;pointer-events:none;border-radius:inherit;opacity:0;transform:translateX(-110%);
+  background:linear-gradient(105deg,transparent 22%,color-mix(in srgb,var(--ps-ice-blue) 55%,transparent) 40%,color-mix(in srgb,var(--ps-silver) 16%,#fff) 50%,color-mix(in srgb,#E3D6C0 45%,transparent) 60%,transparent 78%)}
+.pl:hover{background:linear-gradient(#fff,#fff) padding-box,var(--chroma) border-box,linear-gradient(172deg,#FBFBFA 0%,var(--ps-silver) 45%,#8E9395 62%,#C4CACD 100%) border-box;box-shadow:0 1px 0 rgba(255,255,255,.9) inset,0 1px 2px rgba(13,28,44,.05),0 6px 14px -9px rgba(13,28,44,.16)}
+.pl:hover::after{animation:sheen 1.6s cubic-bezier(.45,0,.25,1) forwards}
+@keyframes sheen{0%{opacity:0;transform:translateX(-110%)}15%{opacity:1}85%{opacity:1}100%{opacity:0;transform:translateX(110%)}}
+.pl i,.skey i{width:7px;height:7px;border-radius:50%;flex:none;display:inline-block}
+.o-shelf i{background:radial-gradient(circle at 35% 30%,#fff 0%,#C9CDCE 45%,var(--ps-silver) 70%,#7E8486 100%)}
+.o-venture i{background:var(--ps-midnight-navy)}
+.sb.open{align-items:start}
+.sb.open .sl{mask-image:none;-webkit-mask-image:none}
+.sb.open .run{flex-wrap:wrap;width:auto;animation:none;gap:10px}
+.sb.open .run [aria-hidden]{display:none}
+.skey{display:flex;flex-wrap:wrap;align-items:center;gap:8px 24px;margin-top:28px;font-size:12px;color:var(--ps-ink-3)}
+.skey span{display:inline-flex;align-items:center;gap:8px}
+.skey em{font-style:normal;margin-left:auto}
+.skey .tp{display:none}@media(hover:none){.skey .hv{display:none}.skey .tp{display:inline}}
+@media(prefers-reduced-motion:reduce){.sl .run{animation:none}.pl:hover::after{animation:none}}
+@media (max-width:900px){
+  .sb{grid-template-columns:1fr;gap:12px;padding:18px 0 16px}
+  .sbh{align-items:center;gap:10px}.sbh .brace{width:12px;height:12px;margin-top:0}
+  .sbh>div{display:flex;align-items:baseline;gap:10px}
+  .sbh b{font-size:18px}.sbh small{margin-top:0}
+  .sl{margin:0 -16px;padding-left:16px;mask-image:linear-gradient(90deg,transparent,#000 6%,#000 90%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 90%,transparent)}
+  .pl{height:36px;padding:0 15px;font-size:14px}
+  .skey em{margin-left:0;flex-basis:100%}
+}
 /* sourced */
 .src{display:grid;grid-template-columns:.9fr 1.1fr;gap:50px;align-items:center}
 .hubs{max-height:470px}
@@ -154,19 +164,16 @@
 .trail a:hover i{background:var(--accent);transform:scale(1.2)}
 .trail a.on{color:var(--ink);font-weight:700}.trail a.on i{background:var(--ink)}
 .closeband{padding:110px 0 80px}
-@media (max-width:1100px){.grps{grid-template-columns:repeat(3,1fr)}}
 @media (max-width:900px){
   .pad.tight{padding:76px 0}
   .phero{padding:110px 0 40px}
   .orig,.born,.src,.ways,.runs,.czs2{grid-template-columns:1fr}
-  .grps{grid-template-columns:1fr 1fr}
   .bn,.bn+.bn{padding:26px 0 10px;border-left:0;border-top:1px solid rgba(255,255,255,.12)}
   .sock{height:320px}.sock .port{width:170px;height:170px}.sock .port img{height:46px}
   .wall .lg{height:54px;padding:0 16px}
   .cnum{gap:24px}.cnum b{font-size:40px}.cnum .btn{margin-left:0}
   .closeband{padding:80px 0 60px}
 }
-@media (max-width:480px){.grps{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){.wall .run{animation:none}}
 </style><!-- brand:begin · tools/sync-brand.py, from hq/brand. Do not edit by hand. -->
 <link rel="stylesheet" href="/brand/themes/website.css">
@@ -216,8 +223,8 @@
     <div><div class="tag rv">The menu</div><h2 class="rv d1">What you can <b>plug in.</b></h2></div>
     <p class="lede rv d2">New ones join every week, and every client inherits them.</p>
   </div>
-  <div class="grps"><div class="grp rv"><h4>Finance</h4><div class="pis"><span class="pi2 o-shelf"><i></i>Collections</span><span class="pi2 o-cockpit"><i></i>Invoice</span><span class="pi2 o-cockpit"><i></i>Reconciler</span><span class="pi2 o-cockpit"><i></i>Expense Audit</span><span class="pi2 o-cockpit"><i></i>Cash Forecast</span><span class="pi2 o-cockpit"><i></i>Payroll</span><span class="pi2 o-cockpit"><i></i>Revenue Recognition</span></div></div><div class="grp rv"><h4>People</h4><div class="pis"><span class="pi2 o-cockpit"><i></i>Recruiter</span><span class="pi2 o-cockpit"><i></i>Onboarding</span><span class="pi2 o-cockpit"><i></i>Leave & Attendance</span><span class="pi2 o-cockpit"><i></i>Letters</span><span class="pi2 o-cockpit"><i></i>Rostering</span></div></div><div class="grp rv"><h4>Sales</h4><div class="pis"><span class="pi2 o-cockpit"><i></i>Quote Builder</span><span class="pi2 o-cockpit"><i></i>Lead Qualifier</span><span class="pi2 o-cockpit"><i></i>Pricing</span><span class="pi2 o-cockpit"><i></i>Renewals</span><span class="pi2 o-cockpit"><i></i>Proposal</span><span class="pi2 o-cockpit"><i></i>Pipeline Review</span><span class="pi2 o-cockpit"><i></i>Churn Watch</span></div></div><div class="grp rv"><h4>Legal and risk</h4><div class="pis"><span class="pi2 o-cockpit"><i></i>Contract Reader</span><span class="pi2 o-cockpit"><i></i>Compliance</span><span class="pi2 o-cockpit"><i></i>KYC</span><span class="pi2 o-cockpit"><i></i>Approvals</span><span class="pi2 o-cockpit"><i></i>Audit Trail</span><span class="pi2 o-cockpit"><i></i>Claims</span><span class="pi2 o-cockpit"><i></i>Fraud Watch</span></div></div><div class="grp rv"><h4>Operations</h4><div class="pis"><span class="pi2 o-venture"><i></i>Polynome</span><span class="pi2 o-cockpit"><i></i>Inbox Triage</span><span class="pi2 o-cockpit"><i></i>Scheduler</span><span class="pi2 o-cockpit"><i></i>Dispatch</span><span class="pi2 o-cockpit"><i></i>Site Tracker</span><span class="pi2 o-cockpit"><i></i>Handoff</span><span class="pi2 o-cockpit"><i></i>Escalation</span><span class="pi2 o-cockpit"><i></i>Ticket Triage</span></div></div><div class="grp rv"><h4>Supply</h4><div class="pis"><span class="pi2 o-cockpit"><i></i>Inventory</span><span class="pi2 o-cockpit"><i></i>Forecaster</span><span class="pi2 o-cockpit"><i></i>Vendor Screener</span><span class="pi2 o-cockpit"><i></i>Catalogue Scout</span><span class="pi2 o-cockpit"><i></i>Order Desk</span><span class="pi2 o-cockpit"><i></i>Restock</span><span class="pi2 o-cockpit"><i></i>Quality QC</span></div></div><div class="grp rv"><h4>Reporting and content</h4><div class="pis"><span class="pi2 o-cockpit"><i></i>Report Writer</span><span class="pi2 o-cockpit"><i></i>Data Cleaner</span><span class="pi2 o-cockpit"><i></i>Doc Filer</span><span class="pi2 o-cockpit"><i></i>Meeting Notes</span><span class="pi2 o-cockpit"><i></i>Content Drafter</span><span class="pi2 o-cockpit"><i></i>SEO</span><span class="pi2 o-cockpit"><i></i>Social</span><span class="pi2 o-cockpit"><i></i>Sentiment</span></div></div></div>
-  <div class="mkey rv"><span><i style="background:var(--silver)"></i>Off the shelf</span><span><i style="background:var(--accent)"></i>Learned in Grip</span><span><i style="background:var(--ink)"></i>Sourced from the world</span></div>
+  <div class="shf"><div class="sb rv" tabindex="0" role="button" aria-expanded="false"><div class="sbh"><img class="brace" src="img/star-crop.png" alt=""><div><b>Finance</b><small>53 plug-ins</small></div></div><div class="sl"><div class="run"><span class="pl o-shelf"><i></i>Collections</span><span class="pl o-cockpit">Invoice</span><span class="pl o-cockpit">Reconciler</span><span class="pl o-cockpit">Expense Audit</span><span class="pl o-cockpit">Cash Forecast</span><span class="pl o-cockpit">Payroll</span><span class="pl o-cockpit">Revenue Recognition</span><span class="pl o-cockpit">Payment Terms Setter</span><span class="pl o-cockpit">Billing Rhythm Planner</span><span class="pl o-cockpit">Receivable Age Tracker</span><span class="pl o-cockpit">Retention Release Tracker</span><span class="pl o-cockpit">Overdue Account Chaser</span><span class="pl o-cockpit">Deposit Advance Collector</span><span class="pl o-cockpit">Claim Recovery Clerk</span><span class="pl o-cockpit">Demurrage Claim Tracker</span><span class="pl o-cockpit">Government Invoice Tracker</span><span class="pl o-cockpit">Cash Float Separator</span><span class="pl o-cockpit">Bad Debt Watch</span><span class="pl o-cockpit">Customer Credit Reviewer</span><span class="pl o-cockpit">Debt Ceiling Monitor</span><span class="pl o-cockpit">Covenant Grade Watcher</span><span class="pl o-cockpit">Acquisition Price Checker</span><span class="pl o-cockpit">Fund Fee Auditor</span><span class="pl o-cockpit">Intercompany Fee Checker</span><span class="pl o-cockpit">Rebate Override Chaser</span><span class="pl o-cockpit">Media Margin Checker</span><span class="pl o-cockpit">Supplier Payment Balancer</span><span class="pl o-cockpit">Capital Allocation Reviewer</span><span class="pl o-cockpit">Service Charge Closer</span><span class="pl o-cockpit">Owner Statement Reconciler</span><span class="pl o-cockpit">Arrears Recovery Planner</span><span class="pl o-cockpit">Rent Escalation Tracker</span><span class="pl o-cockpit">Premium Collection Tracker</span><span class="pl o-cockpit">Milestone Billing Clerk</span><span class="pl o-cockpit">Project Margin Watcher</span><span class="pl o-cockpit">Deferred Revenue Checker</span><span class="pl o-cockpit">Franchise Fee Reviewer</span><span class="pl o-cockpit">Minimum Guarantee Tracker</span><span class="pl o-cockpit">Student Fee Collector</span><span class="pl o-cockpit">Exposure Concentration Checker</span><span class="pl o-cockpit">Guarantee Bond Tracker</span><span class="pl o-cockpit">Dividend Flow Checker</span><span class="pl o-cockpit">Contract Claim Settler</span><span class="pl o-cockpit">Chargeback Loss Tracker</span><span class="pl o-cockpit">Cash Cycle Reporter</span><span class="pl o-cockpit">Earnout Ledger Keeper</span><span class="pl o-cockpit">Currency Mismatch Reviewer</span><span class="pl o-cockpit">Change Order Tracker</span><span class="pl o-cockpit">Build Period Negotiator</span><span class="pl o-cockpit">Program Rights Scheduler</span><span class="pl o-cockpit">Key Money Negotiator</span><span class="pl o-cockpit">Staff Loan Reconciler</span><span class="pl o-cockpit">Working Capital Reviewer</span></div></div></div><div class="sb rv" tabindex="0" role="button" aria-expanded="false"><div class="sbh"><img class="brace" src="img/star-crop.png" alt=""><div><b>People</b><small>35 plug-ins</small></div></div><div class="sl"><div class="run"><span class="pl o-cockpit">Recruiter</span><span class="pl o-cockpit">Onboarding</span><span class="pl o-cockpit">Leave &amp; Attendance</span><span class="pl o-cockpit">Letters</span><span class="pl o-cockpit">Rostering</span><span class="pl o-cockpit">Leaver Cost Tracker</span><span class="pl o-cockpit">Staffing Plan Scheduler</span><span class="pl o-cockpit">Fee Earner Tracker</span><span class="pl o-cockpit">Headcount Productivity Checker</span><span class="pl o-cockpit">Crew Retention Planner</span><span class="pl o-cockpit">Idle Labour Tracker</span><span class="pl o-cockpit">Succession Readiness Checker</span><span class="pl o-cockpit">Shift Coverage Planner</span><span class="pl o-cockpit">Therapist Capacity Planner</span><span class="pl o-cockpit">Vet Staffing Reviewer</span><span class="pl o-cockpit">Clinical Shift Planner</span><span class="pl o-cockpit">Driver Turnover Tracker</span><span class="pl o-cockpit">Guard Coverage Planner</span><span class="pl o-cockpit">Branch Staffing Reviewer</span><span class="pl o-cockpit">Seasonal Staff Planner</span><span class="pl o-cockpit">Safety Record Reviewer</span><span class="pl o-cockpit">Sales Capacity Planner</span><span class="pl o-cockpit">Utilisation Reviewer</span><span class="pl o-cockpit">Recruiter Cost Watcher</span><span class="pl o-cockpit">Portfolio Partner Reviewer</span><span class="pl o-cockpit">Acquisition Integration Planner</span><span class="pl o-cockpit">Engineer Load Balancer</span><span class="pl o-cockpit">Freelance Mix Planner</span><span class="pl o-cockpit">Account Team Sizer</span><span class="pl o-cockpit">Pay Band Reviewer</span><span class="pl o-cockpit">Audit Team Reviewer</span><span class="pl o-cockpit">Key Client Cover Planner</span><span class="pl o-cockpit">Overtime Cost Reviewer</span><span class="pl o-cockpit">Buyback Incentive Planner</span><span class="pl o-cockpit">Retainer Hour Tracker</span></div></div></div><div class="sb rv" tabindex="0" role="button" aria-expanded="false"><div class="sbh"><img class="brace" src="img/star-crop.png" alt=""><div><b>Sales</b><small>36 plug-ins</small></div></div><div class="sl"><div class="run"><span class="pl o-cockpit">Quote Builder</span><span class="pl o-cockpit">Lead Qualifier</span><span class="pl o-cockpit">Pricing</span><span class="pl o-cockpit">Renewals</span><span class="pl o-cockpit">Proposal</span><span class="pl o-cockpit">Pipeline Review</span><span class="pl o-cockpit">Churn Watch</span><span class="pl o-cockpit">Pipeline Backlog Reviewer</span><span class="pl o-cockpit">Renewal Risk Watcher</span><span class="pl o-cockpit">Account Concentration Checker</span><span class="pl o-cockpit">Channel Mix Reviewer</span><span class="pl o-cockpit">Loyalty Lift Checker</span><span class="pl o-cockpit">Price Rise Tester</span><span class="pl o-cockpit">Cancellation Reason Tracker</span><span class="pl o-cockpit">Expiring Treatment Tracker</span><span class="pl o-cockpit">Membership Usage Reviewer</span><span class="pl o-cockpit">Renewal Pricing Analyst</span><span class="pl o-cockpit">Wholesale Account Reviewer</span><span class="pl o-cockpit">Exhibitor Value Tracker</span><span class="pl o-cockpit">Commission Reconciler</span><span class="pl o-cockpit">Promotion Margin Checker</span><span class="pl o-cockpit">Demand Capture Planner</span><span class="pl o-cockpit">Rate Mix Optimizer</span><span class="pl o-cockpit">Route Profitability Reviewer</span><span class="pl o-cockpit">Fleet Utilisation Planner</span><span class="pl o-cockpit">Capacity Expansion Reviewer</span><span class="pl o-cockpit">Contract Renewal Planner</span><span class="pl o-cockpit">Category Mix Reviewer</span><span class="pl o-cockpit">Guaranteed Minimum Reviewer</span><span class="pl o-cockpit">Wallet Share Estimator</span><span class="pl o-cockpit">Stand Space Pricer</span><span class="pl o-cockpit">Seat Usage Reviewer</span><span class="pl o-cockpit">Program Rebooking Tracker</span><span class="pl o-cockpit">Repeat Customer Tracker</span><span class="pl o-cockpit">Return Rate Reviewer</span><span class="pl o-cockpit">Referral Source Tracker</span></div></div></div><div class="sb rv" tabindex="0" role="button" aria-expanded="false"><div class="sbh"><img class="brace" src="img/star-crop.png" alt=""><div><b>Legal and risk</b><small>35 plug-ins</small></div></div><div class="sl"><div class="run"><span class="pl o-cockpit">Contract Reader</span><span class="pl o-cockpit">Compliance</span><span class="pl o-cockpit">KYC</span><span class="pl o-cockpit">Approvals</span><span class="pl o-cockpit">Audit Trail</span><span class="pl o-cockpit">Claims</span><span class="pl o-cockpit">Fraud Watch</span><span class="pl o-cockpit">Lease Terms Auditor</span><span class="pl o-cockpit">Dispute Evidence Builder</span><span class="pl o-cockpit">Contract Clause Checker</span><span class="pl o-cockpit">Licence Expiry Tracker</span><span class="pl o-cockpit">Permit Compliance Checker</span><span class="pl o-cockpit">Registration Renewal Clerk</span><span class="pl o-cockpit">Advertising Standards Checker</span><span class="pl o-cockpit">Data Privacy Checker</span><span class="pl o-cockpit">Wage Compliance Checker</span><span class="pl o-cockpit">Nationalisation Quota Tracker</span><span class="pl o-cockpit">Franchise Agreement Reviewer</span><span class="pl o-cockpit">Guarantee Expiry Tracker</span><span class="pl o-cockpit">Regulatory Threshold Watcher</span><span class="pl o-cockpit">Concession Renewal Planner</span><span class="pl o-cockpit">Insurance Retention Reviewer</span><span class="pl o-cockpit">Tariff Approval Tracker</span><span class="pl o-cockpit">Occupational Safety Checker</span><span class="pl o-cockpit">Agency Termination Planner</span><span class="pl o-cockpit">Concession Fee Negotiator</span><span class="pl o-cockpit">Clinic Licence Checker</span><span class="pl o-cockpit">Property Permit Reviewer</span><span class="pl o-cockpit">Competition Exposure Checker</span><span class="pl o-cockpit">Export Compliance Checker</span><span class="pl o-cockpit">Fine Recovery Tracker</span><span class="pl o-cockpit">Regulatory Capital Watcher</span><span class="pl o-cockpit">Loan Disclosure Checker</span><span class="pl o-cockpit">Churn Reporting Auditor</span><span class="pl o-cockpit">Deduction Breach Tracker</span></div></div></div><div class="sb rv" tabindex="0" role="button" aria-expanded="false"><div class="sbh"><img class="brace" src="img/star-crop.png" alt=""><div><b>Operations</b><small>10 plug-ins</small></div></div><div class="sl"><div class="run"><span class="pl o-venture"><i></i>Polynome</span><span class="pl o-cockpit">Inbox Triage</span><span class="pl o-cockpit">Scheduler</span><span class="pl o-cockpit">Dispatch</span><span class="pl o-cockpit">Site Tracker</span><span class="pl o-cockpit">Handoff</span><span class="pl o-cockpit">Escalation</span><span class="pl o-cockpit">Ticket Triage</span><span class="pl o-cockpit">Route Rebid Planner</span><span class="pl o-cockpit">Improvement Program Lead</span></div></div></div><div class="sb rv" tabindex="0" role="button" aria-expanded="false"><div class="sbh"><img class="brace" src="img/star-crop.png" alt=""><div><b>Supply</b><small>35 plug-ins</small></div></div><div class="sl"><div class="run"><span class="pl o-cockpit">Inventory</span><span class="pl o-cockpit">Forecaster</span><span class="pl o-cockpit">Vendor Screener</span><span class="pl o-cockpit">Catalogue Scout</span><span class="pl o-cockpit">Order Desk</span><span class="pl o-cockpit">Restock</span><span class="pl o-cockpit">Quality QC</span><span class="pl o-cockpit">Order Backlog Reviewer</span><span class="pl o-cockpit">Stock Age Reviewer</span><span class="pl o-cockpit">Slow Mover Clearer</span><span class="pl o-cockpit">Supplier Concentration Checker</span><span class="pl o-cockpit">Contract Escalator Reviewer</span><span class="pl o-cockpit">Rebate Recovery Tracker</span><span class="pl o-cockpit">Waste Stream Planner</span><span class="pl o-cockpit">Grower Contract Reviewer</span><span class="pl o-cockpit">Power Contract Reviewer</span><span class="pl o-cockpit">Outage Cost Tracker</span><span class="pl o-cockpit">Second Source Finder</span><span class="pl o-cockpit">Vessel Charter Reviewer</span><span class="pl o-cockpit">Machine Capacity Planner</span><span class="pl o-cockpit">Fuel Surcharge Checker</span><span class="pl o-cockpit">Fleet Maintenance Reviewer</span><span class="pl o-cockpit">Distributor Risk Reviewer</span><span class="pl o-cockpit">Content Licence Tracker</span><span class="pl o-cockpit">Recall Exposure Checker</span><span class="pl o-cockpit">Brand Fee Reviewer</span><span class="pl o-cockpit">Cold Chain Reviewer</span><span class="pl o-cockpit">Reinsurer Risk Reviewer</span><span class="pl o-cockpit">Buying Group Comparator</span><span class="pl o-cockpit">Should Cost Analyst</span><span class="pl o-cockpit">Volume Threshold Tracker</span><span class="pl o-cockpit">Grower Payment Auditor</span><span class="pl o-cockpit">Franchise Profit Reviewer</span><span class="pl o-cockpit">Exclusive Rights Tracker</span><span class="pl o-cockpit">Component Supplier Mapper</span></div></div></div><div class="sb rv" tabindex="0" role="button" aria-expanded="false"><div class="sbh"><img class="brace" src="img/star-crop.png" alt=""><div><b>Reporting and content</b><small>22 plug-ins</small></div></div><div class="sl"><div class="run"><span class="pl o-cockpit">Report Writer</span><span class="pl o-cockpit">Data Cleaner</span><span class="pl o-cockpit">Doc Filer</span><span class="pl o-cockpit">Meeting Notes</span><span class="pl o-cockpit">Content Drafter</span><span class="pl o-cockpit">SEO</span><span class="pl o-cockpit">Social</span><span class="pl o-cockpit">Sentiment</span><span class="pl o-cockpit">Metric Consistency Checker</span><span class="pl o-cockpit">Readership Retention Tracker</span><span class="pl o-cockpit">Report Definition Checker</span><span class="pl o-cockpit">Attribution Method Writer</span><span class="pl o-cockpit">Content Turnaround Tracker</span><span class="pl o-cockpit">Engagement Quality Checker</span><span class="pl o-cockpit">Deliverable Compliance Tracker</span><span class="pl o-cockpit">Programmatic Buyer Tracker</span><span class="pl o-cockpit">Inventory Waste Pricer</span><span class="pl o-cockpit">Production Cost Mapper</span><span class="pl o-cockpit">Edition Timeline Tracker</span><span class="pl o-cockpit">Comparable Store Reporter</span><span class="pl o-cockpit">Research Hours Tracker</span><span class="pl o-cockpit">Sentiment Accuracy Checker</span></div></div></div></div>
+  <div class="skey rv"><span>Learned in Grip unless marked</span><span><i class="o-shelf" style="background:radial-gradient(circle at 35% 30%,#fff 0%,#C9CDCE 45%,var(--ps-silver) 70%,#7E8486 100%)"></i>Off the shelf</span><span><i style="background:var(--ps-midnight-navy)"></i>Sourced from the world</span><em class="hv">Hover to pause, click a block to see all</em><em class="tp">Tap a block to see all</em></div>
 </div></section>
 
 <!-- BORN -->
@@ -291,7 +298,7 @@
 </section>
 
 <section class="closeband"><div class="wrap">
-  <div class="m rv"><img src="img/mark-left-c.png" alt=""><img class="s" src="img/star-crop.png" alt=""><img src="img/mark-right-c.png" alt=""></div>
+  <div class="m rv"><img src="img/star-crop.png" alt=""><img class="s" src="img/star-crop.png" alt=""><img src="img/mark-right-c.png" alt=""></div>
   <h2 class="rv d1">Which ones <b>fit you?</b></h2>
   <p class="lede rv d2">Grip tells you. Start with one project.</p>
   <div class="btns rv d3"><a class="btn dark" href="mailto:hello@perspace.ai?subject=Walkthrough">Book a walkthrough →</a><a class="btn line" href="mailto:hello@perspace.ai?subject=A%20problem%20to%20source">Tell us the problem →</a></div>
@@ -305,51 +312,25 @@
 </div></footer>
 <script src="site.js"></script>
 <script>
+/* menu shelves: rebuilt from data/plugins.json, so a new plug-in shows without touching this page */
 (function(){
-  const box=document.querySelector('#menu .grps'); if(!box) return;
-  const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const box=document.querySelector('#menu .shf'); if(!box) return;
   const cls={shelf:'o-shelf',cockpit:'o-cockpit',venture:'o-venture'};
+  const pill=(it,dup)=>{const s=document.createElement('span');s.className='pl '+(cls[it.k]||'o-cockpit');if(it.k&&it.k!=='cockpit')s.innerHTML='<i></i>';s.appendChild(document.createTextNode(it.n));if(dup)s.setAttribute('aria-hidden','true');return s;};
+  const wire=(sb,items,bi)=>{
+    const run=sb.querySelector('.run'); run.innerHTML='';
+    [0,1].forEach(c=>items.forEach(it=>run.appendChild(pill(it,c))));
+    run.style.setProperty('--dur',(items.length*6+60)+'s'); run.style.animationDelay=(-(bi*17))+'s';
+    const flip=()=>{const o=sb.classList.toggle('open');sb.setAttribute('aria-expanded',o);};
+    sb.onclick=flip; sb.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();flip();}};
+  };
   fetch('data/plugins.json').then(r=>r.json()).then(d=>{
-    const shown={}; box.querySelectorAll('.grp').forEach(g=>{shown[g.querySelector('h4').textContent.trim()]=g.querySelectorAll('.pi2').length;});
-    const chip=it=>{const s=document.createElement('span');s.className='pi2 '+(cls[it.k]||'o-cockpit');s.innerHTML='<i></i>';s.appendChild(document.createTextNode(it.n));return s;};
-    const G=[];
+    const B=d.blocks.filter(b=>b.items.length), tpl=box.querySelector('.sb');
     box.innerHTML='';
-    d.blocks.forEach((b,bi)=>{
-      if(!b.items.length) return;
-      const n=Math.min(b.items.length, shown[b.n]||7);
-      const g=document.createElement('div'); g.className='grp rv in'; g.tabIndex=0; g.setAttribute('role','button'); g.setAttribute('aria-expanded','false');
-      g.innerHTML='<h4><span></span><small></small></h4><div class="pis"></div><button class="gmore" type="button" tabindex="-1"></button>';
-      g.querySelector('h4 span').textContent=b.n;
-      g.querySelector('h4 small').textContent=b.items.length+' in this block';
-      const pis=g.querySelector('.pis'), more=g.querySelector('.gmore');
-      // start with the original chips first, then the rest in a stable shuffle
-      const pool=b.items.map((it,i)=>i), rest=pool.slice(n);
-      for(let i=rest.length-1;i>0;i--){const j=(i*7+bi*3)%(i+1);[rest[i],rest[j]]=[rest[j],rest[i]];}
-      const st={b,g,pis,more,n,on:pool.slice(0,n),queue:rest,open:false,hover:false};
-      function tickers(){
-        pis.innerHTML='';
-        const rows=Math.min(3,Math.max(1,Math.ceil(b.items.length/6)));
-        for(let r=0;r<rows;r++){
-          const its=b.items.filter((_,x)=>x%rows===r);
-          const tk=document.createElement('div'); tk.className='tk'+(r%2?' rev':'');
-          const run=document.createElement('div'); run.className='run';
-          run.style.setProperty('--dur',(Math.max(40,its.length*7)+bi*5+r*9)+'s');
-          [0,1].forEach(()=>its.forEach(it=>run.appendChild(chip(it))));
-          tk.appendChild(run); pis.appendChild(tk);
-        }
-      }
-      tickers();
-      more.textContent=b.items.length>n?'Show all '+b.items.length:'';
-      function toggle(){
-        st.open=!st.open; g.classList.toggle('open',st.open); g.setAttribute('aria-expanded',st.open);
-        pis.innerHTML='';
-        if(st.open) b.items.forEach(it=>pis.appendChild(chip(it))); else tickers();
-        more.textContent=st.open?'Show fewer':(b.items.length>n?'Show all '+b.items.length:'');
-      }
-      g.addEventListener('click',toggle);
-      g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();toggle();}});
-      g.addEventListener('mouseenter',()=>st.hover=true); g.addEventListener('mouseleave',()=>st.hover=false);
-      box.appendChild(g); G.push(st);
+    B.forEach((b,bi)=>{
+      const sb=tpl.cloneNode(true); sb.classList.remove('open'); sb.classList.add('in'); sb.setAttribute('aria-expanded','false');
+      sb.querySelector('.sbh b').textContent=b.n; sb.querySelector('.sbh small').textContent=b.items.length+' plug-ins';
+      wire(sb,b.items,bi); box.appendChild(sb);
     });
   }).catch(()=>{});
 })();
