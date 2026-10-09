@@ -26,7 +26,7 @@ SEED = {  # the menu on plugins.html before 6 Oct; kinds as shown there
  'People': ['Recruiter', 'Onboarding', 'Leave & Attendance', 'Letters', 'Rostering'],
  'Sales': ['Quote Builder', 'Lead Qualifier', 'Pricing', 'Renewals', 'Proposal', 'Pipeline Review', 'Churn Watch'],
  'Legal and risk': ['Contract Reader', 'Compliance', 'KYC', 'Approvals', 'Audit Trail', 'Claims', 'Fraud Watch'],
- 'Operations': [('Polynome', 'venture'), 'Inbox Triage', 'Scheduler', 'Dispatch', 'Site Tracker', 'Handoff', 'Escalation', 'Ticket Triage'],
+ 'Operations': [('CCTV Eyes', 'venture'), 'Inbox Triage', 'Scheduler', 'Dispatch', 'Site Tracker', 'Handoff', 'Escalation', 'Ticket Triage'],
  'Supply': ['Inventory', 'Forecaster', 'Vendor Screener', 'Catalogue Scout', 'Order Desk', 'Restock', 'Quality QC'],
  'Reporting and content': ['Report Writer', 'Data Cleaner', 'Doc Filer', 'Meeting Notes', 'Content Drafter', 'SEO', 'Social', 'Sentiment'],
 }
